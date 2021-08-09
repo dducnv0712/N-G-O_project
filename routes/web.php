@@ -19,6 +19,12 @@ Route::get('/',[WebController::class,"home"]);
 
 
 Route::get('/admin',[WebController::class,"admin"]);
+Route::get('/contributor',[WebController::class,"Contributor"]);
+Route::get('/digital-wallet',[WebController::class, "Digital_wallet"]);
+Route::get('/credit-cart',[WebController::class,"Credit_cart"]);
+Route::get('/add',[WebController::class,"add"]);
+Route::get('/list',[WebController::class,"list"]);
+Route::get('/update',[WebController::class,"update"]);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

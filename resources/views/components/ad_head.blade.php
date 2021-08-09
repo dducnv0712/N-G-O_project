@@ -11,4 +11,6 @@
     <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
+    <link href="{{asset('css/admin.css')}}" rel="stylesheet">
+   <link href="{{asset('dist/summernote/summernote.min.css')}}" rel="stylesheet">
 </head>

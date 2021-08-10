@@ -9,6 +9,18 @@ class WebController extends Controller
     public function home(){
         return view('home');
     }
+    public function donate(){
+        return view('pages.donate');
+    }
+    public function about(){
+        return view('pages.about');
+    }
+    public function account(){
+        return view('pages.login');
+    }
+
+
+
     public function admin(){
         return view('admin.admin_home');
     }

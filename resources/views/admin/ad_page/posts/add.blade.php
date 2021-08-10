@@ -35,7 +35,9 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Textarea</label>
-                        <textarea  id="summernote" ></textarea>
+                        <textarea id="summernote">
+
+                        </textarea>
                     </div>
                     <div class="mb-3">
                         <label class="form-label w-100">File input</label>

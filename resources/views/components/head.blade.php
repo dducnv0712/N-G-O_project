@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{asset('dist/user/css/animate.css')}}">
 
     <link rel="stylesheet" href="{{asset('dist/user/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dist/bootstrap-5/css/bootstrap.min.css')}}">
+
     <link rel="stylesheet" href="{{asset('dist/user/css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('dist/user/css/magnific-popup.css')}}">
 

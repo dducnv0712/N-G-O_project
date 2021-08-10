@@ -12,5 +12,5 @@
 
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
-   <link href="{{asset('dist/summernote/summernote.min.css')}}" rel="stylesheet">
+   <link href="{{asset('dist/summernote/summernote-bs4.min.css')}}" rel="stylesheet">
 </head>

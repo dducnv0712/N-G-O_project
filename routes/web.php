@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -15,7 +16,12 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('/',[WebController::class,"home"]);
-
+Route::get('/donate',[WebController::class,"donate"]);
+Route::get('/about',[WebController::class,"about"]);
+Route::get('/account',[WebController::class,"account"]);
+Route::get('auth/social', [SocialController::class,'show'])->name('social.login');
+Route::get('auth/{driver}', [SocialController::class,'redirectToProvider'])->name('social.auth');
+Route::get('auth/{driver}/callback', [SocialController::class,'handleProviderCallback'])->name('social.callback');
 
 
 Route::get('/admin',[WebController::class,"admin"]);

@@ -5,6 +5,8 @@ use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,21 +34,31 @@ Route::get('/add',[WebController::class,"add"]);
 Route::get('/list',[WebController::class,"list"]);
 Route::get('/update',[WebController::class,"update"]);
 
+Route::get('/maps',[WebController::class,"maps"]);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
+//user
+Route::get('/user-list',[UserController::class,"user"]);
 
+//category
+Route::get('/categories-list',[CategoryController::class,"all"]);
+Route::post("/category/save",[CategoryController::class,"save"]);
+Route::get("/category/delete/{id}",[CategoryController::class,"delete"]);
+Route::post('/category/update/{id}', [CategoryController::class,"update"]);
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-    return redirect('/');
-})->middleware(['auth', 'signed'])->name('verification.verify');
-
-Route::post('/email/verification-notification', function (Request $request) {
-    $request->user()->sendEmailVerificationNotification();
-    return back()->with('message', 'Verification link sent!');
-})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//    return view('dashboard');
+//})->name('dashboard');
+//Route::get('/email/verify', function () {
+//    return view('auth.verify-email');
+//})->middleware('auth')->name('verification.notice');
+//
+//
+//Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+//    $request->fulfill();
+//    return redirect('/');
+//})->middleware(['auth', 'signed'])->name('verification.verify');
+//
+//Route::post('/email/verification-notification', function (Request $request) {
+//    $request->user()->sendEmailVerificationNotification();
+//    return back()->with('message', 'Verification link sent!');
+//})->middleware(['auth', 'throttle:6,1'])->name('verification.send');

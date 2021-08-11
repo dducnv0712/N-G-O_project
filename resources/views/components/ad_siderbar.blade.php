@@ -1,6 +1,6 @@
 <nav id="sidebar" class="sidebar">
     <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" href="index.html">
+        <a class="sidebar-brand" href="{{asset('/admin')}}">
             <span class="align-middle">AdminKit</span>
         </a>
 
@@ -39,18 +39,12 @@
                 </ul>
             </li>
 
+            <a class="sidebar-link" href="{{asset('/user-list')}}">
+                <i class="align-middle" data-feather="user"></i> <span class="align-middle">USER</span>
+            </a>
 
 
         </ul>
 
-        <div class="sidebar-cta">
-            <div class="sidebar-cta-content">
-                <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-                <div class="mb-3 text-sm">
-                    Are you looking for more components? Check out our premium version.
-                </div>
-                <a href="https://adminkit.io/pricing" target="_blank" class="btn btn-primary btn-block">Upgrade to Pro</a>
-            </div>
-        </div>
     </div>
 </nav>

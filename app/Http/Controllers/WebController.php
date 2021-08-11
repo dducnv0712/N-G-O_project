@@ -43,7 +43,9 @@ class WebController extends Controller
         return view('admin.ad_page.posts.update');
     }
 
-
+    public function maps(){
+        return view("admin.ad_page.maps.map_list");
+    }
 
 
 }

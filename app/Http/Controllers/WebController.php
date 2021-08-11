@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 
 class WebController extends Controller
 {
+    public $debit;
+
     public function home(){
         return view('home');
     }
     public function donate(){
+
         return view('pages.donate');
     }
     public function about(){

@@ -61,6 +61,7 @@ return [
     |
     */
 
+
     'home' => RouteServiceProvider::HOME,
 
     /*
@@ -74,7 +75,7 @@ return [
     |
     */
 
-    'prefix' => '',
+    'prefix' => 'admin', // change admin to your preferred route.
 
     'domain' => null,
 

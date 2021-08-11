@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{asset('dist/user/css/bootstrap-datepicker.css')}}">
     <link rel="stylesheet" href="{{asset('dist/user/css/jquery.timepicker.css')}}">
 
-
+    <link rel="stylesheet" type="text/css" href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css"/>
     <link rel="stylesheet" href="{{asset('dist/user/css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('dist/user/css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('dist/user/css/style.css')}}">

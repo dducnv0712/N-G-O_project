@@ -26,14 +26,6 @@
             <div class="card-body">
                 <form>
                     <div class="mb-3">
-                        <label class="form-label">Email address</label>
-                        <input type="email" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-                    <div class="mb-3">
                         <label class="form-label">Textarea</label>
                         <textarea id="summernote">
 

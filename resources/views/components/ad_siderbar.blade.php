@@ -10,7 +10,7 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="{{asset('/')}}">
+                <a class="sidebar-link" href="{{asset('/admin')}}">
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                 </a>
             </li>
@@ -42,6 +42,17 @@
                 </a>
                 <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">contribute</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Debit Card</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Paypal</a></li>
+
+                </ul>
+            </li>
+            <li class="sidebar-item">
+                <a data-target="#category" data-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Category</span>
+                </a>
+                <ul id="category" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">About</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Debit Card</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Paypal</a></li>
 

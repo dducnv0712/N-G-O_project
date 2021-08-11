@@ -37,7 +37,6 @@
                         </div>
 
                     </div>
-                </div>
                 <div class="row">
                     <div class="col-md-7">
 
@@ -135,7 +134,15 @@
                         </div>
                         <div class="card mt-2">
                             <div class="card-body">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
 
+                                    <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                         onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-jet-dropdown-link>
+                                </form>
                                 <button class="btn btn-primary">Donate</button>
                             </div>
                         </div>

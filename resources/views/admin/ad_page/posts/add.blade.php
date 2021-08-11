@@ -26,22 +26,32 @@
             <div class="card-body">
                 <form>
                     <div class="mb-3">
+                        <label for="category" class="form-label">Select Category</label>
+                        <select id="category" class="form-control">
+                            <option>Select Category</option>
+                            <option>1</option>
+                            <option>1</option>
+
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Active</label>
+                        <select id="category" class="form-control">
+                            <option value="1">Appear</option>
+                            <option value="2">Hidden</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="donate" class="form-label">Contribution</label>
+                        <input class="form-control" type="number" id="donate">
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Textarea</label>
                         <textarea id="summernote">
 
                         </textarea>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label w-100">File input</label>
-                        <input type="file">
-                        <small class="form-text text-muted">Example block-level help text here.</small>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-check m-0">
-                            <input type="checkbox" class="form-check-input">
-                            <span class="form-check-label">Check me out</span>
-                        </label>
-                    </div>
+
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

@@ -16,7 +16,13 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+//        $this->configurePermissions();
+//        Fortify::registerView(function () {
+//            return view('pages.login');
+//
+//        });
+//
+//        Jetstream::deleteUsersUsing(DeleteUser::class);
     }
 
     /**
@@ -28,7 +34,8 @@ class JetstreamServiceProvider extends ServiceProvider
     {
         $this->configurePermissions();
         Fortify::loginView(function () {
-            return view('pages.login');
+            return view('auth.login');
+
         });
 
         Jetstream::deleteUsersUsing(DeleteUser::class);

@@ -6,10 +6,24 @@ use Illuminate\Http\Request;
 
 class WebController extends Controller
 {
+
+
     public function home(){
         return view('home');
     }
+    public function admin(){
+        return view('admin.admin_home');
+    }
+
+
+
+
+
+
+
+
     public function donate(){
+
         return view('pages.donate');
     }
     public function about(){
@@ -21,9 +35,7 @@ class WebController extends Controller
 
 
 
-    public function admin(){
-        return view('admin.admin_home');
-    }
+
     public function Contributor(){
         return view('admin.ad_page.contributor.contributor');
     }

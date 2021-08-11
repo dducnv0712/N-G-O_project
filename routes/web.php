@@ -5,8 +5,6 @@ use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,37 +15,22 @@ use App\Http\Controllers\CategoryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::middleware(['auth:sanctum', 'verified'])->get('/',[WebController::class,"home"]);
+
 Route::get('/',[WebController::class,"home"]);
+
 Route::get('/donate',[WebController::class,"donate"]);
 Route::get('/about',[WebController::class,"about"]);
-Route::get('/account',[WebController::class,"account"]);
+Route::get('/login',[WebController::class,"account"]);
 Route::get('auth/social', [SocialController::class,'show'])->name('social.login');
 Route::get('auth/{driver}', [SocialController::class,'redirectToProvider'])->name('social.auth');
 Route::get('auth/{driver}/callback', [SocialController::class,'handleProviderCallback'])->name('social.callback');
 
 
-Route::get('/admin',[WebController::class,"admin"]);
-Route::get('/contributor',[WebController::class,"Contributor"]);
-Route::get('/digital-wallet',[WebController::class, "Digital_wallet"]);
-Route::get('/credit-cart',[WebController::class,"Credit_cart"]);
-Route::get('/add',[WebController::class,"add"]);
-Route::get('/list',[WebController::class,"list"]);
-Route::get('/update',[WebController::class,"update"]);
 
-Route::get('/maps',[WebController::class,"maps"]);
-
-//user
-Route::get('/user-list',[UserController::class,"user"]);
-
-//category
-Route::get('/categories-list',[CategoryController::class,"all"]);
-Route::post("/category/save",[CategoryController::class,"save"]);
-Route::get("/category/delete/{id}",[CategoryController::class,"delete"]);
-Route::post('/category/update/{id}', [CategoryController::class,"update"]);
-
-//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//    return view('dashboard');
-//})->name('dashboard');
+////Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+////    return view('dashboard');
+////})->name('dashboard');
 //Route::get('/email/verify', function () {
 //    return view('auth.verify-email');
 //})->middleware('auth')->name('verification.notice');

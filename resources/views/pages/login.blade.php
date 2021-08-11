@@ -1,20 +1,13 @@
 @extends('layout')
 @section('main')
-    <div class="hero-wrap" style="background-image:url('{{ url('dist/user/images/bg_6.jpg')}}')" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-                <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Login Or Register</h1>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <section class="ftco-section bg-light">
         <div class="container ">
-            <x-jet-validation-errors class="mb-4 text-danger" />
             <div class="row">
+                <div class="col-12">
+                    <x-jet-validation-errors class="mb-4 text-danger" />
+
+                </div>
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header bg-transparent border-0"><h2 class="">Login</h2></div>

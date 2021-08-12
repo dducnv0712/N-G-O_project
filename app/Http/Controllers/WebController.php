@@ -45,9 +45,6 @@ class WebController extends Controller
     public function Credit_cart(){
         return view('admin.ad_page.contributor.credit_cart');
     }
-    public function add(){
-        return view('admin.ad_page.posts.add');
-    }
     public function list(){
         return view('admin.ad_page.posts.list');
     }

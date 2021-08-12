@@ -5,6 +5,7 @@ use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,7 @@ Route::get('/login',[WebController::class,"account"]);
 Route::get('auth/social', [SocialController::class,'show'])->name('social.login');
 Route::get('auth/{driver}', [SocialController::class,'redirectToProvider'])->name('social.auth');
 Route::get('auth/{driver}/callback', [SocialController::class,'handleProviderCallback'])->name('social.callback');
+
 
 
 

@@ -16,16 +16,10 @@ class UserController extends Controller
     }
     public function update(Request $request,$id){
         $users = User::findOrFail($id);
-
-        try {
             $users->update([
-                "name"=>$request->get("name"),
-
+                "role"=>$request->get("role"),
             ]);
             return redirect()->to("admin/user");
-        }catch (\Exception $e){
-            abort(404);
-        }
     }
 }
 

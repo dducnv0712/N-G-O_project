@@ -27,12 +27,22 @@
                 Website Manager
             </li>
             <li class="sidebar-item">
+                <a class="sidebar-link" href="{{asset('/admin/user')}}">
+                    <i class="align-middle" data-feather="users"></i> <span class="align-middle">User Manager</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{asset('/admin/category')}}">
+                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">Category</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
                 <a data-target="#ui" data-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle" data-feather="edit"></i> <span class="align-middle">Posts</span>
                 </a>
                 <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="ui-alerts.html">All Posts</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="ui-buttons.html">Form</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/posts')}}">All Posts</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/posts/add')}}">Form</a></li>
                 </ul>
             </li>
 
@@ -47,17 +57,7 @@
 
                 </ul>
             </li>
-            <li class="sidebar-item">
-                <a data-target="#category" data-toggle="collapse" class="sidebar-link collapsed">
-                    <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Category</span>
-                </a>
-                <ul id="category" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">About</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Debit Card</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Paypal</a></li>
 
-                </ul>
-            </li>
             <li class="sidebar-item">
                 <a data-target="#about" data-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Pages Manager</span>
@@ -68,18 +68,6 @@
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Paypal</a></li>
 
                 </ul>
-            </li>
-            <li>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                                         onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-jet-dropdown-link>
-                </form>
-            </li>
         </ul>
 
 {{--        <div class="sidebar-cta">--}}

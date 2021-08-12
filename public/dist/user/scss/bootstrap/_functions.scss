@@ -1,9 +1,9 @@
 // Bootstrap functions
 //
-// Utility mixins and functions for evalutating source code across our variables, maps, and mixins.
+// Utility mixins and functions for evalutating source code across our variables, profile, and mixins.
 
 // Ascending
-// Used to evaluate Sass maps like our grid breakpoints.
+// Used to evaluate Sass profile like our grid breakpoints.
 @mixin _assert-ascending($map, $map-name) {
   $prev-key: null;
   $prev-num: null;
@@ -63,7 +63,7 @@
   }
 }
 
-// Retrieve color Sass maps
+// Retrieve color Sass profile
 @function color($key: "blue") {
   @return map-get($colors, $key);
 }

@@ -53,7 +53,7 @@ class WebController extends Controller
     }
 
     public function maps(){
-        return view("admin.ad_page.maps.map_list");
+        return view("admin.ad_page.profile.map_list");
     }
 
 

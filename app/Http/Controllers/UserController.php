@@ -14,5 +14,18 @@ class UserController extends Controller
             "users" => $users
         ]);
     }
+    public function update(Request $request,$id){
+        $users = User::findOrFail($id);
+
+        try {
+            $users->update([
+                "name"=>$request->get("name"),
+
+            ]);
+            return redirect()->to("admin/user");
+        }catch (\Exception $e){
+            abort(404);
+        }
+    }
 }
 

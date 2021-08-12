@@ -13,7 +13,6 @@ class CategoryController extends Controller
             "categories" => $categories
         ]);
     }
-    //Thêm Category
     public function save(Request $request){
         try {
             Category::create([
@@ -24,13 +23,12 @@ class CategoryController extends Controller
             abort(404);
         }
     }
-    //Sửa
-//    public function edit($id){
-//        $categories = Category::findOrFail($id);
-//        return view("categories.edit",[
-//            "categories"=>$categories
-//        ]);
-//    }
+    public function edit($id){
+        $categories = Category::findOrFail($id);
+        return view("admin/categories",[
+            "categories"=>$categories
+        ]);
+    }
 
     public function update(Request $request,$id){
         $categories = Category::findOrFail($id);

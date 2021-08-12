@@ -42,8 +42,32 @@
                         <td>{{$item->created_at}}</td>
                         <td>{{$item->updated_at}}</td>
                         <td class="table-action">
-                            <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
-                            <a href="#"><i class="align-middle" data-feather="trash"></i></a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="Edit-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <form  action="{{url('admin/category/update',["id"=>$item->id])}}" method="post">
+                                            @csrf
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="nameCategory" class="form-label fw-bold">Tên Thể Loại</label>
+                                                    <input value="{{$item->name}}" id="nameCategory" type="text" name="name" class="form-control rounded-3" required>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <a data-bs-toggle="modal" data-bs-target="#Edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                            <a href="{{url("admin/category/delete",["id"=>$item->id])}}" onclick="return confirm('Chắc chắn xóa sản phẩm {{$item->name}} ?')"><i class="align-middle" data-feather="trash"></i></a>
                         </td>
                     </tr>
                 @endforeach
@@ -56,7 +80,7 @@
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <form  action="{{asset('/category/save')}}" method="post">
+                <form  action="{{asset('admin/category/save')}}" method="post">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>

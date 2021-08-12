@@ -38,13 +38,34 @@
                     <td>{{$item->created_at}}</td>
                     <td>{{$item->updated_at}}</td>
                     <td class="table-action">
-                        <a href="#"><i class="align-middle" data-feather="edit-2"></i></a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
                         <a href="#"><i class="align-middle" data-feather="trash"></i></a>
                     </td>
+                    <!-- Button trigger modal -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="edit-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <label>
+                                        <input type="text" class="form-control" value="{{$item->role}}">
+                                    </label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Understood</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </tr>
-
                 @endforeach
                 </tbody>
             </table>
         </div>
+
 @endsection

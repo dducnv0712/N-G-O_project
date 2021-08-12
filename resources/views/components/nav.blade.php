@@ -13,7 +13,7 @@
                 @if(!Auth::user() == "")
                     <a href="{{asset('/profile')}}">{{Auth::user()->name}}</a>
                 @else
-                    <a href="{{asset('/account')}}">Login</a> <span>|</span> <a href="{{asset('/account')}}">register</a>
+                    <a href="{{asset('/login')}}">Login</a> <span>|</span> <a href="{{asset('/login')}}">register</a>
                 @endif
             </div>
         </div>

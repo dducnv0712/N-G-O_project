@@ -1,6 +1,6 @@
 /*
  * Add color theme colors to the window object
- * so this can be used by the charts and vector maps
+ * so this can be used by the charts and vector profile
  */
 
 const theme = {

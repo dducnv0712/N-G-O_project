@@ -14,14 +14,11 @@ class CategoryController extends Controller
         ]);
     }
     public function save(Request $request){
-        try {
-            Category::create([
-                "name"=>$request->get("name"),
-            ]);
-            return redirect()->to("admin/category");
-        }catch (\Exception $e){
-            abort(404);
-        }
+//            Category::create([
+//                "name"=>$request->get("name"),
+//            ]);
+        $data = $request->all();
+        print_r($data);
     }
     public function edit($id){
         $categories = Category::findOrFail($id);

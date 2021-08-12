@@ -35,7 +35,6 @@
                 <tbody>
                 @foreach($categories as $item)
                     <tr>
-                        @csrf
                         <td>{{$item->id}}</td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->active}}</td>
@@ -55,7 +54,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <label for="nameCategory" class="form-label fw-bold">Tên Thể Loại</label>
-                                                    <input value="{{$item->name}}" id="nameCategory" C name="name" class="form-control rounded-3" required>
+                                                    <input value="{{$item->name}}" id="nameCategory" name="name" class="form-control nameEdit rounded-3" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -66,10 +65,12 @@
                                     </div>
                                 </div>
                             </div>
+
                             <a data-bs-toggle="modal" data-bs-target="#Edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
-                            <a href="{{url("admin/category/delete",["id"=>$item->id])}}" onclick="return confirm('Chắc chắn xóa sản phẩm {{$item->name}} ?')"><i class="align-middle" data-feather="trash"></i></a>
+                            <a onclick='return function(){swal({title:"Are you sure to delete ?",text:"You will not be able to recover this imaginary file !!",type:"warning",showCancelButton:!0,confirmButtonColor:"#DD6B55",confirmButtonText:"Yes, delete it !!",cancelButtonText:"No, cancel it !!",closeOnConfirm:!1,closeOnCancel:!1},function(e){e?swal("Deleted !!","Hey, your imaginary file has been deleted !!","success"):swal("Cancelled !!","Hey, your imaginary file is safe !!","error")})}'><i class="align-middle" data-feather="trash"></i></a>
                         </td>
                     </tr>
+
                 @endforeach
                 </tbody>
             </table>
@@ -80,7 +81,7 @@
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <form  action="{{asset('admin/category/save')}}" method="post">
+                <form >
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
@@ -90,15 +91,17 @@
                         <div class="mb-3">
                             <label for="nameCategory" class="form-label fw-bold">Tên Thể Loại</label>
 
-                            <input id="nameCategory" type="text" name="name" class="form-control rounded-3" required>
+                            <input id="nameCategory" type="text" name="name" class="form-control nameCate rounded-3" required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+{{--                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
+                        <button type="button" id="category_add"  class="btn  btn-success">Submit</button>
+
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
 @endsection

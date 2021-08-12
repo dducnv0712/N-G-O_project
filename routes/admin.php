@@ -22,5 +22,5 @@ Route::middleware(["auth","admin"])->group(function (){
     Route::get('/category/delete/{id}',[CategoryController::class,"delete"]);
 
     Route::get('/user',[UserController::class,"user"]);
-    Route::get('/user/update/{id]',[UserController::class,"update"]);
+    Route::post('/user/update/{id}',[UserController::class,"update"]);
 });

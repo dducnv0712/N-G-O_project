@@ -55,7 +55,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <label for="nameCategory" class="form-label fw-bold">Tên Thể Loại</label>
-                                                    <input value="{{$item->name}}" id="nameCategory" type="text" name="name" class="form-control rounded-3" required>
+                                                    <input value="{{$item->name}}" id="nameCategory" C name="name" class="form-control rounded-3" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

@@ -44,29 +44,29 @@
                             <div class="card-header">
                             </div>
                             <div class="card-body">
-                                <form class="g-3">
+                                <form action="{{url('/debit-cart')}}" class="g-3">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="inputEmail4" class="form-label">First Name</label>
-                                            <input type="text" class="form-control" id="inputEmail4">
+                                            <input type="text" class="form-control" id="inputEmail4" required>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="inputPassword4" class="form-label">Last Name</label>
-                                            <input type="text" class="form-control" id="inputPassword4">
+                                            <input type="text" class="form-control" id="inputPassword4" required>
                                         </div>
 
                                     <div class="col-12">
                                         <label for="inputAddress" class="form-label">Phone</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="">
+                                        <input type="text" class="form-control" id="inputAddress" placeholder="" required>
                                     </div>
                                     <div class="col-12">
                                         <label for="inputAddress" class="form-label">Email</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="">
+                                        <input type="text" class="form-control" id="inputAddress" placeholder="" required>
                                     </div>
 
                                     <div class="col-12">
                                         <label for="inputAddress2" class="form-label">Contribute</label>
-                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
                                     </div>
                                         <div class="col-12">
                                             <label for="select_contribute" class="form-label">Contribute</label>

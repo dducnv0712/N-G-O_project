@@ -16,12 +16,16 @@ class CreateTablePost extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->unsignedBigInteger("author");
             $table->string('title');
             $table->decimal("contribute",14,2)->default(0);
             $table->unsignedInteger('active')->default(1);
+            $table->unsignedInteger('important')->default(0);
+            $table->unsignedInteger('send_mail')->default(0);
             $table->text("description")->nullable();
             $table->unsignedBigInteger("category_id");
             $table->timestamps();
+
         });
     }
 

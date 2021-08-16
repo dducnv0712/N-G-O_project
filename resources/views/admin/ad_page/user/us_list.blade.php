@@ -50,17 +50,25 @@
                                     </div>
                                     <div class="modal-body">
                                             <label for="role" class="form-label fw-bold">Role</label>
-                                            <input type="text" id="role" class="form-control"  name="role" value="{{$item->role}}">
+                                            <select name="role" id="role" class="form-control">
+                                                <option value="ADMIN">ADMIN</option>
+                                                <option value="AUTHOR">AUTHOR</option>
+                                                <option value="USER">USER</option>
+                                            </select>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button  type="submit" class="btn btn-primary">Understood</button>
+                                        <button  type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <a data-bs-toggle="modal" data-bs-target="#edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                        @if($item->id == Auth::user()->id)
+                            <span class="badge bg-success">you</span>
+                        @else
+                            <a data-bs-toggle="modal" data-bs-target="#edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                        @endif()
                     </td>
                 </tr>
                 @endforeach

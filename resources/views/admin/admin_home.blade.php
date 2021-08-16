@@ -195,7 +195,7 @@
                         </tr>
                         <tr>
                             <td>Project Phoenix</td>
-                            <td class="d-none d-xl-table-cell">01/01/2020</td>
+                            <td class="d-none d-xl-table-cell p">01/01/2020</td>
                             <td class="d-none d-xl-table-cell">31/06/2020</td>
                             <td><span class="badge bg-success">Done</span></td>
                             <td class="d-none d-md-table-cell">William Harris</td>

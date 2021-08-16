@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="{{asset('/')}}">
-            <span class="align-middle">AdminKit</span>
+            <span class="align-middle fw-normal">Admin <span class="fw-bold">N.G.O</span></span>
         </a>
 
         <ul class="sidebar-nav">

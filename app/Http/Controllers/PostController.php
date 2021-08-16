@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -16,7 +17,7 @@ class PostController extends Controller
 
     }
     public function add(){
-        $categories= Category::all();
+        $categories= Category::where('active',1)->get();
         return view('admin.ad_page.posts.add',[
             'categories'=>$categories
         ]);
@@ -36,20 +37,23 @@ class PostController extends Controller
                     }
                 }
             }
+            $author = Auth::id();
+
 
             Post::create([
                 "image"=>$image,
+                "author"=>$author,
                 "title"=>$request->get("title"),
                 "description"=>$request->get("desc"),
                 "contribute"=>$request->get("donate"),
                 "category_id"=>$request->get("category_id"),
             ]);
-            return redirect()->to("admin/post");
+            return redirect()->to("admin/posts");
 
     }
     public function edit($id){
         $posts= Post::findOrFail($id);
-        $categories= Category::all();
+        $categories= Category::where('active',1)->get();
         return view('admin.ad_page.posts.edit',[
             'categories'=>$categories,
             'posts'=>$posts
@@ -92,4 +96,41 @@ class PostController extends Controller
         return redirect()->to("admin/posts");
 
     }
+    public function hidden($id){
+        $posts = Post::findOrFail($id);
+        $posts->update([
+            "active" => 0
+        ]);
+        return redirect()->to("admin/posts");
+
+    }
+    public function appear($id){
+        $posts = Post::findOrFail($id);
+
+        $posts-> update([
+            "active" => 1
+        ]);
+
+        return redirect()->to("admin/posts");
+
+    }
+    public function normal($id){
+        $posts = Post::findOrFail($id);
+        $posts->update([
+            "important" => 0
+        ]);
+        return redirect()->to("admin/posts");
+
+    }
+    public function important($id){
+        $posts = Post::findOrFail($id);
+
+        $posts-> update([
+            "important" => 1
+        ]);
+
+        return redirect()->to("admin/posts");
+
+    }
+
 }

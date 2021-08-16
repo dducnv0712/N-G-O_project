@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,11 +15,11 @@ class CategoryController extends Controller
         ]);
     }
     public function save(Request $request){
-//            Category::create([
-//                "name"=>$request->get("name"),
-//            ]);
-        $data = $request->all();
-        print_r($data);
+            Category::create([
+                "name"=>$request->get("name"),
+            ]);
+//        $data = $request->all();
+//        print_r($data);
     }
     public function edit($id){
         $categories = Category::findOrFail($id);
@@ -49,6 +50,24 @@ class CategoryController extends Controller
         }catch (\Exception $e){
             abort(404);
         }
+    }
+     public function hidden($id){
+        $category = Category::findOrFail($id);
+        $category -> update([
+            "active" => 0
+        ]);
+        return redirect()->to("admin/category");
+
+    }
+    public function appear($id){
+        $category = Category::findOrFail($id);
+
+        $category -> update([
+            "active" => 1
+        ]);
+
+        return redirect()->to("admin/category");
+
     }
 
 }

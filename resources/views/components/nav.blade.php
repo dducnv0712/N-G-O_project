@@ -1,4 +1,4 @@
-<nav class="navbar-head navbar m-0 p-0">
+<nav style="z-index: 999" class="navbar-head navbar m-0 p-0">
     <div class="container align-items-center">
      <div>
 
@@ -11,7 +11,24 @@
             </div>
             <div>
                 @if(!Auth::user() == "")
-                    <a href="{{asset('/profile')}}">{{Auth::user()->name}}</a>
+                    <div class="dropdown">
+                        <a   id="account" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{Auth::user()->name}}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="account">
+                            <li><a class="dropdown-item">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                             onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                            {{ __('Log Out') }}
+                                        </x-jet-dropdown-link>
+                                    </form>
+                                </a></li>
+                        </ul>
+                    </div>
                 @else
                     <a href="{{asset('/login')}}">Login</a> <span>|</span> <a href="{{asset('/login')}}">register</a>
                 @endif
@@ -24,12 +41,12 @@
         <div class="container">
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-primary shadow-none" type="submit">Search</button>
+                <button style="height:58px" class="btn btn-primary shadow-none" type="submit">Search</button>
             </form>
         </div>
     </div>
 </div>
-<nav class="navbar navbar-expand-lg  ftco_navbar m-0 p-0 ftco-navbar-light" id="ftco-navbar">
+<nav style="z-index: 999"  class="navbar navbar-expand-lg  ftco_navbar m-0 p-0 ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="{{asset('/')}}">Welfare</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,8 +62,8 @@
                 <li class="nav-item"><a href="{{url('/')}}" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="{{url('/about')}}" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="{{url('/donate')}}" class="nav-link">Donate</a></li>
-                <li class="nav-item"><a href="{{url('/')}}" class="nav-link">Gallery</a></li>
-                <li class="nav-item"><a href="{{url('/')}}" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="{{url('/gallery')}}" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="{{url('/posts-list')}}" class="nav-link">Posts List</a></li>
                 <li class="nav-item"><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
 
             </ul>

@@ -10,9 +10,21 @@ class Post extends Model
     use HasFactory;
     protected $table = "posts";
     protected $fillable = [
-        "title",
-        "image",
-        "category_id",
-        "description"
+        'title',
+        'image',
+        'author',
+        'contribute',
+        'active',
+        'important',
+        'send_mail',
+        'category_id',
+        'description'
     ];
+
+    public function getImage(){
+        if($this->image){
+            return asset($this->image);
+        }
+        return "";
+    }
 }

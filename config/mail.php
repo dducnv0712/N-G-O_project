@@ -14,6 +14,13 @@ return [
     */
 
     'default' => env('MAIL_MAILER', 'smtp'),
+    'stream' =>[
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify' => false,
+            'verify_peer_name' => false,
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -84,8 +91,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'ngoproject.fpt2021@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Non-governmental Organizations'),
     ],
 
     /*

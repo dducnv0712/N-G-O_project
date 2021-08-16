@@ -28,7 +28,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="file" class="form-label">Image</label>
-                        <input name="image" type="file" id="file" class="form-control">
+                        <input name="image" type="file" id="file" class="form-control" accept="image/*>
 
                     </div>
                     <div class="mb-3">

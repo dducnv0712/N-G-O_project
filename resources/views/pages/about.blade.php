@@ -28,33 +28,24 @@
         </div>
     </section>
 
-    <section class="ftco-counter ftco-intro ftco-intro-2" id="section-counter">
+    <section class="ftco-counter ftco-intro" id="section-counter">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18 color-1 align-items-stretch">
                         <div class="text">
-                            <span>Served Over</span>
-                            <strong class="number" data-number="1432805">0</strong>
-                            <span>Children in 190 countries in the world</span>
+                            <span>Chúng Tôi Đã Giúp Đỡ Cho</span>
+                            <strong class="number" data-number="400">0</strong><span>Trường Hợp</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18 color-2 align-items-stretch">
                         <div class="text">
-                            <h3 class="mb-4">Donate Money</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts.</p>
-                            <p><a href="#" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18 color-3 align-items-stretch">
-                        <div class="text">
-                            <h3 class="mb-4">Be a Volunteer</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts.</p>
-                            <p><a href="#" class="btn btn-white px-3 py-2 mt-2">Be A Volunteer</a></p>
+                            <h3 class="mb-4">Với Số Tiền</h3>
+                            <div class="d-flex">
+                                <strong class="number_2" data-number="160000000">0</strong><span>VND</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -66,8 +57,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Latest Donations</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <h2 class="mb-4">Team Members</h2>
+
                 </div>
             </div>
             <div class="row">
@@ -76,10 +67,10 @@
                         <div class="d-flex mb-4">
                             <div class="img" style="background-image: url(images/person_1.jpg);"></div>
                             <div class="info ml-4">
-                                <h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-                                <span class="position">Donated Just now</span>
+                                <h3><a href="teacher-single.html">Nguyen Hong Quang</a></h3>
+
                                 <div class="text">
-                                    <p>Donated <span>$300</span> for <a href="#">Children Needs Food</a></p>
+
                                 </div>
                             </div>
                         </div>
@@ -90,10 +81,10 @@
                         <div class="d-flex mb-4">
                             <div class="img" style="background-image: url(images/person_2.jpg);"></div>
                             <div class="info ml-4">
-                                <h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-                                <span class="position">Donated Just now</span>
+                                <h3><a href="teacher-single.html">Nguyen Van Duc</a></h3>
+
                                 <div class="text">
-                                    <p>Donated <span>$150</span> for <a href="#">Children Needs Food</a></p>
+
                                 </div>
                             </div>
                         </div>
@@ -104,10 +95,10 @@
                         <div class="d-flex mb-4">
                             <div class="img" style="background-image: url(images/person_3.jpg);"></div>
                             <div class="info ml-4">
-                                <h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-                                <span class="position">Donated Just now</span>
+                                <h3><a href="teacher-single.html">Ngo Viet Hoang</a></h3>
+{{--                                <span class="position">Donated Just now</span>--}}
                                 <div class="text">
-                                    <p>Donated <span>$250</span> for <a href="#">Children Needs Food</a></p>
+
                                 </div>
                             </div>
                         </div>

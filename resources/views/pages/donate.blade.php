@@ -16,29 +16,29 @@
     <section class="ftco-section bg-light">
         <div class="container">
             <form method="post">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="container-sm">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <input type="radio" class="btn-check" name="options-outlined" id="20" autocomplete="off">
-                                    <label class="btn btn-outline-danger" for="20">20$</label></div>
-                                <div class="col-md-2">
-                                    <input type="radio" class="btn-check" name="options-outlined" id="50" autocomplete="off">
-                                    <label class="btn btn-outline-danger" for="50">50$</label></div>
-                                <div class="col-md-2">
-                                    <input type="radio" class="btn-check" name="options-outlined" id="100" autocomplete="off">
-                                    <label class="btn btn-outline-danger" for="100">100$</label></div>
-                                <div class="col-md-6">
-                                    <input type="radio" class="btn-check" name="options-outlined" id="100" autocomplete="off">
-                                    <label class="btn btn-outline-danger" for="100">100$</label></div>
-                                </div>
-                            </div>
-                        </div>
+{{--                <div class="card mb-3">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <div class="container-sm">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-md-2">--}}
+{{--                                    <input type="radio" class="btn-check" name="options-outlined" id="20" autocomplete="off">--}}
+{{--                                    <label class="btn btn-outline-danger" for="20">20$</label></div>--}}
+{{--                                <div class="col-md-2">--}}
+{{--                                    <input type="radio" class="btn-check" name="options-outlined" id="50" autocomplete="off">--}}
+{{--                                    <label class="btn btn-outline-danger" for="50">50$</label></div>--}}
+{{--                                <div class="col-md-2">--}}
+{{--                                    <input type="radio" class="btn-check" name="options-outlined" id="100" autocomplete="off">--}}
+{{--                                    <label class="btn btn-outline-danger" for="100">100$</label></div>--}}
+{{--                                <div class="col-md-6">--}}
+{{--                                    <input type="radio" class="btn-check" name="options-outlined" id="100" autocomplete="off">--}}
+{{--                                    <label class="btn btn-outline-danger" for="100">100$</label></div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                    </div>
+{{--                    </div>--}}
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-8">
 
                         <div class="card">
                             <div class="card-header">
@@ -55,7 +55,6 @@
                                             <input type="text" class="form-control" id="inputPassword4">
                                         </div>
 
-
                                     <div class="col-12">
                                         <label for="inputAddress" class="form-label">Phone</label>
                                         <input type="text" class="form-control" id="inputAddress" placeholder="">
@@ -64,117 +63,66 @@
                                         <label for="inputAddress" class="form-label">Email</label>
                                         <input type="text" class="form-control" id="inputAddress" placeholder="">
                                     </div>
+
                                     <div class="col-12">
-                                        <label for="inputAddress" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputAddress" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputAddress2" class="form-label">Address 2</label>
+                                        <label for="inputAddress2" class="form-label">Contribute</label>
                                         <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="inputCity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="inputCity">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputCity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="inputCity">
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                                            <label class="form-check-label" for="gridCheck">
-                                                Check me out
-                                            </label>
+                                        <div class="col-12">
+                                            <label for="select_contribute" class="form-label">Contribute</label>
+                                            <select id="select_contribute" class="form-control">
+                                                @foreach($category as $item)
+                                                    <option disabled>-----{{$item->name}}-----</option>
+                                                    @foreach($posts as $select_post)
+                                                        @if($select_post -> category_id == $item->id)
+                                                            <option value="{{$select_post->id}}">{{$select_post->title}}</option>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
+                                            </select>
                                         </div>
+
                                     </div>
-                                    </div>
+
+                                    <div class="mt-3" id="paypal-button-container"></div>
                                 </form>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-md-5">
-
+                    <div class="col-md-4">
                         <div class="card">
-
-                            <div class="card-header">
-
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-
-                                    <div class="col-12">
-                                        <label for="inputPassword4" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="inputPassword4">
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputPassword4" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="inputPassword4">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputEmail4" class="form-label">First Name</label>
-                                        <input type="date" class="form-control" id="inputEmail4">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputPassword4" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="inputPassword4">
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
+                            <div class="card-body"></div>
                         </div>
-                        <div class="card mt-2">
-                            <div class="card-body">
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-
-                                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                                                         onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                        {{ __('Log Out') }}
-                                    </x-jet-dropdown-link>
-                                </form>
-                                <button class="btn btn-primary">Donate</button>
-                            </div>
-                        </div>
-
                     </div>
+
                 </div>
             </form>
 
         </div>
     </section>
 
-    <section class="ftco-section-3 img" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}');">
+    <section class="ftco-section-3 img" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}')">
         <div class="overlay"></div>
         <div class="container">
             <div class="row d-md-flex">
                 <div class="col-md-6 d-flex ftco-animate">
-                    <div class="img img-2 align-self-stretch" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}');"></div>
+                    <div class="img img-2 align-self-stretch" style="background-image: url('{{url('dist/user/images/bg_4.jpg')}}')"></div>
                 </div>
                 <div class="col-md-6 volunteer pl-md-5 ftco-animate">
-                    <h3 class="mb-3">Be a volunteer</h3>
-                    <form action="#" class="volunter-form">
+                    <h3 class="mb-3">Join Our Mailing List</h3>
+                    <form class="volunter-form">
+                        @csrf
+                        <p class="text-white">Join and receive updates on charity news by entering the information below.</p>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input type="text" name="name" class="form-control nameSub" placeholder="Your Name">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
+                            <input type="email" name="email" class="form-control emailSub" placeholder="Your Email">
                         </div>
+
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
+                            <button type="button" id="send-mail" class="btn btn-white">Subscribe</button>
                         </div>
                     </form>
                 </div>

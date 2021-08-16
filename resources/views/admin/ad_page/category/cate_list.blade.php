@@ -24,11 +24,11 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th style="width:10%;">ID</th>
-                    <th style="width:20%;">Name</th>
-                    <th style="width:20%">Active</th>
-                    <th style="width:15%">Created_at</th>
-                    <th style="width:20%">Updated_at</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Created_at</th>
+                    <th>Updated_at</th>
+                    <th>Active</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -37,9 +37,16 @@
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->name}}</td>
-                        <td>{{$item->active}}</td>
                         <td>{{$item->created_at}}</td>
                         <td>{{$item->updated_at}}</td>
+                        <td>
+                            @if($item->active == 1)
+                                <a href="{{url('admin/category/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
+                            @else
+                                <a href="{{url('admin/category/appear',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>
+                            @endif
+                        </td>
+
                         <td class="table-action">
                             <!-- Modal -->
                             <div class="modal fade" id="Edit-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -67,7 +74,7 @@
                             </div>
 
                             <a data-bs-toggle="modal" data-bs-target="#Edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
-                            <a onclick='return function(){swal({title:"Are you sure to delete ?",text:"You will not be able to recover this imaginary file !!",type:"warning",showCancelButton:!0,confirmButtonColor:"#DD6B55",confirmButtonText:"Yes, delete it !!",cancelButtonText:"No, cancel it !!",closeOnConfirm:!1,closeOnCancel:!1},function(e){e?swal("Deleted !!","Hey, your imaginary file has been deleted !!","success"):swal("Cancelled !!","Hey, your imaginary file is safe !!","error")})}'><i class="align-middle" data-feather="trash"></i></a>
+                            <a href="{{url('/admin/category/delete',["id"=>$item->id])}}"><i class="align-middle" data-feather="trash"></i></a>
                         </td>
                     </tr>
 

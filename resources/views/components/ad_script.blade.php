@@ -23,21 +23,19 @@
     $(document).ready(function(){
         $('#category_add').click(function (){
             var name = $('.nameCate').val();
-            var _token = $('.cate_add  input[name="_token"]').val();
+            var _token = $('input[name="_token"]').val();
 
             $.ajax({
                 url:"{{url('admin/category/save')}}",
                 method:'POST',
                 data:{name:name,_token:_token},
                 success:function (data){
-                    // swal("Hey, Add Success!!","You clicked the button !!","success")
-                    alert(data)
-
+                    $('#staticBackdrop').modal('hide')
+                    swal("Hey, Add Success!!","You clicked the button !!","success")
                 },
                 error:function (data){
-                    {swal({title:"Are you sure to delete ?",text:"You will not be able to recover this imaginary file !!",type:"warning",showCancelButton:!0,confirmButtonColor:"#DD6B55",confirmButtonText:"Yes, delete it !!",cancelButtonText:"No, cancel it !!",closeOnConfirm:!1,closeOnCancel:!1},function(e){e?swal("Deleted !!","Hey, your imaginary file has been deleted !!","success"):swal("Cancelled !!","Hey, your imaginary file is safe !!","error")})}
+                    sweetAlert("Oops...","Something went wrong !!","error")
                 }
-
             });
 
         })

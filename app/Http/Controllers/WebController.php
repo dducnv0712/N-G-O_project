@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -9,7 +11,12 @@ class WebController extends Controller
 
 
     public function home(){
-        return view('home');
+        $category = Category::where('active',1)->get();
+        $post = Post::where('active',1)->get();
+        return view('home',[
+            'category' => $category,
+            'posts' => $post,
+        ]);
     }
     public function admin(){
         return view('admin.admin_home');
@@ -24,16 +31,32 @@ class WebController extends Controller
 
     public function donate(){
 
-        return view('pages.donate');
+        $category = Category::where('active',1)->get();
+        $post = Post::where('active',1)->get();
+        return view('pages.donate',[
+            'category' => $category,
+            'posts' => $post,
+        ]);
     }
+
     public function about(){
         return view('pages.about');
+    }
+    public function contact(){
+        return view('pages.contact');
     }
     public function account(){
         return view('pages.login');
     }
 
 
+
+    public function postsList(){
+        return view('pages.posts-list');
+    }
+    public function gallery(){
+        return view('pages.gallery');
+    }
 
 
     public function Contributor(){

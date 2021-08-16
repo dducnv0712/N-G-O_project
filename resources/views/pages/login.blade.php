@@ -119,27 +119,27 @@
 
     </section>
 
-    <section class="ftco-section-3 img" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}');">
+    <section class="ftco-section-3 img" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}')">
         <div class="overlay"></div>
         <div class="container">
             <div class="row d-md-flex">
                 <div class="col-md-6 d-flex ftco-animate">
-                    <div class="img img-2 align-self-stretch" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}');"></div>
+                    <div class="img img-2 align-self-stretch" style="background-image: url('{{url('dist/user/images/bg_4.jpg')}}')"></div>
                 </div>
                 <div class="col-md-6 volunteer pl-md-5 ftco-animate">
-                    <h3 class="mb-3">Be a volunteer</h3>
-                    <form action="#" class="volunter-form">
+                    <h3 class="mb-3">Join Our Mailing List</h3>
+                    <form class="volunter-form">
+                        @csrf
+                        <p class="text-white">Join and receive updates on charity news by entering the information below.</p>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input type="text" name="name" class="form-control nameSub" placeholder="Your Name">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
+                            <input type="email" name="email" class="form-control emailSub" placeholder="Your Email">
                         </div>
+
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
+                            <button type="button" id="send-mail" class="btn btn-white">Subscribe</button>
                         </div>
                     </form>
                 </div>

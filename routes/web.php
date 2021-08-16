@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
@@ -19,15 +20,17 @@ use App\Http\Controllers\PostController;
 //Route::middleware(['auth:sanctum', 'verified'])->get('/',[WebController::class,"home"]);
 
 Route::get('/',[WebController::class,"home"]);
-
+Route::get('/contact',[WebController::class,"contact"]);
 Route::get('/donate',[WebController::class,"donate"]);
 Route::get('/about',[WebController::class,"about"]);
 Route::get('/login',[WebController::class,"account"]);
 Route::get('auth/social', [SocialController::class,'show'])->name('social.login');
 Route::get('auth/{driver}', [SocialController::class,'redirectToProvider'])->name('social.auth');
 Route::get('auth/{driver}/callback', [SocialController::class,'handleProviderCallback'])->name('social.callback');
+Route::post('/subscribe-mail',[MailController::class,'subMail']);
 
-
+Route::get('/posts-list',[WebController::class,"postsList"]);
+Route::get('/gallery',[WebController::class,"gallery"]);
 
 
 ////Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

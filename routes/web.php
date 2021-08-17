@@ -31,6 +31,9 @@ Route::post('/subscribe-mail',[MailController::class,'subMail']);
 
 Route::get('/posts-list',[WebController::class,"postsList"]);
 Route::get('/gallery',[WebController::class,"gallery"]);
+Route::post('/contribution',[WebController::class,"contribution"]);
+
+
 
 
 ////Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

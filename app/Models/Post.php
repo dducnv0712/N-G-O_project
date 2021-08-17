@@ -27,4 +27,8 @@ class Post extends Model
         }
         return "";
     }
+    public function Category(){
+        return $this->belongsTo(Category::class);
+    }
+
 }

@@ -40,7 +40,7 @@
                     <div class="mb-3">
                         <label for="category" class="form-label">Category</label>
                         <select class="form-control" name="category_id" id="category">
-                            <option  selected value="{{$posts->category_id}}" > {{$posts->category_id}} </option>
+                            <option  selected value="{{$posts->category_id}}" > {{$posts->category->name}} </option>
                             @foreach($categories as $item)
                                 <option  value="{{$item->id}}"> {{$item->name}}</option>
 

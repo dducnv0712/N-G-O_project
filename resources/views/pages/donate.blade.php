@@ -16,27 +16,6 @@
     <section class="ftco-section bg-light">
         <div class="container">
             <form method="post">
-{{--                <div class="card mb-3">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <div class="container-sm">--}}
-{{--                            <div class="row">--}}
-{{--                                <div class="col-md-2">--}}
-{{--                                    <input type="radio" class="btn-check" name="options-outlined" id="20" autocomplete="off">--}}
-{{--                                    <label class="btn btn-outline-danger" for="20">20$</label></div>--}}
-{{--                                <div class="col-md-2">--}}
-{{--                                    <input type="radio" class="btn-check" name="options-outlined" id="50" autocomplete="off">--}}
-{{--                                    <label class="btn btn-outline-danger" for="50">50$</label></div>--}}
-{{--                                <div class="col-md-2">--}}
-{{--                                    <input type="radio" class="btn-check" name="options-outlined" id="100" autocomplete="off">--}}
-{{--                                    <label class="btn btn-outline-danger" for="100">100$</label></div>--}}
-{{--                                <div class="col-md-6">--}}
-{{--                                    <input type="radio" class="btn-check" name="options-outlined" id="100" autocomplete="off">--}}
-{{--                                    <label class="btn btn-outline-danger" for="100">100$</label></div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                    </div>--}}
                 <div class="row">
                     <div class="col-md-8">
 
@@ -46,38 +25,29 @@
                             <div class="card-body">
                                 <form action="{{url('/debit-cart')}}" class="g-3">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="inputEmail4" class="form-label">First Name</label>
-                                            <input type="text" class="form-control" id="inputEmail4" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="inputPassword4" class="form-label">Last Name</label>
-                                            <input type="text" class="form-control" id="inputPassword4" required>
-                                        </div>
 
-                                    <div class="col-12">
-                                        <label for="inputAddress" class="form-label">Phone</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputAddress" class="form-label">Email</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="" required>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="inputAddress2" class="form-label">Contribute</label>
-                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
-                                    </div>
+                                        <div class="input-group mb-3">
+                                            <span style="height:58px" class="input-group-text mt-1">
+                                                <select class="form-select" id="cur">
+                                                       <option value="VND">VND</option>
+                                                       <option value="INR">INR</option>
+                                                       <option value="USD">USD</option>
+                                                </select>
+                                            </span>
+                                            <input type="text" id="amount" aria-label="Last name" value="" class="form-control">
+                                        </div>
                                         <div class="col-12">
-                                            <label for="select_contribute" class="form-label">Contribute</label>
-                                            <select id="select_contribute" class="form-control">
+                                            <label for="select_post" class="form-label">Contribute</label>
+                                            <select id="select_post" class="form-select">
                                                 @foreach($category as $item)
-                                                    <option disabled>-----{{$item->name}}-----</option>
-                                                    @foreach($posts as $select_post)
-                                                        @if($select_post -> category_id == $item->id)
-                                                            <option value="{{$select_post->id}}">{{$select_post->title}}</option>
-                                                        @endif
-                                                    @endforeach
+                                                    @if($item->post_count > 0)
+                                                        <option disabled>-----{{$item->name}}-----</option>
+                                                        @foreach($posts as $select_post)
+                                                            @if($select_post -> category_id == $item->id)
+                                                                <option value="{{$select_post->id}}">{{$select_post->title}}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>

@@ -96,19 +96,22 @@
                                             <h3 class="title"><a href="#">{{$item -> title}}</a></h3>
                                             <p class="desc">{{$item->description}}</p>
                                             <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                                            <div class="progress custom-progress-success">
-                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                            @if($item->contribute == null)
-                                                <span class="fund-raised d-block">Không Giới Hạn Đóng Góp</span>
-                                            @else
+
+                                                @if($item->contribute == null)
+                                                    <span class="fund-raised d-block text-warning">Không Giới Hạn Đóng Góp</span>
+                                                @else
+                                                    <div class="progress custom-progress-success">
+                                                         <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                @endif
+
+                                            @if(!$item->contribute == null)
                                                 <span class="fund-raised d-block">$12,000 raised of $30,000</span>
                                             @endif
 
                                         </div>
                                         <div class="text-center">
-                                            <button class="btn btn-primary text-center">Donate</button>
-
+                                            <button class="btn btn-primary">Donate</button>
                                         </div>
                                     </div>
                                 </div>
@@ -122,62 +125,65 @@
     </section>
 
     @foreach($category as $item)
-        <section class="ftco-section pb-0 ">
-            <div class="container">
-                <div class="row justify-content-center ">
-                    <div class="col-md-7 heading-section ftco-animate text-center">
-                        <h2 class="mb-4">Các Dự Án {{$item->name}}</h2>
-                        <hr>
+        @if(!$item->post_count == 0)
+            <section class="ftco-section pb-0 ">
+                <div class="container">
+                    <div class="row justify-content-center ">
+                        <div class="col-md-7 heading-section ftco-animate text-center">
+                            <h2 class="mb-4">Các Dự Án {{$item->name}}</h2>
+                            <hr>
+                        </div>
                     </div>
-                </div>
-                <div class="row d-flex">
-                    @foreach($posts as $item_post)
+                    <div class="row d-flex">
+                        @foreach($posts as $item_post)
 
-                        @if($item_post->category_id == $item -> id && $item_post->important == 0)
-                            <div class="col-md-4 mt-3 d-flex ftco-animate">
-                                <div class="blog-entry align-self-stretch pb-3">
-                                    <a href="" class="block-20" style="background-image:url('{{$item_post->getImage()}}')">
-                                    </a>
-                                    <div class="text p-4 d-block">
-                                        <div class="meta mb-3">
-                                            <div><a href="#">{{$item_post->created_at}}</a></div>
+                            @if($item_post->category_id == $item -> id && $item_post->important == 0)
+                                <div class="col-md-4 mt-3 d-flex ftco-animate">
+                                    <div class="blog-entry align-self-stretch pb-3">
+                                        <a href="" class="block-20" style="background-image:url('{{$item_post->getImage()}}')">
+                                        </a>
+                                        <div class="text p-4 d-block">
+                                            <div class="meta mb-3">
+                                                <div><a href="#">{{$item_post->created_at}}</a></div>
+
+                                            </div>
+                                            <h3 class="heading title mt-3"><a href="#">{{$item_post->title}}</a></h3>
+                                            <p class="desc">{{$item_post -> description}}</p>
+                                            @if(!$item_post->contribute == null)
+                                                <div class="progress custom-progress-success">
+                                                    <div class="progress-bar text-center bg-primary" role="progressbar" style="width: {{1500/$item_post->contribute * 100}}%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">{{1500/$item_post->contribute * 100}}%</div>
+                                                </div>
+                                            @endif
+                                            @if($item_post->contribute == null)
+                                                <span class="fund-raised d-block mt-2">Không Giới Hạn Đóng Góp</span>
+                                            @else
+                                                <span class="fund-raised d-block mt-2">$1500.00 raised of ${{$item_post->contribute}}</span>
+                                            @endif
+                                        </div>
+                                        <div class="text-center">
+                                            <button style="width:150px;height:30px" class="btn btn-primary btn-sm">Donate</button>
 
                                         </div>
-                                        <h3 class="heading title mt-3"><a href="#">{{$item_post->title}}</a></h3>
-                                        <p class="desc">{{$item_post -> description}}</p>
-                                        @if(!$item_post->contribute == null)
-                                        <div class="progress custom-progress-success">
-                                            <div class="progress-bar text-center bg-primary" role="progressbar" style="width: {{1500/$item_post->contribute * 100}}%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">{{1500/$item_post->contribute * 100}}%</div>
-                                        </div>
-                                        @endif
-                                        @if($item_post->contribute == null)
-                                            <span class="fund-raised d-block mt-2">Không Giới Hạn Đóng Góp</span>
-                                        @else
-                                            <span class="fund-raised d-block mt-2">$1500.00 raised of ${{$item_post->contribute}}</span>
-                                        @endif
-                                    </div>
-                                    <div class="text-center">
-                                        <button style="width:150px;height:30px" class="btn btn-primary btn-sm">Donate</button>
 
                                     </div>
-
                                 </div>
-                            </div>
 
-                        @endif
+                            @endif
 
-                    @endforeach
+                        @endforeach
 
 
-                    <div>
-                        <hr>
-                        <a href="#">Xem Thêm Về Dự Án {{$item->name}}...</a>
+                        <div>
+                            <hr>
+                            <a href="#">Xem Thêm Về Dự Án {{$item->name}}...</a>
+                        </div>
+
+
                     </div>
-
-
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
+
 
     @endforeach
 

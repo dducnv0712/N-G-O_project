@@ -2,8 +2,7 @@
 <script src="{{asset('dist/user/js/jquery.min.js')}}"></script>
 {{--<script src="{{asset('dist/bootstrap-5/js/bootstrap.min.js')}}"></script>--}}
 <script src="{{asset('dist/bootstrap-5/js/bootstrap.bundle.min.js')}}"></script>
-
-
+<script src="{{asset('js/paypal-get-data.js')}}"></script>
 <script src="{{asset('dist/user/js/jquery-migrate-3.0.1.min.js')}}"></script>
 <script src="{{asset('dist/user/js/popper.min.js')}}"></script>
 {{--<script src="{{asset('dist/user/js/bootstrap.min.js')}}"></script>--}}
@@ -22,9 +21,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{{asset('dist/user/js/google-map.js')}}"></script>
 <script src="{{asset('dist/user/js/main.js')}}"></script>
-
 <script type="text/javascript" src="{{asset('/dist/sweetalert/sweetalert.min.js')}}"></script>
-
 <script type="text/javascript">
     $(document).ready(function(){
         $('#send-mail').click(function (){
@@ -48,26 +45,33 @@
         })
 
     })
-    {{--category update--}}
-
-
-
-    {{--category delete--}}
 </script>
-{{--category ajax--}}
-
-
-<script>
+<script type="text/javascript">
     // Render the PayPal button into #paypal-button-container
+
     paypal.Buttons({
 
         // Set up the transaction
         createOrder: function(data, actions) {
+
+            let total;
+
+            let amount = $("#amount").val();
+            let cur = $('#cur').val();
+
+            if (cur === 'VND'){
+                total = amount /22830.5
+            }else if(cur === 'INR'){
+
+                total = amount /74.21
+            }else {
+                total = amount
+            }
             return actions.order.create({
                 application_context: { shipping_preference: 'NO_SHIPPING',button:'donate' },
                 purchase_units: [{
                     amount: {
-                        value: '1000'
+                        value:`${Math.round(total)}`,
                     },
                 }]
             });
@@ -76,16 +80,49 @@
         // Finalize the transaction
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(orderData) {
-                // Successful capture! For demo purposes:
-                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                var transaction = orderData.purchase_units[0].payments.captures[0];
-                alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                // console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                var contribution = orderData.purchase_units[0].payments.captures[0];
+                var contributors = orderData.payer;
 
-                // Replace the above to show a success message within this page, e.g.
-                // const element = document.getElementById('paypal-button-container');
-                // element.innerHTML = '';
-                // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                // Or go to another URL:  actions.redirect('thank_you.html');
+                var id_cus = contributors.payer_id;
+                var given_name = contributors.name['given_name'];
+                var surname = contributors.name['surname'];
+                var email = contributors.email_address;
+                var amount = contribution.amount['value'];
+                var country = contributors.address['country_code'];
+                var post_id = $("#select_post").val();
+                var status = contribution.status;
+                var _token = $('input[name="_token"]').val();
+                console.log(id_cus,given_name,surname,email,amount,country,post_id,status,_token)
+
+                $.ajax({
+                    url:"{{url('/contribution')}}",
+                    method:'POST',
+                    data:{
+                        id_cus:id_cus,
+                        given_name:given_name,
+                        surname:surname,
+                        email:email,
+                        amount:amount,
+                        country:country,
+                        post_id:post_id,
+                        status:status,
+                        _token:_token},
+                    success:function (data){
+                        swal("Hey, Đóng Góp Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+                        // alert(data);
+
+                    },
+                    error:function (data){
+                        sweetAlert("Oops...","Sai Thông Tin Vui Long Nhâp Lai!!","error")
+                    }
+                });
+
+
+                // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                // console.log(transaction_test.name['given_name']);
+                // console.log(transaction_test.email_address);
+
             });
         }
 

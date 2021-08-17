@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Contribution;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WebController extends Controller
 {
 
 
     public function home(){
-        $category = Category::where('active',1)->get();
+        $category = Category::withCount('Post')->where('active',1)->get();
         $post = Post::where('active',1)->get();
         return view('home',[
             'category' => $category,
@@ -31,7 +33,7 @@ class WebController extends Controller
 
     public function donate(){
 
-        $category = Category::where('active',1)->get();
+        $category = Category::withCount('Post')->where('active',1)->get();
         $post = Post::where('active',1)->get();
         return view('pages.donate',[
             'category' => $category,
@@ -78,6 +80,31 @@ class WebController extends Controller
     public function maps(){
         return view("admin.ad_page.profile.map_list");
     }
+
+
+    public function contribution(Request $request){
+        $cus_id = Auth::id();
+        if ($cus_id == null){
+            $cus_id = $request['id_cus'];
+        }
+        Contribution::create([
+            'id_cus' => $cus_id,
+            'given_name'=>$request->get('given_name'),
+            'surname'=>$request->get('surname'),
+            'email'=>$request->get('email'),
+            'contribute_amount'=>$request->get('amount'),
+            'country'=>$request->get('country'),
+            'id_post'=>$request->get('post_id'),
+            'status'=>$request->get('status')
+
+        ]);
+
+    }
+//    public function contribution_create(Request $request){
+//        Contribution::create($request->all());
+//
+//
+//    }
 
 
 }

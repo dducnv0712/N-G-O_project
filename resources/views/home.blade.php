@@ -6,20 +6,20 @@
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                     <p class="mb-5 fs-4 text-white" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                        "Chúng tôi cùng với bạn, trên hành trình kiếm tìm hạnh phúc,bằng cách lan tỏa lòng nhân ái, chuyển hóa khổ đau"
+                        {{translateText('"Chúng tôi cùng với bạn, trên hành trình kiếm tìm hạnh phúc,bằng cách lan tỏa lòng nhân ái, chuyển hóa khổ đau"')}}
+{{--                        {{translateText('hello')}}--}}
                     </p>
 
 {{--                    "Chúng tôi cùng với bạn, trên hành trình kiếm tìm hạnh phúc,bằng cách lan tỏa lòng nhân ái, chuyển hóa khổ đau"--}}
-                    <p> <a class="btn btn-white btn-outline-white">Donate Now</a></p>
+                    <p> <a class="btn btn-white btn-outline-white">{{translateText('Donate Now')}}</a></p>
                 </div>
             </div>
         </div>
     </div>
 
-
     <section class="ftco-counter ftco-intro" id="section-counter">
         <div class="container">
-            <div class="row no-gutters">
+            {!! translateText('<div class="row no-gutters">
                 <div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18 color-1 align-items-stretch">
                         <div class="text">
@@ -38,13 +38,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>') !!}
+
         </div>
     </section>
 
     <section class="ftco-section">
         <div class="container">
-            <div class="row">
+            {!! translateText('            <div class="row">
                 <div class="col-md-4 d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 d-flex services p-3 py-4 d-block">
                         <div class="icon d-flex mb-3"><span class="flaticon-donation-1"></span></div>
@@ -73,6 +74,7 @@
                     </div>
                 </div>
             </div>
+') !!}
         </div>
     </section>
 
@@ -81,7 +83,8 @@
         <div class="container-fluid">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-5 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Dự Án Quan Trọng</h2>
+                    {!! translateText('<h2 class="mb-4">Dự Án Quan Trọng</h2>') !!}
+
                 </div>
             </div>
             <div class="row">
@@ -93,12 +96,12 @@
                                     <div class="cause-entry pb-3">
                                         <a href="#" class="img" style="background-image: url('{{$item -> getImage()}}')"></a>
                                         <div class="text p-3 p-md-4">
-                                            <h3 class="title"><a href="#">{{$item -> title}}</a></h3>
-                                            <p class="desc">{{$item->description}}</p>
-                                            <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
+
+                                            <h3 class="title"><a href="#">{{translateText($item -> title)}}</a></h3>
+                                            <p class="desc">{{translateText($item->description)}}</p>
 
                                                 @if($item->contribute == null)
-                                                    <span class="fund-raised d-block text-warning">Không Giới Hạn Đóng Góp</span>
+                                                    <span class="fund-raised d-block text-warning">{{translateText('Không Giới Hạn Đóng Góp')}}</span>
                                                 @else
                                                     <div class="progress custom-progress-success">
                                                          <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
@@ -106,12 +109,12 @@
                                                 @endif
 
                                             @if(!$item->contribute == null)
-                                                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
+                                                <span class="fund-raised d-block">{{translateText('$12,000 raised of $30,000')}}</span>
                                             @endif
 
                                         </div>
                                         <div class="text-center">
-                                            <button class="btn btn-primary">Donate</button>
+                                            <button class="btn btn-primary">{{translateText('Donate')}}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -130,7 +133,7 @@
                 <div class="container">
                     <div class="row justify-content-center ">
                         <div class="col-md-7 heading-section ftco-animate text-center">
-                            <h2 class="mb-4">Các Dự Án {{$item->name}}</h2>
+                            <h2 class="mb-4">{{translateText('Các Dự Án'.''.$item->name)}}</h2>
                             <hr>
                         </div>
                     </div>
@@ -144,10 +147,10 @@
                                         </a>
                                         <div class="text p-4 d-block">
                                             <div class="meta mb-3">
-                                                <div><a href="#">{{$item_post->created_at}}</a></div>
+                                                <div><a href="#">{{translateText($item_post->created_at)}}</a></div>
 
                                             </div>
-                                            <h3 class="heading title mt-3"><a href="#">{{$item_post->title}}</a></h3>
+                                            <h3 class="heading title mt-3"><a href="#">{{translateText($item_post->title)}}</a></h3>
                                             <p class="desc">{{$item_post -> description}}</p>
                                             @if(!$item_post->contribute == null)
                                                 <div class="progress custom-progress-success">
@@ -155,13 +158,13 @@
                                                 </div>
                                             @endif
                                             @if($item_post->contribute == null)
-                                                <span class="fund-raised d-block mt-2">Không Giới Hạn Đóng Góp</span>
+                                                <span class="fund-raised d-block mt-2">{translateText('Không Giới Hạn Đóng Góp')}}</span>
                                             @else
-                                                <span class="fund-raised d-block mt-2">$1500.00 raised of ${{$item_post->contribute}}</span>
+                                                <span class="fund-raised d-block mt-2">{{translateText('$1500.00 raised of'.'$'.$item_post->contribute)}}</span>
                                             @endif
                                         </div>
                                         <div class="text-center">
-                                            <button style="width:150px;height:30px" class="btn btn-primary btn-sm">Donate</button>
+                                            <button style="width:150px;height:30px" class="btn btn-primary btn-sm">{{translateText('Donate')}}</button>
 
                                         </div>
 
@@ -175,7 +178,7 @@
 
                         <div>
                             <hr>
-                            <a href="#">Xem Thêm Về Dự Án {{$item->name}}...</a>
+                            <a href="#">{{translateText('Xem Thêm Về Dự Án '.$item->name)}}...</a>
                         </div>
 
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\TranslateController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -32,6 +33,9 @@ Route::post('/subscribe-mail',[MailController::class,'subMail']);
 Route::get('/posts-list',[WebController::class,"postsList"]);
 Route::get('/gallery',[WebController::class,"gallery"]);
 Route::post('/contribution',[WebController::class,"contribution"]);
+
+Route::post('/setTarget', [TranslateController::class, 'setTarget']);
+
 
 
 

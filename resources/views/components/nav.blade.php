@@ -1,7 +1,13 @@
 <nav style="z-index: 999" class="navbar-head navbar m-0 p-0">
     <div class="container align-items-center">
      <div>
+         <select name="target" class="target">
+             <option>Select</option>
+             <option value="vi">Vietnam</option>
+             <option value="hi">India - Hindi</option>
+             <option value="en">English</option>
 
+         </select><br>
      </div>
         <div class="d-flex">
             <div class="me-2">

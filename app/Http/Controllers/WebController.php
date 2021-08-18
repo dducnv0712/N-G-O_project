@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Contribution;
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class WebController extends Controller
 {
@@ -84,6 +86,7 @@ class WebController extends Controller
 
     public function contribution(Request $request){
         $cus_id = Auth::id();
+        $now = Carbon::now('asia/Ho_Chi_Minh')->format('Y-m-d H:i:s');
         if ($cus_id == null){
             $cus_id = $request['id_cus'];
         }
@@ -98,6 +101,43 @@ class WebController extends Controller
             'status'=>$request->get('status')
 
         ]);
+
+        $mail = $request['email'];
+//        $given_name = $request['given_name'];
+//        $surname = $request['surname'];
+//        $contribution_id = $request['contribution_id'];
+//        $amount = $request['amount'];
+//        $country =$request['country'];
+        $post_id = $request['post_id'];
+        $posts = Post::findOrFail($post_id);
+//        $data = [
+//            $mail = $request['email'],
+//            $given_name = $request['given_name'],
+//            $surname = $request['surname'],
+//            $contribution_id = $request['contribution_id'],
+//            $amount = $request['amount'],
+//            $country =$request['country'],
+//            $post_id = $request['post_id'],
+//            $date_time = $now
+//        ];
+
+        Mail::send('admin.mail.feedback_contribution',[
+            'posts' => $posts,
+            'date_time'=>$now,
+            'given_name'=>$request['given_name'],
+            'surname'=>$request['surname'],
+            'contribution_id' =>$request['contribution_id'],
+            'amount' =>$request['amount'],
+            'country' => $request['country']
+
+        ],function ($message) use ($mail){
+            $message -> to($mail)->subject('Non-governmental Organizations');
+            $message ->from($mail,'Non-governmental Organizations');
+
+        });
+//        $data = $request->all();
+//        print_r($data);
+
 
     }
 //    public function contribution_create(Request $request){

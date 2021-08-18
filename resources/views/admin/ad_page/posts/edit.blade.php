@@ -1,7 +1,7 @@
 
 @extends('admin.admin_layout')
 @section('main')
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0" xmlns="http://www.w3.org/1999/html">
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">

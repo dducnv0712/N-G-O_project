@@ -7,6 +7,7 @@ use App\Http\Controllers\WebController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContributeController;
 Route::middleware(["auth","admin"])->group(function (){
     Route::get('/',[WebController::class,"admin"]);
     Route::get('/contributor',[WebController::class,"Contributor"]);
@@ -42,7 +43,7 @@ Route::middleware(["auth","admin"])->group(function (){
 
     Route::get('/user',[UserController::class,"user"]);
     Route::post('/user/update/{id}',[UserController::class,"update"]);
-
-
+//
+    Route::get('/contribute',[ContributeController::class,"all"]);
 
 });

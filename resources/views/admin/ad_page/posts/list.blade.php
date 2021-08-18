@@ -11,7 +11,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
 
-                        <li class="breadcrumb-item"><a href="{{url('/admin/posts/add')}}">New Post</a></li>
+                        <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('/admin/posts/add')}}">New Post</a></li>
                     </ol>
                 </nav>
             </div>

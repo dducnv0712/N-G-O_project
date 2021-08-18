@@ -52,7 +52,7 @@
                 </a>
                 <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">contribute</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Debit Card</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="">List Contact</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Paypal</a></li>
 
                 </ul>
@@ -64,7 +64,7 @@
                 </a>
                 <ul id="about" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">About</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Debit Card</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/contact')}}">List Contact</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Paypal</a></li>
 
                 </ul>

@@ -12,7 +12,7 @@
                     <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
                         <li>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCate">
                                 New Category
                             </button>
                         </li>
@@ -37,8 +37,8 @@
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->name}}</td>
-                        <td>{{$item->created_at}}</td>
-                        <td>{{$item->updated_at}}</td>
+                        <td>{{$item->created_at->format('d-m-Y')}}</td>
+                        <td>{{$item->updated_at->format('d-m-Y')}}</td>
                         <td>
                             @if($item->active == 1)
                                 <a href="{{url('admin/category/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
@@ -74,7 +74,7 @@
                             </div>
 
                             <a data-bs-toggle="modal" data-bs-target="#Edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
-                            <a href="{{url('/admin/category/delete',["id"=>$item->id])}}"><i class="align-middle" data-feather="trash"></i></a>
+                            <a href="javascript:void(0)"  onclick="deleteCategory({{$item->id}})"><i class="align-middle" data-feather="trash"></i></a>
                         </td>
                     </tr>
 
@@ -85,7 +85,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="addCate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <form >

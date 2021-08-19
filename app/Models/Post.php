@@ -18,7 +18,8 @@ class Post extends Model
         'important',
         'send_mail',
         'category_id',
-        'description'
+        'description',
+        'content'
     ];
 
     public function getImage(){

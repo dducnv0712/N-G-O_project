@@ -54,9 +54,15 @@
                         <input name="donate" value="{{$posts->contribute}}" class="form-control" type="number" id="donate" min="0">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="summernote">Description</label>
-                        <textarea name="desc" id="summernote">
+                        <label class="form-label" for="desc">Description</label>
+                        <textarea name="desc" id="desc">
                                 {{$posts->description}}
+                        </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="content">Content</label>
+                        <textarea name="content" id="content">
+                                {{$posts->content}}
                         </textarea>
                     </div>
 

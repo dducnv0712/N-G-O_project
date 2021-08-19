@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class ContributeController extends Controller
 {
     public function all(){
-        $contributes=Contribution::all();
+        $contribution=Contribution::all();
         return view("admin.ad_page.contributor.contribute",[
-            'contribute'=>$contributes
+            'contribution'=>$contribution
         ]);
     }
 }

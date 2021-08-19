@@ -94,7 +94,7 @@
                 var post_id = $("#select_post").val();
                 var status = contribution.status;
                 var _token = $('input[name="_token"]').val();
-                console.log(id_cus,given_name,surname,email,amount,country,post_id,status,_token)
+                // console.log(id_cus,given_name,surname,email,amount,country,post_id,status,_token)
 
                 $.ajax({
                     url:"{{url('/contribution')}}",
@@ -110,6 +110,7 @@
                         post_id:post_id,
                         status:status,
                         _token:_token},
+
                     success:function (data){
                         swal("Hey, Đóng Góp Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
                         // alert(data);

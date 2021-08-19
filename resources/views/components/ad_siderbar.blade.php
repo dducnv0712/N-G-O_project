@@ -51,9 +51,8 @@
                     <i class="align-middle" data-feather="heart"></i> <span class="align-middle">Contributions</span>
                 </a>
                 <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">contribute</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="">List Contact</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Paypal</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/contribution')}}">{{translateText('Contributions List')}}</a></li>
+
 
                 </ul>
             </li>

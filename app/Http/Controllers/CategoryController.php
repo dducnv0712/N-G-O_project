@@ -44,13 +44,9 @@ class CategoryController extends Controller
 
     public function delete($id){
         $categories = Category::findOrFail($id);
-        try{
             $categories->delete();
-            return redirect()->to("admin/category");
-        }catch (\Exception $e){
-            abort(404);
-        }
     }
+
      public function hidden($id){
         $category = Category::findOrFail($id);
         $category -> update([

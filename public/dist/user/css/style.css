@@ -9188,6 +9188,16 @@ textarea.form-control {
     stroke-dashoffset: -136px; } }
 .desc{
     overflow:hidden;
+    max-height:300px;
+    -webkit-box-orient: vertical;
+    display: block;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:4;
+}
+.desc_{
+    overflow:hidden;
+    max-height:120px;
     -webkit-box-orient: vertical;
     display: block;
     display: -webkit-box;

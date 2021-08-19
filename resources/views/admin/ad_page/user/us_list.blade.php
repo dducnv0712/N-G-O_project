@@ -35,8 +35,8 @@
                     <td>{{$item->name}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->role}}</td>
-                    <td>{{$item->created_at}}</td>
-                    <td>{{$item->updated_at}}</td>
+                    <td>{{$item->created_at->format('d-m-Y')}}</td>
+                    <td>{{$item->updated_at->format('d-m-Y')}}</td>
                     <td class="table-action">
                         <!-- Modal -->
                         <div class="modal fade" id="edit-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

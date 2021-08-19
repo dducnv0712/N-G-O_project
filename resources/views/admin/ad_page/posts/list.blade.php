@@ -41,6 +41,14 @@
                 <tbody>
                 @foreach($posts as $item)
                     <tr>
+                        @php
+                            $amount = 0;
+
+                             foreach ($contribution as $item_contribution ){
+                                 if($item_contribution->id_post == $item->id)
+                                 $amount += $item_contribution->contribute_amount;
+                                 }
+                        @endphp
                         <td>
                             <div class="post_image">
                                 <img src="{{$item->getImage()}}" alt="">
@@ -55,8 +63,8 @@
                             @endif
                         </td>
                         <td class="d-none d-md-table-cell">{{$item->category_id}}</td>
-                        <td>{{$item->created_at}}</td>
-                        <td>{{$item->updated_at}}</td>
+                        <td>{{$item->created_at->format('d-m-Y')}}</td>
+                        <td>{{$item->updated_at->format('d-m-Y')}}</td>
                         <td class="text-center">
                             @if($item->active == 1)
                                 <a href="{{url('admin/posts/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
@@ -77,8 +85,9 @@
                         </td>
                         <td class="table-action text-center">
                             <div>
+{{--                                {{url('admin/posts/delete',["id"=>$item->id])}}--}}
                                 <a href="{{url('admin/posts/edit',["id"=>$item->id])}}"><i class="align-middle text-warning" data-feather="edit-2"></i></a>
-                                <a href="{{url('admin/posts/delete',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="trash"></i></a>
+                                <a onclick="deletePost({{$item->id}})" href="javascript:void(0)"><i class="align-middle text-danger" data-feather="trash"></i></a>
                             </div>
 
                         </td>
@@ -86,20 +95,21 @@
                         <td>
                                 @if($item->contribute == null)
                                     <span class="badge bg-info">no-limit</span>
-                                @elseif(2000/$item->contribute * 100 == 100)
+                                @elseif($amount/$item->contribute * 100 == 100)
                                     <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width:100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Accomplished</div>
+                                    <div class="progress-bar bg-success" role="progressbar" style="width:100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Hoàn Thành</div>
                                     </div>
                                 @else
                                     <div class="progress">
-                                    <div class="progress-bar bg-warning text-center text-dark" role="progressbar" style="width:{{2499.5/$item->contribute * 100}}%" aria-valuenow="{{2000/$item->contribute * 100}}" aria-valuemin="0" aria-valuemax="100">{{2499.5/$item->contribute * 100}}%</div>
+                                    <div class="progress-bar bg-warning text-center text-dark" role="progressbar" style="width:{{$amount/$item->contribute * 100}}%" aria-valuenow="{{$amount/$item->contribute * 100}}" aria-valuemin="0" aria-valuemax="100">{{round($amount/$item->contribute * 100)}}%</div>
                                     </div>
                                 @endif
                         </td>
                         <td class="table-action text-center">
                             @if($item->active == 1)
                                 @if($item->send_mail == 0)
-                                    <a href="{{url('admin/posts/send-mail-news',["id"=>$item->id])}}" class=""><span class="badge bg-danger">send</span></a>
+{{--                                    href="{{url('admin/posts/send-mail-news',["id"=>$item->id])}}"--}}
+                                    <a href="javascript:void(0)" onclick="sendMailPost({{$item->id}})" class=""><span class="badge bg-danger">send</span></a>
                                 @else
                                     <span class="badge bg-success">sent</span>
                                 @endif
@@ -122,7 +132,7 @@
                                     <div class="text-center">
                                         <img src="{{$item->getImage()}}" alt="{{$item->title}}">
                                     </div>
-                                    <p>{!!$item->description!!}</p>
+                                    <p>{!!$item->content!!}</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

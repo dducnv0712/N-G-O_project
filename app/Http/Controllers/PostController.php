@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Contribution;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    public function all(Request $request){
+    public function all(){
+        $contribution =Contribution::all();
         $posts= Post::all();
         return view("admin.ad_page.posts.list",[
-            'posts'=>$posts
+            'posts'=>$posts,
+            'contribution' =>$contribution
         ]);
 
     }
@@ -45,6 +48,7 @@ class PostController extends Controller
                 "author"=>$author,
                 "title"=>$request->get("title"),
                 "description"=>$request->get("desc"),
+                "content"=>$request->get("content"),
                 "contribute"=>$request->get("donate"),
                 "category_id"=>$request->get("category_id"),
             ]);
@@ -84,6 +88,7 @@ class PostController extends Controller
             "image"=>$image,
             "title"=>$request->get("title"),
             "description"=>$request->get("desc"),
+            "content"=>$request->get("content"),
             "contribute"=>$request->get("donate"),
             "category_id"=>$request->get("category_id"),
         ]);
@@ -93,7 +98,6 @@ class PostController extends Controller
     public function delete($id){
         $posts= Post::findOrFail($id);
         $posts-> delete();
-        return redirect()->to("admin/posts");
 
     }
     public function hidden($id){

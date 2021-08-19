@@ -79,6 +79,15 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <div>
+                    <select name="target" class="target bg-transparent border-0 shadow-none focus:outline-none">
+                        <option value="vi">Vietnam</option>
+                        <option value="hi">India - Hindi</option>
+                        <option value="en">English</option>
+                    </select><br>
+                </div>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
                     <div class="position-relative">

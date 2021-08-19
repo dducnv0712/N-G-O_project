@@ -331,9 +331,9 @@
                                         <h1 style="font-weight:800; color: #F86F2D" >N.G.O</h1>
 
                                         <h3 style="text-align: center;font-weight:600;">Recommended for {{$name}}</h3>
-                                        <img src="https://znews-photo.zadn.vn/w660/Uploaded/qhj_dvoahficbu/2021_07_28/thum.jpg" alt="/">
+                                        <img src="{{$post->getImage()}}" alt="/">
                                         <h2 style="margin-top:10px; font-weight:bold;">{{$post -> title}}</h2>
-                                        <p class="desc">{!! $post->description !!}</p>
+                                        <span class="desc">{!! $post->description !!}</span>
                                         <p><span style="font-weight:600">Can Dong Gop: </span>
                                         @if($post->contribute == null)
                                             <span style="font-weight:600">Không Giới Hạn Đóng Góp</span>

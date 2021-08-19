@@ -15,24 +15,27 @@ class WebController extends Controller
 
 
     public function home(){
-        $category = Category::withCount('Post')->where('active',1)->get();
+        $contribution =Contribution::all();
+        $category = Category::withCount(['Post','Post as post_important'=>function($query) {
+           $query->where('important', 1) ;
+        }])->where('active',1)->get();
+//        dd($category);
         $post = Post::where('active',1)->get();
+
+//        foreach ($contribution as $item ){
+//            $amount += $item->contribute_amount;
+//        }
+
+        $important = count($post->where('important',1));
+
         return view('home',[
             'category' => $category,
             'posts' => $post,
+            'contribution' =>$contribution,
+            'important'=>$important,
+
         ]);
     }
-    public function admin(){
-        return view('admin.admin_home');
-    }
-
-
-
-
-
-
-
-
     public function donate(){
 
         $category = Category::withCount('Post')->where('active',1)->get();
@@ -86,7 +89,7 @@ class WebController extends Controller
 
     public function contribution(Request $request){
         $cus_id = Auth::id();
-        $now = Carbon::now('asia/Ho_Chi_Minh')->format('Y-m-d H:i:s');
+        $now = Carbon::now('asia/Ho_Chi_Minh')->format('d-m-Y H:i:s');
         if ($cus_id == null){
             $cus_id = $request['id_cus'];
         }

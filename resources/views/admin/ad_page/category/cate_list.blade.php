@@ -4,7 +4,7 @@
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
-                <h3><strong>Analytics</strong> Dashboard</h3>
+                <h3><strong>{{translateText('Analytics')}}</strong>{{translateText('Dashboard')}} </h3>
             </div>
 
             <div class="col-auto ml-auto text-right mt-n1">
@@ -13,7 +13,7 @@
                         <li>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCate">
-                                New Category
+                                {{translateText('New Category')}}
                             </button>
                         </li>
                     </ol>
@@ -24,7 +24,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>{{translateText('ID')}}</th>
                     <th>Name</th>
                     <th>Created_at</th>
                     <th>Updated_at</th>

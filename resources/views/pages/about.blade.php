@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>About</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">About Us</h1>
+                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">{{translateText('Home')}}</a></span> <span>{{translateText('About ')}}</span></p>
+                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{translateText('About Us')}}</h1>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Team Members</h2>
+                    <h2 class="mb-4">{{translateText('Team Members')}}</h2>
 
                 </div>
             </div>
@@ -72,7 +72,7 @@
                         <div class="d-flex mb-4">
                             <div class="img" style="background-image: url(images/person_1.jpg);"></div>
                             <div class="info ml-4">
-                                <h3><a href="teacher-single.html">Nguyen Hong Quang</a></h3>
+                                <h3><a href="teacher-single.html">{{translateText('Nguyen Hong Quang')}}</a></h3>
 
                                 <div class="text">
 
@@ -86,7 +86,7 @@
                         <div class="d-flex mb-4">
                             <div class="img" style="background-image: url(images/person_2.jpg);"></div>
                             <div class="info ml-4">
-                                <h3><a href="teacher-single.html">Nguyen Van Duc</a></h3>
+                                <h3><a href="teacher-single.html">{{translateText('Nguyen Van Duc')}}</a></h3>
 
                                 <div class="text">
 
@@ -100,7 +100,7 @@
                         <div class="d-flex mb-4">
                             <div class="img" style="background-image: url(images/person_3.jpg);"></div>
                             <div class="info ml-4">
-                                <h3><a href="teacher-single.html">Ngo Viet Hoang</a></h3>
+                                <h3><a href="teacher-single.html">{{translateText('Ngo Viet Hoang')}}</a></h3>
 {{--                                <span class="position">Donated Just now</span>--}}
                                 <div class="text">
 

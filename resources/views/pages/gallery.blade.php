@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Thư Viện Ảnh</span></p>
+                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">{{translateText('Home')}}</a></span> <span>{{translateText('Thư Viện Ảnh')}}</span></p>
 {{--                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Contact Us</h1>--}}
                 </div>
             </div>
@@ -92,16 +92,16 @@
                     <div class="img img-2 align-self-stretch" style="background-image: url(images/bg_4.jpg);"></div>
                 </div>
                 <div class="col-md-6 volunteer pl-md-5 ftco-animate">
-                    <h3 class="mb-3">Be a volunteer</h3>
+                    <h3 class="mb-3">{{translateText('Be a volunteer')}}</h3>
                     <form action="#" class="volunter-form">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input type="text" class="form-control" placeholder="{{translateText('Your Name')}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
+                            <input type="text" class="form-control" placeholder="{{translateText('Your Email')}}">
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
+                            <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="{{translateText('Message')}}"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">

@@ -4,37 +4,37 @@
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
-                <h3><strong>Analytics</strong> Dashboard</h3>
+                <h3><strong>{{translateText('Analytics')}}</strong> {{translateText('Dashboard')}}</h3>
             </div>
 
             <div class="col-auto ml-auto text-right mt-n1">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
 
-                        <li class="breadcrumb-item"><a href="{{url('/admin/posts/add')}}">New Post</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/admin/posts/add')}}">{{translateText('New Post')}}</a></li>
                     </ol>
                 </nav>
             </div>
         </div>
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Basic Table</h5>
-                <h6 class="card-subtitle text-muted">Using the most basic table markup, here’s how .table-based tables look in Bootstrap.</h6>
+                <h5 class="card-title">{{translateText('Basic Table')}}</h5>
+                <h6 class="card-subtitle text-muted">{{translateText('Using the most basic table markup, here’s how .table-based tables look in Bootstrap.')}}</h6>
             </div>
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Id_cus</th>
-                    <th>Given_name</th>
-                    <th>Surname</th>
-                    <th>Email</th>
-                    <th>Contribute_amount</th>
-                    <th>Country</th>
-                    <th>Id_post</th>
-                    <th>Status</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
+                    <th>{{translateText('Id')}}</th>
+                    <th>{{translateText('Id_cus')}}</th>
+                    <th>{{translateText('Given_name')}}</th>
+                    <th>{{translateText('Surname')}}</th>
+                    <th>{{translateText('Email')}}</th>
+                    <th>{{translateText('Contribute_amount')}}</th>
+                    <th>{{translateText('Country')}}</th>
+                    <th>{{translateText('Id_post')}}</th>
+                    <th>{{translateText('Status')}}</th>
+                    <th>{{translateText('Created At')}}</th>
+                    <th>{{translateText('Updated At')}}</th>
 
                 </tr>
                 </thead>

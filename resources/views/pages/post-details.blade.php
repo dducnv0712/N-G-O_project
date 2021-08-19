@@ -5,8 +5,8 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Blog</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Blog</h1>
+                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">{{translateText('Home')}}</a></span> <span>{{translateText('Blog')}}</span></p>
+                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{translateText('Blog')}}</h1>
                 </div>
             </div>
         </div>
@@ -21,12 +21,12 @@
                         </a>
                         <div class="text p-4 d-block">
                             <div class="meta mb-3">
-                                <div><a href="#">Sept 10, 2018</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                <div><a href="#">{{translateText('Sept 10, 2018')}}</a></div>
+                                <div><a href="#">{{translateText('Admin')}}</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span>{{translateText('3')}} </a></div>
                             </div>
-                            <h3 class="heading mt-3"><a href="#">Hurricane Irma has devastated Florida</a></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                            <h3 class="heading mt-3"><a href="#">{{translateText('Hurricane Irma has devastated Florida')}}</a></h3>
+                            <p>{{translateText('A small river named Duden flows by their place and supplies it with the necessary regelialia.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -36,12 +36,12 @@
                         </a>
                         <div class="text p-4 d-block">
                             <div class="meta mb-3">
-                                <div><a href="#">Sept 10, 2018</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                <div><a href="#">{{translateText('Sept 10, 2018')}}</a></div>
+                                <div><a href="#">{{translateText('Admin')}}</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span>{{translateText('3')}} </a></div>
                             </div>
-                            <h3 class="heading mt-3"><a href="#">Hurricane Irma has devastated Florida</a></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                            <h3 class="heading mt-3"><a href="#">{{translateText('Hurricane Irma has devastated Florida')}}</a></h3>
+                            <p>{{translateText('A small river named Duden flows by their place and supplies it with the necessary regelialia.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -51,12 +51,12 @@
                         </a>
                         <div class="text p-4 d-block">
                             <div class="meta mb-3">
-                                <div><a href="#">Sept 10, 2018</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                <div><a href="#">{{translateText('Sept 10, 2018')}}</a></div>
+                                <div><a href="#">{{translateText('Admin')}}</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span>{{translateText('3')}} </a></div>
                             </div>
-                            <h3 class="heading mt-3"><a href="#">Hurricane Irma has devastated Florida</a></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                            <h3 class="heading mt-3"><a href="#">{{translateText('Hurricane Irma has devastated Florida')}}</a></h3>
+                            <p>{{translateText('A small river named Duden flows by their place and supplies it with the necessary regelialia.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -66,12 +66,12 @@
                         </a>
                         <div class="text p-4 d-block">
                             <div class="meta mb-3">
-                                <div><a href="#">Sept 10, 2018</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                <div><a href="#">{{translateText('Sept 10, 2018')}}</a></div>
+                                <div><a href="#">{{translateText('Admin')}}</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span>{{translateText('3')}} </a></div>
                             </div>
-                            <h3 class="heading mt-3"><a href="#">Hurricane Irma has devastated Florida</a></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                            <h3 class="heading mt-3"><a href="#">{{translateText('Hurricane Irma has devastated Florida')}}</a></h3>
+                            <p>{{translateText('A small river named Duden flows by their place and supplies it with the necessary regelialia.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -81,12 +81,12 @@
                         </a>
                         <div class="text p-4 d-block">
                             <div class="meta mb-3">
-                                <div><a href="#">Sept 10, 2018</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                <div><a href="#">{{translateText('Sept 10, 2018')}}</a></div>
+                                <div><a href="#">{{translateText('Admin')}}</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span>{{translateText('3')}} </a></div>
                             </div>
-                            <h3 class="heading mt-3"><a href="#">Hurricane Irma has devastated Florida</a></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                            <h3 class="heading mt-3"><a href="#">{{translateText('Hurricane Irma has devastated Florida')}}</a></h3>
+                            <p>{{translateText('A small river named Duden flows by their place and supplies it with the necessary regelialia.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -96,12 +96,12 @@
                         </a>
                         <div class="text p-4 d-block">
                             <div class="meta mb-3">
-                                <div><a href="#">Sept 10, 2018</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                <div><a href="#">{{translateText('Sept 10, 2018')}}</a></div>
+                                <div><a href="#">{{translateText('Admin')}}</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span>{{translateText('3')}} </a></div>
                             </div>
-                            <h3 class="heading mt-3"><a href="#">Hurricane Irma has devastated Florida</a></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                            <h3 class="heading mt-3"><a href="#">{{translateText('Hurricane Irma has devastated Florida')}}</a></h3>
+                            <p>{{translateText('A small river named Duden flows by their place and supplies it with the necessary regelialia.')}}</p>
                         </div>
                     </div>
                 </div>

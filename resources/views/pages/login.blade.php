@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header bg-transparent border-0"><h2 class="">{{translateText('Login')}}</h2></div>
+                        <div class="card-header bg-transparent border-0"><h2 class="">{{__('Login')}}</h2></div>
                         <div class="card-body">
                             @if (session('status'))
                                 <div class="mb-4 font-medium text-sm text-green-600">
@@ -21,27 +21,27 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="email">{{translateText('Email address')}}</label>
+                                    <label for="email">{{__('Email address')}}</label>
                                     <input type="email" class="form-control"  aria-describedby="emailHelp" id="email" name="email" required >
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">{{translateText('Password')}}</label>
+                                    <label for="password">{{__('Password')}}</label>
                                     <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">
                                 </div>
                                 <div class="form-group form-check">
                                     <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">{{translateText('Remember me')}}</label>
+                                    <label class="form-check-label" for="exampleCheck1">{{__('Remember me')}}</label>
                                 </div>
                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <a href="{{ route('social.auth', 'facebook') }}" class="btn btn-primary btn-block">
-                                                {{translateText('Login with Facebook')}}
+                                                {{__('Login with Facebook')}}
                                             </a>
                                         </div>
                                         <div class="col-md-6">
                                             <a href="{{ route('social.auth', 'facebook') }}" class="btn btn-primary btn-block">
-                                                {{translateText('Login with Google')}}
+                                                {{__('Login with Google')}}
                                             </a>
                                         </div>
 
@@ -51,7 +51,7 @@
                                 </div>
 
                                 <div class="d-flex">
-                                    <button type="submit" class="btn btn-primary ps-3 me-3 pe-3">{{translateText('login')}}</button>
+                                    <button type="submit" class="btn btn-primary ps-3 me-3 pe-3">{{__('login')}}</button>
                                 @if (Route::has('password.request'))
                                         <a class="underline text-sm text-center d-flex align-items-end text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                                             {{ __('Forgot your password?') }}
@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header bg-transparent border-0"><h2 class="">{{translateText('Register')}}</h2></div>
+                        <div class="card-header bg-transparent border-0"><h2 class="">{{__('Register')}}</h2></div>
                         <div class="card-body">
                             @if (session('status'))
                                 <div class="mb-4 font-medium text-sm text-green-600">
@@ -75,19 +75,19 @@
                             <form method="POST" action="{{route('register')}}">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="email">{{translateText('Full Name')}}</label>
+                                    <label for="email">{{__('Full Name')}}</label>
                                     <input type="text" class="form-control"  aria-describedby="emailHelp" id="email" name="name" required autocomplete="name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">{{translateText('Email address')}}</label>
+                                    <label for="email">{{__('Email address')}}</label>
                                     <input type="email" class="form-control"  aria-describedby="emailHelp" id="email" name="email" required >
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">{{translateText('Password')}}</label>
+                                    <label for="password">{{__('Password')}}</label>
                                     <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">{{translateText('Password onfirmation')}}</label>
+                                    <label for="password">{{__('Password onfirmation')}}</label>
                                     <input type="password" class="form-control" id="password" name="password_confirmation" required autocomplete="current-password">
                                 </div>
                                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -106,7 +106,7 @@
                                         </label>
                                     </div>
                                 @endif
-                                <button type="submit" class="btn btn-primary">{{translateText('register')}}</button>
+                                <button type="submit" class="btn btn-primary">{{__('register')}}</button>
                             </form>
                         </div>
                     </div>

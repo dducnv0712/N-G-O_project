@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('USER');
             $table->string('provider', 20)->nullable();
             $table->string('provider_id')->nullable();
-            $table->unsignedBigInteger("active")->default(1);
+            $table->unsignedBigInteger("active")->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

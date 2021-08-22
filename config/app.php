@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
 
-        Akib\Translate\GoogleTranslateServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -234,7 +234,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite'=>Laravel\Socialite\Facades\Socialite::class,
 
-        'TranslateText'=>Akib\Translate\Facades\GoogleTranslate::class,
 
     ],
 

@@ -5,7 +5,7 @@
 
     <form class="d-none d-sm-inline-block">
         <div class="input-group input-group-navbar">
-            <input type="text" class="form-control" placeholder="{{translateText('Search…')}}" aria-label="Search">
+            <input type="text" class="form-control" placeholder="{{__('Search…')}}" aria-label="Search">
             <button class="btn" type="button">
                 <i class="align-middle" data-feather="search"></i>
             </button>
@@ -18,12 +18,12 @@
                 <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-toggle="dropdown">
                     <div class="position-relative">
                         <i class="align-middle" data-feather="bell"></i>
-                        <span class="indicator">{{translateText('4')}}</span>
+                        <span class="indicator">{{__('4')}}</span>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="alertsDropdown">
                     <div class="dropdown-menu-header">
-                        {{translateText('4 New Notifications')}}
+                        {{__('4 New Notifications')}}
                     </div>
                     <div class="list-group">
                         <a href="#" class="list-group-item">
@@ -32,9 +32,9 @@
                                     <i class="text-danger" data-feather="alert-circle"></i>
                                 </div>
                                 <div class="col-10">
-                                    <div class="text-dark">{{translateText('Update completed')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('Restart server 12 to complete the update.')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('30m ago')}}</div>
+                                    <div class="text-dark">{{__('Update completed')}}</div>
+                                    <div class="text-muted small mt-1">{{__('Restart server 12 to complete the update.')}}</div>
+                                    <div class="text-muted small mt-1">{{__('30m ago')}}</div>
                                 </div>
                             </div>
                         </a>
@@ -44,9 +44,9 @@
                                     <i class="text-warning" data-feather="bell"></i>
                                 </div>
                                 <div class="col-10">
-                                    <div class="text-dark">{{translateText('Lorem ipsum')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('Aliquam ex eros, imperdiet vulputate hendrerit et.')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('2h ago')}}</div>
+                                    <div class="text-dark">{{__('Lorem ipsum')}}</div>
+                                    <div class="text-muted small mt-1">{{__('Aliquam ex eros, imperdiet vulputate hendrerit et.')}}</div>
+                                    <div class="text-muted small mt-1">{{__('2h ago')}}</div>
                                 </div>
                             </div>
                         </a>
@@ -56,8 +56,8 @@
                                     <i class="text-primary" data-feather="home"></i>
                                 </div>
                                 <div class="col-10">
-                                    <div class="text-dark">{{translateText('Login from 192.186.1.8')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('5h ago')}}</div>
+                                    <div class="text-dark">{{__('Login from 192.186.1.8')}}</div>
+                                    <div class="text-muted small mt-1">{{__('5h ago')}}</div>
                                 </div>
                             </div>
                         </a>
@@ -67,15 +67,15 @@
                                     <i class="text-success" data-feather="user-plus"></i>
                                 </div>
                                 <div class="col-10">
-                                    <div class="text-dark">{{translateText('New connection')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('Christina accepted your request.')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('14h ago')}}</div>
+                                    <div class="text-dark">{{__('New connection')}}</div>
+                                    <div class="text-muted small mt-1">{{__('Christina accepted your request.')}}</div>
+                                    <div class="text-muted small mt-1">{{__('14h ago')}}</div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="dropdown-menu-footer">
-                        <a href="#" class="text-muted">{{translateText('Show all notifications')}}</a>
+                        <a href="#" class="text-muted">{{__('Show all notifications')}}</a>
                     </div>
                 </div>
             </li>
@@ -97,7 +97,7 @@
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="messagesDropdown">
                     <div class="dropdown-menu-header">
                         <div class="position-relative">
-                            {{translateText('4 New Messages')}}
+                            {{__('4 New Messages')}}
                         </div>
                     </div>
                     <div class="list-group">
@@ -107,9 +107,9 @@
                                     <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
                                 </div>
                                 <div class="col-10 pl-2">
-                                    <div class="text-dark">{{translateText('Vanessa Tucker')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('Nam pretium turpis et arcu. Duis arcu tortor.')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('15m ago')}}</div>
+                                    <div class="text-dark">{{__('Vanessa Tucker')}}</div>
+                                    <div class="text-muted small mt-1">{{__('Nam pretium turpis et arcu. Duis arcu tortor.')}}</div>
+                                    <div class="text-muted small mt-1">{{__('15m ago')}}</div>
                                 </div>
                             </div>
                         </a>
@@ -119,9 +119,9 @@
                                     <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
                                 </div>
                                 <div class="col-10 pl-2">
-                                    <div class="text-dark">{{translateText('William Harris')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('Curabitur ligula sapien euismod vitae.')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('2h ago')}}</div>
+                                    <div class="text-dark">{{__('William Harris')}}</div>
+                                    <div class="text-muted small mt-1">{{__('Curabitur ligula sapien euismod vitae.')}}</div>
+                                    <div class="text-muted small mt-1">{{__('2h ago')}}</div>
                                 </div>
                             </div>
                         </a>
@@ -131,9 +131,9 @@
                                     <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
                                 </div>
                                 <div class="col-10 pl-2">
-                                    <div class="text-dark">{{translateText('Christina Mason')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('Pellentesque auctor neque nec urna.')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('4h ago')}}</div>
+                                    <div class="text-dark">{{__('Christina Mason')}}</div>
+                                    <div class="text-muted small mt-1">{{__('Pellentesque auctor neque nec urna.')}}</div>
+                                    <div class="text-muted small mt-1">{{__('4h ago')}}</div>
                                 </div>
                             </div>
                         </a>
@@ -143,15 +143,15 @@
                                     <img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
                                 </div>
                                 <div class="col-10 pl-2">
-                                    <div class="text-dark">{{translateText('Sharon Lessman')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('Aenean tellus metus, bibendum sed, posuere ac, mattis non.')}}</div>
-                                    <div class="text-muted small mt-1">{{translateText('5h ago')}}</div>
+                                    <div class="text-dark">{{__('Sharon Lessman')}}</div>
+                                    <div class="text-muted small mt-1">{{__('Aenean tellus metus, bibendum sed, posuere ac, mattis non.')}}</div>
+                                    <div class="text-muted small mt-1">{{__('5h ago')}}</div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="dropdown-menu-footer">
-                        <a href="#" class="text-muted">{{translateText('Show all messages')}}</a>
+                        <a href="#" class="text-muted">{{__('Show all messages')}}</a>
                     </div>
                 </div>
             </li>
@@ -161,7 +161,7 @@
 {{--                </a>--}}
 
                 <a class="nav-link " href="#" data-toggle="dropdown">
-                    <img src="{{asset('dist/img/avatars/avatar.jpg')}}" class="avatar img-fluid rounded mr-1" alt="Charles Hall" /> <span class="text-dark">{{translateText('Charles Hall')}}</span>
+                    <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="avatar img-fluid rounded mr-1"  /> <span class="text-dark">{{Auth::user()->name}}</span>
                 </a>
 {{--                <div class="dropdown-menu dropdown-menu-right">--}}
 {{--                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>--}}

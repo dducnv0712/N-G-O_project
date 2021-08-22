@@ -22,29 +22,26 @@ class MailController extends Controller
 
         $post_send = Post::findOrFail($id);
 
+        if ($post_send->approval == 0){
+            foreach ($mail_news as $mail_n){
+                $mail = $mail_n -> email;
+                $mail_name = $mail_n -> name;
 
-        foreach ($mail_news as $mail_n){
-            $mail = $mail_n -> email;
-            $mail_name = $mail_n -> name;
+                Mail::send('admin.mail.mail_news',[
+                    'name' => $mail_name,
+                    'post' =>  $post_send
 
-            Mail::send('admin.mail.mail_news',[
-                'name' => $mail_name,
-                'post' =>  $post_send
+                ],function ($message) use ($mail){
+                    $message -> to($mail)->subject('Non-governmental Organizations');
+                    $message ->from($mail,'Non-governmental Organizations');
 
-            ],function ($message) use ($mail){
-                $message -> to($mail)->subject('Non-governmental Organizations');
-                $message ->from($mail,'Non-governmental Organizations');
-
-            });
+                });
+            }
+            $post_send -> update([
+                'send_mail' => 0
+            ]);
+            return redirect()->to("admin/posts");
         }
-        $post_send -> update([
-            'send_mail' => 1
-        ]);
-
-
-
-
-        return redirect()->to("admin/posts");
 
     }
 

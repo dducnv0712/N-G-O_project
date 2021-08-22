@@ -345,7 +345,7 @@
                                             <tr style="margin-top:20px">
                                                 <td>Contribution NO.</td>
 
-                                                <td style="text-align: right">{{$contribution_id}}</td>
+                                                <td style="text-align: right">{{$contribute_id}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Full name</td>
@@ -360,7 +360,7 @@
                                             <tr>
                                                 <td>Amount</td>
 
-                                                <td style="text-align: right">{{$amount}}</td>
+                                                <td style="text-align: right">@money($amount*22854)</td>
                                             </tr>
                                             <tr>
                                                 <td>Contribution Date</td>

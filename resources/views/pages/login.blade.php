@@ -127,19 +127,19 @@
                     <div class="img img-2 align-self-stretch" style="background-image: url('{{url('dist/user/images/bg_4.jpg')}}')"></div>
                 </div>
                 <div class="col-md-6 volunteer pl-md-5 ftco-animate">
-                    <h3 class="mb-3">{{translateText('Join Our Mailing List')}}</h3>
+                    <h3 class="mb-3">{{__('Join Our Mailing List')}}</h3>
                     <form class="volunter-form">
                         @csrf
-                        <p class="text-white">{{translateText('Join and receive updates on charity news by entering the information below.')}}</p>
+                        <p class="text-white">{{__('Join and receive updates on charity news by entering the information below.')}}</p>
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control nameSub" placeholder="{{translateText('Your Name')}}">
+                            <input type="text" name="name" class="form-control nameSub" placeholder="{{__('Your Name')}}">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control emailSub" placeholder="{{translateText('Your Email')}}">
+                            <input type="email" name="email" class="form-control emailSub" placeholder="{{__('Your Email')}}">
                         </div>
 
                         <div class="form-group">
-                            <button type="button" id="send-mail" class="btn btn-white">{{translateText('Subscribe')}}</button>
+                            <button type="button" id="send-mail" class="btn btn-white">{{__('Subscribe')}}</button>
                         </div>
                     </form>
                 </div>

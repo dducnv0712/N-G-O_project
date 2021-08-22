@@ -6,7 +6,7 @@
             <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                     <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{{asset('/')}}">Home</a></span> <span>Donate</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{translateText('Donations')}}</h1>
+                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{__('Donations')}}</h1>
                 </div>
             </div>
         </div>
@@ -20,14 +20,13 @@
                     <div class="col-md-8">
 
                         <div class="card">
-                            <div class="card-header">
-                            </div>
+
                             <div class="card-body">
                                 <form action="{{url('/debit-cart')}}" class="g-3">
                                     <div class="row">
 
-                                        <div class="input-group mb-3">
-                                            <span style="height:58px" class="input-group-text mt-1">
+                                        <div class="input-group">
+                                            <span  style="height:58px;margin-top:6px" class="input-group-text">
                                                 <select class="form-select" id="cur">
                                                        <option value="VND">VND</option>
                                                        <option value="INR">INR</option>
@@ -37,15 +36,29 @@
                                             <input type="text" id="amount" aria-label="Last name" value="" class="form-control">
                                         </div>
                                         <div class="col-12">
-                                            <label for="select_post" class="form-label">Contribute</label>
+                                            <label for="select_post" class="form-label mt-3">{{__('Đối Tượng Muốn Đóng Góp')}}</label>
                                             <select id="select_post" class="form-select">
+{{--                                                @if(!$post_selected == null)--}}
+{{--                                                    <option selected value="{{$post_selected->id}}">{{$post_selected->title}}</option>--}}
+{{--                                                @endif--}}
+
+{{--                                                    <option disabled>Chọn Đối Trường Hợp Muốn Đóng Góp Khác</option>--}}
+                                                <option  @if($post_selected == null) selected @endif disabled>Chọn Đối Trường Hợp Muốn Đóng Góp</option>
                                                 @foreach($category as $item)
                                                     @if($item->post_count > 0)
-                                                        <option disabled>-----{{$item->name}}-----</option>
+                                                        <option disabled>-----{{'Các dự án '.$item->name}}-----</option>
                                                         @foreach($posts as $select_post)
-                                                            @if($select_post -> category_id == $item->id)
-                                                                <option value="{{$select_post->id}}">{{$select_post->title}}</option>
-                                                            @endif
+
+                                                                 @if($select_post -> category_id == $item->id)
+                                                                     @if(!$post_selected == null)
+
+                                                                         <option @if($post_selected->id ==$select_post->id ) selected @endif value="{{$select_post->id}}">{{$select_post->title}}</option>
+                                                                     @else
+                                                                         <option  value="{{$select_post->id}}">{{$select_post->title}}</option>
+                                                                     @endif
+
+                                                                 @endif
+
                                                         @endforeach
                                                     @endif
                                                 @endforeach
@@ -60,11 +73,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body"></div>
-                        </div>
-                    </div>
+
 
                 </div>
             </form>

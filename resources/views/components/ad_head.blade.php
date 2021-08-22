@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" href="{{asset('dist/img/icons/icon-48x48.png')}}" />
 
-    <title>{{translateText('Admin N-G-O')}}</title>
+    <title>{{__('Admin N-G-O')}}</title>
 
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">

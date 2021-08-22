@@ -11,6 +11,7 @@ class Contribution extends Model
     protected $table = "contributions";
     protected $fillable = [
         "id_cus",
+        "contribute_id",
         "given_name",
         "surname",
         "email",
@@ -19,4 +20,7 @@ class Contribution extends Model
         "id_post",
         "status"
     ];
+    public function Post(){
+        return $this->belongsTo(Post::class ,'id_post');
+    }
 }

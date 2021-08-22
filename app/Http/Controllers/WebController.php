@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Contribution;
 use App\Models\Post;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,133 +16,112 @@ class WebController extends Controller
 
 
     public function home(){
+        $category = Category::withCount('Post')->where('active',1)->get();
+        $posts = Post::where('active',0)->get();
         $contribution =Contribution::all();
-        $category = Category::withCount(['Post','Post as post_important'=>function($query) {
-           $query->where('important', 1) ;
-        }])->where('active',1)->get();
-//        dd($category);
-        $post = Post::where('active',1)->get();
+        $amount_total = 0;
+        foreach ($contribution as $item){
+            $amount_total += $item-> 	contribute_amount * 22854;
+//            dd($item->given_name);
+        }
+        $contribute_total = null;
+        $count_contribute = [];
+        foreach ($posts as $item_post){
+            foreach ($contribution as $item_contribution ){
+                if($item_contribution->id_post == $item_post->id){
+                    $contribute_total+= $item_contribution->contribute_amount;
+                    if(!$item_post->contribute == null){
+                        if($contribute_total /  $item_post->contribute * 100 >= 100){
+                            $count_contribute[] = $item_post->id;
+                        }
+                    }
 
-//        foreach ($contribution as $item ){
-//            $amount += $item->contribute_amount;
-//        }
-
-        $important = count($post->where('important',1));
-
+                }
+            }
+        }
+        $important = count($posts->where('important',1));
         return view('home',[
             'category' => $category,
-            'posts' => $post,
+            'posts' => $posts,
             'contribution' =>$contribution,
             'important'=>$important,
+            'amount_total'=>$amount_total,
+            'count_contribute'=>$count_contribute
 
         ]);
     }
-    public function donate(){
 
+    public function donate(){
         $category = Category::withCount('Post')->where('active',1)->get();
+        $post_selected = null;
+        $post = Post::where('active',0)->get();
+        return view('pages.donate',[
+            'category' => $category,
+            'posts' => $post,
+            'post_selected'=>$post_selected
+        ]);
+    }
+
+    public function donate_selected($id){
+        $category = Category::withCount('Post')->where('active',0)->get();
+        $post_selected = Post::findOrFail($id);
         $post = Post::where('active',1)->get();
         return view('pages.donate',[
             'category' => $category,
             'posts' => $post,
+            'post_selected'=>$post_selected
         ]);
     }
+
 
     public function about(){
         return view('pages.about');
     }
+
+    public function desc_post($id){
+        $contribution =Contribution::all();
+        $posts = Post::findOrFail($id);
+        $post_list = Post::where('active',0)->get();
+        $category = Category::withCount('Post')->where('active',0)->get();
+        return view('pages.desc_post',[
+            'posts'=>$posts,
+            'contribution' =>$contribution,
+            'category'=>$category,
+            'post_list'=>$post_list
+        ]);
+    }
     public function contact(){
         return view('pages.contact');
     }
+
     public function account(){
         return view('pages.login');
     }
+    public function profile(){
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        $contribution = Contribution::where('id_cus',$id)->get();
+        return view('pages.profile',[
+            'user'=>$user,
+            'contribution'=>$contribution
+        ]);
+    }
+    public function postsList(Request $request,$id){
+        $contribution =Contribution::all();
+        $categoryId = $request->get("category_id");
+        $search = $request->get("search");
+        $category = Category::where('active',1)->findOrFail($id);
+        $posts= Post::with('Category')->where( 'category_id',$id)->search($search)->category($categoryId)->orderBy("id","desc")->paginate(6);
+        return view('pages.posts-list',[
+            'posts' =>$posts,
+            'search'=>$search,
+            'category'=>$category,
+            'contribution' =>$contribution,
 
-
-
-    public function postsList(){
-        return view('pages.posts-list');
+        ]);
     }
     public function gallery(){
         return view('pages.gallery');
-    }
-
-
-    public function Contributor(){
-        return view('admin.ad_page.contributor.contributor');
-    }
-    public function Digital_wallet(){
-        return view('admin.ad_page.contributor.digital_wallet');
-    }
-    public function Credit_cart(){
-        return view('admin.ad_page.contributor.credit_cart');
-    }
-    public function list(){
-        return view('admin.ad_page.posts.list');
-    }
-    public function update(){
-        return view('admin.ad_page.posts.update');
-    }
-
-    public function maps(){
-        return view("admin.ad_page.profile.map_list");
-    }
-
-
-    public function contribution(Request $request){
-        $cus_id = Auth::id();
-        $now = Carbon::now('asia/Ho_Chi_Minh')->format('d-m-Y H:i:s');
-        if ($cus_id == null){
-            $cus_id = $request['id_cus'];
-        }
-        Contribution::create([
-            'id_cus' => $cus_id,
-            'given_name'=>$request->get('given_name'),
-            'surname'=>$request->get('surname'),
-            'email'=>$request->get('email'),
-            'contribute_amount'=>$request->get('amount'),
-            'country'=>$request->get('country'),
-            'id_post'=>$request->get('post_id'),
-            'status'=>$request->get('status')
-
-        ]);
-
-        $mail = $request['email'];
-//        $given_name = $request['given_name'];
-//        $surname = $request['surname'];
-//        $contribution_id = $request['contribution_id'];
-//        $amount = $request['amount'];
-//        $country =$request['country'];
-        $post_id = $request['post_id'];
-        $posts = Post::findOrFail($post_id);
-//        $data = [
-//            $mail = $request['email'],
-//            $given_name = $request['given_name'],
-//            $surname = $request['surname'],
-//            $contribution_id = $request['contribution_id'],
-//            $amount = $request['amount'],
-//            $country =$request['country'],
-//            $post_id = $request['post_id'],
-//            $date_time = $now
-//        ];
-
-        Mail::send('admin.mail.feedback_contribution',[
-            'posts' => $posts,
-            'date_time'=>$now,
-            'given_name'=>$request['given_name'],
-            'surname'=>$request['surname'],
-            'contribution_id' =>$request['contribution_id'],
-            'amount' =>$request['amount'],
-            'country' => $request['country']
-
-        ],function ($message) use ($mail){
-            $message -> to($mail)->subject('Non-governmental Organizations');
-            $message ->from($mail,'Non-governmental Organizations');
-
-        });
-//        $data = $request->all();
-//        print_r($data);
-
-
     }
 //    public function contribution_create(Request $request){
 //        Contribution::create($request->all());

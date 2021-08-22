@@ -1,15 +1,8 @@
 <nav style="z-index: 999" class="navbar-head navbar m-0 p-0">
     <div class="container align-items-center">
-     <div>
-         <select name="target" class="target bg-transparent focus:outline-none shadow-none ">
-             <option>Select</option>
-             <option value="vi">Vietnam</option>
-             <option value="hi">India - Hindi</option>
-             <option value="en">English</option>
+        <a >Navbar</a>
 
-         </select><br>
-     </div>
-        <div class="d-flex">
+        <div class="d-flex me-4">
             <div class="me-2">
                 <a data-bs-toggle="collapse" href="#search" role="button" aria-expanded="false" aria-controls="collapseExample">
                     <i class="fas fa-search"></i>
@@ -17,20 +10,21 @@
             </div>
             <div>
                 @if(!Auth::user() == "")
-                    <div class="dropdown">
-                        <a   id="account" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{Auth::user()->name}}
+                    <div class="btn-group">
+                        <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <strong>{{Auth::user()->name}}</strong> @if(Auth::user()->role =='AUTHOR' || Auth::user()->role == "ADMIN") ({{Auth::user()->role}}) @endif
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="account">
-                            <li><a class="dropdown-item">
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{url('/profile')}}">Profile</a></li>
+{{--                            <li><hr class="dropdown-divider"></li>--}}
+                            @if(Auth::user()->role =='AUTHOR' || Auth::user()->role == "ADMIN")
+                            <li><a class="dropdown-item" href="{{url('/author/posts')}}">My Posts</a></li>
+                            @endif
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item d-flex justify-content-center align-items-center" >
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
-
-                                        <x-jet-dropdown-link href="{{ route('logout') }}"
-                                                             onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                            {{ __('Log Out') }}
-                                        </x-jet-dropdown-link>
+                                        <button class="bg-transparent border-0" type="submit">Logout</button>
                                     </form>
                                 </a></li>
                         </ul>
@@ -52,7 +46,7 @@
         </div>
     </div>
 </div>
-<nav style="z-index: 999"  class="navbar navbar-expand-lg  ftco_navbar m-0 p-0 ftco-navbar-light" id="ftco-navbar">
+<nav style="z-index:300"  class="navbar navbar-expand-lg  ftco_navbar m-0 p-0 ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="{{asset('/')}}">Welfare</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">

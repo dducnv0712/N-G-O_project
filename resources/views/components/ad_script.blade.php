@@ -59,8 +59,8 @@
                 success:function (data){
                     swal({
                         type: 'success',
-                        title: '{{translateText('Gửi Thành Công!!')}}',
-                        text: '{{translateText('Nhấn vào nút để tiếp tục !!')}}',
+                        title: '{{__('Gửi Thành Công!!')}}',
+                        text: '{{__('Nhấn vào nút để tiếp tục !!')}}',
                         confirmButtonColor:true,
                     },function (isConfirm){
                         if(isConfirm){
@@ -70,7 +70,7 @@
 
                 },
                 error:function (data){
-                    sweetAlert("{{translateText('Lỗi..')}}","{{translateText('Đã gặp vấn đề!!')}}","error")
+                    sweetAlert("{{__('Lỗi..')}}","{{__('Đã gặp vấn đề!!')}}","error")
                 }
             });
 
@@ -84,13 +84,13 @@
     {{--category delete--}}
     function deleteCategory(id){
         swal({
-                title: "{{translateText('Bạn Có Chắc Không?')}}",
-                text: "{{translateText('Bạn sẽ không thể khôi phục lại được!!')}}",
+                title: "{{__('Bạn Có Chắc Không?')}}",
+                text: "{{__('Bạn sẽ không thể khôi phục lại được!!')}}",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: '{{translateText('Đồng Ý!!')}}',
-                cancelButtonText: "{{translateText('Hủy Bỏ!!')}}",
+                confirmButtonText: '{{__('Đồng Ý!!')}}',
+                cancelButtonText: "{{__('Hủy Bỏ!!')}}",
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -113,8 +113,8 @@
                         success:function (data){
                             swal({
                                 type: 'success',
-                                title: '{{translateText('Gửi Thành Công!!')}}',
-                                text: '{{translateText('Nhấn vào nút để tiếp tục !!')}}',
+                                title: '{{__('Gửi Thành Công!!')}}',
+                                text: '{{__('Nhấn vào nút để tiếp tục !!')}}',
                                 confirmButtonColor:true,
                             },function (isConfirm){
                                 if(isConfirm){
@@ -125,12 +125,12 @@
                         },
                         error:function (data){
                             // console.log(this.url)
-                            sweetAlert("{{translateText('Lỗi..')}}","{{translateText('Đã gặp vấn đề!!')}}","error")
+                            sweetAlert("{{__('Lỗi..')}}","{{__('Đã gặp vấn đề!!')}}","error")
                         }
                     });
 
                 } else {
-                    swal("{{translateText('Đã Hủy!!')}}", "{{translateText('ữ liệu vẫn còn!!')}}", "error");
+                    swal("{{__('Đã Hủy!!')}}", "{{__('ữ liệu vẫn còn!!')}}", "error");
                 }
             });
 
@@ -145,13 +145,13 @@
     //delete post
     function deletePost(id){
         swal({
-                title: "{{translateText('Bạn Có Chắc Không?')}}",
-                text: "{{translateText('Bạn sẽ không thể khôi phục lại được!!')}}",
+                title: "{{__('Bạn Có Chắc Không?')}}",
+                text: "{{__('Bạn sẽ không thể khôi phục lại được!!')}}",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: '{{translateText('Đồng Ý!!')}}',
-                cancelButtonText: "{{translateText('Hủy Bỏ!!')}}",
+                confirmButtonText: '{{__('Đồng Ý!!')}}',
+                cancelButtonText: "{{__('Hủy Bỏ!!')}}",
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -174,8 +174,8 @@
                         success:function (data){
                             swal({
                                 type: 'success',
-                                title: '{{translateText('Gửi Thành Công!!')}}',
-                                text: '{{translateText('Nhấn vào nút để tiếp tục !!')}}',
+                                title: '{{__('Gửi Thành Công!!')}}',
+                                text: '{{__('Nhấn vào nút để tiếp tục !!')}}',
                                 confirmButtonColor:true,
                             },function (isConfirm){
                                 if(isConfirm){
@@ -198,13 +198,13 @@
     // send mail
     function sendMailPost(id){
         swal({
-                title: "{{translateText('Bạn Có Chắc Không?')}}",
-                text: "{{translateText('Bạn sẽ gửi thông tin bài viết cho mọi người!!')}}",
+                title: "{{__('Bạn Có Chắc Không?')}}",
+                text: "{{__('Bạn sẽ gửi thông tin bài viết cho mọi người!!')}}",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: '{{translateText('Đồng Ý!!')}}',
-                cancelButtonText: "{{translateText('Hủy Bỏ!!')}}",
+                confirmButtonText: '{{__('Đồng Ý!!')}}',
+                cancelButtonText: "{{__('Hủy Bỏ!!')}}",
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -214,7 +214,11 @@
                     // console.log(id)
 
                     $.ajax({
+                        @if(Auth::user()->role == 'AUTHOR')
+                        url:"{{url('author/posts/send-mail-news')}}"+'/'+id,
+                        @else
                         url:"{{url('admin/posts/send-mail-news')}}"+'/'+id,
+                         @endif
                         type:'GET',
                         data:{"_token": "{{ csrf_token() }}"},
                         beforeSend: function () {
@@ -228,8 +232,8 @@
                         success:function (data){
                             swal({
                                 type: 'success',
-                                title: '{{translateText('Gửi Thành Công!!')}}',
-                                text: '{{translateText('Nhấn vào nút để tiếp tục !!')}}',
+                                title: '{{__('Gửi Thành Công!!')}}',
+                                text: '{{__('Nhấn vào nút để tiếp tục !!')}}',
                                 confirmButtonColor:true,
                             },function (isConfirm){
                                 if(isConfirm){
@@ -240,12 +244,12 @@
                         },
                         error:function (data){
                             // console.log(this.url)
-                            sweetAlert("{{translateText('Lỗi..')}}","{{translateText('Đã gặp vấn đề!!')}}","error")
+                            sweetAlert("{{__('Lỗi..')}}","{{__('Đã gặp vấn đề!!')}}","error")
                         }
                     });
 
                 } else {
-                    swal("{{translateText('Đã Hủy!!')}}", "{{translateText('Đữ liệu vẫn còn!!')}}", "error");
+                    swal("{{__('Đã Hủy!!')}}", "{{__('Đữ liệu vẫn còn!!')}}", "error");
                 }
             });
 

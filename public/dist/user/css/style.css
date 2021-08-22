@@ -9216,3 +9216,13 @@ textarea.form-control {
  .css-168tag2-StyledLabel{
     display: none;
 }
+.image_desc{
+    width:100px;
+    height:90px;
+    position: relative;
+}
+.image_desc image{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}

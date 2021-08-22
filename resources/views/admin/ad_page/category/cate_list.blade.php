@@ -4,7 +4,7 @@
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
-                <h3><strong>{{translateText('Analytics')}}</strong>{{translateText('Dashboard')}} </h3>
+                <h3><strong>{{__('Analytics')}}</strong>{{__('Dashboard')}} </h3>
             </div>
 
             <div class="col-auto ml-auto text-right mt-n1">
@@ -13,7 +13,7 @@
                         <li>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCate">
-                                {{translateText('New Category')}}
+                                {{__('New Category')}}
                             </button>
                         </li>
                     </ol>
@@ -24,7 +24,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>{{translateText('ID')}}</th>
+                    <th>{{__('ID')}}</th>
                     <th>Name</th>
                     <th>Created_at</th>
                     <th>Updated_at</th>
@@ -40,7 +40,7 @@
                         <td>{{$item->created_at->format('d-m-Y')}}</td>
                         <td>{{$item->updated_at->format('d-m-Y')}}</td>
                         <td>
-                            @if($item->active == 1)
+                            @if($item->active == 0)
                                 <a href="{{url('admin/category/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
                             @else
                                 <a href="{{url('admin/category/appear',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>

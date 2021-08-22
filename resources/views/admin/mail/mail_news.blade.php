@@ -338,7 +338,7 @@
                                         @if($post->contribute == null)
                                             <span style="font-weight:600">Không Giới Hạn Đóng Góp</span>
                                         @else
-                                             <span>{{$post->contribute}}</span>
+                                             <span>@money($post->contribute*22854)</span>
                                         @endif
                                         </p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
@@ -348,7 +348,7 @@
                                                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td> <a href="http://127.0.0.1:8000/admin/posts" target="_blank">Contribute Now</a> </td>
+                                                            <td> <a href="http://127.0.0.1:8000/desc-post/{{$post->id}}" target="_blank">Contribute Now</a> </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>

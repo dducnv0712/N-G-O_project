@@ -4,8 +4,8 @@
         <div class="row mb-5">
             <div class="col-md-3">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">{{translateText('About Us')}}</h2>
-                    <p>{{translateText('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.')}}</p>
+                    <h2 class="ftco-heading-2">{{__('About Us')}}</h2>
+                    <p>{{__('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.')}}</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -15,26 +15,26 @@
             </div>
             <div class="col-md-4">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">{{translateText('Recent Blog')}}</h2>
+                    <h2 class="ftco-heading-2">{{__('Recent Blog')}}</h2>
                     <div class="block-21 mb-4 d-flex">
                         <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
                         <div class="text">
-                            <h3 class="heading"><a href="#">{{translateText('Even the all-powerful Pointing has no control about')}}</a></h3>
+                            <h3 class="heading"><a href="#">{{__('Even the all-powerful Pointing has no control about')}}</a></h3>
                             <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span>{{translateText('July 12, 2018')}} </a></div>
-                                <div><a href="#"><span class="icon-person"></span>{{translateText('Admin')}} </a></div>
-                                <div><a href="#"><span class="icon-chat"></span>{{translateText('19')}} </a></div>
+                                <div><a href="#"><span class="icon-calendar"></span>{{__('July 12, 2018')}} </a></div>
+                                <div><a href="#"><span class="icon-person"></span>{{__('Admin')}} </a></div>
+                                <div><a href="#"><span class="icon-chat"></span>{{__('19')}} </a></div>
                             </div>
                         </div>
                     </div>
                     <div class="block-21 mb-4 d-flex">
                         <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
                         <div class="text">
-                            <h3 class="heading"><a href="#">{{translateText('Even the all-powerful Pointing has no control about')}}</a></h3>
+                            <h3 class="heading"><a href="#">{{__('Even the all-powerful Pointing has no control about')}}</a></h3>
                             <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span>{{translateText('July 12, 2018')}} </a></div>
-                                <div><a href="#"><span class="icon-person"></span>{{translateText('Admin')}} </a></div>
-                                <div><a href="#"><span class="icon-chat"></span> {{translateText('19')}}</a></div>
+                                <div><a href="#"><span class="icon-calendar"></span>{{__('July 12, 2018')}} </a></div>
+                                <div><a href="#"><span class="icon-person"></span>{{__('Admin')}} </a></div>
+                                <div><a href="#"><span class="icon-chat"></span> {{__('19')}}</a></div>
                             </div>
                         </div>
                     </div>
@@ -42,25 +42,25 @@
             </div>
             <div class="col-md-2">
                 <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">{{translateText('Site Links')}}</h2>
+                    <h2 class="ftco-heading-2">{{__('Site Links')}}</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">{{translateText('Home')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{translateText('About')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{translateText('Donate')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{translateText('Causes')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{translateText('Event')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{translateText('Blog')}}</a></li>
+                        <li><a href="#" class="py-2 d-block">{{__('Home')}}</a></li>
+                        <li><a href="#" class="py-2 d-block">{{__('About')}}</a></li>
+                        <li><a href="#" class="py-2 d-block">{{__('Donate')}}</a></li>
+                        <li><a href="#" class="py-2 d-block">{{__('Causes')}}</a></li>
+                        <li><a href="#" class="py-2 d-block">{{__('Event')}}</a></li>
+                        <li><a href="#" class="py-2 d-block">{{__('Blog')}}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">{{translateText('Have a Questions?')}}</h2>
+                    <h2 class="ftco-heading-2">{{__('Have a Questions?')}}</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">{{translateText('203 Fake St. Mountain View, San Francisco, California, USA')}}</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{translateText('+2 392 3929 210')}}</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{translateText('info@yourdomain.com')}}</span></a></li>
+                            <li><span class="icon icon-map-marker"></span><span class="text">{{__('203 Fake St. Mountain View, San Francisco, California, USA')}}</span></li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{__('+2 392 3929 210')}}</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{__('info@yourdomain.com')}}</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
             <div class="col-md-12 text-center">
 
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    {{translateText('Copyright')}}  &copy;<script>document.write(new Date().getFullYear());</script> {{translateText('All rights reserved')}} |  <a href="{{asset('/')}}" target="_blank">{{translateText('Non-governmental Organizations')}}</a>
+                    {{__('Copyright')}}  &copy;<script>document.write(new Date().getFullYear());</script> {{__('All rights reserved')}} |  <a href="{{asset('/')}}" target="_blank">{{__('Non-governmental Organizations')}}</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>

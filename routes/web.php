@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContributeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TranslateController;
@@ -22,19 +23,21 @@ use App\Http\Controllers\PostController;
 
 Route::get('/',[WebController::class,"home"]);
 Route::get('/contact',[WebController::class,"contact"]);
+Route::get('/desc-post/{id}',[WebController::class,"desc_post"]);
+
 Route::get('/donate',[WebController::class,"donate"]);
+Route::get('/donate/{id}',[WebController::class,"donate_selected"]);
 Route::get('/about',[WebController::class,"about"]);
 Route::get('/login',[WebController::class,"account"]);
 Route::get('auth/social', [SocialController::class,'show'])->name('social.login');
 Route::get('auth/{driver}', [SocialController::class,'redirectToProvider'])->name('social.auth');
 Route::get('auth/{driver}/callback', [SocialController::class,'handleProviderCallback'])->name('social.callback');
 Route::post('/subscribe-mail',[MailController::class,'subMail']);
-
-Route::get('/posts-list',[WebController::class,"postsList"]);
+Route::get('/posts-list/{id}',[WebController::class,"postsList"]);
 Route::get('/gallery',[WebController::class,"gallery"]);
-Route::post('/contribution',[WebController::class,"contribution"]);
+Route::get('/profile',[WebController::class,"profile"]);
+Route::post('/contribution',[ContributeController::class,"contribution"]);
 Route::post('/setTarget', [TranslateController::class, 'setTarget']);
-
 
 
 

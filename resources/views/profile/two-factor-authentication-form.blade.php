@@ -1,11 +1,4 @@
 <x-jet-action-section>
-    <x-slot name="title">
-        {{ __('Two Factor Authentication') }}
-    </x-slot>
-
-    <x-slot name="description">
-        {{ __('Add additional security to your account using two factor authentication.') }}
-    </x-slot>
 
     <x-slot name="content">
         <h3 class="text-lg font-medium text-gray-900">
@@ -53,27 +46,27 @@
         <div class="mt-5">
             @if (! $this->enabled)
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
-                    <x-jet-button type="button" wire:loading.attr="disabled">
+                    <x-jet-button type="button" class="btn btn-primary text-dark"  wire:loading.attr="disabled">
                         {{ __('Enable') }}
                     </x-jet-button>
                 </x-jet-confirms-password>
             @else
                 @if ($showingRecoveryCodes)
                     <x-jet-confirms-password wire:then="regenerateRecoveryCodes">
-                        <x-jet-secondary-button class="mr-3">
+                        <x-jet-secondary-button class="btn btn-secondary text-dark"  class="mr-3">
                             {{ __('Regenerate Recovery Codes') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @else
                     <x-jet-confirms-password wire:then="showRecoveryCodes">
-                        <x-jet-secondary-button class="mr-3">
+                        <x-jet-secondary-button class="mr-3 btn btn-secondary text-dark">
                             {{ __('Show Recovery Codes') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @endif
 
                 <x-jet-confirms-password wire:then="disableTwoFactorAuthentication">
-                    <x-jet-danger-button wire:loading.attr="disabled">
+                    <x-jet-danger-button class="btn btn-danger text-dark"  wire:loading.attr="disabled">
                         {{ __('Disable') }}
                     </x-jet-danger-button>
                 </x-jet-confirms-password>

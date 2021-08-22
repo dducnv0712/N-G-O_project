@@ -9,7 +9,7 @@ class TranslateController extends Controller
 {
     //
     public function setTarget(Request $request){
-        Session::put('target',$request->target);
+        Session::forget('target',$request->target);
         return 1;
     }
 }

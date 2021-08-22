@@ -13,6 +13,7 @@ class Post extends Model
         'title',
         'image',
         'author',
+        'approval',
         'contribute',
         'active',
         'important',
@@ -31,5 +32,21 @@ class Post extends Model
     public function Category(){
         return $this->belongsTo(Category::class);
     }
+    public function Post(){
+        return $this->hasMany(Contribution::class);
+    }
+    public function scopeSearch($query,$search){
+        if($search == "" || $search == null){
+            return $query;
+        }
+        return $query->where("title","LIKE","%$search%");
+    }
+    public function scopeCategory($query,$categoryId){
+        if($categoryId==0 || $categoryId == null){
+            return $query;
+        }
+        return $query->where("category_id",$categoryId);
+    }
+
 
 }

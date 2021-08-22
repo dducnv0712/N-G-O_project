@@ -50,7 +50,7 @@ class CategoryController extends Controller
      public function hidden($id){
         $category = Category::findOrFail($id);
         $category -> update([
-            "active" => 0
+            "active" => 1
         ]);
         return redirect()->to("admin/category");
 
@@ -59,7 +59,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
         $category -> update([
-            "active" => 1
+            "active" => 0
         ]);
 
         return redirect()->to("admin/category");

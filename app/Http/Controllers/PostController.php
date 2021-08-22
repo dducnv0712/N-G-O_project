@@ -20,7 +20,7 @@ class PostController extends Controller
 
     }
     public function add(){
-        $categories= Category::where('active',1)->get();
+        $categories= Category::where('active',0)->get();
         return view('admin.ad_page.posts.add',[
             'categories'=>$categories
         ]);
@@ -29,22 +29,28 @@ class PostController extends Controller
     {
             $image = "";
             if($request->hasFile("image")){
-                $file = $request->file("image");// tạo 1 đối tượng file
-                $fileName = time().$file->getClientOriginalName(); // lấy tên file gốc (tên khi up lên)  vis du: ngoctrinh.png
-                $ext = $file->getClientOriginalExtension();// lấy loại file ( ví dụ png jpg..)
-                $fileSize = $file->getSize();// dùng để giới hạn kích thước têp up lên nếu cần (tính bằng Byte)
-                if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){ // chỉ cho upload những file dạng này
+                $file = $request->file("image");
+                $fileName = time().$file->getClientOriginalName();
+                $ext = $file->getClientOriginalExtension();
+                $fileSize = $file->getSize();
+                if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){
                     if($fileSize < 400000000){
                         $file->move("upload/post_image",$fileName);
                         $image = "upload/post_image/".$fileName;
                     }
                 }
             }
+
+        //0 = true
+        //1 = false
+            $approval = 1;
             $author = Auth::id();
-
-
+            if( Auth::user()->role == 'ADMIN'){
+                $approval = 0;
+            }
             Post::create([
                 "image"=>$image,
+                'approval'=>$approval,
                 "author"=>$author,
                 "title"=>$request->get("title"),
                 "description"=>$request->get("desc"),
@@ -52,7 +58,11 @@ class PostController extends Controller
                 "contribute"=>$request->get("donate"),
                 "category_id"=>$request->get("category_id"),
             ]);
+        if( Auth::user()->role == 'ADMIN'){
             return redirect()->to("admin/posts");
+        }else{
+            return redirect()->to("/");
+        }
 
     }
     public function edit($id){
@@ -69,11 +79,11 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $image = "";
         if($request->hasFile("image")){
-            $file = $request->file("image");// tạo 1 đối tượng file
-            $fileName = time().$file->getClientOriginalName(); // lấy tên file gốc (tên khi up lên)  vis du: ngoctrinh.png
-            $ext = $file->getClientOriginalExtension();// lấy loại file ( ví dụ png jpg..)
-            $fileSize = $file->getSize();// dùng để giới hạn kích thước têp up lên nếu cần (tính bằng Byte)
-            if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){ // chỉ cho upload những file dạng này
+            $file = $request->file("image");
+            $fileName = time().$file->getClientOriginalName();
+            $ext = $file->getClientOriginalExtension();
+            $fileSize = $file->getSize();
+            if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){
                 if($fileSize < 400000000){
                     $file->move("upload/post_image",$fileName);
                     $image = "upload/post_image/".$fileName;
@@ -103,7 +113,7 @@ class PostController extends Controller
     public function hidden($id){
         $posts = Post::findOrFail($id);
         $posts->update([
-            "active" => 0
+            "active" => 1
         ]);
         return redirect()->to("admin/posts");
 
@@ -112,7 +122,7 @@ class PostController extends Controller
         $posts = Post::findOrFail($id);
 
         $posts-> update([
-            "active" => 1
+            "active" => 0
         ]);
 
         return redirect()->to("admin/posts");
@@ -121,7 +131,7 @@ class PostController extends Controller
     public function normal($id){
         $posts = Post::findOrFail($id);
         $posts->update([
-            "important" => 0
+            "important" => 1
         ]);
         return redirect()->to("admin/posts");
 
@@ -130,11 +140,19 @@ class PostController extends Controller
         $posts = Post::findOrFail($id);
 
         $posts-> update([
-            "important" => 1
+            "important" => 0
         ]);
 
         return redirect()->to("admin/posts");
 
+    }
+    public function approval($id){
+        $posts = Post::findOrFail($id);
+
+        $posts-> update([
+            "approval" => 0
+        ]);
+        return redirect()->to("admin/posts");
     }
 
 }

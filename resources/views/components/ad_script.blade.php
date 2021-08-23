@@ -23,6 +23,7 @@
             }
         });
     });
+
 </script>
 <script>
     $(function () {
@@ -113,7 +114,7 @@
                         success:function (data){
                             swal({
                                 type: 'success',
-                                title: '{{__('Gửi Thành Công!!')}}',
+                                title: '{{__('Xóa Thành Công!!')}}',
                                 text: '{{__('Nhấn vào nút để tiếp tục !!')}}',
                                 confirmButtonColor:true,
                             },function (isConfirm){

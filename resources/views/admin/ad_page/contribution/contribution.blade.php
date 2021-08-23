@@ -23,12 +23,11 @@
                 <thead>
                 <tr>
                     <th>{{__('Id')}}</th>
-                    <th>{{__('Id_cus')}}</th>
-                    <th>{{__('Full Name')}}</th>
+                    <th>{{__('Họ và Tên')}}</th>
                     <th>{{__('Email')}}</th>
-                    <th>{{__('Contribute amount')}}</th>
-                    <th>{{__('Id post')}}</th>
-                    <th>{{__('Details')}}</th>
+                    <th>{{__('Số Tiền Đóng Góp')}}</th>
+                    <th>{{__('Đối Tượng Đóng Góp')}}</th>
+                    <th>{{__('Chi Tiết')}}</th>
 
                 </tr>
                 </thead>
@@ -36,8 +35,7 @@
                 @foreach($contribution as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{$item->id_cus}}</td>
-                        <td>{{$item->given_name.' '.$item->surname}}</td>
+                        <td>{{$item->surname.' '.$item->given_name}}</td>
                         <td>{{$item->email}}</td>
                         <td>@money($item->contribute_amount*22836)</td>
                         <td>{{$item->post->title}}</td>

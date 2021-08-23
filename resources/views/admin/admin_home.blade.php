@@ -31,10 +31,11 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title mb-4">{{__('Số tiền được đóng góp')}}</h5>
-                                    <h1 class="mt-1 mb-3">@money($amount)</h1>
+                                    <h5 class="card-title mb-4">{{__('Số Người Đã Đóng Góp')}}</h5>
+                                    <h1 class="mt-1 mb-3">{{count($contribution)}}</h1>
                                 </div>
                             </div>
                         </div>
@@ -48,16 +49,14 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title mb-4">Orders</h5>
-                                    <h1 class="mt-1 mb-3">64</h1>
-                                    <div class="mb-1">
-                                        <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
-                                        <span class="text-muted">Since last week</span>
-                                    </div>
+                                    <h5 class="card-title mb-4">{{__('Số tiền được đóng góp')}}</h5>
+                                    <h1 class="mt-1 mb-3">@money($amount)</h1>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -81,21 +80,19 @@
         <div class="row">
             <div class="col-12 col-lg-12 col-xxl-12 d-flex">
                 <div class="card flex-fill">
-                    <div class="card-header">
+                    <div class="card-header ">
 
-                        <h5 class="card-title mb-0">Latest Projects</h5>
+                        <h4 class="font-weight-bold mb-0">{{__('Danh Sách Người Đã Đóng Góp Hôm Nay')}}</h4>
                     </div>
                     <table class="table table-hover my-0">
                         <thead>
                             <tr>
                                 <th>{{__('Id')}}</th>
-                                <th>{{__('Id_cus')}}</th>
-                                <th>{{__('Full name')}}</th>
+                                <th>{{__('Họ và Tên')}}</th>
                                 <th>{{__('Email')}}</th>
-                                <th>{{__('amount')}}</th>
-                                <th>{{__('Country')}}</th>
-                                <th>{{__('---')}}</th>
-                                <th>{{__('Created At')}}</th>
+                                <th>{{__('Số Tiền Đóng Góp')}}</th>
+                                <th>{{__('Đối Tượng Đóng Góp')}}</th>
+                                <th>{{__('Ngày Đóng Góp')}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -103,11 +100,9 @@
                                 @if($item->created_at->format('d-m-Y') == $now)
                                 <tr>
                                     <td>{{$item->id}}</td>
-                                    <td>{{$item->id_cus}}</td>
                                     <td>{{$item->given_name .' '. $item->surname}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>@money($item->contribute_amount*22854)</td>
-                                    <td>{{$item->country}}</td>
                                     <td>{{$item->post->title}}</td>
                                     <td>{{$item->created_at}}</td>
                                 </tr>

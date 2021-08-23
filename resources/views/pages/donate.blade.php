@@ -26,14 +26,14 @@
                                     <div class="row">
 
                                         <div class="input-group">
-                                            <span  style="height:58px;margin-top:6px" class="input-group-text">
+                                            <span   class="input-group-text">
                                                 <select class="form-select" id="cur">
                                                        <option value="VND">VND</option>
                                                        <option value="INR">INR</option>
                                                        <option value="USD">USD</option>
                                                 </select>
                                             </span>
-                                            <input type="text" id="amount" aria-label="Last name" value="" class="form-control">
+                                            <input type="number" id="amount" aria-label="Last name" value="" class="form-control">
                                         </div>
                                         <div class="col-12">
                                             <label for="select_post" class="form-label mt-3">{{__('Đối Tượng Muốn Đóng Góp')}}</label>
@@ -69,6 +69,9 @@
 
                                     <div class="mt-3" id="paypal-button-container"></div>
                                 </form>
+                                <div class="text-center" id="loading">
+
+                                </div>
                             </div>
 
                         </div>

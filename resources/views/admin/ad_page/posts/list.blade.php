@@ -150,7 +150,7 @@
 
                                     @if($item->approval == 0)
                                         <td class="text-center">
-                                            @if($item->active == 1)
+                                            @if($item->active == 0)
                                                 <a href="{{url('admin/posts/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
                                             @else
                                                 <a href="{{url('admin/posts/appear',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>

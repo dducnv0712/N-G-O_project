@@ -28,13 +28,13 @@
                     <form  action="{{url("/admin/posts/update",["id" =>$posts->id])}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="file" class="form-label">Image</label>
+                            <label for="file" class="form-label">{{__('Image')}}</label>
                             <input name="image" type="file" id="file" class="form-control">
                             <input value="{{$posts->image}}" name="image_edit" id="file" type="text" hidden>
 
                         </div>
                         <div class="mb-3">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">{{__('Title')}}</label>
                             <input name="title" value="{{$posts->title}}" type="text" id="title" class="form-control">
 
                         </div>

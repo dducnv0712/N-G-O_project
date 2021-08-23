@@ -47,7 +47,8 @@
 
         })
 
-    })
+    });
+
 </script>
 <script type="text/javascript">
     // Render the PayPal button into #paypal-button-container
@@ -63,7 +64,7 @@
             let cur = $('#cur').val();
 
             if (cur === 'VND'){
-                total = amount /22830.5
+                total = amount /22830.
                 if (amount <12000){
                     sweetAlert("Lỗi thông tin...","Số Tiền Không Hợp Lệ!!","error")
                 }
@@ -120,8 +121,12 @@
                         post_id:post_id,
                         status:status,
                         _token:_token},
-
+                    beforeSend: function () {
+                        document.getElementById("loading").innerHTML = '<div class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>';
+                    },
                     success:function (data){
+                        document.getElementById("loading").innerHTML = '';
+
                         swal("Hey, Đóng Góp Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
                         // alert(data);
 

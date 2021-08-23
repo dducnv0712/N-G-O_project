@@ -165,12 +165,12 @@
                                         <div class="text-center">
                                             @if(!$item->contribute == null)
                                                 @if($amount/$item->contribute * 100 >= 100)
-                                                    <button onclick="window.document.location.href='{{url('/desc-post',['id'=>$item->id])}}'" class="btn btn-primary p-0 btn-sm">{{__('Xem Chi Tiết')}}</button>
+                                                    <button onclick="window.document.location.href='{{url('/desc-post',['id'=>$item->id])}}'" class="btn btn-primary ps-3 pe-3 pt-2 pb-2  btn-sm">{{__('Xem Chi Tiết')}}</button>
                                                 @else
-                                                    <button onclick="window.document.location.href='{{url('/donate',['id'=>$item->id])}}'" class="btn btn-primary p-0 btn-sm">{{__('Đóng Góp')}}</button>
+                                                    <button onclick="window.document.location.href='{{url('/donate',['id'=>$item->id])}}'" class="btn btn-primary ps-3 pe-3 pt-2 pb-2  btn-sm">{{__('Đóng Góp')}}</button>
                                                 @endif
                                             @else
-                                                <button  onclick="window.document.location.href='{{url('/donate',['id'=>$item->id])}}'" class="btn btn-primary p-0 btn-sm">{{__('Đóng Góp')}}</button>
+                                                <button  onclick="window.document.location.href='{{url('/donate',['id'=>$item->id])}}'" class="btn btn-primary  ps-3 pe-3 pt-2 pb-2 btn-sm">{{__('Đóng Góp')}}</button>
                                             @endif
                                         </div>
                                     </div>
@@ -248,12 +248,12 @@
                                         <div class="text-center">
                                             @if(!$item_post->contribute == null)
                                                 @if($amount/$item_post->contribute * 100 >= 100)
-                                                <a href='{{url('/desc-post',['id'=>$item_post->id])}}' class="btn btn-primary btn-sm">{{__('Xem Chi Tiết')}}</a>
+                                                <a href='{{url('/desc-post',['id'=>$item_post->id])}}' class="btn btn-primary btn-lg">{{__('Xem Chi Tiết')}}</a>
                                                 @else
-                                                    <a href='{{url('/donate',['id'=>$item_post->id])}}' class="btn btn-primary btn-sm ">{{__('Đóng Góp')}}</a>
+                                                    <a href='{{url('/donate',['id'=>$item_post->id])}}' class="btn btn-primary btn-lg ">{{__('Đóng Góp')}}</a>
                                                 @endif
                                             @else
-                                                <a href='{{url('/donate',['id'=>$item_post->id])}}' class="btn btn-primary btn-sm">{{__('Đóng Góp')}}</a>
+                                                <a href='{{url('/donate',['id'=>$item_post->id])}}' class="btn btn-primary btn-lg">{{__('Đóng Góp')}}</a>
                                             @endif
 
                                         </div>

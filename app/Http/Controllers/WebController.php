@@ -16,7 +16,7 @@ class WebController extends Controller
 
 
     public function home(){
-        $category = Category::withCount('Post')->where('active',1)->get();
+        $category = Category::withCount('Post')->where('active',0)->get();
         $posts = Post::where('active',0)->get();
         $contribution =Contribution::all();
         $amount_total = 0;
@@ -39,7 +39,7 @@ class WebController extends Controller
                 }
             }
         }
-        $important = count($posts->where('important',1));
+        $important = count($posts->where('important',0));
         return view('home',[
             'category' => $category,
             'posts' => $posts,
@@ -52,7 +52,7 @@ class WebController extends Controller
     }
 
     public function donate(){
-        $category = Category::withCount('Post')->where('active',1)->get();
+        $category = Category::withCount('Post')->where('active',0)->get();
         $post_selected = null;
         $post = Post::where('active',0)->get();
         return view('pages.donate',[
@@ -65,7 +65,7 @@ class WebController extends Controller
     public function donate_selected($id){
         $category = Category::withCount('Post')->where('active',0)->get();
         $post_selected = Post::findOrFail($id);
-        $post = Post::where('active',1)->get();
+        $post = Post::where('active',0)->get();
         return view('pages.donate',[
             'category' => $category,
             'posts' => $post,

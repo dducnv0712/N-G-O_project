@@ -1,14 +1,14 @@
 
-<script src="{{asset('dist/user/js/jquery.min.js')}}"></script>
+{{-- <script src="{{asset('dist/user/js/jquery.min.js')}}"></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
 @livewireScripts
 {{--<script src="{{asset('dist/bootstrap-5/js/bootstrap.min.js')}}"></script>--}}
-<script src="{{asset('dist/bootstrap-5/js/bootstrap.bundle.min.js')}}"></script>
+{{-- <script src="{{asset('dist/bootstrap-5/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('js/paypal-get-data.js')}}"></script>
 <script src="{{asset('dist/user/js/jquery-migrate-3.0.1.min.js')}}"></script>
-<script src="{{asset('dist/user/js/popper.min.js')}}"></script>
+<script src="{{asset('dist/user/js/popper.min.js')}}"></script> --}}
 {{--<script src="{{asset('dist/user/js/bootstrap.min.js')}}"></script>--}}
-<script src="{{asset('dist/user/js/jquery.easing.1.3.js')}}"></script>
+{{-- <script src="{{asset('dist/user/js/jquery.easing.1.3.js')}}"></script>
 <script src="{{asset('dist/user/js/jquery.waypoints.min.js')}}"></script>
 <script src="{{asset('dist/user/js/jquery.stellar.min.js')}}"></script>
 <script src="{{asset('dist/user/js/owl.carousel.min.js')}}"></script>
@@ -19,13 +19,43 @@
 <script src="{{asset('dist/user/js/bootstrap-datepicker.js')}}"></script>
 <script src="{{asset('dist/user/js/jquery.timepicker.min.js')}}"></script>
 <script src="{{asset('dist/user/js/scrollax.min.js')}}"></script>
-<script src="https://www.paypal.com/sdk/js?client-id=Acx_N_h2bcxoF6hcKn16O2VBQq_7ZpEZsBq7DNuONQL0jQGeIX1iL92ZlcZbkpPhiU3VTCQwo5zzqfZA&currency=USD"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{{asset('dist/user/js/google-map.js')}}"></script>
-<script src="{{asset('dist/user/js/main.js')}}"></script>
+<script src="{{asset('dist/user/js/main.js')}}"></script> --}}
+
+
+
+
+<script src="{{asset('')}}dist/assets/vendors/jquery/jquery-3.5.1.min.js"></script>
+{{-- <script src="{{asset('')}}dist/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
+<script src="{{asset('dist/bootstrap-5/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('')}}dist/assets/vendors/jarallax/jarallax.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/nouislider/nouislider.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/odometer/odometer.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/swiper/swiper.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/tiny-slider/tiny-slider.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/wnumb/wNumb.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/wow/wow.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/isotope/isotope.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/countdown/countdown.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/jquery-waypoint/jquery.waypoints.min.js"></script>
+<script src="{{asset('')}}dist/assets/vendors/jquery-waypoint/jquery.animateNumber.min.js"></script>
+{{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> --}}
+<script src="https://www.paypal.com/sdk/js?client-id=Acx_N_h2bcxoF6hcKn16O2VBQq_7ZpEZsBq7DNuONQL0jQGeIX1iL92ZlcZbkpPhiU3VTCQwo5zzqfZA&currency=USD"></script>
+<script src="{{ mix('js/app.js') }}" defer></script>
+@livewireScripts
 <script type="text/javascript" src="{{asset('/dist/sweetalert/sweetalert.min.js')}}"></script>
 
-<script type="text/javascript">
+<!-- template js -->
+<script src="{{asset('')}}dist/assets/js/halpes.js"></script>
+
+
+ <script type="text/javascript">
     $(document).ready(function(){
         $('#send-mail').click(function (){
             var name = $('.nameSub').val();
@@ -52,7 +82,18 @@
 </script>
 <script type="text/javascript">
     // Render the PayPal button into #paypal-button-container
+    $('#cur').on('change', function () {
+  //ways to retrieve selected option and text outside handler
+            if(this.value === 'USD'){
+                $( "#currency" ).text( '$' );
 
+            }else if(this.value === 'INR'){
+                $( "#currency" ).text( '₹' );
+            }else{
+                $( "#currency" ).text( '₫' );
+            }
+            
+    });
     paypal.Buttons({
 
         // Set up the transaction
@@ -122,7 +163,7 @@
                         status:status,
                         _token:_token},
                     beforeSend: function () {
-                        document.getElementById("loading").innerHTML = '<div class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>';
+                        document.getElementById("loading").innerHTML = '<div class="spinner-border" style="color:#15c8a0" role="status"> <span class="visually-hidden">Loading...</span> </div>';
                     },
                     success:function (data){
                         document.getElementById("loading").innerHTML = '';
@@ -132,6 +173,7 @@
 
                     },
                     error:function (data){
+                        document.getElementById("loading").innerHTML = '';
                         sweetAlert("Oops...","Sai Thông Tin Vui Long Nhâp Lai!!","error")
                     }
                 });
@@ -178,4 +220,4 @@
         $('#content_auth').summernote();
 
     })
-</script>
+</script> 

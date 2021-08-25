@@ -23,4 +23,5 @@ class Contribution extends Model
     public function Post(){
         return $this->belongsTo(Post::class ,'id_post');
     }
+   
 }

@@ -1,80 +1,107 @@
-<footer class="ftco-footer ftco-section img">
-    <div class="overlay"></div>
+
+  <footer class="site-footer">
+    <div class="site-footer-bg" style="background-image: url(assets/images/backgrounds/footer-bg.jpg)"></div>
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-3">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">{{__('About Us')}}</h2>
-                    <p>{{__('Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.')}}</p>
-                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">{{__('Recent Blog')}}</h2>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">{{__('Even the all-powerful Pointing has no control about')}}</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span>{{__('July 12, 2018')}} </a></div>
-                                <div><a href="#"><span class="icon-person"></span>{{__('Admin')}} </a></div>
-                                <div><a href="#"><span class="icon-chat"></span>{{__('19')}} </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">{{__('Even the all-powerful Pointing has no control about')}}</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span>{{__('July 12, 2018')}} </a></div>
-                                <div><a href="#"><span class="icon-person"></span>{{__('Admin')}} </a></div>
-                                <div><a href="#"><span class="icon-chat"></span> {{__('19')}}</a></div>
-                            </div>
-                        </div>
+        <div class="site-footer__top">
+            <div class="row">
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                    <div class="footer-widget__column footer-widget__about">
+                        <h3 class="footer-widget__title">About</h3>
+                        <p class="footer-widget__text">Lorem ipsum dolor sit ame consect etur pisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                        <a href="#" class="footer-widget__about-btn"><i class="fa fa-heart"></i>Donate </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">{{__('Site Links')}}</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">{{__('Home')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{__('About')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{__('Donate')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{__('Causes')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{__('Event')}}</a></li>
-                        <li><a href="#" class="py-2 d-block">{{__('Blog')}}</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">{{__('Have a Questions?')}}</h2>
-                    <div class="block-23 mb-3">
-                        <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">{{__('203 Fake St. Mountain View, San Francisco, California, USA')}}</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{__('+2 392 3929 210')}}</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{__('info@yourdomain.com')}}</span></a></li>
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                    <div class="footer-widget__column footer-widget__explore clearfix">
+                        <h3 class="footer-widget__title">Explore</h3>
+                        <ul class="footer-widget__explore-list list-unstyled">
+                            <li><a href="#">Donate</a></li>
+                            <li><a href="#">Campaigns</a></li>
+                            <li><a href="#">Fundraise</a></li>
+                            <li><a href="#">Volunteers</a></li>
+                            <li><a href="#">Sponsors</a></li>
                         </ul>
+                        <ul class="footer-widget__explore-list footer-widget__explore-list-two list-unstyled">
+                            <li><a href="#">Fundraising</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">Faqs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="footer-widget__column footer-widget__contact">
+                        <h3 class="footer-widget__title">Contact</h3>
+                        <ul class="list-unstyled footer-widget__contact-list">
+                            <li>
+                                <div class="icon">
+                                    <i class="icon-chat"></i>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        <span>Call Anytime</span>
+                                        <a href="tel:92 666 888 0000">92 666 888 0000</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="icon-message"></i>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        <span>Send Email</span>
+                                        <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="icon-address"></i>
+                                </div>
+                                <div class="text">
+                                    <p><span>Visit Office</span>80 broklyn golden street</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                    <div class="footer-widget__column footer-widget__newsletter">
+                        <h3 class="footer-widget__title">Newsletter</h3>
+                        <p class="footer-widget__newsletter-text">Lorem ipsum dolor sit ame consect etur pisicing elit sed do.</p>
+                        <form class="footer-widget__newsletter-form">
+                            @csrf
+                            <input id="fullName" type="text" class="mb-2 nameSub" name="name" placeholder="{{__('Tên Của Bạn')}}" >
+                            <input id="email" type="email" name="emailSub" class="emailSub" placeholder="{{__('Email Của Bạn')}}">
+                            <button id="send-mail" type="button" class="footer-widget__newsletter-btn mt-2"><i class="fas fa-arrow-circle-right"></i>Send</button>
+                        </form>
+                       
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    {{__('Copyright')}}  &copy;<script>document.write(new Date().getFullYear());</script> {{__('All rights reserved')}} |  <a href="{{asset('/')}}" target="_blank">{{__('Non-governmental Organizations')}}</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        <div class="site-footer__bottom">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="site-footer__bottom-inner">
+                        <div class="site-footer__bottom-logo-social">
+                            <div class="site-footer__bottom-logo">
+                                <a href="index.html"><img src="assets/images/resources/footer-logo.jpg" alt=""></a>
+                            </div>
+                            <div class="site-footer__bottom-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="site-footer__bottom-copy-right">
+                            <p>© Copyright 2021 by <a href="#">Layerdrops.com</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </footer>
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-

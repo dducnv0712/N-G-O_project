@@ -38,6 +38,7 @@ class ContributeController extends Controller
             'status'=>$request->get('status')
 
         ]);
+        
 
         $mail = $request['email'];
 //        $given_name = $request['given_name'];

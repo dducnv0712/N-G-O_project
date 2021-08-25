@@ -1,63 +1,108 @@
 @extends('layout')
 @section('main')
 
-    <div class="hero-wrap" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
+    <!--Page Header Start-->
+    <section class="page-header">
+        <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+        <!-- /.page-header__bg -->
         <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-                <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">{{__('Home')}}</a></span> <span>{{__('Contact')}}</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{__('Contact Us')}}</h1>
-                </div>
-            </div>
+            <h2>Contact</h2>
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="index.html">Home</a></li>
+                <li class="color-thm-gray">/</li>
+                <li><span>Contact</span></li>
+            </ul>
         </div>
-    </div>
+    </section>
+    <!--Page Header End-->
 
-    <section class="ftco-section contact-section ftco-degree-bg">
+    <!--Contact page Start-->
+    <section class="contact-page">
         <div class="container">
-            <div class="row d-flex mb-5 contact-info">
-                <div class="col-md-12 mb-4">
-                    <h2 class="h4">{{__('Contact Information')}}</h2>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-md-3">
-                    <p><span>{{__('Address:')}}</span>{{__('198 West 21th Street, Suite 721 New York NY 10016')}} </p>
-                </div>
-                <div class="col-md-3">
-                    <p><span>{{__('Phone:')}}</span> <a href="tel://1234567920">{{__('+ 1235 2355 98')}}</a></p>
-                </div>
-                <div class="col-md-3">
-                    <p><span>{{__('Email:')}}</span> <a href="mailto:info@yoursite.com">{{__('info@yoursite.com')}}</a></p>
-                </div>
-                <div class="col-md-3">
-                    <p><span>{{__('Website')}}</span> <a href="#">{{__('yoursite.com')}}</a></p>
-                </div>
+            <div class="section-title text-center">
+                <span class="section-title__tagline">Contact With Us</span>
+                <h2 class="section-title__title">We love to hear from our <br> happy customers</h2>
             </div>
-            <div class="row block-9">
-                <div class="col-md-6 pr-md-5">
-                    <h4 class="mb-4">{{__('Do you have any questions?')}}</h4>
-                    <form action="#">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{__('Your Name')}}">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="contact-page__left">
+                        <div class="contact-page__img">
+                            <img src="assets/images/resources/contact-page-img-1.jpg" alt="">
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{__('Your Email')}}">
+                        <p class="contact-page__text">There are many variations of passages of available but the majority have suffered alteration in some form, by injected humou or randomised words even slightly believable.</p>
+                        <div class="contact-page__contact-info">
+                            <ul class="contact-page__contact-list list-unstyled">
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-chat"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p>Call Anytime</p>
+                                        <a href="tel:92 666 888 0000">92 666 888 0000</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-message"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p>Send Email</p>
+                                        <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-address"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p>Visit Office</p>
+                                        <h5>80 broklyn golden street</h5>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{__('Subject')}}">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" cols="30" rows="7" style="height:116px" placeholder="{{__('Message')}}"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                        </div>
-                    </form>
-
+                    </div>
                 </div>
-
-                <div class="col-md-6" id="map"></div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="contact-page__form">
+                        <form action="assets/inc/sendemail.php" class="contact-page__main-form contact-form-validated">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="contact-page__input-box">
+                                        <input type="text" placeholder="Your name" name="name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="contact-page__input-box">
+                                        <input type="email" placeholder="Email address" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="contact-page__input-box">
+                                        <input type="text" placeholder="Subject" name="subject">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="contact-page__input-box">
+                                        <input type="text" placeholder="Phone Number" name="phone">
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="contact-page__input-box">
+                                        <textarea name="message" placeholder="Write message"></textarea>
+                                    </div>
+                                    <button type="submit" class="thm-btn contact-page__btn"><i class="fas fa-arrow-circle-right"></i>Send a Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <!--Contact page End-->
 @endsection

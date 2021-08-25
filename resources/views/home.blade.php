@@ -1,334 +1,599 @@
 @extends('layout')
 @section('main')
-    <div class="hero-wrap" style="background-image: url('{{url('dist/user/images/bg_7.jpg')}}')" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-                <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="mb-5 fs-4 text-white" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                        {{__('"Chúng tôi cùng với bạn, trên hành trình kiếm tìm hạnh phúc,bằng cách lan tỏa lòng nhân ái, chuyển hóa khổ đau"')}}
-{{--                        {{__('hello')}}--}}
-                    </p>
 
-{{--                    "Chúng tôi cùng với bạn, trên hành trình kiếm tìm hạnh phúc,bằng cách lan tỏa lòng nhân ái, chuyển hóa khổ đau"--}}
-                    <p> <a class="btn btn-white btn-outline-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{__('Đăng Ký Tình Nguyện Viên')}}</a></p>
-
+<section class="main-slider">
+    <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,"effect": "fade",
+         "pagination": {
+        "el": "#main-slider-pagination",
+        "type": "bullets",
+        "clickable": true
+        },
+        "navigation": {
+        "nextEl": "#main-slider__swiper-button-next",
+        "prevEl": "#main-slider__swiper-button-prev"
+        },
+        "autoplay": {
+        "delay": 5000
+        }}'>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="image-layer" style="background-image: url(dist/assets/images/backgrounds/main-slider-1-1.jpg);">
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document" >
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="ftco-counter ftco-intro" id="section-counter">
-        <div class="container">
-          <div class="row no-gutters">
-                <div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18 color-1 align-items-stretch">
-                        <div class="text">
-                            <span>{{__('Chúng Tôi Đã Giúp Đỡ Cho')}}</span>
-                            <strong class="number" data-number="{{count($count_contribute)}}">0</strong><span>{{__('Trường Hợp')}}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18 color-2 align-items-stretch">
-                        <div class="text">
-                            <h3 class="mb-4">{{__('Với Số Tiền')}}</h3>
-                            <div class="d-flex">
-                                <strong class="number_2" data-number="{{$amount_total}}">0</strong><span>VND</span>
+                <div class="image-layer-overlay"></div>
+                <!-- /.image-layer -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="main-slider__content">
+                                <p>Helping Them Today</p>
+                                <h2>Help the Poor <br> in Need</h2>
+                                <a href="#" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
+                                    More</a>
+                                <div class="main-slider__shape-1 zoom-fade">
+                                    <img src="dist/assets/images/shapes/main-slider-1-shape-1.png" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-        </div>
-    </section>
-
-    <section class="ftco-section">
-        <div class="container">
-                 <div class="row">
-                <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 d-flex services p-3 py-4 d-block">
-                        <div class="icon d-flex mb-3"><span class="flaticon-donation-1"></span></div>
-                        <div class="media-body pl-4">
-                            <h3 class="heading">{{__('Đóng Góp Quỹ')}}</h3>
-                            <p>{{__('Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.')}}</p>
-                        </div>
-                    </div>
+            <div class="swiper-slide">
+                <div class="image-layer" style="background-image: url(assets/images/backgrounds/main-slider-2-1.jpg);">
                 </div>
-                <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 d-flex services p-3 py-4 d-block">
-                        <div class="icon d-flex mb-3"><span class="flaticon-charity"></span></div>
-                        <div class="media-body pl-4">
-                            <h3 class="heading">{{__('Trở Thành Tình Nguyên Viên')}}</h3>
-                            <p>{{__('Chúng tôi mong muốn tìm kiếm những bạn tình nguyện viên nhiệt tình, năng động, có trách nhiệm sẵn sàng cống hiến sức mình nhằm đem lại những giá trị thiết thực cho xã hội.')}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 d-flex services p-3 py-4 d-block">
-                        <div class="icon d-flex mb-3"><span class="flaticon-donation"></span></div>
-                        <div class="media-body pl-4">
-                            <h3 class="heading">{{__('Trở Thành Nhà Tài Trợ')}}</h3>
-                            <p>{{__('Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.')}}</p>
+                <div class="image-layer-overlay"></div>
+                <!-- /.image-layer -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="main-slider__content">
+                                <p>Helping Them Today</p>
+                                <h2>Help the Poor <br> in Need</h2>
+                                <a href="#" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
+                                    More</a>
+                                <div class="main-slider__shape-1 zoom-fade">
+                                    <img src="assets/images/shapes/main-slider-1-shape-1.png" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-        </div>
-    </section>
-
-@if($important > 0)
-    <section class="ftco-section bg-light">
-        <div class="container-fluid">
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-5 heading-section ftco-animate text-center">
-                    {!! __('<h2 class="mb-4">Dự Án Quan Trọng</h2>') !!}
-
+            <div class="swiper-slide">
+                <div class="image-layer" style="background-image: url(assets/images/backgrounds/main-slider-3-1.jpg);">
+                </div>
+                <div class="image-layer-overlay"></div>
+                <!-- /.image-layer -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="main-slider__content">
+                                <p>Helping Them Today</p>
+                                <h2>Help the Poor <br> in Need</h2>
+                                <a href="#" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
+                                    More</a>
+                                <div class="main-slider__shape-1 zoom-fade">
+                                    <img src="assets/images/shapes/main-slider-1-shape-1.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 ftco-animate">
-                    <div class="carousel-cause owl-carousel">
-                        @foreach($posts as $item)
-                            @if($item -> important == 0)
-                                @php
-                                    $amount = 0;
-
-                                     foreach ($contribution as $item_contribution ){
-                                         if($item_contribution->id_post == $item->id)
-                                         $amount += $item_contribution->contribute_amount;
-                                         }
-                                @endphp
-                                <div class="item">
-                                    <div class="cause-entry pb-3">
-                                        <a href="#" class="img" style="background-image: url('{{$item -> getImage()}}')"></a>
-                                        <div class="text p-3 p-md-4">
-                                            <h3 class="title"><a href="{{url('/desc-post',['id'=>$item->id])}}">{{__($item -> title)}}</a></h3>
-                                             <span class="desc p-2">{!!__($item->description)!!}</span>
-                                            <div class="mt-2">
-                                                @if(!$item->contribute == null)
-                                                    @if($amount/$item->contribute * 100 >= 100)
-                                                        <div style="height:15px;" class="progress custom-progress-success">
-                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">{{__('Hoàn Thành')}}</div>
-                                                        </div>
-                                                    @else
-                                                        <div style="height:15px;" class="progress custom-progress-success">
-                                                            <div class="progress-bar text-center bg-primary" role="progressbar" style="width: {{$amount/$item->contribute * 100}}%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">{{round($amount/$item->contribute * 100)}}%</div>
-                                                        </div>
-                                                    @endif
-                                                @endif
-                                            </div>
-
-                                            <p class="mt-2">
-                                                @if($item->contribute == null)
-                                                    <strong>Không Giới Hạn Đóng Góp</strong><br/>
-                                                    <strong>Đã Góp Được: @money($amount*22854)</strong><br/>
-                                                @else
-                                                    <strong>Cần Huy Động: @money($item->contribute*22854)</strong><br/>
-                                                    <strong>Đã Góp Được: @money($amount*22854)</strong><br/>
-                                                @endif
-                                            </p>
+        </div>
+        <div class="main-slider__counter">
+            <ul class="main-slider__counter-box list-unstyled">
+                <li class="counter-animate">
+                    <h3 class="main-sldier__counter-digit number" data-number="300">0</h3>
+                    <span class="main-slider__counter-text">{{__('Tình Nguyện Viên')}}</span>
+                </li>
+                <li class="counter-animate">
+                    <h3 class="main-sldier__counter-digit number" data-number="{{count($count_contribute)}}"></h3>
+                    <span class="main-slider__counter-text">{{__('Là Dự Án Chúng Tôi Đã Hoàn ')}}</span>
+                </li>
+                <li style="max-width:450px;height:191px" class="counter-animate">
+                    <div class="d-flex">
+                        <h3 class="main-sldier__counter-digit number" data-number="{{$amount_total}}">0 </h3>
+                        <span >VNĐ</span>
+                    </div>
+                    <span class="main-slider__counter-text">{{__('Là Số Tiền Chúng Tôi Đã Nhận Được Từ Các Nhà Hảo Tâm')}}</span>
 
 
-                                        </div>
-                                        <div class="text-center">
-                                            @if(!$item->contribute == null)
-                                                @if($amount/$item->contribute * 100 >= 100)
-                                                    <button onclick="window.document.location.href='{{url('/desc-post',['id'=>$item->id])}}'" class="btn btn-primary ps-3 pe-3 pt-2 pb-2  btn-sm">{{__('Xem Chi Tiết')}}</button>
-                                                @else
-                                                    <button onclick="window.document.location.href='{{url('/donate',['id'=>$item->id])}}'" class="btn btn-primary ps-3 pe-3 pt-2 pb-2  btn-sm">{{__('Đóng Góp')}}</button>
-                                                @endif
-                                            @else
-                                                <button  onclick="window.document.location.href='{{url('/donate',['id'=>$item->id])}}'" class="btn btn-primary  ps-3 pe-3 pt-2 pb-2 btn-sm">{{__('Đóng Góp')}}</button>
-                                            @endif
+                </li>
+            </ul>
+        </div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-pagination" id="main-slider-pagination"></div>
+        <div class="main-slider__nav">
+            <div class="swiper-button-prev" id="main-slider__swiper-button-next"><i class="icon-right-arrow icon-left-arrow"></i>
+            </div>
+            <div class="swiper-button-next" id="main-slider__swiper-button-prev"><i class="icon-right-arrow"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Welcome One Start-->
+@if(count($important) > 0)
+<section class="welcome-one">
+    <div class="container">
+        @foreach($important as $item_important)
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <div class="welcome-one__left">
+                    <div class="welcome-one__img-box">
+
+                        <img src="{{$item_important->getImage()}}" alt="">
+                        <!-- <div class="welcome-one__img-box-2">
+                            <img src="assets/images/resources/welcome-one-img-2.jpg" alt="">
+                        </div> -->
+                        <h2 class="welcome-one__bottom-text">Dự Án Quan Trọng</h2>
+                        <div class="welcome-one__heart-icon">
+                            <img src="{{asset('dist/assets/images/resources/welcome-one-heart-icon.png')}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <div class="welcome-one__right">
+                    <div class="section-title text-left">
+                        <span class="section-title__tagline">Giúp đỡ lẫn nhau có thể làm cho thế giới tốt đẹp hơn</span>
+                        <h2 class="section-title__title">{{$item_important->title}}</h2>
+                    </div>
+                    <p class="welcome-one__right-text">{!! __($item_important->description) !!}</p>
+                    <!-- <div class="welcome-one__our-mission-and-story">
+                        <div class="welcome-one__mission-and-story-single">
+                            <h3><i class="fas fa-arrow-circle-right"></i>Our Mission</h3>
+                            <p class="welcome-one__our-mission-and-story-text">Lorem ipsum dolor sit amet not is consectetur notted.</p>
+                        </div>
+                        <div class="welcome-one__mission-and-story-single">
+                            <h3><i class="fas fa-arrow-circle-right"></i>Our Story</h3>
+                            <p class="welcome-one__our-mission-and-story-text">Lorem ipsum dolor sit amet not is consectetur notted.</p>
+                        </div>
+                    </div> -->
+                    <div class="welcome-one__progress">
+                        <!-- <div class="welcome-one__progress-single">
+                            <h4 class="welcome-one__progress-title">Charity</h4>
+                            <div class="bar">
+                                <div class="bar-inner count-bar" data-percent="83%">
+                                    <div class="count-text">83%</div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="welcome-one__progress-single">
+                            @if(!$item_important->contribute == null)
+                                @if($amount_important/$item_important->contribute * 100 >= 100)
+
+                                @else
+                                    <div class="bar mt-4">
+                                        <div class="bar-inner count-bar" data-percent="{{$amount_important/$item_important->contribute * 100}}%">
+                                            <div class="count-text">{{round($amount_important/$item_important->contribute * 100)}}%</div>
                                         </div>
                                     </div>
+                                @endif
+                                    <div class="causes-one__goals">
+                                        <p>Huy Dong: <span>@money($item_important->contribute*22854)</span></p>
+                                    </div>
+                                    <div class="causes-one__goals">
+                                        <p>Góp Duoc: <span>@money($amount_important*22854)</span></p>
+                                    </div>
+
+                            @else
+                                <div class="causes-one__goals">
+                                    <p>Huy Động: <span>Không Giới Hạn</span></p>
+                                </div>
+                                <div class="causes-one__goals">
+                                    <p>Góp Được: <span>@money($amount_important*22854)</span></p>
                                 </div>
                             @endif
-                        @endforeach
 
+
+                        </div>
                     </div>
+                    <a href="{{url('/donate',['id'=>$item_important->id])}}" class="welcome-one__btn thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Đóng Góp')}}</a>
                 </div>
             </div>
         </div>
-    </section>
+        @endforeach
+    </div>
+</section>
 @endif
+<!--Welcome One End-->
 
+<!--Causes One Start-->
 @foreach($category as $item)
         @if($item->post_count > 0)
-            <section class="ftco-section pb-0 ">
+            <section class="causes-one">
                 <div class="container">
-                    <div class="row justify-content-center ">
-                        <div class="col-md-7 heading-section ftco-animate text-center">
-                            <h2 class="mb-4">{{__('Các Dự Án'.' '.$item->name)}}</h2>
-                            <hr>
+                    <div class="section-title text-center">
+                        <span class="section-title__tagline">{{__('Các Dự Án')}}</span>
+                        <h2 class="section-title__title">{{__($item->name)}}</h2>
+                        <div class="text-center ">
+                            <a href="#" class="btn-sm thm-btn mt-4 mb-3"><i class="fas fa-arrow-circle-right"></i>
+                                {{__('Xem Thêm Về Dự Án')}}
+                                </a>
                         </div>
                     </div>
-                    <div class="row d-flex">
-                        @foreach($posts as $item_post)
 
-                            @if($item_post->category_id == $item -> id && $item_post->important == 1)
-                                @php
-                                    $amount = 0;
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="causes-one__carousel owl-theme owl-carousel">
+                                @foreach($posts as $item_post)
 
-                                     foreach ($contribution as $item_con ){
-                                         if($item_con->id_post == $item_post->id)
-                                         $amount += $item_con->contribute_amount;
-                                         }
-                                @endphp
-                                <div class="col-md-4 mt-3 d-flex ftco-animate">
-                                    <div class="blog-entry align-self-stretch pb-3">
-                                        <a href="" class="block-20" style="background-image:url('{{$item_post->getImage()}}')">
-                                        </a>
-                                        <div class="text p-4 d-block">
-                                            <div class="meta mb-3">
-                                                <div><a href="#">{{$item_post->created_at->format('d-m-Y')}}</a></div>
-                                            </div>
-                                            <h3 class="heading title mt-3"><a href="{{url('/desc-post',['id'=>$item_post->id])}}">{{__($item_post->title)}}</a></h3>
-                                            <span class="desc_ mb-1 p-2">
-                                                       {!!__($item_post->description)!!}
-                                            </span>
-                                            <div class="mt-2">
-                                                @if(!$item_post->contribute == null)
-                                                    @if($amount/$item_post->contribute * 100 >= 100)
-                                                        <div class="progress custom-progress-success">
-                                                            <div class="progress-bar text-center bg-success" role="progressbar" style="width: 100%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">{{__('Hoàn Thành')}}</div>
-                                                        </div>
-                                                    @else
-                                                        <div class="progress custom-progress-success">
-                                                            <div class="progress-bar text-center bg-primary" role="progressbar" style="width: {{$amount/$item_post->contribute * 100}}%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">{{round($amount/$item_post->contribute * 100)}}%</div>
-                                                        </div>
-                                                    @endif
+                                @if($item_post->category_id == $item -> id && $item_post->important == 1)
+                                    @php
+                                        $amount = 0;
 
-                                                @endif
-                                            </div>
+                                         foreach ($contribution as $item_con ){
+                                             if($item_con->id_post == $item_post->id)
+                                             $amount += $item_con->contribute_amount;
+                                             }
+                                    @endphp
 
-                                            <p class="mt-2">
-                                                @if($item_post->contribute == null)
-                                                    <strong>Không Giới Hạn Đóng Góp</strong><br/>
-                                                    <strong>Đã Góp Được: @money($amount*22854)</strong><br/>
-                                                @else
-                                                    <strong>Cần Huy Động: @money($item_post->contribute*22854)</strong><br/>
-                                                    <strong>Đã Góp Được: @money($amount*22854)</strong><br/>
-                                                @endif
-                                            </p>
+                                <div class="causes-one__single fadeInRight" data-wow-duration="1500ms" data-wow-delay="200ms">
 
+                                    <div class="causes-one__img">
+                                        <div class="causes-one__img-box">
+                                            <img src="{{$item_post->getImage()}}" alt="">
+                                            <a href="#">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
                                         </div>
-                                        <div class="text-center">
-                                            @if(!$item_post->contribute == null)
-                                                @if($amount/$item_post->contribute * 100 >= 100)
-                                                <a href='{{url('/desc-post',['id'=>$item_post->id])}}' class="btn btn-primary btn-lg">{{__('Xem Chi Tiết')}}</a>
-                                                @else
-                                                    <a href='{{url('/donate',['id'=>$item_post->id])}}' class="btn btn-primary btn-lg ">{{__('Đóng Góp')}}</a>
-                                                @endif
+                                        @if(!$item_post->contribute == null)
+                                        @if($amount/$item_post->contribute * 100 >= 100)
+                                        <div class="causes-one__active">
+                                            <span>Đã Hoàn Thành</span>
+                                        </div>
                                             @else
-                                                <a href='{{url('/donate',['id'=>$item_post->id])}}' class="btn btn-primary btn-lg">{{__('Đóng Góp')}}</a>
-                                            @endif
-
+                                            <div class="causes-one__inactive">
+                                                <span>Đang Hoạt Động</span>
+                                            </div>
+                                        @endif
+                                        @else
+                                            <div class="causes-one__inactive">
+                                            <span>Đang Hoạt Động</span>
                                         </div>
+                                    @endif
 
                                     </div>
+                                    <div class="causes-one__content">
+                                        <h3 class="causes-one__title">
+                                            <a href="{{url('/desc-post',['id'=>$item_post->id])}}">{{__($item_post->title)}}</a>
+                                        </h3>
+                                        <p class="causes-one__text">
+                                            {!!__($item_post->description)!!}
+                                        </p>
+                                    </div>
+                                    <div class="causes-one__progress">
+                                        {{-- <div class="bar">
+                                            <div class="bar-inner count-bar" data-percent="{{$amount/$item_post->contribute * 100}}%">
+                                                <div class="count-text">{{round($amount/$item_post->contribute * 100)}}%</div>
+                                            </div>
+                                        </div> --}}
+                                        @if(!$item_post->contribute == null)
+                                            @if($amount/$item_post->contribute * 100 >= 100)
+                                                @else
+                                                <div class="bar">
+                                                    <div class="bar-inner count-bar" data-percent="{{$amount/$item_post->contribute * 100}}%">
+                                                        <div class="count-text">{{round($amount/$item_post->contribute * 100)}}%</div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                        @endif
+
+                                        @if($item_post->contribute == null)
+                                            <div class="causes-one__goals">
+                                                <p>Huy Dong: <span>Không Giới Hạn</span></p>
+                                            </div>
+                                            <div class="causes-one__goals">
+                                                <p>Góp Duoc: <span>@money($amount*22854)</span></p>
+                                            </div>
+                                        @else
+                                            <div class="causes-one__goals">
+                                                <p>Huy Dong: <span>@money($item_post->contribute*22854)</span></p>
+                                            </div>
+                                            <div class="causes-one__goals">
+                                                <p>Góp Duoc: <span>@money($amount*22854)</span></p>
+                                            </div>
+                                        @endif
+
+                                        <div class="text-center">
+                                            @if(!$item_post->contribute == null)
+                                            @if($amount/$item_post->contribute * 100 >= 100)
+                                            <a href="{{url('/desc-post',['id'=>$item_post->id])}}" class="ms-0 causes-one__donate-btn mt-3"><i class="fas fa-arrow-circle-right me-2"></i>{{__('Xem Chi Tiết')}}</a>
+                                            @else
+                                            <a href="{{url('/donate',['id'=>$item_post->id])}}" class="ms-0 causes-one__donate-btn mt-3"><i class="fa fa-heart me-2"></i>{{__('Đóng Góp')}}</a>
+                                            @endif
+                                        @else
+                                            <a href="{{url('/donate',['id'=>$item_post->id])}}" class="ms-0 causes-one__donate-btn mt-3"><i class="fa fa-heart me-2"></i>{{__('Đóng Góp')}}</a>
+                                        @endif
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                            @endif
-                        @endforeach
-                        <div>
-                            <hr>
-                            <a href="{{url('/posts-list',['id'=>$item->id])}}">{{__('Xem Thêm Về Dự Án '.$item->name)}}...</a>
+
+                                @endif
+                                @endforeach
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </section>
         @endif
 @endforeach
-    <section class="ftco-gallery mt-5">
-        <div class="d-md-flex">
-            <a href="{{url('dist/user/images/cause-2.jpg')}}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url('{{url('dist/user/images/cause-2.jpg')}}')">
-                <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="icon-search"></span>
-                </div>
-            </a>
-            <a href="{{url('dist/user/images/cause-3.jpg')}}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url('{{url('dist/user/images/cause-3.jpg')}}')">
-                <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="icon-search"></span>
-                </div>
-            </a>
-            <a href="{{url('dist/user/images/cause-4.jpg')}}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url('{{url('dist/user/images/cause-4.jpg')}}')">
-                <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="icon-search"></span>
-                </div>
-            </a>
-            <a href="{{url('dist/user/images/cause-4.jpg')}}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url('{{url('dist/user/images/cause-5.jpg')}}')">
-                <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="icon-search"></span>
-                </div>
-            </a>
-        </div>
-    </section>
+<!--Causes One End-->
 
-
-
-
-    <section class="ftco-section-3 img" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}')">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row d-md-flex">
-                <div class="col-md-6 d-flex ftco-animate">
-                    <div class="img img-2 align-self-stretch" style="background-image: url('{{url('dist/user/images/bg_4.jpg')}}')"></div>
-                </div>
-                <div class="col-md-6 volunteer pl-md-5 ftco-animate">
-                    <h3 class="mb-3">{{__('Join Our Mailing List')}}</h3>
-                    <form class="volunter-form">
-                        @csrf
-                        <p class="text-white">{{__('Join and receive updates on charity news by entering the information below.')}}</p>
-                        <div class="form-group">
-
-                                <label for="fullName"></label>
-                                <input type="text" id="fullName" name="name" class="form-control nameSub" placeholder="{{__('Tên Của Bạn')}}">
-
-                        </div>
-                        <div class="form-group">
-                            <label for="email"></label>
-                            <input type="email" id="email" name="email" class="form-control emailSub" placeholder="{{__('Email Của Bạn')}}">
-                        </div>
-
-                        <div class="form-group">
-                            <button type="button" id="send-mail" class="btn btn-white">{{__('Đăng Ký')}}</button>
-                        </div>
-                    </form>
+<!--Join One Start-->
+<section class="join-one">
+    <div class="join-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url(assets/images/backgrounds/join-one-bg.jpg)"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="join-one__inner">
+                    <h2 class="join-one__title">Join the community to give <br> education for children</h2>
+                    <a href="#" class="join-one__btn thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
+                        More</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!--Join One End-->
+
+<!--Three Boxes Start-->
+<section class="three-boxes">
+    <div class="container-box">
+        <div class="row">
+            <div class="col-xl-4">
+                <!--Three Boxes Single-->
+                <div class="three-boxes__single">
+                    <div class="three-boxes__single-bg" style="background-image: url(assets/images/resources/three-boxes-img-1.jpg)"></div>
+                    <div class="three-boxes__content">
+                        <div class="three-boxes__icon">
+                            <span class="icon-fast-food"></span>
+                        </div>
+                        <div class="three-boxes__text-box">
+                            <h2>Healthy Food</h2>
+                            <p class="three-boxes__text">Lorem ipsum is simply free text available amet, consectetuer adipiscing elit. There are not many passages of ipsum.</p>
+                            <a href="#" class="three-boxes__btn"><i class="fa fa-heart"></i>Donate </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <!--Three Boxes Single-->
+                <div class="three-boxes__single three-boxes__single-item-two">
+                    <div class="three-boxes__single-bg" style="background-image: url(assets/images/resources/three-boxes-img-1.jpg)"></div>
+                    <div class="three-boxes__content">
+                        <div class="three-boxes__icon">
+                            <span class="icon-water"></span>
+                        </div>
+                        <div class="three-boxes__text-box">
+                            <h2>Clean Water</h2>
+                            <p class="three-boxes__text">Lorem ipsum is simply free text available amet, consectetuer adipiscing elit. There are not many passages of ipsum.</p>
+                            <a href="#" class="three-boxes__btn"><i class="fa fa-heart"></i>Donate </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <!--Three Boxes Single-->
+                <div class="three-boxes__single three-boxes__single-item-three">
+                    <div class="three-boxes__single-bg" style="background-image: url(assets/images/resources/three-boxes-img-1.jpg)"></div>
+                    <div class="three-boxes__content">
+                        <div class="three-boxes__icon">
+                            <span class="icon-health-check"></span>
+                        </div>
+                        <div class="three-boxes__text-box">
+                            <h2>Medical Treatment</h2>
+                            <p class="three-boxes__text">Lorem ipsum is simply free text available amet, consectetuer adipiscing elit. There are not many passages of ipsum.</p>
+                            <a href="#" class="three-boxes__btn"><i class="fa fa-heart"></i>Donate </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Three Boxes End-->
+
+
+
+<!--Gallery One Start-->
+<section class="gallery-one mt-5">
+    <div class="gallery-one__container-box clearfix">
+        <div class="gallery-one__carousel owl-theme owl-carousel">
+            <!--Gallery One Single-->
+            <div class="gallery-one__single">
+                <div class="gallery-one__img-box">
+                    <img src="assets/images/gallery/gallery-1-1.jpg" alt="">
+                    <div class="gallery-one__hover-content-box">
+                        <h2>Child Education</h2>
+                        <p>Charity</p>
+                    </div>
+                </div>
+            </div>
+            <!--Gallery One Single-->
+            <div class="gallery-one__single">
+                <div class="gallery-one__img-box">
+                    <img src="assets/images/gallery/gallery-1-2.jpg" alt="">
+                    <div class="gallery-one__hover-content-box">
+                        <h2>Child Education</h2>
+                        <p>Charity</p>
+                    </div>
+                </div>
+            </div>
+            <!--Gallery One Single-->
+            <div class="gallery-one__single">
+                <div class="gallery-one__img-box">
+                    <img src="assets/images/gallery/gallery-1-3.jpg" alt="">
+                    <div class="gallery-one__hover-content-box">
+                        <h2>Child Education</h2>
+                        <p>Charity</p>
+                    </div>
+                </div>
+            </div>
+            <!--Gallery One Single-->
+            <div class="gallery-one__single">
+                <div class="gallery-one__img-box">
+                    <img src="assets/images/gallery/gallery-1-4.jpg" alt="">
+                    <div class="gallery-one__hover-content-box">
+                        <h2>Child Education</h2>
+                        <p>Charity</p>
+                    </div>
+                </div>
+            </div>
+            <!--Gallery One Single-->
+            <div class="gallery-one__single">
+                <div class="gallery-one__img-box">
+                    <img src="assets/images/gallery/gallery-1-5.jpg" alt="">
+                    <div class="gallery-one__hover-content-box">
+                        <h2>Child Education</h2>
+                        <p>Charity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Gallery One End-->
+
+<!--Testimonial One Start-->
+<section class="testimonial-one">
+    <div class="testimonial-one-bg" style="background-image: url(assets/images/backgrounds/testimonial-1-bg.jpg)"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="testimonial-one__left">
+                    <div class="section-title text-left">
+                        <span class="section-title__tagline">Our Testimonials</span>
+                        <h2 class="section-title__title">What they’re talking about charity</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <div class="testimonial-one__right">
+                    <div class="testimonial-one__carousel owl-theme owl-carousel">
+                        <!--Testimonial One Single-->
+                        <div class="testimonial-one__single">
+                            <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="testimonial-one__client-info">
+                                <div class="testimonial-one__client-img">
+                                    <img src="assets/images/testimonial/testimonial-1-img-1.png" alt="">
+                                    <div class="testimonial-one__quote">
+
+                                    </div>
+                                </div>
+                                <div class="testimonial-one__client-name">
+                                    <h3>Kevin Martin</h3>
+                                    <p>Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Testimonial One Single-->
+                        <div class="testimonial-one__single">
+                            <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="testimonial-one__client-info">
+                                <div class="testimonial-one__client-img">
+                                    <img src="assets/images/testimonial/testimonial-1-img-2.png" alt="">
+                                    <div class="testimonial-one__quote">
+
+                                    </div>
+                                </div>
+                                <div class="testimonial-one__client-name">
+                                    <h3>Jessica Brown</h3>
+                                    <p>Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Testimonial One Single-->
+                        <div class="testimonial-one__single">
+                            <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="testimonial-one__client-info">
+                                <div class="testimonial-one__client-img">
+                                    <img src="assets/images/testimonial/testimonial-1-img-1.png" alt="">
+                                    <div class="testimonial-one__quote">
+
+                                    </div>
+                                </div>
+                                <div class="testimonial-one__client-name">
+                                    <h3>Jessica Brown</h3>
+                                    <p>Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Testimonial One Single-->
+                        <div class="testimonial-one__single">
+                            <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="testimonial-one__client-info">
+                                <div class="testimonial-one__client-img">
+                                    <img src="assets/images/testimonial/testimonial-1-img-2.png" alt="">
+                                    <div class="testimonial-one__quote">
+
+                                    </div>
+                                </div>
+                                <div class="testimonial-one__client-name">
+                                    <h3>Kevin Martin</h3>
+                                    <p>Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Testimonial One End-->
+
+
+
+
+
+<!--Brand One Start-->
+<section class="brand-one">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="brand-one__carousel owl-theme owl-carousel">
+                    <!--Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__img">
+                            <img src="assets/images/resources/brand-1-1.png" alt="">
+                        </div>
+                    </div>
+                    <!--Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__img">
+                            <img src="assets/images/resources/brand-1-2.png" alt="">
+                        </div>
+                    </div>
+                    <!--Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__img">
+                            <img src="assets/images/resources/brand-1-3.png" alt="">
+                        </div>
+                    </div>
+                    <!--Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__img">
+                            <img src="assets/images/resources/brand-1-4.png" alt="">
+                        </div>
+                    </div>
+                    <!--Brand One Single-->
+                    <div class="brand-one__single">
+                        <div class="brand-one__img">
+                            <img src="assets/images/resources/brand-1-5.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Brand One End-->
+
 @endsection

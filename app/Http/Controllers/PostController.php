@@ -25,22 +25,24 @@ class PostController extends Controller
             'categories'=>$categories
         ]);
     }
+
+
     public function save(Request  $request)
     {
-            $image = "";
+            $image = '';
             if($request->hasFile("image")){
                 $file = $request->file("image");
                 $fileName = time().$file->getClientOriginalName();
                 $ext = $file->getClientOriginalExtension();
                 $fileSize = $file->getSize();
                 if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){
-                    if($fileSize < 400000000){
+                    if($fileSize < 10000){
                         $file->move("upload/post_image",$fileName);
                         $image = "upload/post_image/".$fileName;
                     }
                 }
             }
-
+       
         //0 = true
         //1 = false
             $approval = 1;

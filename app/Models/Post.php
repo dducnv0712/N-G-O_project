@@ -35,6 +35,10 @@ class Post extends Model
     public function Post(){
         return $this->hasMany(Contribution::class);
     }
+    public function Auth(){
+        return $this->belongsTo(User::class ,'author');
+    }
+
     public function scopeSearch($query,$search){
         if($search == "" || $search == null){
             return $query;

@@ -1,110 +1,339 @@
 @extends('layout')
 @section('main')
 
-    <div class="hero-wrap" style="background-image: url('images/bg_7.jpg');" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
+    <!--Page Header Start-->
+    <section class="page-header">
+        <div class="page-header__bg"
+             style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+        <!-- /.page-header__bg -->
         <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-                <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">{{__('Home')}}</a></span> <span>{{__('About ')}}</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{__('About Us')}}</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row d-flex">
-                <div class="col-md-6 d-flex ftco-animate">
-                    <div class="img img-about align-self-stretch" style="background-image: url(images/bg_3.jpg); width: 100%;"></div>
-                </div>
-             <div class="col-md-6 pl-md-5 ftco-animate">
-
-                <h2 class="mb-4">Welcome to Welfare Stablished Since 1898</h2>
-                <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-              </div>
-
-            </div>
+            <h2>About</h2>
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="index.html">Home</a></li>
+                <li class="color-thm-gray">/</li>
+                <li><span>About</span></li>
+            </ul>
         </div>
     </section>
+    <!--Page Header End-->
 
-    <section class="ftco-counter ftco-intro" id="section-counter">
+    <!--About Page Start-->
+    <section class="about-page">
         <div class="container">
-            <div class="row no-gutters">
-                <div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18 color-1 align-items-stretch">
-                        <div class="text">
-
-                            <span>Chúng Tôi Đã Giúp Đỡ Cho</span>
-                            <strong class="number" data-number="400">0</strong><span>Trường Hợp</span>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18 color-2 align-items-stretch">
-                    <div class="text">
-                            <h3 class="mb-4">Với Số Tiền</h3>
-                            <div class="d-flex">
-                                <strong class="number_2" data-number="160000000">0</strong><span>VND</span>
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="about-page__left">
+                        <div class="about-page__img">
+                            <img src="assets/images/resources/about-page-img-1.jpg" alt="">
+                            <div class="about-page__trusted">
+                                <h3>We’re trusted by <span>9,8750</span> donors</h3>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="about-page__right">
+                        <div class="section-title text-left">
+                            <span class="section-title__tagline">Our Inroductions</span>
+                            <h2 class="section-title__title">We believe that we can save more lifes</h2>
+                        </div>
+                        <p class="about-page__right-text">We are trusted by our clients and have a reputation for
+                            the best services in the field. Lorem ipsum is simply free text dolor sit amett
+                            consectetur adipiscing elit. It is a long established fact that a reader will be
+                            distracted by the readable content of a page.</p>
+                        <h3 class="about-page__right-title">Halpes is the largest global crowdfunding community in
+                            the world</h3>
+                        <div class="about-five__progress-wrap">
 
+                            <div class="about-five__progress">
+                                <div class="about-five__progress-box">
+                                    <div class="circle-progress"
+                                         data-options='{ "value": 0.9,"thickness": 3,"emptyFill": "#e5eeec","lineCap": "square", "size": 138, "fill": { "color": "#15c8a0" } }'>
+                                    </div><!-- /.circle-progress -->
+                                    <span>90%</span>
+                                </div>
+                                <div class="about-five__progress-content">
+                                    <h3>Successful causes</h3>
+                                </div>
+                            </div>
+                            <div class="about-five__progress">
+                                <div class="about-five__progress-box">
+                                    <div class="circle-progress"
+                                         data-options='{ "value": 0.5,"thickness": 3,"emptyFill": "#e5eeec","lineCap": "square", "size": 138, "fill": { "color": "#15c8a0" } }'>
+                                    </div><!-- /.circle-progress -->
+                                    <span>50%</span>
+                                </div><!-- /.about-five__progress-box -->
+                                <div class="about-five__progress-content">
+                                    <h3>Amazing donors</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!--About Page Start-->
 
-    <section class="ftco-section bg-light">
+    <!--Testimonial One Start-->
+    <section class="testimonial-one about-page-testimonial">
+        <div class="testimonial-one-bg"
+             style="background-image: url(assets/images/backgrounds/testimonial-1-bg.jpg)"></div>
         <div class="container">
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">{{__('Team Members')}}</h2>
-
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="testimonial-one__left">
+                        <div class="section-title text-left">
+                            <span class="section-title__tagline">Our Testimonials</span>
+                            <h2 class="section-title__title">What they’re talking about charity</h2>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-xl-8">
+                    <div class="testimonial-one__right">
+                        <div class="testimonial-one__carousel owl-theme owl-carousel">
+                            <!--Testimonial One Single-->
+                            <div class="testimonial-one__single">
+                                <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet,
+                                    consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore
+                                    et dolore magna aliqua.</p>
+                                <div class="testimonial-one__client-info">
+                                    <div class="testimonial-one__client-img">
+                                        <img src="assets/images/testimonial/testimonial-1-img-1.png" alt="">
+                                        <div class="testimonial-one__quote">
+
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-one__client-name">
+                                        <h3>Kevin Martin</h3>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Testimonial One Single-->
+                            <div class="testimonial-one__single">
+                                <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet,
+                                    consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore
+                                    et dolore magna aliqua.</p>
+                                <div class="testimonial-one__client-info">
+                                    <div class="testimonial-one__client-img">
+                                        <img src="assets/images/testimonial/testimonial-1-img-2.png" alt="">
+                                        <div class="testimonial-one__quote">
+
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-one__client-name">
+                                        <h3>Jessica Brown</h3>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Testimonial One Single-->
+                            <div class="testimonial-one__single">
+                                <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet,
+                                    consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore
+                                    et dolore magna aliqua.</p>
+                                <div class="testimonial-one__client-info">
+                                    <div class="testimonial-one__client-img">
+                                        <img src="assets/images/testimonial/testimonial-1-img-1.png" alt="">
+                                        <div class="testimonial-one__quote">
+
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-one__client-name">
+                                        <h3>Jessica Brown</h3>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Testimonial One Single-->
+                            <div class="testimonial-one__single">
+                                <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet,
+                                    consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore
+                                    et dolore magna aliqua.</p>
+                                <div class="testimonial-one__client-info">
+                                    <div class="testimonial-one__client-img">
+                                        <img src="assets/images/testimonial/testimonial-1-img-2.png" alt="">
+                                        <div class="testimonial-one__quote">
+
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-one__client-name">
+                                        <h3>Kevin Martin</h3>
+                                        <p>Volunteer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Testimonial One End-->
+
+    <!--Join One Start-->
+    <section class="join-one join-one__about">
+        <div class="join-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
+             style="background-image: url(assets/images/backgrounds/join-one-bg.jpg)"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="join-one__inner">
+                        <h2 class="join-one__title">Join the community to give <br> education for children</h2>
+                        <a href="#" class="join-one__btn thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
+                            More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Join One End-->
+
+    <!--Counters One Start-->
+    <section class="counters-one about-page-counter">
+        <div class="container">
+            <ul class="counters-one__box list-unstyled">
+                <li class="counter-one__single">
+                    <h3 class="odometer" data-count="870">00</h3><span class="counter-one__letter">K</span>
+                    <p class="counter-one__text">Total Donations</p>
+                </li>
+                <li class="counter-one__single">
+                    <h3 class="odometer" data-count="480">00</h3>
+                    <p class="counter-one__text">Campaigns Closed</p>
+                </li>
+                <li class="counter-one__single">
+                    <h3 class="odometer" data-count="977">00</h3><span class="counter-one__letter">K</span>
+                    <p class="counter-one__text">Happy People</p>
+                </li>
+                <li class="counter-one__single">
+                    <h3 class="odometer" data-count="63">00</h3><span class="counter-one__letter">+</span>
+                    <p class="counter-one__text">Our Volunteers</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--Counters One Start-->
+
+    <!--Team One Start-->
+    <section class="team-one">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="section-title__tagline">Professional Volunteers</span>
+                <h2 class="section-title__title">Meet the best team behind <br> our success story</h2>
             </div>
             <div class="row">
-                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff">
-                        <div class="d-flex mb-4">
-                            <div class="img" style="background-image: url(images/person_1.jpg);"></div>
-                            <div class="info ml-4">
-                                <h3><a href="teacher-single.html">{{__('Nguyen Hong Quang')}}</a></h3>
-
-                                <div class="text">
-
-                                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <!--Team One Single-->
+                    <div class="team-one__single">
+                        <div class="team-one__img-box">
+                            <div class="team-one__img">
+                                <img src="assets/images/team/team-one-img-1.jpg" alt="">
                             </div>
+                            <div class="team-one__member-name">
+                                <h2>Janne</h2>
+                            </div>
+                        </div>
+                        <div class="team-one__content">
+                            <h4 class="team-one__member-title">Volunteer</h4>
+                            <p class="team-one__text-box">There are many of lorem ipsum available but the have in
+                                some form.</p>
+                        </div>
+                        <div class="team-one__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff">
-                        <div class="d-flex mb-4">
-                            <div class="img" style="background-image: url(images/person_2.jpg);"></div>
-                            <div class="info ml-4">
-                                <h3><a href="teacher-single.html">{{__('Nguyen Van Duc')}}</a></h3>
-
-                                <div class="text">
-
-                                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <!--Team One Single-->
+                    <div class="team-one__single">
+                        <div class="team-one__img-box">
+                            <div class="team-one__img">
+                                <img src="assets/images/team/team-one-img-2.jpg" alt="">
                             </div>
+                            <div class="team-one__member-name">
+                                <h2>David</h2>
+                            </div>
+                        </div>
+                        <div class="team-one__content">
+                            <h4 class="team-one__member-title">Volunteer</h4>
+                            <p class="team-one__text-box">There are many of lorem ipsum available but the have in
+                                some form.</p>
+                        </div>
+                        <div class="team-one__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff">
-                        <div class="d-flex mb-4">
-                            <div class="img" style="background-image: url(images/person_3.jpg);"></div>
-                            <div class="info ml-4">
-                                <h3><a href="teacher-single.html">{{__('Ngo Viet Hoang')}}</a></h3>
-{{--                                <span class="position">Donated Just now</span>--}}
-                                <div class="text">
+                <div class="col-xl-4 col-lg-4">
+                    <!--Team One Single-->
+                    <div class="team-one__single">
+                        <div class="team-one__img-box">
+                            <div class="team-one__img">
+                                <img src="assets/images/team/team-one-img-3.jpg" alt="">
+                            </div>
+                            <div class="team-one__member-name">
+                                <h2>Sarah</h2>
+                            </div>
+                        </div>
+                        <div class="team-one__content">
+                            <h4 class="team-one__member-title">Volunteer</h4>
+                            <p class="team-one__text-box">There are many of lorem ipsum available but the have in
+                                some form.</p>
+                        </div>
+                        <div class="team-one__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Team One End-->
 
-                                </div>
+    <!--Brand One Start-->
+    <section class="brand-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="brand-one__carousel owl-theme owl-carousel">
+                        <!--Brand One Single-->
+                        <div class="brand-one__single">
+                            <div class="brand-one__img">
+                                <img src="assets/images/resources/brand-1-1.png" alt="">
+                            </div>
+                        </div>
+                        <!--Brand One Single-->
+                        <div class="brand-one__single">
+                            <div class="brand-one__img">
+                                <img src="assets/images/resources/brand-1-2.png" alt="">
+                            </div>
+                        </div>
+                        <!--Brand One Single-->
+                        <div class="brand-one__single">
+                            <div class="brand-one__img">
+                                <img src="assets/images/resources/brand-1-3.png" alt="">
+                            </div>
+                        </div>
+                        <!--Brand One Single-->
+                        <div class="brand-one__single">
+                            <div class="brand-one__img">
+                                <img src="assets/images/resources/brand-1-4.png" alt="">
+                            </div>
+                        </div>
+                        <!--Brand One Single-->
+                        <div class="brand-one__single">
+                            <div class="brand-one__img">
+                                <img src="assets/images/resources/brand-1-5.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -112,5 +341,7 @@
             </div>
         </div>
     </section>
+    <!--Brand One End-->
+
 @endsection
 

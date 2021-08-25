@@ -39,14 +39,25 @@ class WebController extends Controller
                 }
             }
         }
-        $important = count($posts->where('important',0));
+        $important = Post::where('important',0) ->paginate(1);
+        $amount_important = 0;
+
+        foreach ($contribution as $item_con ) {
+            foreach ($important as $item){
+                if ($item_con->id_post == $item->id){
+                    $amount_important += $item_con->contribute_amount;
+                }
+            }
+
+        }
         return view('home',[
             'category' => $category,
             'posts' => $posts,
             'contribution' =>$contribution,
             'important'=>$important,
             'amount_total'=>$amount_total,
-            'count_contribute'=>$count_contribute
+            'count_contribute'=>$count_contribute,
+            'amount_important'=>$amount_important
 
         ]);
     }
@@ -79,15 +90,23 @@ class WebController extends Controller
     }
 
     public function desc_post($id){
-        $contribution =Contribution::all();
+        $contribution =Contribution::where('id_post',$id)->get();
+        $contribution_list =Contribution::where('id_post',$id)->orderBy('created_at', 'desc')->paginate(6);
         $posts = Post::findOrFail($id);
         $post_list = Post::where('active',0)->get();
         $category = Category::withCount('Post')->where('active',0)->get();
+        $amount = 0;
+
+        foreach ($contribution as $item_contribution ){
+            $amount += $item_contribution->contribute_amount;
+        }
         return view('pages.desc_post',[
             'posts'=>$posts,
             'contribution' =>$contribution,
+            'contribution_list' =>$contribution_list,
             'category'=>$category,
-            'post_list'=>$post_list
+            'post_list'=>$post_list,
+            'amount'=>$amount
         ]);
     }
     public function contact(){
@@ -106,19 +125,13 @@ class WebController extends Controller
             'contribution'=>$contribution
         ]);
     }
-    public function postsList(Request $request,$id){
-        $contribution =Contribution::all();
-        $categoryId = $request->get("category_id");
-        $search = $request->get("search");
-        $category = Category::where('active',1)->findOrFail($id);
-        $posts= Post::with('Category')->where( 'category_id',$id)->search($search)->category($categoryId)->orderBy("id","desc")->paginate(6);
-        return view('pages.posts-list',[
-            'posts' =>$posts,
-            'search'=>$search,
-            'category'=>$category,
-            'contribution' =>$contribution,
-
-        ]);
+    public function causes(){
+//        $contribution =Contribution::all();
+//        $categoryId = $request->get("category_id");
+//        $search = $request->get("search");
+//        $category = Category::where('active',1)->findOrFail($id);
+//        $posts= Post::with('Category')->where( 'category_id',$id)->search($search)->category($categoryId)->orderBy("id","desc")->paginate(6);
+        return view('pages.causes');
     }
     public function gallery(){
         return view('pages.gallery');
@@ -128,6 +141,12 @@ class WebController extends Controller
 //
 //
 //    }
-
+    public function join_volunteer(){
+            return view('pages.join_volunteer');
+    }
+    public function volunteer(){
+        return view('pages.volunteer');
+    }
 
 }
+

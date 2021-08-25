@@ -33,11 +33,15 @@ Route::get('auth/social', [SocialController::class,'show'])->name('social.login'
 Route::get('auth/{driver}', [SocialController::class,'redirectToProvider'])->name('social.auth');
 Route::get('auth/{driver}/callback', [SocialController::class,'handleProviderCallback'])->name('social.callback');
 Route::post('/subscribe-mail',[MailController::class,'subMail']);
-Route::get('/posts-list/{id}',[WebController::class,"postsList"]);
+Route::get('/causes',[WebController::class,"causes"]);
 Route::get('/gallery',[WebController::class,"gallery"]);
 Route::get('/profile',[WebController::class,"profile"]);
 Route::post('/contribution',[ContributeController::class,"contribution"]);
-Route::post('/setTarget', [TranslateController::class, 'setTarget']);
+
+Route::get('/become-a-volunteer',[WebController::class,"join_volunteer"]);
+Route::get('/volunteer',[WebController::class,"volunteer"]);
+
+
 
 
 

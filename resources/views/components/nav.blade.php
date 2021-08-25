@@ -1,80 +1,246 @@
-<nav style="z-index: 999" class="navbar-head navbar m-0 p-0">
-    <div class="container align-items-center">
-        <a >Navbar</a>
 
-        <div class="d-flex me-4">
-            <div class="me-2">
-                <a data-bs-toggle="collapse" href="#search" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fas fa-search"></i>
-                </a>
-            </div>
-            <div>
-                @if(!Auth::user() == "")
-                    <div class="btn-group">
-                        <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <strong>{{Auth::user()->name}}</strong> @if(Auth::user()->role =='AUTHOR' || Auth::user()->role == "ADMIN") ({{Auth::user()->role}}) @endif
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{url('/profile')}}">Profile</a></li>
-{{--                            <li><hr class="dropdown-divider"></li>--}}
-                            @if(Auth::user()->role =='AUTHOR' || Auth::user()->role == "ADMIN")
-                            <li><a class="dropdown-item" href="{{url('/author/posts')}}">My Posts</a></li>
-                            @endif
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item d-flex justify-content-center align-items-center" >
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button class="bg-transparent border-0" type="submit">Logout</button>
-                                    </form>
-                                </a></li>
-                        </ul>
+<header class="main-header clearfix">
+    <div class="main-header__logo">
+        <a href="{{url('/')}}">
+            <img class="ms-3" src="{{asset('dist/assets/images/resources/logo-1.png')}}" alt="">
+        </a>
+    </div>
+    <div class="main-menu-wrapper">
+        <div class="main-menu-wrapper__top">
+            <div class="main-menu-wrapper__top-inner">
+                <div class="main-menu-wrapper__left">
+                    <div class="main-menu-wrapper__left-content">
+                        <div class="main-menu-wrapper__left-text">
+                            <p>Giúp đỡ lẫn nhau có thể làm cho thế giới tốt đẹp hơn</p>
+                        </div>
+                        <div class="main-menu-wrapper__left-email-box">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="email">
+                                <a href="mailto:needhelp@company.com">ngoproject.fpt2021@gmail.com</a>
+                            </div>
+                        </div>
                     </div>
-                @else
-                    <a href="{{asset('/login')}}">Login</a> <span>|</span> <a href="{{asset('/login')}}">register</a>
-                @endif
+                </div>
+                <div class="main-menu-wrapper__right">
+                    <div class="main-menu-wrapper__right-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-menu-wrapper__bottom">
+            <nav class="main-menu">
+                <div class="main-menu__inner">
+                    <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                    <ul class="main-menu__list">
+                        <li class=" {{ Route::is('/') ? 'current' : null }}">
+                            <a href="{{url('/')}}">Home</a>
+
+                        </li>
+                        <li class="{{ Request::url() == url('/become-a-volunteer') ||  Request::url() == url('/volunteer') ||  Request::url() == url('/about') ||  Request::url() == url('/gallery') ? 'dropdown current' : 'dropdown' }}">
+                            <a href="#">Pages</a>
+                            <ul>
+                                <li><a href="{{url('about')}}">About</a></li>
+                                <li><a href="{{url('/volunteer')}}">Volunteers</a></li>
+                                <li><a href="{{url('/gallery')}}">Gallery</a></li>
+                                <li><a href="{{'/become-a-volunteer'}}">Become a Volunteer</a></li>
+                            </ul>
+                        </li>
+                        <li class="{{ Request::url() == url('/donate')  ? 'dropdown current' : 'dropdown' }}">
+                            <a href="#">Donations</a>
+                             <ul>
+                                <li><a href="{{url('/donate')}}">Donate</a></li>
+                                <li><a href="event-details.html">Event Details</a></li>
+                            </ul>
+                        </li>
+                        <li class="{{ Request::url() == url('/contact')  ? ' current' : '' }}">
+                            <a href="{{asset('/contact')}}">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="main-menu__right">
+
+                        <a href="javascript:void(0)" class="main-menu__search search-toggler icon-magnifying-glass"></a>
+
+                            @if(Auth::user() == null)
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#account-modal" class="main-menu__cart">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </a>
+
+
+                            @else
+                            <div class="dropdown">
+                                <a class="main-menu__cart" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="{{url('/profile')}}">{{__('Profile')}}</a></li>
+                                    @if(Auth::user()->role =='AUTHOR')
+                                    <li><a class="dropdown-item" href="{{url('/author/posts')}}">My Posts</a></li>
+                                    @elseif(Auth::user()->role == "ADMIN")
+                                    <li><a class="dropdown-item" href="{{url('/admin')}}">Dashboard</a></li>
+                                    @endif
+
+                                  <li><hr class="dropdown-divider"></li>
+                                  <li>
+                                      <a class="dropdown-item d-flex justify-content-center align-items-center" >
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button class="bg-transparent border-0" type="submit">  <i class="fas fa-sign-out-alt me-1"></i> Logout</button>
+                                        </form>
+                                    </a>
+                                </li>
+                                </ul>
+                              </div>
+                            @endif
+
+
+                        <div class="main-menu__phone-contact">
+                            <div class="main-menu__phone-icon">
+                                <span class="icon-chat"></span>
+                            </div>
+                            <div class="main-menu__phone-number">
+                                <p>Call Anytime</p>
+                                <a href="tel:92 666 888 0000">92 666 888 0000</a>
+                            </div>
+                        </div>
+                        <a href="{{url('/donate')}}" class="main-menu__donate-btn"><i class="fa fa-heart"></i>{{__('Đóng Góp')}}</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="modal fade"  id="account-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div  class="modal-dialog  modal-dialog-centered modal-dialog-scrollable modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button style="outline: none !important" class="nav-link active border-none shadow-none" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Login</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button style="outline: none !important"  class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Register</button>
+                                </li>
+                            </ul>
+
+
+                            <div class="tab-content" id="myTabContent">
+
+                                <div class="tab-pane mt-2 fade show active account-form" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    @if (session('status'))
+                                        <div class="mb-4 font-medium text-sm text-green-600">
+                                            {{ session('status') }}
+                                        </div>
+                                    @endif
+                                    <form method="POST" action="{{ route('login') }}" >
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-xl-12 mb-3 mt-3">
+                                                <div class="login_and_register_input">
+                                                    <label for="email">{{__('Email address')}}</label>
+                                                    <input type="email" aria-describedby="emailHelp" id="email" name="email" required >
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12 mb-3">
+                                                <div class="login_and_register_input">
+                                                    <label for="password">{{__('Password')}}</label>
+                                                    <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">                                                    </div>
+                                            </div>
+                                            <div class="col-xl-12 mb-3">
+                                                <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
+                                                <label class="form-check-label" for="exampleCheck1">{{__('Remember me')}}</label>
+                                            </div>
+                                            <div class="d-flex">
+                                                <button type="submit" class="btn-primary-web me-3">{{__('login')}}</button>
+                                                @if (Route::has('password.request'))
+                                                    <a class="underline text-sm text-center d-flex align-items-end text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                                                        {{ __('Forgot your password?') }}
+                                                    </a>
+                                                @endif
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="tab-pane account-form mt-2 fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    @if (session('status'))
+                                        <div class="mb-4 font-medium text-sm text-green-600">
+                                            {{ session('status') }}
+                                        </div>
+                                    @endif
+                                    <form method="POST" action="{{route('register')}}" >
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-xl-12 mb-3 mt-3">
+                                                <div class="login_and_register_input">
+                                                    <label for="name">{{__('Full Name')}}</label>
+                                                    <input type="text" class="form-control"  aria-describedby="emailHelp" id="name" name="name" required autocomplete="name">                                                    </div>
+                                            </div>
+                                            <div class="col-xl-12 mb-3">
+                                                <div class="login_and_register_input">
+                                                    <label for="email">{{__('Email address')}}</label>
+                                                    <input type="email" class="form-control"  aria-describedby="emailHelp" id="email" name="email" required >                                                    </div>
+                                            </div>
+                                            <div class="col-xl-12 mb-3">
+                                                <div class="login_and_register_input">
+                                                    <label for="password">{{__('Password')}}</label>
+                                                    <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">                                                    </div>
+                                            </div>
+
+                                            <div class="col-xl-12 mb-3">
+                                                <div class="login_and_register_input">
+                                                    <label for="password">{{__('Password onfirmation')}}</label>
+                                                    <input type="password" class="form-control" id="password" name="password_confirmation" required autocomplete="current-password">                                                    </div>
+                                            </div>
+                                            <div class="col-xl-12 mb-3">
+                                                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                                    <div>
+                                                        <label for="terms">
+                                                            <div class="flex items-center">
+                                                                <input type="checkbox" name="terms" id="terms"/>
+
+                                                                <div class="ml-2">
+                                                                    {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                                                    ]) !!}
+                                                                </div>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <div class="d-flex">
+                                                <button type="submit" class="btn-primary-web me-3">{{__('Register')}}</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</nav>
-<div class="collapse" id="search">
-    <div class="card card-body">
-        <div class="container">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button style="height:58px" class="btn btn-primary shadow-none" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
+
+</header>
+
+
+
+<div class="stricky-header stricked-menu main-menu">
+    <div class="sticky-header__content"></div>
+    <!-- /.sticky-header__content -->
 </div>
-<nav style="z-index:300"  class="navbar navbar-expand-lg  ftco_navbar m-0 p-0 ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="{{asset('/')}}">Welfare</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-        </button>
-
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <div class="container user mt-3">
-                <button class="btn shadow-none mb-2" style="width:100%">Login</button>
-                <button class="btn shadow-none" style="width:100%">register</button>
-            </div>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="{{url('/')}}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="{{url('/about')}}" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="{{url('/donate')}}" class="nav-link">Donate</a></li>
-                <li class="nav-item"><a href="{{url('/gallery')}}" class="nav-link">Gallery</a></li>
-                <li class="nav-item"><a href="{{url('/posts-list')}}" class="nav-link">Posts List</a></li>
-                <li class="nav-item"><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
-
-            </ul>
-
-            <div class="search">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary shadow-none" type="submit">Search</button>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</nav>

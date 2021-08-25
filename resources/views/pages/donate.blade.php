@@ -1,112 +1,127 @@
 @extends('layout')
 @section('main')
-    <div class="hero-wrap" style="background-image:url('{{ url('dist/user/images/bg_6.jpg')}}')" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
+       <!--Page Header Start-->
+       <section class="page-header">
+        <div class="page-header__bg" style="background-image: url(dist/assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+        <!-- /.page-header__bg -->
         <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-                <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{{asset('/')}}">Home</a></span> <span>Donate</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{__('Donations')}}</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <section class="ftco-section bg-light">
-        <div class="container">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-8">
-
-                        <div class="card">
-
-                            <div class="card-body">
-                                <form action="{{url('/debit-cart')}}" class="g-3">
-                                    <div class="row">
-
-                                        <div class="input-group">
-                                            <span   class="input-group-text">
-                                                <select class="form-select" id="cur">
-                                                       <option value="VND">VND</option>
-                                                       <option value="INR">INR</option>
-                                                       <option value="USD">USD</option>
-                                                </select>
-                                            </span>
-                                            <input type="number" id="amount" aria-label="Last name" value="" class="form-control">
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="select_post" class="form-label mt-3">{{__('Đối Tượng Muốn Đóng Góp')}}</label>
-                                            <select id="select_post" class="form-select">
-{{--                                                @if(!$post_selected == null)--}}
-{{--                                                    <option selected value="{{$post_selected->id}}">{{$post_selected->title}}</option>--}}
-{{--                                                @endif--}}
-
-{{--                                                    <option disabled>Chọn Đối Trường Hợp Muốn Đóng Góp Khác</option>--}}
-                                                <option  @if($post_selected == null) selected @endif disabled>Chọn Đối Trường Hợp Muốn Đóng Góp</option>
-                                                @foreach($category as $item)
-                                                    @if($item->post_count > 0)
-                                                        <option disabled>-----{{'Các dự án '.$item->name}}-----</option>
-                                                        @foreach($posts as $select_post)
-
-                                                                 @if($select_post -> category_id == $item->id)
-                                                                     @if(!$post_selected == null)
-
-                                                                         <option @if($post_selected->id ==$select_post->id ) selected @endif value="{{$select_post->id}}">{{$select_post->title}}</option>
-                                                                     @else
-                                                                         <option  value="{{$select_post->id}}">{{$select_post->title}}</option>
-                                                                     @endif
-
-                                                                 @endif
-
-                                                        @endforeach
-                                                    @endif
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="mt-3" id="paypal-button-container"></div>
-                                </form>
-                                <div class="text-center" id="loading">
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-            </form>
-
+            <h2>Causes</h2>
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="index.html">Home</a></li>
+                <li class="color-thm-gray">/</li>
+                <li><span>Causes</span></li>
+            </ul>
         </div>
     </section>
+    <!--Page Header End-->
 
-    <section class="ftco-section-3 img" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}')">
-        <div class="overlay"></div>
+    <!--Helping One Start-->
+    <section class="helping-one">
         <div class="container">
-            <div class="row d-md-flex">
-                <div class="col-md-6 d-flex ftco-animate">
-                    <div class="img img-2 align-self-stretch" style="background-image: url('{{url('dist/user/images/bg_4.jpg')}}')"></div>
+            <div class="section-title text-center">
+                <span class="section-title__tagline">Latest Causes</span>
+                <h2 class="section-title__title">Find the popular cause <br> and donate them</h2>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="helping-one__left">
+                        <h3 class="helping-one__title">We’re Helping Today. Helping Tommorow</h3>
+                        <p class="helping-one__text">There are many variations of passages of available but the majority have suffered alteration in some form, by injected humou or randomised words even slightly believable. All the Lorem Ipsum generators on the Internet tend.</p>
+                        <ul class="helping-one__left-list list-unstyled">
+                            <li>
+                                <div class="helping-one__left-icon">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </div>
+                                <div class="helping-one__left-text">
+                                    <p>Making this the first true generator on the Internet</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="helping-one__left-icon">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </div>
+                                <div class="helping-one__left-text">
+                                    <p>Lorem Ipsum is not simply random text</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="helping-one__left-icon">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </div>
+                                <div class="helping-one__left-text">
+                                    <p>If you are going to use a passage</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="helping-one__left-img">
+                            <img src="assets/images/resources/helping-one-left-img.jpg" alt="">
+                            <div class="helping-one__left-icon-box">
+                                <span class="icon-heart"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 volunteer pl-md-5 ftco-animate">
-                    <h3 class="mb-3">Join Our Mailing List</h3>
-                    <form class="volunter-form">
-                        @csrf
-                        <p class="text-white">Join and receive updates on charity news by entering the information below.</p>
-                        <div class="form-group">
-                            <input type="text" name="name" class="form-control nameSub" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control emailSub" placeholder="Your Email">
-                        </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="helping-one__right">
+                        <form  class="helping-one__right-form">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <select class="become-volunteer-page__select" name="con" id="cur">
+                                            <option selected class="selected" value="VND">VND</option>
+                                            <option value="INR">INR</option>
+                                            <option value="USD">USD</option>
+                                        </select>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="helping-one__right-input-box">
+                                                <input type="number" min="0" id="amount" name="amount" placeholder="Enter Donation Amount">
+                                                <div class="helping-one__right-dolar-icon">
+                                                    <h6 style="color:#707876" id="currency">₫</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <div class="form-group">
-                            <button type="button" id="send-mail" class="btn btn-white">Subscribe</button>
-                        </div>
-                    </form>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" name="name" placeholder="Your Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="email" name="email" placeholder="Email Address">
+                                </div>
+                                <div class="col-lg-12">
+                                    <select class="become-volunteer-page__select" id="select_post">
+                                        <option  @if($post_selected == null) selected @endif disabled>Chọn Đối Trường Hợp Muốn Đóng Góp</option>
+                                        @foreach($category as $item)
+                                            @if($item->post_count > 0)
+                                                <option disabled>-----{{'Các dự án '.$item->name}}-----</option>
+                                                @foreach($posts as $select_post)
+                                                         @if($select_post -> category_id == $item->id)
+                                                             @if(!$post_selected == null)
+                                                                 <option class="text-dark"  @if($post_selected->id ==$select_post->id ) selected @endif value="{{$select_post->id}}">{{$select_post->title}}</option>
+                                                             @else
+                                                                 <option class="text-dark" value="{{$select_post->id}}">{{$select_post->title}}</option>
+                                                             @endif
+                                                         @endif
+                                                @endforeach
+                                            @endif
+                                        @endforeach
+                                </select>
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea name="message" placeholder="Write Message"></textarea>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="mt-3" id="paypal-button-container"></div>
+                                </div>
+                               <div class="text-center" id="loading">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,19 +1,23 @@
 @extends('layout')
 @section('main')
-    <div class="hero-wrap" style="background-image:url('{{ url('dist/user/images/bg_6.jpg')}}')" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
+    <!--Page Header Start-->
+    <section class="page-header">
+        <div class="page-header__bg"
+             style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+        <!-- /.page-header__bg -->
         <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-                <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{{asset('/')}}">{{__('Home')}}</a></span> <span>{{__('Profile')}}</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{__('Profile')}}</h1>
-                </div>
-            </div>
+            <h2>Causes</h2>
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="index.html">Home</a></li>
+                <li class="color-thm-gray">/</li>
+                <li><span>Causes</span></li>
+            </ul>
         </div>
-    </div>
+    </section>
+    <!--Page Header End-->
 
 
-    <section class="ftco-section bg-light">
+    <section class="gallery-page">
         <div class="container">
 
             <div class="row">
@@ -199,31 +203,4 @@
 
     </section>
 
-    <section class="ftco-section-3 img" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}');">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row d-md-flex">
-                <div class="col-md-6 d-flex ftco-animate">
-                    <div class="img img-2 align-self-stretch" style="background-image: url('{{url('dist/user/images/bg_3.jpg')}}');"></div>
-                </div>
-                <div class="col-md-6 volunteer pl-md-5 ftco-animate">
-                    <h3 class="mb-3">{{__('Be a volunteer')}}</h3>
-                    <form action="#" class="volunter-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{__('Your Name')}}">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{__('Your Email')}}">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="{{__('Message')}}"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection

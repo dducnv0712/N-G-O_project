@@ -33,7 +33,8 @@ Route::get('auth/social', [SocialController::class,'show'])->name('social.login'
 Route::get('auth/{driver}', [SocialController::class,'redirectToProvider'])->name('social.auth');
 Route::get('auth/{driver}/callback', [SocialController::class,'handleProviderCallback'])->name('social.callback');
 Route::post('/subscribe-mail',[MailController::class,'subMail']);
-Route::get('/causes',[WebController::class,"causes"]);
+Route::get('/causes/{id}',[WebController::class,"causes"]);
+Route::get('/causes',[WebController::class,"causesAll"]);
 Route::get('/gallery',[WebController::class,"gallery"]);
 Route::get('/profile',[WebController::class,"profile"]);
 Route::post('/contribution',[ContributeController::class,"contribution"]);

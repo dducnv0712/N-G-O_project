@@ -92,11 +92,14 @@
             }else{
                 $( "#currency" ).text( '₫' );
             }
-            
+
     });
     paypal.Buttons({
 
         // Set up the transaction
+        style: {
+            label: 'donate',
+        },
         createOrder: function(data, actions) {
 
             let total;
@@ -220,4 +223,4 @@
         $('#content_auth').summernote();
 
     })
-</script> 
+</script>

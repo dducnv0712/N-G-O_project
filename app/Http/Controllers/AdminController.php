@@ -25,11 +25,11 @@ class AdminController extends Controller
             foreach ($contribution as $item_contribution ){
                 if($item_contribution->id_post == $item_post->id){
                     $amount_total += $item_contribution->contribute_amount;
-                    if(!$item_post->contribute == null){
-                        if($amount_total /  $item_post->contribute * 100 >= 100){
-                            $count_contribute[] = $item_post->id;
-                        }
-                    }
+                }
+            }
+            if(!$item_post->contribute == null){
+                if($amount_total /  $item_post->contribute * 100 >= 100){
+                    $count_contribute[] = $item_post->id;
                 }
             }
         }

@@ -2,7 +2,7 @@
 @section('main')
        <!--Page Header Start-->
        <section class="page-header">
-        <div class="page-header__bg" style="background-image: url(dist/assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+        <div class="page-header__bg" style="background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fminhhagroup.com%2F2017%2F11%2F25%2Fchung-tay-giup-do-tre-em-vung-cao%2F&psig=AOvVaw30GOPwJuUmJzWprteEK-mw&ust=1630053224555000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKC669GjzvICFQAAAAAdAAAAABBI');"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             <h2>Causes</h2>
@@ -54,7 +54,7 @@
                             </li>
                         </ul>
                         <div class="helping-one__left-img">
-                            <img src="assets/images/resources/helping-one-left-img.jpg" alt="">
+                            <img src="https://minhhagroup.com/wp-content/uploads/2017/11/1.jpg" alt="">
                             <div class="helping-one__left-icon-box">
                                 <span class="icon-heart"></span>
                             </div>
@@ -86,10 +86,10 @@
 
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" name="name" placeholder="Your Name">
+                                    <input type="text" name="name" placeholder="Your Name" value="@if(!Auth::user() == null) {{Auth::user()->name}} @endif">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="email" name="email" placeholder="Email Address">
+                                    <input type="email" name="email" placeholder="Email Address" value="@if(!Auth::user() == null) {{Auth::user()->email}} @endif">
                                 </div>
                                 <div class="col-lg-12">
                                     <select class="become-volunteer-page__select" id="select_post">

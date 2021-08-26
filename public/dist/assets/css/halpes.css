@@ -2141,6 +2141,7 @@
                                 width: 100%;
                                 transition: transform 500ms ease;
                                 transform: scale(1);
+                                object-fit: cover;
                             }
 
                             .causes-one__single:hover .causes-one__img-box>img {
@@ -2222,6 +2223,13 @@
                                 font-weight: 900;
                                 line-height: 27px;
                                 margin-bottom: 15px;
+                                overflow:hidden;
+
+                                -webkit-box-orient: vertical;
+                                display: block;
+                                display: -webkit-box;
+                                text-overflow: ellipsis;
+                                -webkit-line-clamp:2;
                             }
 
                             .causes-one__title a {
@@ -2236,6 +2244,14 @@
                             .causes-one__text {
                                 font-size: 16px;
                                 margin: 0;
+                                overflow:hidden;
+                                max-height:300px;
+                                -webkit-box-orient: vertical;
+                                display: block;
+                                display: -webkit-box;
+                                text-overflow: ellipsis;
+                                -webkit-line-clamp:4;
+
                             }
 
                             .causes-one__progress {
@@ -7302,3 +7318,4 @@
                                 background: #eff5f4;
                                 padding: 20px;
                             }
+

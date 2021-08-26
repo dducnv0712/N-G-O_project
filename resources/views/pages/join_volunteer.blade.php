@@ -26,7 +26,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="become-volunteer-page__left">
                         <div class="become-volunteer-page__img">
-                            <img src="assets/images/resources/become-a-volunteer.jpg" alt="">
+                            <img src="http://media.thanhnienviet.vn/uploads/2020_04/3-1586773532.jpg" alt="">
                         </div>
                         <h3 class="become-volunteer-page__title">Requirements</h3>
                         <p class="become-volunteer-page__text">Aliquam hendrerit a augue insu image pellentes que id erat quis sollicitud null mattis Ipsum is simply dummy typesetting industry. Alienum phaedrum torquatos nec eu, vis detraxit periculis ex, nihil expetendis in meifn pericula euripidis, hinc partem ei est. Eos ei nisl graecis, aperiri consequat anlorem tincidun.</p>

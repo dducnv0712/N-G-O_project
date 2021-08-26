@@ -1,6 +1,6 @@
 
   <footer class="site-footer">
-    <div class="site-footer-bg" style="background-image: url(assets/images/backgrounds/footer-bg.jpg)"></div>
+    <div class="site-footer-bg" style="background-image: url('https://www.indochinatravel.com/images/donating-books-at-school-in-vietnam.jpg')"></div>
     <div class="container">
         <div class="site-footer__top">
             <div class="row">
@@ -76,7 +76,7 @@
                             <input id="email" type="email" name="emailSub" class="emailSub" placeholder="{{__('Email Của Bạn')}}">
                             <button id="send-mail" type="button" class="footer-widget__newsletter-btn mt-2"><i class="fas fa-arrow-circle-right"></i>Send</button>
                         </form>
-                       
+
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     <div class="site-footer__bottom-inner">
                         <div class="site-footer__bottom-logo-social">
                             <div class="site-footer__bottom-logo">
-                                <a href="index.html"><img src="assets/images/resources/footer-logo.jpg" alt=""></a>
+                                <a href="index.html"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.usnews.com%2Fnews%2Fbest-countries%2Fvietnam&psig=AOvVaw1vcwUvUzourmZcVrUDHPCs&ust=1630037477203000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCODKtoDpzfICFQAAAAAdAAAAABAV" alt=""></a>
                             </div>
                             <div class="site-footer__bottom-social">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <div class="site-footer__bottom-copy-right">
-                            <p>© Copyright 2021 by <a href="#">Layerdrops.com</a></p>
+                            <p>© Copyright 2021 by <a href="#">FPT Aptech</a></p>
                         </div>
                     </div>
                 </div>

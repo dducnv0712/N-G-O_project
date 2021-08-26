@@ -27,7 +27,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="contact-page__left">
                         <div class="contact-page__img">
-                            <img src="assets/images/resources/contact-page-img-1.jpg" alt="">
+                            <img src="https://nhandan.vn/imgold/media/k2/items/src/4409/962e4f8a47837ea9f53be6cc1348ff03.jpg" alt="">
                         </div>
                         <p class="contact-page__text">There are many variations of passages of available but the majority have suffered alteration in some form, by injected humou or randomised words even slightly believable.</p>
                         <div class="contact-page__contact-info">

@@ -30,15 +30,15 @@ class WebController extends Controller
             foreach ($contribution as $item_contribution ){
                 if($item_contribution->id_post == $item_post->id){
                     $contribute_total+= $item_contribution->contribute_amount;
-                    if(!$item_post->contribute == null){
-                        if($contribute_total /  $item_post->contribute * 100 >= 100){
-                            $count_contribute[] = $item_post->id;
-                        }
-                    }
-
+                }
+            }
+            if(!$item_post->contribute == null){
+                if($contribute_total /  $item_post->contribute * 100 >= 100){
+                    $count_contribute[] = $item_post;
                 }
             }
         }
+//        dd(count($count_contribute));
         $important = Post::where('important',0) ->paginate(1);
         $amount_important = 0;
 
@@ -125,13 +125,33 @@ class WebController extends Controller
             'contribution'=>$contribution
         ]);
     }
-    public function causes(){
-//        $contribution =Contribution::all();
+    public function causes($id){
+
+        $contribution =Contribution::all();
 //        $categoryId = $request->get("category_id");
 //        $search = $request->get("search");
-//        $category = Category::where('active',1)->findOrFail($id);
-//        $posts= Post::with('Category')->where( 'category_id',$id)->search($search)->category($categoryId)->orderBy("id","desc")->paginate(6);
-        return view('pages.causes');
+        $category = Category::where('active',0)->findOrFail($id);
+//        dd($category);
+        $posts= Post::with('Category')->where( 'category_id',$id )->where('active',0)->orderBy("id","desc")->paginate(6);
+        return view('pages.causes',[
+            'contribution'=>$contribution,
+            'category'=>$category,
+            'posts'=>$posts
+        ]);
+    }
+    public function causesAll(Request $request){
+        $category = null;
+        $contribution =Contribution::all();
+//        $categoryId = $request->get("category_id");
+        $search = $request->get("search");
+//        dd($category);
+        $posts= Post::with('Category')->where('active',0)->search($search)->orderBy("id","desc")->get();
+        return view('pages.causes',[
+            'contribution'=>$contribution,
+            'search'=>$search,
+            'posts'=>$posts,
+            'category'=>$category
+        ]);
     }
     public function gallery(){
         return view('pages.gallery');

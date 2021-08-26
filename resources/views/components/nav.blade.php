@@ -39,27 +39,23 @@
                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                     <ul class="main-menu__list">
                         <li class=" {{ Route::is('/') ? 'current' : null }}">
-                            <a href="{{url('/')}}">Home</a>
+                            <a href="{{url('/')}}">{{__('Trang Chủ')}}</a>
 
                         </li>
-                        <li class="{{ Request::url() == url('/become-a-volunteer') ||  Request::url() == url('/volunteer') ||  Request::url() == url('/about') ||  Request::url() == url('/gallery') ? 'dropdown current' : 'dropdown' }}">
+                        <li class="{{ Request::url() == url('/become-a-volunteer') ||  Request::url() == url('/volunteer') ||  Request::url() == url('/gallery') ? 'dropdown current' : 'dropdown' }}">
                             <a href="#">Pages</a>
                             <ul>
-                                <li><a href="{{url('about')}}">About</a></li>
-                                <li><a href="{{url('/volunteer')}}">Volunteers</a></li>
-                                <li><a href="{{url('/gallery')}}">Gallery</a></li>
-                                <li><a href="{{'/become-a-volunteer'}}">Become a Volunteer</a></li>
+                                <li><a href="{{url('/causes')}}">{{__('Tất Cả Dự Án')}}</a></li>
+                                <li><a href="{{url('/gallery')}}">{{__('Thư Viện Ảnh')}}</a></li>
+                                <li><a href="{{url('/volunteer')}}">{{__('Tình Nguyện Viên')}}</a></li>
+                                <li><a href="{{'/become-a-volunteer'}}">{{__('Đăng Ký Tình Nguyện Viên')}}</a></li>
                             </ul>
                         </li>
-                        <li class="{{ Request::url() == url('/donate')  ? 'dropdown current' : 'dropdown' }}">
-                            <a href="#">Donations</a>
-                             <ul>
-                                <li><a href="{{url('/donate')}}">Donate</a></li>
-                                <li><a href="event-details.html">Event Details</a></li>
-                            </ul>
+                        <li class="{{ Request::url() == url('/about')  ? ' current' : '' }}">
+                            <a href="{{asset('/about')}}">{{__('Giới Thiệu')}}</a>
                         </li>
                         <li class="{{ Request::url() == url('/contact')  ? ' current' : '' }}">
-                            <a href="{{asset('/contact')}}">Contact</a>
+                            <a href="{{asset('/contact')}}">{{__('Liên Hệ')}}</a>
                         </li>
                     </ul>
                     <div class="main-menu__right">
@@ -70,15 +66,13 @@
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#account-modal" class="main-menu__cart">
                                     <i class="fas fa-sign-in-alt"></i>
                                 </a>
-
-
                             @else
                             <div class="dropdown">
                                 <a class="main-menu__cart" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fas fa-user"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="{{url('/profile')}}">{{__('Profile')}}</a></li>
+                                    <li><a class="dropdown-item" href="{{url('/profile')}}">{{__('Tài Khoản Của Tôi')}}</a></li>
                                     @if(Auth::user()->role =='AUTHOR')
                                     <li><a class="dropdown-item" href="{{url('/author/posts')}}">My Posts</a></li>
                                     @elseif(Auth::user()->role == "ADMIN")
@@ -90,7 +84,7 @@
                                       <a class="dropdown-item d-flex justify-content-center align-items-center" >
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <button class="bg-transparent border-0" type="submit">  <i class="fas fa-sign-out-alt me-1"></i> Logout</button>
+                                            <button class="bg-transparent border-0" type="submit">  <i class="fas fa-sign-out-alt me-1"></i>{{__('Đăng Xuất')}}</button>
                                         </form>
                                     </a>
                                 </li>
@@ -104,7 +98,7 @@
                                 <span class="icon-chat"></span>
                             </div>
                             <div class="main-menu__phone-number">
-                                <p>Call Anytime</p>
+                                <p>{{__('Gọi mọi lúc')}}</p>
                                 <a href="tel:92 666 888 0000">92 666 888 0000</a>
                             </div>
                         </div>

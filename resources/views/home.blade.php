@@ -17,7 +17,7 @@
         }}'>
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <div class="image-layer" style="background-image: url(dist/assets/images/backgrounds/main-slider-1-1.jpg);">
+                <div class="image-layer" style="background-image: url('https://quybongsen.org/wp-content/uploads/2018/06/bannerkid.jpg');">
                 </div>
                 <div class="image-layer-overlay"></div>
                 <!-- /.image-layer -->
@@ -29,16 +29,16 @@
                                 <h2>Help the Poor <br> in Need</h2>
                                 <a href="#" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
                                     More</a>
-                                <div class="main-slider__shape-1 zoom-fade">
-                                    <img src="dist/assets/images/shapes/main-slider-1-shape-1.png" alt="">
-                                </div>
+{{--                                <div class="main-slider__shape-1 zoom-fade">--}}
+{{--                                    <img src="https://quybongsen.org/wp-content/uploads/2018/06/bannerkid.jpg" alt="">--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="swiper-slide">
-                <div class="image-layer" style="background-image: url(assets/images/backgrounds/main-slider-2-1.jpg);">
+                <div class="image-layer" style="background-image: url('https://i-english.vnecdn.net/2018/04/06/muusinhgiaretVnExpress13-15229-5121-4772-1522987407_r_680x408.jpg');">
                 </div>
                 <div class="image-layer-overlay"></div>
                 <!-- /.image-layer -->
@@ -50,16 +50,16 @@
                                 <h2>Help the Poor <br> in Need</h2>
                                 <a href="#" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
                                     More</a>
-                                <div class="main-slider__shape-1 zoom-fade">
-                                    <img src="assets/images/shapes/main-slider-1-shape-1.png" alt="">
-                                </div>
+{{--                                <div class="main-slider__shape-1 zoom-fade">--}}
+{{--                                    <img src="https://i-english.vnecdn.net/2018/04/06/muusinhgiaretVnExpress13-15229-5121-4772-1522987407_r_680x408.jpg" alt="">--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="swiper-slide">
-                <div class="image-layer" style="background-image: url(assets/images/backgrounds/main-slider-3-1.jpg);">
+                <div class="image-layer" style="background-image: url('https://i-english.vnecdn.net/2021/08/25/WEBQUYN4795-1629891285-5236-1629891317_r_680x408.jpg');background-position: center">
                 </div>
                 <div class="image-layer-overlay"></div>
                 <!-- /.image-layer -->
@@ -71,9 +71,9 @@
                                 <h2>Help the Poor <br> in Need</h2>
                                 <a href="#" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
                                     More</a>
-                                <div class="main-slider__shape-1 zoom-fade">
-                                    <img src="assets/images/shapes/main-slider-1-shape-1.png" alt="">
-                                </div>
+{{--                                <div class="main-slider__shape-1 zoom-fade">--}}
+{{--                                    <img src="assets/images/shapes/main-slider-1-shape-1.png" alt="">--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                 </li>
                 <li class="counter-animate">
                     <h3 class="main-sldier__counter-digit number" data-number="{{count($count_contribute)}}"></h3>
-                    <span class="main-slider__counter-text">{{__('Là Dự Án Chúng Tôi Đã Hoàn ')}}</span>
+                    <span class="main-slider__counter-text">{{__('Dự Án Đã Hoàn Thành')}}</span>
                 </li>
                 <li style="max-width:450px;height:191px" class="counter-animate">
                     <div class="d-flex">
@@ -189,7 +189,11 @@
 
                         </div>
                     </div>
-                    <a href="{{url('/donate',['id'=>$item_important->id])}}" class="welcome-one__btn thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Đóng Góp')}}</a>
+                    <div class="d-flex">
+                        <a href="{{url('/donate',['id'=>$item_important->id])}}" class="welcome-one__btn me-2 thm-btn"><i class="fa fa-heart"></i>{{__('Đóng Góp')}}</a>
+                        <a href="{{url('/desc-post',['id'=>$item_important->id])}}" class="welcome-one__btn ms-1 thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Xem Chi Tiết')}}</a>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -208,7 +212,7 @@
                         <span class="section-title__tagline">{{__('Các Dự Án')}}</span>
                         <h2 class="section-title__title">{{__($item->name)}}</h2>
                         <div class="text-center ">
-                            <a href="#" class="btn-sm thm-btn mt-4 mb-3"><i class="fas fa-arrow-circle-right"></i>
+                            <a href="{{url('/causes',['id'=>$item->id])}}" class="btn-sm thm-btn mt-4 mb-3"><i class="fas fa-arrow-circle-right"></i>
                                 {{__('Xem Thêm Về Dự Án')}}
                                 </a>
                         </div>
@@ -233,8 +237,8 @@
 
                                     <div class="causes-one__img">
                                         <div class="causes-one__img-box">
-                                            <img src="{{$item_post->getImage()}}" alt="">
-                                            <a href="#">
+                                            <img style="max-height: 230px;" src="{{$item_post->getImage()}}" alt="">
+                                            <a href="{{url('/desc-post',['id'=>$item_post->id])}}">
                                                 <i class="fa fa-plus"></i>
                                             </a>
                                         </div>
@@ -259,9 +263,9 @@
                                         <h3 class="causes-one__title">
                                             <a href="{{url('/desc-post',['id'=>$item_post->id])}}">{{__($item_post->title)}}</a>
                                         </h3>
-                                        <p class="causes-one__text">
+                                        <span class="causes-one__text">
                                             {!!__($item_post->description)!!}
-                                        </p>
+                                        </span>
                                     </div>
                                     <div class="causes-one__progress">
                                         {{-- <div class="bar">
@@ -327,7 +331,7 @@
 
 <!--Join One Start-->
 <section class="join-one">
-    <div class="join-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url(assets/images/backgrounds/join-one-bg.jpg)"></div>
+    <div class="join-one-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url('http://image.vietnamnews.vn/uploadvnnews/Article/2018/10/18/19_zing5553151PM.jpg')"></div>
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
@@ -463,7 +467,7 @@
 
 <!--Testimonial One Start-->
 <section class="testimonial-one">
-    <div class="testimonial-one-bg" style="background-image: url(assets/images/backgrounds/testimonial-1-bg.jpg)"></div>
+    <div class="testimonial-one-bg" style="background-image: url('https://mocah.org/thumbs/5339194-kids-child-children-group-smiling-friends-vietnamese-poor-child-kid-vietnam-traveling-vietnam-poor-person-happiness-eyes-happiness-eyes-of-child-eye-street-life-photography-real-person-traveli.jpg')"></div>
     <div class="container">
         <div class="row">
             <div class="col-xl-4">

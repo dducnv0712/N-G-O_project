@@ -1,26 +1,4 @@
 
-{{-- <script src="{{asset('dist/user/js/jquery.min.js')}}"></script>
-<script src="{{ mix('js/app.js') }}" defer></script>
-@livewireScripts
-{{--<script src="{{asset('dist/bootstrap-5/js/bootstrap.min.js')}}"></script>--}}
-{{-- <script src="{{asset('dist/bootstrap-5/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('js/paypal-get-data.js')}}"></script>
-<script src="{{asset('dist/user/js/jquery-migrate-3.0.1.min.js')}}"></script>
-<script src="{{asset('dist/user/js/popper.min.js')}}"></script> --}}
-{{--<script src="{{asset('dist/user/js/bootstrap.min.js')}}"></script>--}}
-{{-- <script src="{{asset('dist/user/js/jquery.easing.1.3.js')}}"></script>
-<script src="{{asset('dist/user/js/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('dist/user/js/jquery.stellar.min.js')}}"></script>
-<script src="{{asset('dist/user/js/owl.carousel.min.js')}}"></script>
-<script src="{{asset('dist/user/js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset('dist/user/Slider/js/lightslider.js')}}"></script>
-<script src="{{asset('dist/user/js/aos.js')}}"></script>
-<script src="{{asset('dist/user/js/jquery.animateNumber.min.js')}}"></script>
-<script src="{{asset('dist/user/js/bootstrap-datepicker.js')}}"></script>
-<script src="{{asset('dist/user/js/jquery.timepicker.min.js')}}"></script>
-<script src="{{asset('dist/user/js/scrollax.min.js')}}"></script>
-<script src="{{asset('dist/user/js/google-map.js')}}"></script>
-<script src="{{asset('dist/user/js/main.js')}}"></script> --}}
 
 
 
@@ -46,7 +24,6 @@
 <script src="{{asset('')}}dist/assets/vendors/jquery-waypoint/jquery.waypoints.min.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/jquery-waypoint/jquery.animateNumber.min.js"></script>
 {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> --}}
-<script src="https://www.paypal.com/sdk/js?client-id=Acx_N_h2bcxoF6hcKn16O2VBQq_7ZpEZsBq7DNuONQL0jQGeIX1iL92ZlcZbkpPhiU3VTCQwo5zzqfZA&currency=USD"></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
 @livewireScripts
 <script type="text/javascript" src="{{asset('/dist/sweetalert/sweetalert.min.js')}}"></script>
@@ -80,6 +57,9 @@
     });
 
 </script>
+
+{{--paypal--}}
+<script src="https://www.paypal.com/sdk/js?client-id=Acx_N_h2bcxoF6hcKn16O2VBQq_7ZpEZsBq7DNuONQL0jQGeIX1iL92ZlcZbkpPhiU3VTCQwo5zzqfZA&currency=USD"></script>
 <script type="text/javascript">
     // Render the PayPal button into #paypal-button-container
     $('#cur').on('change', function () {
@@ -97,9 +77,9 @@
     paypal.Buttons({
 
         // Set up the transaction
-        style: {
-            label: 'donate',
-        },
+        // style: {
+        //     label: 'donate',
+        // },
         createOrder: function(data, actions) {
 
             let total;
@@ -141,15 +121,15 @@
                 var contributors = orderData.payer;
                 var id_cus = contributors.payer_id;
                 var contribute_id = contribute.id;
-                var given_name = contributors.name['given_name'];
-                var surname = contributors.name['surname'];
-                var email = contributors.email_address;
+                var full_name = $('#fullName').val();
+                var email = $('#email_donate').val();
+                var messages = $('#message-donate').val();
                 var amount = contribute.amount['value'];
                 var country = contributors.address['country_code'];
                 var post_id = $("#select_post").val();
                 var status = contribute.status;
                 var _token = $('input[name="_token"]').val();
-                // console.log(id_cus,given_name,surname,email,amount,country,post_id,status,_token)
+                // console.log(id_cus,full_name,message,email,amount,country,post_id,status,_token)
 
                 $.ajax({
                     url:"{{url('/contribution')}}",
@@ -157,9 +137,9 @@
                     data:{
                         id_cus:id_cus,
                         contribute_id:contribute_id,
-                        given_name:given_name,
-                        surname:surname,
+                        full_name:full_name,
                         email:email,
+                        messages:messages,
                         amount:amount,
                         country:country,
                         post_id:post_id,
@@ -214,13 +194,31 @@
         });
     });
 </script>
-<script src="{{asset('dist/summernote/summernote-bs4.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("download-pdf")
+            .addEventListener("click", () => {
+                const contribute_details = this.document.getElementById("contribute-details");
+                console.log(contribute_details);
+                console.log(window);
+                var opt = {
+                    margin: 1,
+                    filename: 'myfile.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                html2pdf().from(contribute_details).set(opt).save();
+            })
+    }
 
+</script>
+{{--<script src="{{asset('dist/data-table/DataTables-1.11.0/js/dataTables.bootstrap5.min.js')}}"></script>--}}
+<script src="{{asset('dist/data-table/datatables.min.js')}}"></script>
 <script>
     $(function () {
-
-        $('#desc_auth').summernote();
-        $('#content_auth').summernote();
+        $('#table-contribute').DataTable();
 
     })
 </script>

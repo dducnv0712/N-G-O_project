@@ -6,10 +6,10 @@ use App\Models\Category;
 use App\Models\Contribution;
 use App\Models\Post;
 use App\Models\User;
-use Carbon\Carbon;
+//use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
+//use Illuminate\Support\Facades\Mail;
 
 class WebController extends Controller
 {
@@ -166,6 +166,12 @@ class WebController extends Controller
     }
     public function volunteer(){
         return view('pages.volunteer');
+    }
+    public function contributor(){
+        $contribute = Contribution::all();
+        return view('pages.contributors',[
+            'contribute'=>$contribute
+        ]);
     }
 
 }

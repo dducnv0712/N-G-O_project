@@ -21,66 +21,69 @@
             </div>
         </div>
         <div class="card">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>{{__('ID')}}</th>
-                    <th>Name</th>
-                    <th>Created_at</th>
-                    <th>Updated_at</th>
-                    <th>Active</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($categories as $item)
+            <div class="card-body">
+                <table class="table" id="dataTable">
+                    <thead>
                     <tr>
-                        <td>{{$item->id}}</td>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->created_at->format('d-m-Y')}}</td>
-                        <td>{{$item->updated_at->format('d-m-Y')}}</td>
-                        <td>
-                            @if($item->active == 0)
-                                <a href="{{url('admin/category/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
-                            @else
-                                <a href="{{url('admin/category/appear',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>
-                            @endif
-                        </td>
+                        <th>{{__('ID')}}</th>
+                        <th>Name</th>
+                        <th>Created_at</th>
+                        <th>Updated_at</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($categories as $item)
+                        <tr>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->created_at->format('d-m-Y')}}</td>
+                            <td>{{$item->updated_at->format('d-m-Y')}}</td>
+                            <td>
+                                @if($item->active == 0)
+                                    <a href="{{url('admin/category/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
+                                @else
+                                    <a href="{{url('admin/category/appear',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>
+                                @endif
+                            </td>
 
-                        <td class="table-action">
-                            <!-- Modal -->
-                            <div class="modal fade" id="Edit-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <form  action="{{url('admin/category/update',["id"=>$item->id])}}" method="post">
-                                            @csrf
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <label for="nameCategory" class="form-label fw-bold">Tên Thể Loại</label>
-                                                    <input value="{{$item->name}}" id="nameCategory" name="name" class="form-control nameEdit rounded-3" required>
+                            <td class="table-action">
+                                <!-- Modal -->
+                                <div class="modal fade" id="Edit-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <form  action="{{url('admin/category/update',["id"=>$item->id])}}" method="post">
+                                                @csrf
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
-                                        </form>
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="nameCategory" class="form-label fw-bold">Tên Thể Loại</label>
+                                                        <input value="{{$item->name}}" id="nameCategory" name="name" class="form-control nameEdit rounded-3" required>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <a data-bs-toggle="modal" data-bs-target="#Edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
-                            <a href="javascript:void(0)"  onclick="deleteCategory({{$item->id}})"><i class="align-middle" data-feather="trash"></i></a>
-                        </td>
-                    </tr>
+                                <a data-bs-toggle="modal" data-bs-target="#Edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                                <a href="javascript:void(0)"  onclick="deleteCategory({{$item->id}})"><i class="align-middle" data-feather="trash"></i></a>
+                            </td>
+                        </tr>
 
-                @endforeach
-                </tbody>
-            </table>
+                    @endforeach
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 

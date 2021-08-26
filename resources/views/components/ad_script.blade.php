@@ -5,7 +5,15 @@
 <script src="{{asset('dist/src/js/modules/vector-map.js')}}"></script>
 <script src="{{asset('dist/summernote/summernote-bs4.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('/dist/sweetalert/sweetalert.min.js')}}"></script>
+<script src="{{asset('dist/data-table/datatables.min.js')}}"></script>
+<script>
+    $(function () {
+        $('#dataTable').DataTable();
+        $('#dataTable-postAd').DataTable();
+        $('#dataTable-postAth').DataTable();
 
+    })
+</script>
 <script src="{{asset('js/style.js')}}"></script>
 <script type="text/javascript">
     $('.target').on('change',function(){

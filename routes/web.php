@@ -37,6 +37,7 @@ Route::get('/causes/{id}',[WebController::class,"causes"]);
 Route::get('/causes',[WebController::class,"causesAll"]);
 Route::get('/gallery',[WebController::class,"gallery"]);
 Route::get('/profile',[WebController::class,"profile"]);
+Route::get('/contributor',[WebController::class,"contributor"]);
 Route::post('/contribution',[ContributeController::class,"contribution"]);
 
 Route::get('/become-a-volunteer',[WebController::class,"join_volunteer"]);

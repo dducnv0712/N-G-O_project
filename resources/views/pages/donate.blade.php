@@ -86,10 +86,10 @@
 
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" name="name" placeholder="Your Name" value="@if(!Auth::user() == null) {{Auth::user()->name}} @endif">
+                                    <input type="text" name="name" id="fullName" placeholder="Your Name" value="@if(!Auth::user() == null) {{Auth::user()->name}} @endif">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="email" name="email" placeholder="Email Address" value="@if(!Auth::user() == null) {{Auth::user()->email}} @endif">
+                                    <input type="email" name="email" id="email_donate" placeholder="Email Address" value="@if(!Auth::user() == null) {{Auth::user()->email}} @endif">
                                 </div>
                                 <div class="col-lg-12">
                                     <select class="become-volunteer-page__select" id="select_post">
@@ -111,7 +111,7 @@
                                 </select>
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea name="message" placeholder="Write Message"></textarea>
+                                    <textarea name="message" id="message-donate" placeholder="Write Message"></textarea>
                                 </div>
 
                                 <div class="col-lg-12">

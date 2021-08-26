@@ -42,9 +42,10 @@
                             <a href="{{url('/')}}">{{__('Trang Chủ')}}</a>
 
                         </li>
-                        <li class="{{ Request::url() == url('/become-a-volunteer') ||  Request::url() == url('/volunteer') ||  Request::url() == url('/gallery') ? 'dropdown current' : 'dropdown' }}">
+                        <li class="{{ Request::url() == url('/become-a-volunteer') ||  Request::url() == url('/volunteer') ||  Request::url() == url('/gallery') ||  Request::url() == url('/contributor') ? 'dropdown current' : 'dropdown' }}">
                             <a href="#">Pages</a>
                             <ul>
+                                <li><a href="{{url('/contributor')}}">{{__('Danh Sách Đóng Góp')}}</a></li>
                                 <li><a href="{{url('/causes')}}">{{__('Tất Cả Dự Án')}}</a></li>
                                 <li><a href="{{url('/gallery')}}">{{__('Thư Viện Ảnh')}}</a></li>
                                 <li><a href="{{url('/volunteer')}}">{{__('Tình Nguyện Viên')}}</a></li>

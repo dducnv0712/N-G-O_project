@@ -7318,4 +7318,13 @@
                                 background: #eff5f4;
                                 padding: 20px;
                             }
+                            .details-contributor{
+                                color:var(--thm-primary);
+                                cursor: pointer;
+
+                            }
+                            .details-contributor:hover{
+                                color:var(--thm-black);
+
+                            }
 

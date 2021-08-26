@@ -22,7 +22,7 @@
         @if(Auth::user()->role == 'ADMIN')
             <div class="card card-body">
 
-                <table class="table">
+                <table class="table" id="dataTable">
                     <thead>
                     <tr>
                         <th>Thumbnail</th>
@@ -102,7 +102,7 @@
             </div>
             <div class="card-body">
                 @if(Auth::user()->role == 'ADMIN')
-                    <table class="table">
+                    <table class="table" id="dataTable-postAd" >
                         <thead>
                         <tr>
                             <th>Thumbnail</th>
@@ -231,7 +231,7 @@
                         </tbody>
                     </table>
                 @else
-                    <table class="table">
+                    <table class="table" id="dataTable-postAth">
                         <thead>
                         <tr>
                             <th>Thumbnail</th>

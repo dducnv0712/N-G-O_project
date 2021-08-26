@@ -19,7 +19,7 @@
                 <h5 class="card-title">{{__('Basic Table')}}</h5>
                 <h6 class="card-subtitle text-muted">{{__('Using the most basic table markup, here’s how .table-based tables look in Bootstrap.')}}</h6>
             </div>
-            <table class="table">
+            <table class="table" id="dataTable">
                 <thead>
                 <tr>
                     <th>{{__('Id')}}</th>
@@ -35,7 +35,7 @@
                 @foreach($contribution as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{$item->surname.' '.$item->given_name}}</td>
+                        <td>{{$item->full_name}}</td>
                         <td>{{$item->email}}</td>
                         <td>@money($item->contribute_amount*22836)</td>
                         <td>{{$item->post->title}}</td>
@@ -84,13 +84,17 @@
                                                                         {{__('Trạng thái:')}}<br>
 
                                                                     </p>
+
+                                                                    <p>
+                                                                        {{__('Lời Nhắn: '. $item->messages)}}
+                                                                    </p>
                                                                 </div>
 
                                                                 <div class="col-md-6 text-md-right">
                                                                     <div class="text-muted">information</div>
 
                                                                     <p>
-                                                                        {{$item->given_name.' '.$item->surname}} <br>
+                                                                        {{$item->full_name}} <br>
                                                                         {{$item->id}}<br>
                                                                         @money($item->contribute_amount*22836)<br>
                                                                         {{$item->email}}<br>

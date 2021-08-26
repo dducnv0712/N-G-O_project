@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="card">
-            <table class="table">
+            <table class="table" id="dataTable">
                 <thead>
                 <tr>
                     <th>ID</th>

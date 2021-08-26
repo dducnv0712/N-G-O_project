@@ -14,4 +14,6 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('dist/summernote/summernote-bs4.min.css')}}" rel="stylesheet">
     <link  rel="stylesheet" href="{{asset('/dist/sweetalert/sweetalert.css')}}">
+    <link  rel="stylesheet" href="{{asset('/dist/data-table/datatables.min.css')}}">
+
 </head>

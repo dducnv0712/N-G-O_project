@@ -28,9 +28,9 @@ class ContributeController extends Controller
         }
         Contribution::create([
             'id_cus' => $cus_id,
-            'given_name'=>$request->get('given_name'),
-            'surname'=>$request->get('surname'),
+            'full_name'=>$request->get('full_name'),
             'email'=>$request->get('email'),
+            'messages'=>$request->get('messages'),
             'contribute_id' =>$request['contribute_id'],
             'contribute_amount'=>$request->get('amount'),
             'country'=>$request->get('country'),
@@ -38,7 +38,7 @@ class ContributeController extends Controller
             'status'=>$request->get('status')
 
         ]);
-        
+
 
         $mail = $request['email'];
 //        $given_name = $request['given_name'];
@@ -62,8 +62,7 @@ class ContributeController extends Controller
         Mail::send('admin.mail.feedback_contribution',[
             'posts' => $posts,
             'date_time'=>$now,
-            'given_name'=>$request['given_name'],
-            'surname'=>$request['surname'],
+            'fullName'=>$request['full_name'],
             'contribute_id' =>$request['contribute_id'],
             'amount' =>$request['amount'],
             'country' => $request['country']

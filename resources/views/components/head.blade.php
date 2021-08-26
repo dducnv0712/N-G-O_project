@@ -55,7 +55,10 @@
     <link rel="stylesheet" href="{{asset('')}}dist/assets/vendors/halpes-icons/style.css">
     <link rel="stylesheet" href="{{asset('')}}dist/assets/vendors/tiny-slider/tiny-slider.min.css" />
     <link rel="stylesheet" href="{{asset('')}}dist/assets/vendors/reey-font/stylesheet.css" />
-    <link  rel="stylesheet" href="{{asset('/dist/sweetalert/sweetalert.css')}}"> 
+    <link  rel="stylesheet" href="{{asset('/dist/sweetalert/sweetalert.css')}}">
+{{--    <link  rel="stylesheet" href="{{asset('/dist/data-table/DataTables-1.11.0/css/dataTables.bootstrap5.min.css')}}">--}}
+    <link  rel="stylesheet" href="{{asset('/dist/data-table/datatables.min.css')}}">
+
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{asset('')}}dist/assets/vendors/owl-carousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="{{asset('')}}dist/assets/vendors/owl-carousel/owl.theme.default.min.css" />

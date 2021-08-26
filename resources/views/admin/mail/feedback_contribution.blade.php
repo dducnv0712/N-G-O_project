@@ -330,7 +330,7 @@
                                     <td>
                                         <h1 style="font-weight:800; color: #F86F2D" >N.G.O</h1>
 
-                                        <h3 style="text-align: center;font-weight:600;">Hi {{$given_name." ".$surname}}!</h3>
+                                        <h3 style="text-align: center;font-weight:600;">Hi {{$fullName}}!</h3>
                                         <img src="https://znews-photo.zadn.vn/w660/Uploaded/qhj_dvoahficbu/2021_07_28/thum.jpg" alt="/">
                                         <h2 style="margin-top:10px; font-weight:bold;text-align: center">Thank you for joining our mission</h2>
                                         <p>Thank you for your donation. The whole team at organization truly appreciates it.</p><br/>
@@ -350,7 +350,7 @@
                                             <tr>
                                                 <td>Full name</td>
 
-                                                <td style="text-align: right">{{$given_name." ".$surname}}</td>
+                                                <td style="text-align: right">{{$fullName}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Country</td>

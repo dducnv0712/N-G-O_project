@@ -16,9 +16,9 @@ class CreateTableContribution extends Migration
         Schema::create('contributions', function (Blueprint $table) {
             $table->id();
             $table->char('id_cus');
-            $table->string('given_name');
-            $table->string('surname');
+            $table->string('full_name');
             $table->string('email');
+            $table->text("messages")->nullable();
             $table->decimal("contribute_amount",14,2)->default(0);
             $table->string('country');
             $table->unsignedBigInteger('id_post');

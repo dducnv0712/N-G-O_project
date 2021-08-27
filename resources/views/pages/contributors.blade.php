@@ -22,11 +22,11 @@
                 <thead>
                 <tr>
                     <th scope="col">{{__('STT')}}</th>
-                    <th >{{__('Số phiếu thu')}}</th>
-                    <th style="width:200px">{{__('Họ và Tên')}}</th>
-                    <th >{{__('Số Tiền')}}</th>
-                    <th >{{__('Đối Tượng Đóng Góp')}}</th>
-                    <th >{{__('Chi Tiết')}}</th>
+                    <th>{{__('Số phiếu thu')}}</th>
+                    <th>{{__('Họ và Tên')}}</th>
+                    <th>{{__('Số Tiền')}}</th>
+                    <th>{{__('Đối Tượng Đóng Góp')}}</th>
+                    <th>{{__('Chi Tiết')}}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,10 +38,11 @@
                     <td>@money($item->contribute_amount*22854)</td>
                     <td>{{$item->post->title}}</td>
                     <td>
-                        <!-- Button trigger modal -->
-                        <a class="details-contributor" data-bs-toggle="modal" data-bs-target="#details-{{$item->id}}">
+                        <div class="text-center">
+                              <a class="details-contributor" title="{{__('Chi Tiết')}}" data-bs-toggle="modal" data-bs-target="#details-{{$item->id}}">
                             <i class="fas fa-info-circle"></i>
                         </a>
+                        </div>                      
 
                         <!-- Modal -->
                         <div class="modal fade" id="details-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

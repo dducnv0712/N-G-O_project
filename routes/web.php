@@ -20,6 +20,7 @@ use App\Http\Controllers\PostController;
 |
 */
 //Route::middleware(['auth:sanctum', 'verified'])->get('/',[WebController::class,"home"]);
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::get('/',[WebController::class,"home"]);
 Route::get('/contact',[WebController::class,"contact"]);

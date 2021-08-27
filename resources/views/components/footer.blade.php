@@ -8,7 +8,7 @@
                     <div class="footer-widget__column footer-widget__about">
                         <h3 class="footer-widget__title">About</h3>
                         <p class="footer-widget__text">Lorem ipsum dolor sit ame consect etur pisicing elit sed do eiusmod tempor incididunt ut labore.</p>
-                        <a href="#" class="footer-widget__about-btn"><i class="fa fa-heart"></i>Donate </a>
+                        <a href="{{asset('/about')}}" class="footer-widget__about-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Xem Chi Tiết')}} </a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">

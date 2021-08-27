@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\Contribution;
 use App\Models\Post;
 use App\Models\User;
-//use Carbon\Carbon;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 //use Illuminate\Support\Facades\Mail;
@@ -126,7 +126,7 @@ class WebController extends Controller
         ]);
     }
     public function causes($id){
-
+        $search = null;
         $contribution =Contribution::all();
 //        $categoryId = $request->get("category_id");
 //        $search = $request->get("search");
@@ -136,14 +136,17 @@ class WebController extends Controller
         return view('pages.causes',[
             'contribution'=>$contribution,
             'category'=>$category,
+            'search'=>$search,
             'posts'=>$posts
         ]);
     }
     public function causesAll(Request $request){
         $category = null;
+    
         $contribution =Contribution::all();
 //        $categoryId = $request->get("category_id");
         $search = $request->get("search");
+    
 //        dd($category);
         $posts= Post::with('Category')->where('active',0)->search($search)->orderBy("id","desc")->get();
         return view('pages.causes',[
@@ -162,7 +165,11 @@ class WebController extends Controller
 //
 //    }
     public function join_volunteer(){
-            return view('pages.join_volunteer');
+        $now = Carbon::now('asia/Ho_Chi_Minh')->format('d-m-Y');
+
+            return view('pages.join_volunteer',[
+                'now'=>$now
+            ]);
     }
     public function volunteer(){
         return view('pages.volunteer');

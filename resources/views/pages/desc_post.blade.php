@@ -173,7 +173,7 @@
                                 <img src="{{$posts->auth->profile_photo_url}}" alt="">
                             </div>
                             <div class="causes-details__organizer-content">
-                                <p>Created 20 Jan, 2021</p>
+                                <p>{{$posts->created_at->format('F').' '.$posts->created_at->format('d, Y') }}</p>
                                 <h5>Organizer: <span>{{$posts->auth->name}}</span></h5>
                                 <ul class="causes-details__organizer-list list-unstyled">
                                     <li><i class="fas fa-map-marker-alt"></i>Education</li>
@@ -191,7 +191,7 @@
                                     </div>
                                     <div class="causes-details__donations-content">
                                         <h4>@money($item->contribute_amount * 22854)</h4>
-                                        <h5>{{$item->given_name.' '.$item->surname}}</h5>
+                                        <h5>{{$item->full_name}}</h5>
                                         <p>{{$item->created_at->diffForHumans()}}</p>
 
                                     </div>

@@ -13,9 +13,12 @@ class PostController extends Controller
     public function all(){
         $contribution =Contribution::all();
         $posts= Post::all();
+        $find_important = Post::where('important',0)->get();
+        // dd($find_important->title);
         return view("admin.ad_page.posts.list",[
             'posts'=>$posts,
-            'contribution' =>$contribution
+            'contribution' =>$contribution,
+            'find_important' => $find_important
         ]);
 
     }
@@ -36,7 +39,7 @@ class PostController extends Controller
                 $ext = $file->getClientOriginalExtension();
                 $fileSize = $file->getSize();
                 if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){
-                    if($fileSize < 10000){
+                    if($fileSize < 1000000){
                         $file->move("upload/post_image",$fileName);
                         $image = "upload/post_image/".$fileName;
                     }
@@ -112,42 +115,61 @@ class PostController extends Controller
         $posts-> delete();
 
     }
-    public function hidden($id){
+   
+    public function active($id){
         $posts = Post::findOrFail($id);
-        $posts->update([
-            "active" => 1
-        ]);
+        if($posts->active == 0){
+            $posts-> update([
+                "active" => 1
+            ]);
+        }else{
+            $posts-> update([
+                "active" => 0
+            ]);
+        }
+       
+
         return redirect()->to("admin/posts");
 
     }
-    public function appear($id){
-        $posts = Post::findOrFail($id);
+    // public function normal($id){
+    //     $posts = Post::findOrFail($id);
+    //     $posts->update([
+    //         "important" => 1
+    //     ]);
+    //     return redirect()->to("admin/posts");
 
-        $posts-> update([
-            "active" => 0
-        ]);
-
-        return redirect()->to("admin/posts");
-
-    }
-    public function normal($id){
-        $posts = Post::findOrFail($id);
-        $posts->update([
-            "important" => 1
-        ]);
-        return redirect()->to("admin/posts");
-
-    }
+    // }
     public function important($id){
         $posts = Post::findOrFail($id);
-
-        $posts-> update([
-            "important" => 0
-        ]);
-
-        return redirect()->to("admin/posts");
-
+        $find_important = Post::where('important',0)->get();
+   
+            if($posts->important == 0){
+                $posts-> update([
+                    "important" => 1
+                ]);
+            }else{
+                $posts-> update([
+                    "important" => 0
+                ]);
+               
+                foreach($find_important as $find_item){
+                    $find_item -> update([
+                        'important' => 1
+                    ]);
+                }
+            }
+            return redirect()->to("admin/posts");
     }
+       
+            
+
+        
+    
+    
+      
+
+    
     public function approval($id){
         $posts = Post::findOrFail($id);
 

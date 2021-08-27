@@ -86,7 +86,9 @@
             padding-bottom: 10px;
             padding-top: 10px;
         }
-
+        .m-auto{
+            margin:auto;
+        }
         .footer {
             clear: both;
             margin-top: 10px;
@@ -328,8 +330,9 @@
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>
-                                        <h1 style="font-weight:800; color: #F86F2D" >N.G.O</h1>
-
+                                    <div class="m-auto mb-4">
+                                            <img class="m-auto" src="{{asset('dist/assets/images/resources/logo-3.png')}}" alt="">
+                                        </div>
                                         <h3 style="text-align: center;font-weight:600;">Recommended for {{$name}}</h3>
                                         <img src="{{$post->getImage()}}" alt="/">
                                         <h2 style="margin-top:10px; font-weight:bold;">{{$post -> title}}</h2>
@@ -348,7 +351,7 @@
                                                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td> <a href="http://127.0.0.1:8000/desc-post/{{$post->id}}" target="_blank">Contribute Now</a> </td>
+                                                            <td> <a href="{{asset('/desc-post/'.$post->id)}}" target="_blank">Contribute Now</a> </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>

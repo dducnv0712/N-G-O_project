@@ -11,7 +11,7 @@
                 <div class="main-menu-wrapper__left">
                     <div class="main-menu-wrapper__left-content">
                         <div class="main-menu-wrapper__left-text">
-                            <p>Giúp đỡ lẫn nhau có thể làm cho thế giới tốt đẹp hơn</p>
+                            <p>{{__('Giúp đỡ lẫn nhau có thể làm cho thế giới tốt đẹp hơn')}}</p>
                         </div>
                         <div class="main-menu-wrapper__left-email-box">
                             <div class="icon">
@@ -23,14 +23,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-menu-wrapper__right">
+        
+                <div class="main-menu-wrapper__right d-flex">
                     <div class="main-menu-wrapper__right-social">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-facebook-square"></i></a>
                         <a href="#"><i class="fab fa-dribbble"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
+                    <div class="ms-4" >
+
+                    <div class="dropdown main-menu-wrapper__right-lang">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span> {{ Config::get('languages')[App::getLocale()]['display'] }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        @foreach (Config::get('languages') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                                    <li><a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"><span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span> {{$language['display']}}</a></li>
+                            @endif
+                        @endforeach
+                    </ul>
+                    </div>
+                    </div>
                 </div>
+                
             </div>
         </div>
         <div class="main-menu-wrapper__bottom">
@@ -43,7 +60,7 @@
 
                         </li>
                         <li class="{{ Request::url() == url('/become-a-volunteer') ||  Request::url() == url('/volunteer') ||  Request::url() == url('/gallery') ||  Request::url() == url('/contributor') ? 'dropdown current' : 'dropdown' }}">
-                            <a href="#">Pages</a>
+                            <a href="javascript:void(0)">{{__('Hoạt Động')}}</a>
                             <ul>
                                 <li><a href="{{url('/contributor')}}">{{__('Danh Sách Đóng Góp')}}</a></li>
                                 <li><a href="{{url('/causes')}}">{{__('Tất Cả Dự Án')}}</a></li>
@@ -121,10 +138,10 @@
                         <div class="card-body">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button style="outline: none !important" class="nav-link active border-none shadow-none" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Login</button>
+                                    <button style="outline: none !important" class="nav-link active border-none shadow-none" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{{__('Đăng Nhập')}}</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button style="outline: none !important"  class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Register</button>
+                                    <button style="outline: none !important"  class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">{{__('Đăng Ký')}}</button>
                                 </li>
                             </ul>
 
@@ -142,14 +159,14 @@
                                         <div class="row">
                                             <div class="col-xl-12 mb-3 mt-3">
                                                 <div class="login_and_register_input">
-                                                    <label for="email">{{__('Email address')}}</label>
+                                                    <label for="email">{{__('Địa Chỉ Email')}}</label>
                                                     <input type="email" aria-describedby="emailHelp" id="email" name="email" required >
                                                 </div>
                                             </div>
 
                                             <div class="col-xl-12 mb-3">
                                                 <div class="login_and_register_input">
-                                                    <label for="password">{{__('Password')}}</label>
+                                                    <label for="password">{{__('Mật Khẩu')}}</label>
                                                     <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">                                                    </div>
                                             </div>
                                             <div class="col-xl-12 mb-3">
@@ -157,10 +174,10 @@
                                                 <label class="form-check-label" for="exampleCheck1">{{__('Remember me')}}</label>
                                             </div>
                                             <div class="d-flex">
-                                                <button type="submit" class="btn-primary-web me-3">{{__('login')}}</button>
+                                                <button type="submit" class="btn-primary-web me-3">{{__('Đăng Nhập')}}</button>
                                                 @if (Route::has('password.request'))
                                                     <a class="underline text-sm text-center d-flex align-items-end text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                                                        {{ __('Forgot your password?') }}
+                                                        {{ __('Quên Mật Khẩu?') }}
                                                     </a>
                                                 @endif
                                             </div>
@@ -180,23 +197,23 @@
                                         <div class="row">
                                             <div class="col-xl-12 mb-3 mt-3">
                                                 <div class="login_and_register_input">
-                                                    <label for="name">{{__('Full Name')}}</label>
+                                                    <label for="name">{{__('Họ Và Tên')}}</label>
                                                     <input type="text" class="form-control"  aria-describedby="emailHelp" id="name" name="name" required autocomplete="name">                                                    </div>
                                             </div>
                                             <div class="col-xl-12 mb-3">
                                                 <div class="login_and_register_input">
-                                                    <label for="email">{{__('Email address')}}</label>
+                                                    <label for="email">{{__('Địa Chỉ Email')}}</label>
                                                     <input type="email" class="form-control"  aria-describedby="emailHelp" id="email" name="email" required >                                                    </div>
                                             </div>
                                             <div class="col-xl-12 mb-3">
                                                 <div class="login_and_register_input">
-                                                    <label for="password">{{__('Password')}}</label>
+                                                    <label for="password">{{__('Mật Khẩu')}}</label>
                                                     <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">                                                    </div>
                                             </div>
 
                                             <div class="col-xl-12 mb-3">
                                                 <div class="login_and_register_input">
-                                                    <label for="password">{{__('Password onfirmation')}}</label>
+                                                    <label for="password">{{__('Nhập Lại Mật Khẩu')}}</label>
                                                     <input type="password" class="form-control" id="password" name="password_confirmation" required autocomplete="current-password">                                                    </div>
                                             </div>
                                             <div class="col-xl-12 mb-3">
@@ -218,7 +235,7 @@
                                                 @endif
                                             </div>
                                             <div class="d-flex">
-                                                <button type="submit" class="btn-primary-web me-3">{{__('Register')}}</button>
+                                                <button type="submit" class="btn-primary-web me-3">{{__('Đăng Ký')}}</button>
                                             </div>
                                         </div>
                                     </form>

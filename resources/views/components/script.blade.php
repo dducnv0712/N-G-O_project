@@ -20,6 +20,7 @@
 <script src="{{asset('')}}dist/assets/vendors/wow/wow.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/isotope/isotope.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/countdown/countdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/owl-carousel/owl.carousel.min.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/jquery-waypoint/jquery.waypoints.min.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/jquery-waypoint/jquery.animateNumber.min.js"></script>
@@ -31,7 +32,15 @@
 <!-- template js -->
 <script src="{{asset('')}}dist/assets/js/halpes.js"></script>
 
-
+<script>
+    $("#birth_day").on("change", function() {
+    this.setAttribute(
+        "data-date",
+        moment(this.value, "YYYY-MM-DD")
+        .format( this.getAttribute("data-date-format") )
+    )
+}).trigger("change")
+</script>
  <script type="text/javascript">
     $(document).ready(function(){
         $('#send-mail').click(function (){

@@ -7,21 +7,24 @@
              style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
         <!-- /.page-header__bg -->
         <div class="container">
-            @if($category == null)
-                <h2>{{__('Khoảng '.count($posts).' Kết Quả Tìm Kiếm Cho: ')}}<br>"<span class="text-danger text-center">{{$search}}</span>"</h2>
-            @else
-                <h2>Causes</h2>
+            @if(!$search == null)
+                <h2>{{__('Khoảng').' '.count($posts).' '.__('Kết Quả Tìm Kiếm Cho')}}:<br>"<span class="text-danger text-center">{{$search ?? '' ?? ''}}</span>"</h2>
+            @elseif(!$category == null)
+                <h2>{{__('Dự Án').' '.$category->name}}</h2>
+                @else
+                <h2>{{__('Causes')}}</h2>
             @endif
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{asset('/')}}">{{__('Trang Chủ')}}</a></li>
                 <li class="color-thm-gray">/</li>
                 <li>
                     <span>
-                        @if($category == null)
-                            {{__('Kết Quả Tìm Kiếm'.' "'.$search.'"')}}
-                            @else
+                        @if(!$search  == null)
+                            {{__('Kết Quả Tìm Kiếm').' "'.$search.'"'}}
+                            @elseif(!$category == null)
                             {{__('Dự Án'.' '.$category->name)}}
-
+                            @else
+                            {{__('Causes')}}    
                         @endif
                     </span>
                 </li>
@@ -56,16 +59,16 @@
                                 @if(!$item->contribute == null)
                                     @if($amount/$item->contribute * 100 >= 100)
                                         <div class="causes-one__active">
-                                            <span>Đã Hoàn Thành</span>
+                                            <span>{{__('Đã Hoàn Thành')}}</span>
                                         </div>
                                     @else
                                         <div class="causes-one__inactive">
-                                            <span>Đang Hoạt Động</span>
+                                            <span>{{__('Đang Vận Động')}}</span>
                                         </div>
                                     @endif
                                 @else
                                     <div class="causes-one__inactive">
-                                        <span>Đang Hoạt Động</span>
+                                        <span>{{__('Đang Vận Động')}}</span>
                                     </div>
                                 @endif
                             </div>
@@ -90,10 +93,10 @@
 
                                         @if($item->contribute == null)
                                             <div class="causes-one__goals">
-                                                <p>Huy Dong: <span>Không Giới Hạn</span></p>
+                                                <p>{{__('Huy Động')}}: <span>{{__('Không Giới Hạn')}}</span></p>
                                             </div>
                                             <div class="causes-one__goals">
-                                                <p>Góp Duoc: <span>@money($amount*22854)</span></p>
+                                                <p>{{__('Góp Được')}}: <span>@money($amount*22854)</span></p>
                                             </div>
                                         @else
                                             <div class="causes-one__goals">

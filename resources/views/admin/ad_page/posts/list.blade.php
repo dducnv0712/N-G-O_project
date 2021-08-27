@@ -151,22 +151,22 @@
                                     @if($item->approval == 0)
                                         <td class="text-center">
                                             @if($item->active == 0)
-                                                <a href="{{url('admin/posts/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
+                                                <a href="{{url('admin/posts/active',['id' => $item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
                                             @else
-                                                <a href="{{url('admin/posts/appear',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>
+                                                <a href="{{url('admin/posts/active',['id' => $item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>
                                             @endif
                                         </td>
                                         <td class="text-center">
                                             @if($item->important == 0)
-                                                <a href="{{url('admin/posts/normal',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="thumbs-up"></i></a>
+                                                <a href="{{url('admin/posts/important',['id' => $item->id])}}"><i class="align-middle text-success" data-feather="thumbs-up"></i></a>
                                             @else
-                                                <a href="{{url('admin/posts/important',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="thumbs-down"></i></a>
+                                                <a href="{{url('admin/posts/important',['id' => $item->id])}}"><i class="align-middle text-danger" data-feather="thumbs-down"></i></a>
                                             @endif
                                         </td>
                                         <td class="table-action text-center">
                                             <div>
-                                                {{--                                {{url('admin/posts/delete',["id"=>$item->id])}}--}}
-                                                <a href="{{url('admin/posts/edit',["id"=>$item->id])}}"><i class="align-middle text-warning" data-feather="edit-2"></i></a>
+                                                <!-- {{--{{url('admin/posts/delete',["id"=>$item->id])}}--}} -->
+                                                <a href="{{url('admin/posts/edit',['' => $item->id])}}"><i class="align-middle text-warning" data-feather="edit-2"></i></a>
                                                 <a onclick="deletePost({{$item->id}})" href="javascript:void(0)"><i class="align-middle text-danger" data-feather="trash"></i></a>
                                             </div>
 
@@ -205,7 +205,7 @@
                                     </td>
 
                                 </tr>
-                                <!-- Modal -->
+                           
                                 <div class="modal fade" id="details-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl  modal-dialog-scrollable">
                                         <div class="modal-content">

@@ -213,6 +213,9 @@
             border-bottom: 1px solid #f6f6f6;
             margin: 20px 0;
         }
+        .m-auto{
+            margin:auto;
+        }
 
         /* -------------------------------------
             RESPONSIVE AND MOBILE FRIENDLY STYLES
@@ -328,7 +331,9 @@
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>
-                                        <h1 style="font-weight:800; color: #F86F2D" >N.G.O</h1>
+                                         <div class="m-auto mb-4">
+                                            <img class="m-auto" src="{{asset('dist/assets/images/resources/logo-3.png')}}" alt="">
+                                        </div>
 
                                         <h3 style="text-align: center;font-weight:600;">Hi {{$fullName}}!</h3>
                                         <img src="https://znews-photo.zadn.vn/w660/Uploaded/qhj_dvoahficbu/2021_07_28/thum.jpg" alt="/">
@@ -364,7 +369,6 @@
                                             </tr>
                                             <tr>
                                                 <td>Contribution Date</td>
-
                                                 <td style="text-align: right">{{$date_time}}</td>
                                             </tr>
 

@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="col-xl-12">
                                     <div class="become-volunteer-page__input">
-                                        <input type="text" placeholder="Date of Birth" name="Date of Birth">
+                                        <input type="date" id="birth_day" placeholder="Date of Birth" pattern="\d{1,2}/\d{1,2}/\d{4}">
                                     </div>
                                 </div>
                                 <div class="col-xl-12">

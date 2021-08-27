@@ -25,6 +25,7 @@
                 <table class="table" id="dataTable">
                     <thead>
                     <tr>
+                        <th scope="col">{{__('STT')}}</th>
                         <th>{{__('ID')}}</th>
                         <th>Name</th>
                         <th>Created_at</th>
@@ -36,6 +37,7 @@
                     <tbody>
                     @foreach($categories as $item)
                         <tr>
+                             <td scope="row" >{{$loop->index+1}}</td>
                             <td>{{$item->id}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->created_at->format('d-m-Y')}}</td>

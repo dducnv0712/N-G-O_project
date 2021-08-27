@@ -31,7 +31,7 @@
                                     More</a>
 {{--                                <div class="main-slider__shape-1 zoom-fade">--}}
 {{--                                    <img src="https://quybongsen.org/wp-content/uploads/2018/06/bannerkid.jpg" alt="">--}}
-{{--                                </div>--}}
+{{--                              </div>--}}
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
         </div>
         <div class="main-slider__counter">
             <ul class="main-slider__counter-box list-unstyled">
-                <li class="counter-animate">
+                <li style="height:191px" class="counter-animate">
                     <h3 class="main-sldier__counter-digit number" data-number="300">0</h3>
                     <span class="main-slider__counter-text">{{__('Tình Nguyện Viên')}}</span>
                 </li>
@@ -126,7 +126,7 @@
                         <!-- <div class="welcome-one__img-box-2">
                             <img src="assets/images/resources/welcome-one-img-2.jpg" alt="">
                         </div> -->
-                        <h2 class="welcome-one__bottom-text">Dự Án Quan Trọng</h2>
+                        <h2 class="welcome-one__bottom-text">{{__('Dự Án Quan Trọng')}}</h2>
                         <div class="welcome-one__heart-icon">
                             <img src="{{asset('dist/assets/images/resources/welcome-one-heart-icon.png')}}" alt="">
                         </div>
@@ -136,7 +136,7 @@
             <div class="col-xl-6 col-lg-6">
                 <div class="welcome-one__right">
                     <div class="section-title text-left">
-                        <span class="section-title__tagline">Giúp đỡ lẫn nhau có thể làm cho thế giới tốt đẹp hơn</span>
+                        <span class="section-title__tagline">{{__('Giúp đỡ lẫn nhau có thể làm cho thế giới tốt đẹp hơn')}}</span>
                         <h2 class="section-title__title">{{$item_important->title}}</h2>
                     </div>
                     <p class="welcome-one__right-text">{!! __($item_important->description) !!}</p>
@@ -171,18 +171,18 @@
                                     </div>
                                 @endif
                                     <div class="causes-one__goals">
-                                        <p>Huy Dong: <span>@money($item_important->contribute*22854)</span></p>
+                                        <p>{{__('Huy Động')}}: <span>@money($item_important->contribute*22854)</span></p>
                                     </div>
                                     <div class="causes-one__goals">
-                                        <p>Góp Duoc: <span>@money($amount_important*22854)</span></p>
+                                        <p>{{__('Góp Được')}}: <span>@money($amount_important*22854)</span></p>
                                     </div>
 
                             @else
                                 <div class="causes-one__goals">
-                                    <p>Huy Động: <span>Không Giới Hạn</span></p>
+                                    <p>{{__('Huy Động')}}: <span>{{__('Không Giới Hạn')}}</span></p>
                                 </div>
                                 <div class="causes-one__goals">
-                                    <p>Góp Được: <span>@money($amount_important*22854)</span></p>
+                                    <p>{{__('Góp Được')}}: <span>@money($amount_important*22854)</span></p>
                                 </div>
                             @endif
 
@@ -245,16 +245,16 @@
                                         @if(!$item_post->contribute == null)
                                         @if($amount/$item_post->contribute * 100 >= 100)
                                         <div class="causes-one__active">
-                                            <span>Đã Hoàn Thành</span>
+                                            <span>{{__('Đã Hoàn Thành')}}</span>
                                         </div>
                                             @else
                                             <div class="causes-one__inactive">
-                                                <span>Đang Hoạt Động</span>
+                                                <span>{{__('Đang Vận Động')}}</span>
                                             </div>
                                         @endif
                                         @else
                                             <div class="causes-one__inactive">
-                                            <span>Đang Hoạt Động</span>
+                                            <span>{{__('Đang Vận Động')}}</span>
                                         </div>
                                     @endif
 
@@ -287,17 +287,17 @@
 
                                         @if($item_post->contribute == null)
                                             <div class="causes-one__goals">
-                                                <p>Huy Dong: <span>Không Giới Hạn</span></p>
+                                                <p>{{__('Huy Động')}}: <span>{{__('Không Giới Hạn')}}</span></p>
                                             </div>
                                             <div class="causes-one__goals">
-                                                <p>Góp Duoc: <span>@money($amount*22854)</span></p>
+                                                <p>{{__('Góp Được')}}: <span>@money($amount*22854)</span></p>
                                             </div>
                                         @else
                                             <div class="causes-one__goals">
-                                                <p>Huy Dong: <span>@money($item_post->contribute*22854)</span></p>
+                                                <p>{{__('Huy Động')}}: <span>@money($item_post->contribute*22854)</span></p>
                                             </div>
                                             <div class="causes-one__goals">
-                                                <p>Góp Duoc: <span>@money($amount*22854)</span></p>
+                                                <p>{{__('Góp Được')}}: <span>@money($amount*22854)</span></p>
                                             </div>
                                         @endif
 
@@ -566,31 +566,31 @@
                     <!--Brand One Single-->
                     <div class="brand-one__single">
                         <div class="brand-one__img">
-                            <img src="assets/images/resources/brand-1-1.png" alt="">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Vietnam_Television_logo_from_2013.svg/663px-Vietnam_Television_logo_from_2013.svg.png" alt="VTV">
                         </div>
                     </div>
                     <!--Brand One Single-->
                     <div class="brand-one__single">
                         <div class="brand-one__img">
-                            <img src="assets/images/resources/brand-1-2.png" alt="">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/FPT_logo_2010.svg/320px-FPT_logo_2010.svg.png" alt="FPT">
                         </div>
                     </div>
                     <!--Brand One Single-->
                     <div class="brand-one__single">
                         <div class="brand-one__img">
-                            <img src="assets/images/resources/brand-1-3.png" alt="">
+                            <img src="https://aptech.fpt.edu.vn/wp-content/uploads/2020/11/logo.png" alt="FPT Aptech">
                         </div>
                     </div>
                     <!--Brand One Single-->
                     <div class="brand-one__single">
                         <div class="brand-one__img">
-                            <img src="assets/images/resources/brand-1-4.png" alt="">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/PNUMA_logo.png/240px-PNUMA_logo.png" alt="">
                         </div>
                     </div>
                     <!--Brand One Single-->
                     <div class="brand-one__single">
                         <div class="brand-one__img">
-                            <img src="assets/images/resources/brand-1-5.png" alt="">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/UNICEF_Logo.svg/240px-UNICEF_Logo.svg.png" alt="">
                         </div>
                     </div>
                 </div>

@@ -19,13 +19,13 @@
                 <table class="table" id="dataTable">
                     <thead>
                     <tr>
-                        <th style="width:10%;">{{__('')}}</th>
+                        <th style="width:10%;">{{__('ID')}}</th>
                         <th style="width:20%;">{{__('Họ và Tên')}}</th>
-                        <th style="width:20%">Email</th>
-                        <th class="d-none d-md-table-cell" style="width:10%">Role</th>
-                        <th style="width:15%">Created_at</th>
-                        <th style="width:20%">Updated_at</th>
-                        <th>Actions</th>
+                        <th style="width:20%">{{__('Email Của Bạn')}}</th>
+                        <th class="d-none d-md-table-cell" style="width:10%">{{__('Vai Trò')}}</th>
+                        <th style="width:15%">{{__('Ngày Khởi Tạo')}}</th>
+                        <th style="width:20%">{{__('Ngày Cập Nhật')}}</th>
+                        <th>{{__('Hoạt động')}}</th>
                     </tr>
                     </thead>
                     <tbody>

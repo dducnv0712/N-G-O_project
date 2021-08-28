@@ -26,7 +26,7 @@
                     <th>{{__('Họ và Tên')}}</th>
                     <th>{{__('Email')}}</th>
                     <th>{{__('Số Tiền Đóng Góp')}}</th>
-                    <th>{{__('Đối Tượng Đóng Góp')}}</th>
+                    <th>{{__('Người Đóng Góp')}}</th>
                     <th>{{__('Chi Tiết')}}</th>
 
                 </tr>

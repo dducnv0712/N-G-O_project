@@ -27,11 +27,12 @@
                     <tr>
                         <th scope="col">{{__('STT')}}</th>
                         <th>{{__('ID')}}</th>
-                        <th>Name</th>
-                        <th>Created_at</th>
-                        <th>Updated_at</th>
-                        <th>Active</th>
-                        <th>Actions</th>
+                        <th>{{__('Họ và Tên')}}</th>
+                        <th>{{__('Email Của Bạn')}}</th>
+                        <th>{{__('Ngày Khởi Tạo')}}</th>
+                        <th>{{__('Ngày Cập Nhật')}}</th>
+                        <th>{{__('Hiệu Lực')}}</th>
+                        <th>{{__('Hoạt động')}}</th>
                     </tr>
                     </thead>
                     <tbody>

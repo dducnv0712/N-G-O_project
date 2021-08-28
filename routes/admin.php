@@ -6,6 +6,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,11 @@ Route::middleware(["auth","admin"])->group(function (){
     Route::post('/user/update/{id}',[UserController::class,"update"]);
 //contribution
     Route::get('/contribution',[ContributeController::class,"all"]);
+
+    //Contact
+    Route::get('/contact',[ContactController::class,"all"]);
+    Route::get('/contact/form',[ContactController::class,"form"]);
+    Route::post('/contact/save',[ContactController::class,"save"]);
 
 });
 

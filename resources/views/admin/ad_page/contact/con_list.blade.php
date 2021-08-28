@@ -19,12 +19,13 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>{{__('Họ Và Tên')}}</th>
+                    <th>{{__('Tên Của Bạn')}}</th>
                     <th>{{__('SĐT')}}</th>
                     <th>Email</th>
-                    <th>Messenger</th>
-                    <th>Created_at</th>
-                    <th>Updated_at</th>
+                    <th>{{__('Tin Nhắn')}}</th>
+                    <th>{{__('Ngày Khởi Tạo')}}</th>
+                    <th>{{__('Ngày Cập Nhật')}}</th>
+                    <th>{{__('Hoạt động')}}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,9 +36,42 @@
                         <td>{{$item->phone}}</td>
                         <td>{{$item->email}}</td>
                         <td>{{$item->messenger}}</td>
-                        <td>{{$item->updated_at}}</td>
-                        <td>{{$item->updated_at}}</td>
+                        <td>{{$item->created_at->format('d-m-Y')}}</td>
+                        <td>{{$item->updated_at->format('d-m-Y')}}</td>
                         <td class="table-action">
+                            <!-- Modal -->
+                            <div class="modal fade" id="edit-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content" >
+                                        <form action="{{url('admin/contact/update',["id"=>$item->id])}}" method="post">
+                                            @csrf
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label for="role" class="form-label fw-bold">Role</label>
+                                                <select name="role" id="role" class="form-control">
+                                                    <option value="ADMIN">ADMIN</option>
+                                                    <option value="AUTHOR">AUTHOR</option>
+                                                    <option value="USER">USER</option>
+                                                </select>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button  type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            @if($item->id == Auth::user()->id)
+                                <span class="badge bg-success">you</span>
+                            @else
+                                <a data-bs-toggle="modal" data-bs-target="#edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                            @endif()
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>

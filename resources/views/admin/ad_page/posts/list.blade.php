@@ -25,15 +25,15 @@
                 <table class="table" id="dataTable">
                     <thead>
                     <tr>
-                        <th>Thumbnail</th>
-                        <th>Title</th>
-                        <th>Contribute</th>
-                        <th>Category</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
-                        <th>Details</th>
-                        <th>Approval</th>
-                        <th>Disapprove</th>
+                        <th>{{__('Hình Ảnh')}}</th>
+                        <th>{{__('Tiêu Đề')}}</th>
+                        <th>{{__('Người Đóng Góp')}}</th>
+                        <th>{{__('Loại')}}</th>
+                        <th>{{__('Ngày Khởi Tạo')}}</th>
+                        <th>{{__('Ngày Cập Nhật')}}</th>
+                        <th>{{__('Thông Tin Chi Tiết')}}</th>
+                        <th>{{__('Sự Chấp Thuận')}}</th>
+                        <th>{{__('Không Tán Thành')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -105,18 +105,18 @@
                     <table class="table" id="dataTable-postAd" >
                         <thead>
                         <tr>
-                            <th>Thumbnail</th>
-                            <th>Title</th>
-                            <th>Contribute</th>
-                            <th>Category</th>
-                            <th>Created At</th>
-                            <th>Updated At</th>
-                            <th>Active</th>
-                            <th>Important</th>
-                            <th>Actions</th>
-                            <th>Received</th>
-                            <th>Send Mail</th>
-                            <th>Details</th>
+                            <th>{{__('Hình Ảnh')}}</th>
+                            <th>{{__('Tiêu Đề')}}</th>
+                            <th>{{__('Người Đóng Góp')}}</th>
+                            <th>{{__('Loại')}}</th>
+                            <th>{{__('Ngày Khởi Tạo')}}</th>
+                            <th>{{__('Ngày Cập Nhật')}}</th>
+                            <th>{{__('Hiệu Lực')}}</th>
+                            <th>{{__('Quan Trọng')}}</th>
+                            <th>{{__('Hoạt Động')}}</th>
+                            <th>{{__('Nhận')}}</th>
+                            <th>{{__('Thư Gửi')}}</th>
+                            <th>{{__('Thông Tin Chi Tiết')}}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -205,7 +205,7 @@
                                     </td>
 
                                 </tr>
-                           
+
                                 <div class="modal fade" id="details-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl  modal-dialog-scrollable">
                                         <div class="modal-content">

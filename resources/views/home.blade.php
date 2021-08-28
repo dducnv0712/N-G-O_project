@@ -212,7 +212,7 @@
                         <span class="section-title__tagline">{{__('Các Dự Án')}}</span>
                         <h2 class="section-title__title">{{__($item->name)}}</h2>
                         <div class="text-center ">
-                            <a href="{{url('/causes',['id'=>$item->id])}}" class="btn-sm thm-btn mt-4 mb-3"><i class="fas fa-arrow-circle-right"></i>
+                            <a href="{{url('/project',['id'=>$item->id])}}" class="btn-sm thm-btn mt-4 mb-3"><i class="fas fa-arrow-circle-right"></i>
                                 {{__('Xem Thêm Về Dự Án')}}
                                 </a>
                         </div>

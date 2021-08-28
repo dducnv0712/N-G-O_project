@@ -46,7 +46,7 @@
             <!-- /.mobile-nav__social -->
         </div>
         <!-- /.mobile-nav__top -->
-        
+
 
     </div>
     <!-- /.mobile-nav__content -->
@@ -70,7 +70,7 @@
 </div>
 <!-- /.search-popup -->
 <div class="preloader">
-    <img class="preloader__image" width="60" src="{{asset('dist/assets/images/loader.png')}}" alt="" />
+    <img class="preloader__image" width="90" src="{{asset('dist/assets/images/Charity (1).png')}}" alt="" />
 </div>
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
     <x-script></x-script>

@@ -4,7 +4,7 @@
     <!--Page Header Start-->
     <section class="page-header">
         <div class="page-header__bg"
-             style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+             style="background-image: url('{{asset('/dist/img/photos/nu-cuoi-am-about.jpg')}}');background-position:bottom"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             @if(!$search == null)
@@ -12,7 +12,7 @@
             @elseif(!$category == null)
                 <h2>{{__('Dự Án').' '.$category->name}}</h2>
                 @else
-                <h2>{{__('Causes')}}</h2>
+                <h2>{{__('Dự Án')}}</h2>
             @endif
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="{{asset('/')}}">{{__('Trang Chủ')}}</a></li>
@@ -24,7 +24,7 @@
                             @elseif(!$category == null)
                             {{__('Dự Án'.' '.$category->name)}}
                             @else
-                            {{__('Causes')}}    
+                            {{__('Dự Án')}}
                         @endif
                     </span>
                 </li>

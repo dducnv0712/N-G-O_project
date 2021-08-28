@@ -24,10 +24,10 @@
                     <div class="team-one__single">
                         <div class="team-one__img-box">
                             <div class="team-one__img">
-                                <img src="assets/images/team/team-page-img-1.jpg" alt="">
+                                <img src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.6435-9/176977528_1437981319886917_1428565255894080850_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-0wPebr3j3AAX91FTtZ&_nc_ht=scontent.fhan14-1.fna&oh=8443339b6626212578a2bedf60474c98&oe=614F109D" alt="">
                             </div>
                             <div class="team-one__member-name">
-                                <h2>Janne</h2>
+                                <h2>Đức</h2>
                             </div>
                         </div>
                         <div class="team-one__content">

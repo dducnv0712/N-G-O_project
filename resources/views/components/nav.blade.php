@@ -2,7 +2,7 @@
 <header class="main-header clearfix">
     <div class="main-header__logo">
         <a href="{{url('/')}}">
-            <img class="ms-3" src="{{asset('dist/assets/images/resources/logo-1.png')}}" alt="">
+            <img class="ms-3" src="{{asset('dist/assets/images/resources/Charity -logo-white.png')}}" alt="">
         </a>
     </div>
     <div class="main-menu-wrapper">
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="main-menu-wrapper__right d-flex">
                     <div class="main-menu-wrapper__right-social">
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -47,7 +47,7 @@
                     </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <div class="main-menu-wrapper__bottom">
@@ -59,11 +59,11 @@
                             <a href="{{url('/')}}">{{__('Trang Chủ')}}</a>
 
                         </li>
-                        <li class="{{ Request::url() == url('/become-a-volunteer') ||  Request::url() == url('/volunteer') ||  Request::url() == url('/gallery') ||  Request::url() == url('/contributor') ? 'dropdown current' : 'dropdown' }}">
+                        <li class="{{ Request::url() == url('/become-a-volunteer') ||  Request::url() == url('/volunteer') ||  Request::url() == url('/gallery') ||  Request::url() == url('/contributor') ||  Request::url() == url('/project') ? 'dropdown current' : 'dropdown' }}">
                             <a href="javascript:void(0)">{{__('Hoạt Động')}}</a>
                             <ul>
                                 <li><a href="{{url('/contributor')}}">{{__('Danh Sách Đóng Góp')}}</a></li>
-                                <li><a href="{{url('/causes')}}">{{__('Tất Cả Dự Án')}}</a></li>
+                                <li><a href="{{url('/project')}}">{{__('Tất Cả Dự Án')}}</a></li>
                                 <li><a href="{{url('/gallery')}}">{{__('Thư Viện Ảnh')}}</a></li>
                                 <li><a href="{{url('/volunteer')}}">{{__('Tình Nguyện Viên')}}</a></li>
                                 <li><a href="{{'/become-a-volunteer'}}">{{__('Đăng Ký Tình Nguyện Viên')}}</a></li>
@@ -141,7 +141,7 @@
                                     <button style="outline: none !important" class="nav-link active border-none shadow-none" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{{__('Đăng Nhập')}}</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button style="outline: none !important"  class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">{{__('Đăng Ký')}}</button>
+                                    <button style="outline: none !important"  class="nav-link " id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">{{__('Đăng Ký Tài Khoản')}}</button>
                                 </li>
                             </ul>
 
@@ -197,7 +197,7 @@
                                         <div class="row">
                                             <div class="col-xl-12 mb-3 mt-3">
                                                 <div class="login_and_register_input">
-                                                    <label for="name">{{__('Họ Và Tên')}}</label>
+                                                    <label for="name">{{__('Họ và Tên')}}</label>
                                                     <input type="text" class="form-control"  aria-describedby="emailHelp" id="name" name="name" required autocomplete="name">                                                    </div>
                                             </div>
                                             <div class="col-xl-12 mb-3">

@@ -70,7 +70,7 @@
                                                                     <p class="mb-0">Created At</p>
                                                                 </div>
                                                                 <div class="col-sm-9">
-                                                                    <p class="text-muted mb-0">{{$user->created_at->format('F').' '.$user->created_at->format('d, Y') }}</p>
+                                                                    <p class="text-muted mb-0">{{$user->created_at->format('F d, Y') }}</p>
                                                                 </div>
                                                             </div>
                                                             <hr>
@@ -79,7 +79,7 @@
                                                                     <p class="mb-0">Updated At</p>
                                                                 </div>
                                                                 <div class="col-sm-9">
-                                                                    <p class="text-muted mb-0">{{$user->updated_at->format('F').' '.$user->updated_at->format('d, Y') }}</p>
+                                                                    <p class="text-muted mb-0">{{$user->updated_at->format('F d, Y')}}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -171,7 +171,7 @@
                                         @forelse($contribution as $item)
                                             <tr>
                                                 <th >{{$item->post->title}}</th>
-                                                <td>{{$item->created_at->format('F').' '.$item->created_at->format('d, Y') }}</td>
+                                                <td>{{$item->created_at->format('F d, Y')}}</td>
                                                 <td>@money($item->contribute_amount * 22854)</td>
                                                 <td>{{$item->status}}</td>
                                             </tr>

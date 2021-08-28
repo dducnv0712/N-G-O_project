@@ -3,14 +3,14 @@
 
     <!--Page Header Start-->
     <section class="page-header">
-        <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+        <div class="page-header__bg" style="background-image: url('{{asset('/dist/img/photos/nu-cuoi-am-crop.jpg')}}');background-position:center"></div>
         <!-- /.page-header__bg -->
         <div class="container">
-            <h2>Contact</h2>
+            <h2>{{__('Liên Hệ')}}</h2>
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">{{__('Trang Chủ')}}</a></li>
                 <li class="color-thm-gray">/</li>
-                <li><span>Contact</span></li>
+                <li><span>{{__('Liên Hệ')}}</span></li>
             </ul>
         </div>
     </section>

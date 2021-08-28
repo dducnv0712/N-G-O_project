@@ -20,7 +20,6 @@
 <script src="{{asset('')}}dist/assets/vendors/wow/wow.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/isotope/isotope.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/countdown/countdown.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/owl-carousel/owl.carousel.min.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/jquery-waypoint/jquery.waypoints.min.js"></script>
 <script src="{{asset('')}}dist/assets/vendors/jquery-waypoint/jquery.animateNumber.min.js"></script>
@@ -32,15 +31,6 @@
 <!-- template js -->
 <script src="{{asset('')}}dist/assets/js/halpes.js"></script>
 
-<script>
-    $("#birth_day").on("change", function() {
-    this.setAttribute(
-        "data-date",
-        moment(this.value, "YYYY-MM-DD")
-        .format( this.getAttribute("data-date-format") )
-    )
-}).trigger("change")
-</script>
  <script type="text/javascript">
     $(document).ready(function(){
         $('#send-mail').click(function (){
@@ -66,6 +56,42 @@
     });
 
 </script>
+
+{{--register volunteer--}}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#register-volunteer').click(function (){
+            var name = $('#name-volunteer').val();
+            var email = $('#email-volunteer').val();
+            var phone = $('#phone-volunteer').val();
+            var address = $('#address-volunteer').val();
+            var date = $('#date-volunteer').val();
+            var occupation = $('#job-volunteer').val();
+            var message = $('#message-volunteer').val();
+            var _token = $('input[name="_token"]').val();
+            // console.log(name,email,message,address,occupation,phone,date,_token)
+
+            $.ajax({
+                url:"{{url('/register-volunteer')}}",
+                method:'POST',
+                data:{name:name,email:email,phone:phone,address:address,date:date,occupation:occupation,message:message,_token:_token},
+                success:function (data){
+                    swal("Hey, Đăng Ký Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+                    alert(data);
+                },
+                error:function (data){
+                    // alert(data);
+                    sweetAlert("Oops...","Sai Thông Tin Hoặc Email Đã Được Đăng Ký!!","error")
+                }
+            });
+
+        })
+
+    });
+
+</script>
+{{--.register volunteer--}}
+
 
 {{--paypal--}}
 <script src="https://www.paypal.com/sdk/js?client-id=Acx_N_h2bcxoF6hcKn16O2VBQq_7ZpEZsBq7DNuONQL0jQGeIX1iL92ZlcZbkpPhiU3VTCQwo5zzqfZA&currency=USD"></script>
@@ -160,7 +186,7 @@
                     success:function (data){
                         document.getElementById("loading").innerHTML = '';
 
-                        swal("Hey, Đóng Góp Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+                        swal("Hey,{{__('Đóng Góp Thành Công')}}!!","{{__('Nhấn Vào Nút Bên Dưới Để Tiếp Tục')}}!!","success")
                         // alert(data);
 
                     },

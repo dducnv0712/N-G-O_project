@@ -1,39 +1,13 @@
-{{-- <head>
-    <title>{{__('Welfare - Free Bootstrap 4 Template by Colorlib')}}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('dist/user/css/open-iconic-bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/animate.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/Slider/css/lightslider.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/fontawesome/css/all.min.css')}}">
-    <link  rel="stylesheet" href="{{asset('/dist/sweetalert/sweetalert.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/aos.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/ionicons.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/jquery.timepicker.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/icomoon.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/bootstrap-5/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('dist/user/css/style.css')}}">
-    @livewireStyles
-</head> --}}
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home One || Halpes || HTML Template For Donation Services</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('')}}dist/assets/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('')}}dist/assets/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('')}}dist/assets/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('')}}dist/assets/images/favicons/Charity.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('')}}dist/assets/images/favicons/Charity.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('')}}dist/assets/images/favicons/Charity.svg" />
+    <link rel="manifest" href="{{asset('')}}dist/assets/images/favicons/site.webmanifest" />
     <meta name="description" content="Crsine HTML Template For Car Services" />
 
     <!-- fonts -->

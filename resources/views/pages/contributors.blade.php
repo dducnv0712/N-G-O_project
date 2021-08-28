@@ -42,7 +42,7 @@
                               <a class="details-contributor" title="{{__('Chi Tiết')}}" data-bs-toggle="modal" data-bs-target="#details-{{$item->id}}">
                             <i class="fas fa-info-circle"></i>
                         </a>
-                        </div>                      
+                        </div>
 
                         <!-- Modal -->
                         <div class="modal fade" id="details-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="modal-body" id="contribute-details">
                                         <div class="m-auto mb-4">
-                                            <img class="m-auto" src="{{asset('dist/assets/images/resources/logo-3.png')}}" alt="">
+                                            <img class="m-auto" style="width:200px;height:100px;object-fit:contain" src="{{asset('dist/assets/images/resources/Charity.png')}}" alt="">
                                         </div>
 
                                         <div style="background-color:#eff5f4" class="card mt-3">
@@ -67,7 +67,7 @@
                                                                 <div class="row">
                                                                     <div class="col-md-6">
                                                                         <div class="billed"><span class="font-weight-bold">{{__('Họ và Tên')}}: </span><span class="fw-normal"> {{$item->full_name}}</span></div>
-                                                                        <div class="billed"><span class="font-weight-bold ">{{__('Ngày Đóng Góp')}}: </span><span class="fw-normal"> {{$item->created_at->format('F').' '.$item->created_at->format('d, Y') }}</span></div>
+                                                                        <div class="billed"><span class="font-weight-bold ">{{__('Ngày Đóng Góp')}}: </span><span class="fw-normal"> {{$item->created_at->format('F d, Y')}}</span></div>
                                                                         <div class="billed"><span class="font-weight-bold">{{__('Số phiếu thu')}}:</span><span class="fw-normal"> {{$item->contribute_id}}</span></div>
                                                                     </div>
                                                                 </div>

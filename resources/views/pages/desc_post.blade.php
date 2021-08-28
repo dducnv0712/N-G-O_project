@@ -173,7 +173,7 @@
                                 <img src="{{$posts->auth->profile_photo_url}}" alt="">
                             </div>
                             <div class="causes-details__organizer-content">
-                                <p>{{$posts->created_at->format('F').' '.$posts->created_at->format('d, Y') }}</p>
+                                <p>{{$posts->created_at->format('F d, Y')}}</p>
                                 <h5>Organizer: <span>{{$posts->auth->name}}</span></h5>
                                 <ul class="causes-details__organizer-list list-unstyled">
                                     <li><i class="fas fa-map-marker-alt"></i>Education</li>

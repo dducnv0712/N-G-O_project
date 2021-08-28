@@ -2,14 +2,14 @@
 @section('main')
     <!--Page Header Start-->
     <section class="page-header">
-        <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+        <div class="page-header__bg" style="background-image: url('{{asset('/dist/img/photos/nu-cuoi-am-crop.jpg')}}');background-position:center"></div>
         <!-- /.page-header__bg -->
         <div class="container">
-            <h2>Become a Volunteer</h2>
+            <h2>{{__('Trở Thành Tình Nguyện Viên')}}</h2>
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{asset('/')}}">{{__('Trang Chủ')}}</a></li>
                 <li class="color-thm-gray">/</li>
-                <li><span>Become a Volunteer</span></li>
+                <li><span>{{__('Đăng Ký Tình Nguyện Viên')}}</span></li>
             </ul>
         </div>
     </section>
@@ -26,7 +26,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="become-volunteer-page__left">
                         <div class="become-volunteer-page__img">
-                            <img src="http://media.thanhnienviet.vn/uploads/2020_04/3-1586773532.jpg" alt="">
+                            <img src="{{asset('/dist/img/photos/nucuoiam.jpg')}}" alt="">
                         </div>
                         <h3 class="become-volunteer-page__title">Requirements</h3>
                         <p class="become-volunteer-page__text">Aliquam hendrerit a augue insu image pellentes que id erat quis sollicitud null mattis Ipsum is simply dummy typesetting industry. Alienum phaedrum torquatos nec eu, vis detraxit periculis ex, nihil expetendis in meifn pericula euripidis, hinc partem ei est. Eos ei nisl graecis, aperiri consequat anlorem tincidun.</p>
@@ -85,47 +85,48 @@
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="become-volunteer-page__right">
-                        <form action="assets/inc/sendemail.php" class="become-volunteer-page__form contact-form-validated">
+                        <form  class="become-volunteer-page__form contact-form-validated">
+                            @csrf
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="become-volunteer-page__input">
-                                        <input type="text" placeholder="Your name" name="name">
+                                        <input id="name-volunteer" type="text" placeholder="{{__('Tên Của Bạn')}}" name="name" value="@if(!Auth::user() == null) {{Auth::user()->name}} @endif">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xl-6">
                                     <div class="become-volunteer-page__input">
-                                        <input type="email" placeholder="Email Address" name="email">
+                                        <input id="email-volunteer" type="email" placeholder="{{__('Địa chỉ Email')}}" name="email" value="@if(!Auth::user() == null) {{Auth::user()->email}} @endif">
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="become-volunteer-page__input">
-                                        <input type="text" placeholder="Phone Number" name="phone">
+                                        <input id="phone-volunteer" type="text" placeholder="{{__('Số Điện Thoại')}}" name="phone">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="become-volunteer-page__input">
-                                        <input type="text" placeholder="Address" name="address">
+                                        <input id="address-volunteer" type="text" placeholder="{{__('Địa Chỉ')}}" name="address">
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
                                     <div class="become-volunteer-page__input">
-                                        <input type="date" id="birth_day" placeholder="Date of Birth" pattern="\d{1,2}/\d{1,2}/\d{4}">
+                                        <input id="date-volunteer" title="{{__('Ngày Sinh')}}" type="text"  onfocus="(this.type='date')" onblur="(this.type='text')"  placeholder="{{__('Ngày Sinh')}}" max="{{$now}}">
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
                                     <div class="become-volunteer-page__input">
-                                        <input type="text" placeholder="Occupation" name="Occupation">
+                                        <input id="job-volunteer" type="text" placeholder="{{__('Công Việc')}}" name="Occupation">
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
                                     <div class="become-volunteer-page__input">
-                                        <textarea name="message" placeholder="Write message"></textarea>
+                                        <textarea id="message-volunteer" name="message" placeholder="{{__('Lời Nhắn')}}"></textarea>
                                     </div>
-                                    <button type="submit" class="thm-btn become-volunteer-page__btn"><i class="fas fa-arrow-circle-right"></i>Submit Comment</button>
+                                    <button type="button" id="register-volunteer" class="thm-btn become-volunteer-page__btn"><i class="fas fa-arrow-circle-right"></i>{{__('Đăng Ký')}}</button>
                                 </div>
                             </div>
                         </form>

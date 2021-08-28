@@ -119,7 +119,7 @@
                                 <div class="col-lg-12">
                                     <div class="mt-3" id="paypal-button-container"></div>
                                 </div>
-                              
+
                             </div>
                         </form>
                     </div>

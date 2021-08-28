@@ -125,7 +125,7 @@ class WebController extends Controller
             'contribution'=>$contribution
         ]);
     }
-    public function causes($id){
+    public function project($id){
         $search = null;
         $contribution =Contribution::all();
 //        $categoryId = $request->get("category_id");
@@ -133,23 +133,23 @@ class WebController extends Controller
         $category = Category::where('active',0)->findOrFail($id);
 //        dd($category);
         $posts= Post::with('Category')->where( 'category_id',$id )->where('active',0)->orderBy("id","desc")->paginate(6);
-        return view('pages.causes',[
+        return view('pages.project',[
             'contribution'=>$contribution,
             'category'=>$category,
             'search'=>$search,
             'posts'=>$posts
         ]);
     }
-    public function causesAll(Request $request){
+    public function projectAll(Request $request){
         $category = null;
-    
+
         $contribution =Contribution::all();
 //        $categoryId = $request->get("category_id");
         $search = $request->get("search");
-    
+
 //        dd($category);
         $posts= Post::with('Category')->where('active',0)->search($search)->orderBy("id","desc")->get();
-        return view('pages.causes',[
+        return view('pages.project',[
             'contribution'=>$contribution,
             'search'=>$search,
             'posts'=>$posts,
@@ -165,7 +165,7 @@ class WebController extends Controller
 //
 //    }
     public function join_volunteer(){
-        $now = Carbon::now('asia/Ho_Chi_Minh')->format('d-m-Y');
+        $now = Carbon::now('asia/Ho_Chi_Minh')->format('Y-m-d');
 
             return view('pages.join_volunteer',[
                 'now'=>$now

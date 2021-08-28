@@ -4,6 +4,7 @@ use App\Http\Controllers\ContributeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TranslateController;
+use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -34,8 +35,8 @@ Route::get('auth/social', [SocialController::class,'show'])->name('social.login'
 Route::get('auth/{driver}', [SocialController::class,'redirectToProvider'])->name('social.auth');
 Route::get('auth/{driver}/callback', [SocialController::class,'handleProviderCallback'])->name('social.callback');
 Route::post('/subscribe-mail',[MailController::class,'subMail']);
-Route::get('/causes/{id}',[WebController::class,"causes"]);
-Route::get('/causes',[WebController::class,"causesAll"]);
+Route::get('/project/{id}',[WebController::class,"project"]);
+Route::get('/project',[WebController::class,"projectAll"]);
 Route::get('/gallery',[WebController::class,"gallery"]);
 Route::get('/profile',[WebController::class,"profile"]);
 Route::get('/contributor',[WebController::class,"contributor"]);
@@ -43,22 +44,9 @@ Route::post('/contribution',[ContributeController::class,"contribution"]);
 
 Route::get('/become-a-volunteer',[WebController::class,"join_volunteer"]);
 Route::get('/volunteer',[WebController::class,"volunteer"]);
+Route::post('/register-volunteer',[VolunteerController::class,"register"]);
 
 
 
 
 
-Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
-
-
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-    return redirect('/');
-})->middleware(['auth', 'signed'])->name('verification.verify');
-
-Route::post('/email/verification-notification', function (Request $request) {
-    $request->user()->sendEmailVerificationNotification();
-    return back()->with('message', 'Verification link sent!');
-})->middleware(['auth', 'throttle:6,1'])->name('verification.send');

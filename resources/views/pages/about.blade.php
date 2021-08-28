@@ -4,14 +4,14 @@
     <!--Page Header Start-->
     <section class="page-header">
         <div class="page-header__bg"
-             style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+             style="background-image: url('{{asset('/dist/img/photos/nu-cuoi-am-about.jpg')}}');background-position:bottom"></div>
         <!-- /.page-header__bg -->
         <div class="container">
-            <h2>About</h2>
+            <h2>{{__('Giới Thiệu')}}</h2>
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">{{__('Trang Chủ')}}</a></li>
                 <li class="color-thm-gray">/</li>
-                <li><span>About</span></li>
+                <li><span>{{__('Giới Thiệu')}}</span></li>
             </ul>
         </div>
     </section>

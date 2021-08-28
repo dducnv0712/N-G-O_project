@@ -331,8 +331,8 @@
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>
-                                         <div class="m-auto mb-4">
-                                            <img class="m-auto" src="{{asset('dist/assets/images/resources/logo-3.png')}}" alt="">
+                                        <div style="text-align:center" class="m-auto">
+                                            <img style="width:170px;height:70px;object-fit:contain" src="https://drive.google.com/uc?id=1u6je9wXQE73EOecBxzhtAK887Y3rqE6X" alt="logo">
                                         </div>
 
                                         <h3 style="text-align: center;font-weight:600;">Hi {{$fullName}}!</h3>

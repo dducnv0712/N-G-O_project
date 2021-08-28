@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                     <div class="footer-widget__column footer-widget__about">
-                        <h3 class="footer-widget__title">About</h3>
+                        <h3 class="footer-widget__title">{{__('Giới Thiệu')}}</h3>
                         <p class="footer-widget__text">Lorem ipsum dolor sit ame consect etur pisicing elit sed do eiusmod tempor incididunt ut labore.</p>
                         <a href="{{asset('/about')}}" class="footer-widget__about-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Xem Chi Tiết')}} </a>
                     </div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
                     <div class="footer-widget__column footer-widget__contact">
-                        <h3 class="footer-widget__title">Contact</h3>
+                        <h3 class="footer-widget__title">{{__('Liên Hệ')}}</h3>
                         <ul class="list-unstyled footer-widget__contact-list">
                             <li>
                                 <div class="icon">
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="text">
                                     <p>
-                                        <span>Call Anytime</span>
+                                        <span>{{__('Gọi mọi lúc')}}</span>
                                         <a href="tel:92 666 888 0000">92 666 888 0000</a>
                                     </p>
                                 </div>
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="text">
                                     <p>
-                                        <span>Send Email</span>
+                                        <span>{{__('Gửi Email')}}</span>
                                         <a href="mailto:needhelp@company.com">needhelp@company.com</a>
                                     </p>
                                 </div>
@@ -60,7 +60,7 @@
                                     <i class="icon-address"></i>
                                 </div>
                                 <div class="text">
-                                    <p><span>Visit Office</span>80 broklyn golden street</p>
+                                    <p><span>{{__('Địa Chỉ')}}</span>80 broklyn golden street</p>
                                 </div>
                             </li>
                         </ul>
@@ -74,7 +74,7 @@
                             @csrf
                             <input id="fullName" type="text" class="mb-2 nameSub" name="name" placeholder="{{__('Tên Của Bạn')}}" >
                             <input id="email" type="email" name="emailSub" class="emailSub" placeholder="{{__('Email Của Bạn')}}">
-                            <button id="send-mail" type="button" class="footer-widget__newsletter-btn mt-2"><i class="fas fa-arrow-circle-right"></i>Send</button>
+                            <button id="send-mail" type="button" class="footer-widget__newsletter-btn mt-2"><i class="fas fa-arrow-circle-right"></i>{{__('Đăng Ký')}}</button>
                         </form>
 
                     </div>
@@ -87,7 +87,7 @@
                     <div class="site-footer__bottom-inner">
                         <div class="site-footer__bottom-logo-social">
                             <div class="site-footer__bottom-logo">
-                                <a href="index.html"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.usnews.com%2Fnews%2Fbest-countries%2Fvietnam&psig=AOvVaw1vcwUvUzourmZcVrUDHPCs&ust=1630037477203000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCODKtoDpzfICFQAAAAAdAAAAABAV" alt=""></a>
+                                <a href="index.html"><img src="{{asset('dist/assets/images/resources/Charity.png')}}" alt=""></a>
                             </div>
                             <div class="site-footer__bottom-social">
                                 <a href="#"><i class="fab fa-twitter"></i></a>

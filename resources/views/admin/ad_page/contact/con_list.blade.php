@@ -19,8 +19,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Phone</th>
+                    <th>{{__('Họ Và Tên')}}</th>
+                    <th>{{__('SĐT')}}</th>
                     <th>Email</th>
                     <th>Messenger</th>
                     <th>Created_at</th>

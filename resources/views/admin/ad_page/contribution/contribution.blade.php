@@ -64,7 +64,7 @@
                                                                 </div>
                                                                 <div class="col-md-6 text-md-right">
                                                                     <div class="text-muted">Contribute Date</div>
-                                                                    <strong> {{$item->created_at->format('F').' '.$item->created_at->format('d, Y') }}</td></strong>
+                                                                    <strong> {{$item->created_at->format('F d, Y')}}</td></strong>
                                                                 </div>
                                                             </div>
 
@@ -72,12 +72,12 @@
 
                                                             <div class="row mb-4">
                                                                 <div class="col-md-6">
-                                                                    <strong >Contribution Details</strong>
+                                                                    <strong >{{__('Chi Tiết Đóng Góp')}}</strong>
 
                                                                     <p>
-                                                                        {{__('Họ và Tên:')}}<br>
+                                                                        {{__('Họ và Tên')}}:<br>
                                                                         ID. <br>
-                                                                        {{__('Số tiền đóng góp:')}}<br>
+                                                                        {{__('Số tiền đóng góp')}}:<br>
                                                                         Email:<br>
                                                                         {{__('Quốc Gia:')}}:<br>
                                                                         {{__('Đối tượng đóng góp:')}}<br>

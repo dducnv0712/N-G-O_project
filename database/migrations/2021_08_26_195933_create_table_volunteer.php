@@ -19,7 +19,10 @@ class CreateTableVolunteer extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->text('address');
-            $table->text('address');
+            $table->date('birthday');
+            $table->string('occupation');
+            $table->unsignedInteger('approval')->default(1);
+            $table->text('messages');
             $table->timestamps();
         });
     }

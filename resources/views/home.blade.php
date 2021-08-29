@@ -82,15 +82,15 @@
         </div>
         <div class="main-slider__counter">
             <ul class="main-slider__counter-box list-unstyled">
-                <li style="height:191px" class="counter-animate">
+                <li style="height:192px" class="counter-animate">
                     <h3 class="main-sldier__counter-digit number" data-number="300">0</h3>
                     <span class="main-slider__counter-text">{{__('Tình Nguyện Viên')}}</span>
                 </li>
-                <li class="counter-animate">
+                <li style="height:192px"  class="counter-animate">
                     <h3 class="main-sldier__counter-digit number" data-number="{{count($count_contribute)}}"></h3>
                     <span class="main-slider__counter-text">{{__('Dự Án Đã Hoàn Thành')}}</span>
                 </li>
-                <li style="max-width:450px;height:191px" class="counter-animate">
+                <li style="max-width:450px;height:192px" class="counter-animate">
                     <div class="d-flex">
                         <h3 class="main-sldier__counter-digit number" data-number="{{$amount_total}}">0 </h3>
                         <span >VNĐ</span>

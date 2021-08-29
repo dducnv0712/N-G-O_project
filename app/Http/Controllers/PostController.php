@@ -45,7 +45,9 @@ class PostController extends Controller
                     }
                 }
             }
-       
+       if($image == ''){
+           $image = $request['image-url'];
+       }
         //0 = true
         //1 = false
             $approval = 1;
@@ -95,8 +97,8 @@ class PostController extends Controller
                 }
             }
         }
-        if($image == ""){
-            $image = $request['image_edit'];
+        if($image == ''){
+            $image = $request['image-url'];
         }
 
         $post->update([
@@ -115,7 +117,7 @@ class PostController extends Controller
         $posts-> delete();
 
     }
-   
+
     public function active($id){
         $posts = Post::findOrFail($id);
         if($posts->active == 0){
@@ -127,7 +129,7 @@ class PostController extends Controller
                 "active" => 0
             ]);
         }
-       
+
 
         return redirect()->to("admin/posts");
 
@@ -143,7 +145,7 @@ class PostController extends Controller
     public function important($id){
         $posts = Post::findOrFail($id);
         $find_important = Post::where('important',0)->get();
-   
+
             if($posts->important == 0){
                 $posts-> update([
                     "important" => 1
@@ -152,7 +154,7 @@ class PostController extends Controller
                 $posts-> update([
                     "important" => 0
                 ]);
-               
+
                 foreach($find_important as $find_item){
                     $find_item -> update([
                         'important' => 1
@@ -161,15 +163,15 @@ class PostController extends Controller
             }
             return redirect()->to("admin/posts");
     }
-       
-            
 
-        
-    
-    
-      
 
-    
+
+
+
+
+
+
+
     public function approval($id){
         $posts = Post::findOrFail($id);
 

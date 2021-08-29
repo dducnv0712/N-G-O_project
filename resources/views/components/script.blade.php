@@ -53,8 +53,37 @@
 
         })
 
+
+
     });
 
+
+</script>
+{{--Conatact ajax--}}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#submit-contact').click(function (){
+            var name = $('#name-contact').val();
+            var email = $('#email-contact').val();
+            var phone = $('#phone-contact').val();
+            var message = $('#message-contact').val();
+            var _token = $('input[name="_token"]').val();
+            // alert(name,email,message,phone)
+            $.ajax({
+                url:"{{url('/contact-submit')}}",
+                method:'POST',
+                data:{name:name,email:email,phone:phone,message:message,_token:_token},
+                success:function (data){
+                    swal("Gửi Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+
+                },
+                error:function (data){
+                    sweetAlert("Oops...","Sai Thông Tin Hoặc Email Đã Được Đăng Ký!!","error")
+                }
+            });
+
+        })
+    })
 </script>
 
 {{--register volunteer--}}
@@ -69,19 +98,25 @@
             var occupation = $('#job-volunteer').val();
             var message = $('#message-volunteer').val();
             var _token = $('input[name="_token"]').val();
-            // console.log(name,email,message,address,occupation,phone,date,_token)
+            console.log(name,email,message,address,occupation,phone,date,_token)
 
             $.ajax({
                 url:"{{url('/register-volunteer')}}",
                 method:'POST',
                 data:{name:name,email:email,phone:phone,address:address,date:date,occupation:occupation,message:message,_token:_token},
+                beforeSend: function () {
+                    document.getElementById("loading-volunteer").innerHTML = '<div class="spinner-border" style="color:#15c8a0" role="status"> <span class="visually-hidden">Loading...</span> </div>';
+                },
                 success:function (data){
-                    swal("Hey, Đăng Ký Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
-                    alert(data);
+                    document.getElementById("loading-volunteer").innerHTML = '';
+
+                    swal("Hey, Gửi Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+                    // alert(data);
                 },
                 error:function (data){
                     // alert(data);
-                    sweetAlert("Oops...","Sai Thông Tin Hoặc Email Đã Được Đăng Ký!!","error")
+                    document.getElementById("loading-volunteer").innerHTML = '';
+                    sweetAlert("Oops...","Gửi Thất Bại!!","error")
                 }
             });
 
@@ -208,27 +243,27 @@
 
 
 </script>
-<script
-    src="https://code.jquery.com/jquery-1.12.4.min.js"
-    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-    crossorigin="anonymous"></script>
-<script type="text/javascript">
-    $('.target').on('change',function(){
-        var target = $(this).val();
-        $.ajax({
-            url:"{{url('/setTarget')}}",
-            type:"POST",
-            dataType:'json',
-            data:{"_token": "{{ csrf_token() }}","target":target},
-            success: function(data) {
-                location.reload();
-            },
-            error: function(e) {
+{{--<script--}}
+{{--    src="https://code.jquery.com/jquery-1.12.4.min.js"--}}
+{{--    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="--}}
+{{--    crossorigin="anonymous"></script>--}}
+{{--<script type="text/javascript">--}}
+{{--    $('.target').on('change',function(){--}}
+{{--        var target = $(this).val();--}}
+{{--        $.ajax({--}}
+{{--            url:"{{url('/setTarget')}}",--}}
+{{--            type:"POST",--}}
+{{--            dataType:'json',--}}
+{{--            data:{"_token": "{{ csrf_token() }}","target":target},--}}
+{{--            success: function(data) {--}}
+{{--                location.reload();--}}
+{{--            },--}}
+{{--            error: function(e) {--}}
 
-            }
-        });
-    });
-</script>
+{{--            }--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 <script type="text/javascript">
     window.onload = function () {
@@ -249,11 +284,26 @@
     }
 
 </script>
-{{--<script src="{{asset('dist/data-table/DataTables-1.11.0/js/dataTables.bootstrap5.min.js')}}"></script>--}}
+<script src="{{asset('dist/data-table/dataTables.fixedColumns.min.js')}}"></script>
+{{--<script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>--}}
 <script src="{{asset('dist/data-table/datatables.min.js')}}"></script>
 <script>
-    $(function () {
-        $('#table-contribute').DataTable();
 
+    $(function () {
+        $('#table-contribute').DataTable({
+
+            "language": {
+                "lengthMenu": "{{__('Hiển Thị: ')}} _MENU_ {{__('Mục')}}",
+                "zeroRecords": "{{__('Không Tìm Thấy Người Đóng Góp')}}",
+                "search": "{{__('Tìm Kiếm: ')}}",
+                "info": "{{__('Hiển Thị')}} _PAGE_ {{__('Trong Tổng Số')}} _PAGES_ {{__('Trang')}}",
+                "infoEmpty": "{{__('Không Có Dữ Liệu Nào')}}",
+                "infoFiltered": "({{__('Được Lọc Từ')}} _MAX_ {{__('Mục')}})"
+            }
+        });
+        // var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        // var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        //     return new bootstrap.Popover(popoverTriggerEl)
+        // })
     })
 </script>

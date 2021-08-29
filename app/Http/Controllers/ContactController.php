@@ -15,27 +15,14 @@ class ContactController extends Controller
             "contact" => $contact
         ]);
     }
-    public function form(){
-        $contact = Contact::all();
-        return view("pages.contact",[
-        "contact" => $contact
-        ]);
-    }
-    public function save(Request $request){
-        $request->validate([
-            "name"=>"required",
-            "phone"=>"required",
-            "messenger"=>"required",
-            "email"=>"required",
-        ]);
+    public function submit(Request $request){
         try {
             Contact::create([
                "name" => $request->get('name'),
                "phone" => $request->get('phone'),
-               "messenger" => $request->get('messenger'),
+               "message" => $request->get('message'),
                "email" => $request->get('email'),
             ]);
-            return redirect()->to("contact");
         }catch (\Exception $e){
             abort(404);
         }

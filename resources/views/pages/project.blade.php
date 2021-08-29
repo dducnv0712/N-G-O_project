@@ -74,7 +74,7 @@
                             </div>
                                     <div class="causes-one__content">
                                         <h3 class="causes-one__title">
-                                            <a href="causes-details.html">{{__($item->title)}}</a>
+                                            <a href="{{url('/desc-post',['id'=>$item->id])}}">{{__($item->title)}}</a>
                                         </h3>
                                           <span class="causes-one__text">{!!__($item->description)!!}</span>
                                     </div>
@@ -93,6 +93,7 @@
 
                                         @if($item->contribute == null)
                                             <div class="causes-one__goals">
+
                                                 <p>{{__('Huy Động')}}: <span>{{__('Không Giới Hạn')}}</span></p>
                                             </div>
                                             <div class="causes-one__goals">

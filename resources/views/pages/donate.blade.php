@@ -65,9 +65,10 @@
                     <div class="helping-one__right">
                         <form  class="helping-one__right-form">
                             <div class="row">
-                                <div class="col-lg-12">
                                 <div class="text-center mb-3" id="loading">
                                 </div>
+                                <div class="col-lg-12">
+
                                     <div class="row">
                                         <div class="col-4">
                                             <select class="become-volunteer-page__select" name="con" id="cur">

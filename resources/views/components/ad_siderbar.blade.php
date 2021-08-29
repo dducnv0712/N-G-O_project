@@ -12,50 +12,60 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{asset('/admin')}}">
-                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">{{__('Trang Chủ')}}</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{asset('/admin/profile')}}">
-                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-                    </a>
-                </li>
+{{--                <li class="sidebar-item">--}}
+{{--                    <a class="sidebar-link" href="{{asset('/admin/profile')}}">--}}
+{{--                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
 
 
                 <li class="sidebar-header">
-                    Website Manager
+                   {{__('Quản Lý Website')}}
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{asset('/admin/user')}}">
-                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">User Manager</span>
+                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">{{__('Quản Lý Người Dùng')}}</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{url('/admin/contribution')}}"   class="sidebar-link">
+                        <i class="align-middle" data-feather="heart"></i> <span class="align-middle">{{__('Quản Lý Đóng Góp')}}</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{asset('/admin/category')}}">
-                        <i class="align-middle" data-feather="list"></i> <span class="align-middle">Category</span>
+                        <i class="align-middle" data-feather="list"></i> <span class="align-middle">{{__('Thể Loại Dự Án')}}</span>
                     </a>
                 </li>
+
                 <li class="sidebar-item">
                     <a data-target="#ui" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle" data-feather="edit"></i> <span class="align-middle">Posts</span>
+                        <i class="align-middle" data-feather="edit"></i> <span class="align-middle">{{__('Dự Án')}}</span>
                     </a>
                     <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/posts')}}">All Posts</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/posts/add')}}">Form</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/posts')}}">{{__('Tất Cả Dự Án')}}</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/posts/add')}}">{{__('Thêm Dự Án')}}</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a data-target="#volunteer" data-toggle="collapse" class="sidebar-link collapsed">
+                        <i class="align-middle fas fa-user-tag"></i> <span class="align-middle">{{__('Tình Nguyện Viên')}}</span>
+                    </a>
+                    <ul id="volunteer" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/volunteer')}}">{{__('Danh Sách Tình Nguyện Viên')}}</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/posts/add')}}">{{__('Thêm Tình Nguyện Viên')}}</a></li>
                     </ul>
                 </li>
 
-                <li class="sidebar-item">
-                    <a href="{{url('/admin/contribution')}}"   class="sidebar-link">
-                        <i class="align-middle" data-feather="heart"></i> <span class="align-middle">Contributions</span>
-                    </a>
-                </li>
 
                 <li class="sidebar-item">
                     <a data-target="#about" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Pages Manager</span>
+                        <i class="align-middle fas fa-tasks"></i> <span class="align-middle">Pages Manager</span>
                     </a>
                     <ul id="about" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                         <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">About</a></li>
@@ -75,7 +85,7 @@
         </div>
     @else
         <div class="sidebar-content js-simplebar">
-            <a class="sidebar-brand" href="{{asset('/author')}}">
+            <a class="sidebar-brand" href="{{asset('/volunteer')}}">
                 <span class="align-middle fw-normal">Admin <span class="fw-bold">N.G.O</span></span>
             </a>
 
@@ -85,30 +95,31 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{asset('/author')}}">
-                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                    <a class="sidebar-link" href="{{asset('/volunteer')}}">
+                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">{{__('Trang Chủ')}}</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{asset('/author/profile')}}">
-                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-                    </a>
-                </li>
+{{--                <li class="sidebar-item">--}}
+{{--                    <a class="sidebar-link" href="{{asset('/author/profile')}}">--}}
+{{--                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
 
 
                 <li class="sidebar-header">
-                    Website Manager
+                    {{__('Quản Lý Website')}}
                 </li>
+
 
                 <li class="sidebar-item">
                     <a data-target="#ui" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle" data-feather="edit"></i> <span class="align-middle">Posts</span>
+                        <i class="align-middle" data-feather="edit"></i> <span class="align-middle">{{__('Dự Án')}}</span>
                     </a>
                     <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/author/posts')}}">All Posts</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/author/posts/add')}}">Form</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/volunteer/posts')}}">{{__('Tất Cả Dự Án')}}</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/volunteer/posts/add')}}">{{__('Thêm Dự Án')}}</a></li>
                     </ul>
                 </li>
             </ul>

@@ -331,7 +331,7 @@
                                 <tr>
                                     <td>
                                         <div style="text-align:center" class="m-auto">
-                                            <img style="width:170px;height:70px;object-fit:contain" src="https://drive.google.com/uc?id=1u6je9wXQE73EOecBxzhtAK887Y3rqE6X" alt="logo">
+                                            <img style="width:170px;height:70px;object-fit:contain" src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612a3e0e2765f9278218accc_Charity.png" alt="logo">
                                         </div>
                                         <h3 style="text-align: center;font-weight:600;">Recommended for {{$name}}</h3>
                                         <img src="{{$post->getImage()}}" alt="/">

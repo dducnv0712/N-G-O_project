@@ -12,6 +12,7 @@
 
     <link href="{{asset('css/admin.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('')}}dist/assets/vendors/fontawesome/css/all.min.css" />
     <link href="{{asset('dist/summernote/summernote-bs4.min.css')}}" rel="stylesheet">
     <link  rel="stylesheet" href="{{asset('/dist/sweetalert/sweetalert.css')}}">
     <link  rel="stylesheet" href="{{asset('/dist/data-table/datatables.min.css')}}">

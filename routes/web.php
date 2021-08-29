@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContributeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\SocialController;
@@ -25,8 +26,9 @@ Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controller
 
 Route::get('/',[WebController::class,"home"]);
 Route::get('/contact',[WebController::class,"contact"]);
-Route::get('/desc-post/{id}',[WebController::class,"desc_post"]);
+Route::post('/contact-submit',[ContactController::class,"submit"]);
 
+Route::get('/desc-post/{id}',[WebController::class,"desc_post"]);
 Route::get('/donate',[WebController::class,"donate"]);
 Route::get('/donate/{id}',[WebController::class,"donate_selected"]);
 Route::get('/about',[WebController::class,"about"]);

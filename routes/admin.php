@@ -4,6 +4,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
@@ -51,8 +52,9 @@ Route::middleware(["auth","admin"])->group(function (){
 
     //Contact
     Route::get('/contact',[ContactController::class,"all"]);
-    Route::get('/contact/form',[ContactController::class,"form"]);
-    Route::post('/contact/save',[ContactController::class,"save"]);
+
+    //volunteer Controller
+    Route::get('/volunteer',[VolunteerController::class,"all"]);
 
 });
 

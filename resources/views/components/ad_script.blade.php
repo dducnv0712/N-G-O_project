@@ -11,6 +11,9 @@
         $('#dataTable').DataTable();
         $('#dataTable-postAd').DataTable();
         $('#dataTable-postAth').DataTable();
+        $('#dataTable-volunteer-confirm').DataTable();
+        $('#dataTable-volunteers').DataTable();
+
 
     })
 </script>

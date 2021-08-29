@@ -85,9 +85,6 @@
 
                                                                     </p>
 
-                                                                    <p>
-                                                                        {{__('Lời Nhắn: '. $item->messages)}}
-                                                                    </p>
                                                                 </div>
 
                                                                 <div class="col-md-6 text-md-right">
@@ -104,6 +101,11 @@
 
                                                                     </p>
                                                                 </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <p>
+                                                                    {{__('Lời Nhắn').': '.$item->messages}}
+                                                                </p>
                                                             </div>
 
 

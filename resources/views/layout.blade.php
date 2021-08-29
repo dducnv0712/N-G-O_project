@@ -57,7 +57,7 @@
     <div class="search-popup__overlay search-toggler"></div>
     <!-- /.search-popup__overlay -->
     <div class="search-popup__content">
-        <form action="{{url('/causes')}}" method="get">
+        <form action="{{url('/project')}}" method="get">
             <label for="search" class="sr-only">search here</label>
             <!-- /.sr-only -->
             <input type="text" id="search" name="search" placeholder="Search Here..." />

@@ -88,6 +88,9 @@
                         <form  class="become-volunteer-page__form contact-form-validated">
                             @csrf
                             <div class="row">
+                                <div class="text-center mb-3" id="loading-volunteer">
+                                </div>
+
                                 <div class="col-xl-12">
                                     <div class="become-volunteer-page__input">
                                         <input id="name-volunteer" type="text" placeholder="{{__('Tên Của Bạn')}}" name="name" value="@if(!Auth::user() == null) {{Auth::user()->name}} @endif">

@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home One || Halpes || HTML Template For Donation Services</title>
+    <title>Charity || N-G-O</title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('')}}dist/assets/images/favicons/Charity.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('')}}dist/assets/images/favicons/Charity.svg" />
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="{{asset('')}}dist/assets/vendors/tiny-slider/tiny-slider.min.css" />
     <link rel="stylesheet" href="{{asset('')}}dist/assets/vendors/reey-font/stylesheet.css" />
     <link  rel="stylesheet" href="{{asset('/dist/sweetalert/sweetalert.css')}}">
-{{--    <link  rel="stylesheet" href="{{asset('/dist/data-table/DataTables-1.11.0/css/dataTables.bootstrap5.min.css')}}">--}}
+    <link  rel="stylesheet" href="{{asset('/dist/data-table/fixedColumns.dataTables.min.css')}}">
     <link  rel="stylesheet" href="{{asset('/dist/data-table/datatables.min.css')}}">
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">

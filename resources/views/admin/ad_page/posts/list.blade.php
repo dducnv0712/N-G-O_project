@@ -31,9 +31,9 @@
                         <th>{{__('Loại')}}</th>
                         <th>{{__('Ngày Khởi Tạo')}}</th>
                         <th>{{__('Ngày Cập Nhật')}}</th>
-                        <th>{{__('Thông Tin Chi Tiết')}}</th>
-                        <th>{{__('Sự Chấp Thuận')}}</th>
-                        <th>{{__('Không Tán Thành')}}</th>
+                        <th>{{__('Chi Tiết')}}</th>
+                        <th>{{__('Xét Duyệt')}}</th>
+                        <th>{{__('Từ Chối')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -107,16 +107,16 @@
                         <tr>
                             <th>{{__('Hình Ảnh')}}</th>
                             <th>{{__('Tiêu Đề')}}</th>
-                            <th>{{__('Người Đóng Góp')}}</th>
-                            <th>{{__('Loại')}}</th>
+                            <th>{{__('Mục Tiêu')}}</th>
+                            <th>{{__('Thể Loại')}}</th>
                             <th>{{__('Ngày Khởi Tạo')}}</th>
                             <th>{{__('Ngày Cập Nhật')}}</th>
-                            <th>{{__('Hiệu Lực')}}</th>
+                            <th>{{__('Hiển Thị')}}</th>
                             <th>{{__('Quan Trọng')}}</th>
-                            <th>{{__('Hoạt Động')}}</th>
-                            <th>{{__('Nhận')}}</th>
-                            <th>{{__('Thư Gửi')}}</th>
-                            <th>{{__('Thông Tin Chi Tiết')}}</th>
+                            <th>{{__('Chức Năng')}}</th>
+                            <th>{{__('Đã Nhận')}}</th>
+                            <th>{{__('Thống Báo')}}</th>
+                            <th>{{__('Chi Tiết')}}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -214,11 +214,14 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h2 class="fw-bold text-center"><b>{{$item -> title}}</b></h2>
-                                                <div class="text-center">
-                                                    <img src="{{$item->getImage()}}" alt="{{$item->title}}">
+                                                <div class="container overflow-hidden">
+                                                    <h2 class="fw-bold text-center"><b>{{$item -> title}}</b></h2>
+                                                    <div class="text-center">
+                                                        <img src="{{$item->getImage()}}" alt="{{$item->title}}">
+                                                    </div>
+                                                    <p>{!!$item->content!!}</p>
                                                 </div>
-                                                <p>{!!$item->content!!}</p>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

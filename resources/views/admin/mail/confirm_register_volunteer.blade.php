@@ -4,10 +4,14 @@
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Non-governmental Organizations</title>
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+    <style type="text/css">
         /* -------------------------------------
             GLOBAL RESETS
         ------------------------------------- */
+
 
         /*All the styling goes here*/
 
@@ -144,6 +148,11 @@
             color: #3498db;
             text-decoration: underline;
         }
+        .confirm{
+            font-family: 'Allison', cursive;
+            font-size: 25px;
+            color: #15c8a0;
+        }
 
         /* -------------------------------------
             BUTTONS
@@ -186,6 +195,9 @@
             border-color: #3498db;
             color: #ffffff;
         }
+        .text-center{
+            text-align: center
+        }
 
         /* -------------------------------------
             OTHER STYLES THAT MIGHT BE USEFUL
@@ -214,7 +226,7 @@
             margin: 20px 0;
         }
         .m-auto{
-            margin:auto;
+            margin:auto
         }
 
         /* -------------------------------------
@@ -332,52 +344,24 @@
                                 <tr>
                                     <td>
                                         <div style="text-align:center" class="m-auto">
-                                            <img style="width:170px;height:70px;object-fit:contain" src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612a3e0e2765f9278218accc_Charity.png" alt="logo">
+                                            <img
+                                                style="width:180px;
+                                                   height:70px;
+                                                   object-fit:contain"
+                                                src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612a3e0e2765f9278218accc_Charity.png"
+                                                alt="logo">
+
                                         </div>
-
-                                        <h3 style="text-align: center;font-weight:600;">Hi {{$fullName}}!</h3>
-                                        <img src="https://znews-photo.zadn.vn/w660/Uploaded/qhj_dvoahficbu/2021_07_28/thum.jpg" alt="/">
-                                        <h2 style="margin-top:10px; font-weight:bold;text-align: center">Thank you for joining our mission</h2>
-                                        <p>Thank you for your donation. The whole team at organization truly appreciates it.</p><br/>
-                                        <p>Your donation will help us fund {{$posts -> title}}, và  improve the lives of those in need in the community.</p><br/>
-                                        <table border="0">
-                                            <thead>
-                                            <tr>
-                                                <th style="font-weight:600;text-align: left">Contribution details</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr style="margin-top:20px">
-                                                <td>Contribution NO.</td>
-
-                                                <td style="text-align: right">{{$contribute_id}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Full name</td>
-
-                                                <td style="text-align: right">{{$fullName}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Country</td>
-
-                                                <td style="text-align: right">{{$country}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Amount</td>
-
-                                                <td style="text-align: right">@money($amount*22854)</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Contribution Date</td>
-                                                <td style="text-align: right">{{$date_time}}</td>
-                                            </tr>
-
-
-                                            </tbody>
-                                        </table>
                                         <hr>
-                                        <p style="font-weight:600">Thank you again</p>
+                                        <!-- <h3 style="text-align: center;font-weight:600;">Dear Nguyen Van Duc!</h3> -->
+                                        <p>Dear {{$name}}.</p><br/>
 
+                                        <p>Thank you for signing up to join our mission!</p>
+                                        <p>The information you have submitted will be reviewed and responded to as soon as possible.</p><br>
+                                        <p>If you have any questions, just reply to this email—we're always happy to help out.</p>
+                                        <img style="width:90px;object-fit: contain;" src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612b0cffd0791104ed252ac7_Best%20regards!.png" alt="/">
+                                        <hr>
+                                        <span class="text-center">{{$now}}</span>
                                     </td>
                                 </tr>
                             </table>
@@ -388,15 +372,15 @@
 
                 <div class="footer">
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                        <!--  <tr>
-                             <td class="content-block">
-                                 <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
-                                 <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.
-                             </td>
-                         </tr> -->
+{{--                          <tr>--}}
+{{--                             <td class="content-block">--}}
+{{--                                 <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>--}}
+{{--                                 <br> Don't like these emails? <a href="">Unsubscribe</a>.--}}
+{{--                             </td>--}}
+{{--                         </tr>--}}
                         <tr>
                             <td class="content-block powered-by">
-                                Powered by <a href="">Non-governmental Organizations</a>.
+                                Powered by <a href="{{asset('/')}}">Non-governmental Organizations</a>.
                             </td>
                         </tr>
                     </table>

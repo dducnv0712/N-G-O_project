@@ -65,37 +65,33 @@
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="contact-page__form">
-                        <form action="assets/inc/sendemail.php" class="contact-page__main-form contact-form-validated">
+                        <form  class="contact-page__main-form contact-form-validated">
+                            @csrf
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="contact-page__input-box">
-                                        <input type="text" placeholder="Your name" name="name">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-6">
-                                    <div class="contact-page__input-box">
-                                        <input type="email" placeholder="Email address" name="email">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="contact-page__input-box">
-                                        <input type="text" placeholder="Subject" name="subject">
+                                        <input type="text" id="name-contact" placeholder="Your name" name="name">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="contact-page__input-box">
-                                        <input type="text" placeholder="Phone Number" name="phone">
+                                        <input type="email" id="email-contact" placeholder="Email address" name="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="contact-page__input-box">
+                                        <input type="text" id="phone-contact" placeholder="Phone Number" name="phone">
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
                                     <div class="contact-page__input-box">
-                                        <textarea name="message" placeholder="Write message"></textarea>
+                                        <textarea name="message" id="message-contact" placeholder="Write message"></textarea>
                                     </div>
-                                    <button type="submit" class="thm-btn contact-page__btn"><i class="fas fa-arrow-circle-right"></i>Send a Message</button>
+                                    <button type="button" id="submit-contact" class="thm-btn contact-page__btn"><i class="fas fa-arrow-circle-right"></i>Send a Message</button>
                                 </div>
                             </div>
                         </form>

@@ -28,8 +28,18 @@
                     <form action="{{asset("/admin/post/save")}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="file" class="form-label">Image</label>
-                        <input name="image" type="file" id="file" class="form-control" accept="image/*">
+                        <div id="holder" class="photo-preview mb-3">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="input-group">
+                               <span class="input-group-btn">
+                                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                   <i class="fa fa-picture-o"></i> Choose
+                                 </a>
+                               </span>
+                            <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" type="text" >
+                        </div>
+
 
                     </div>
                     <div class="mb-3">
@@ -69,8 +79,18 @@
                     <form action="{{asset("/author/post/save")}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="file" class="form-label">{{__('Image')}}</label>
-                            <input name="image" type="file" id="file" class="form-control" accept="image/*">
+                            <div id="holder" class="photo-preview mb-3">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="input-group">
+                               <span class="input-group-btn">
+                                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                   <i class="fa fa-picture-o"></i> Choose
+                                 </a>
+                               </span>
+                                <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" type="text" >
+                            </div>
+
 
                         </div>
                         <div class="mb-3">

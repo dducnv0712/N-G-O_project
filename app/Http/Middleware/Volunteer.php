@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Author
+class Volunteer
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class Author
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-        if($user ->role =="ADMIN" || $user ->role =="AUTHOR"){
+        if($user ->role =="ADMIN" || $user ->role =="VOLUNTEER"){
             return $next($request);
 
         }else{

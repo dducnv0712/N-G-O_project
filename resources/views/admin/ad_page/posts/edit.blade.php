@@ -28,9 +28,19 @@
                     <form  action="{{url("/admin/posts/update",["id" =>$posts->id])}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="file" class="form-label">{{__('Image')}}</label>
-                            <input name="image" type="file" id="file" class="form-control">
-                            <input value="{{$posts->image}}" name="image_edit" id="file" type="text" hidden>
+                            <div id="holder" class="photo-preview mb-3">
+                                <img src="{{$posts->getImage()}}" alt="" />
+                            </div>
+
+                            <div class="input-group">
+                               <span class="input-group-btn">
+                                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                   <i class="fa fa-picture-o"></i> Choose
+                                 </a>
+                               </span>
+                                <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" value="{{$posts->getImage()}}" type="text" >
+                            </div>
+
 
                         </div>
                         <div class="mb-3">
@@ -73,12 +83,21 @@
                 @else
                     <form  action="{{url("/author/posts/update",["id" =>$posts->id])}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="mb-3">
-                        <label for="file" class="form-label">Image</label>
-                        <input name="image" type="file" id="file" class="form-control">
-                        <input value="{{$posts->image}}" name="image_edit" id="file" type="text" hidden>
+                        <div class="mb-3">
+                            <div id="holder" class="photo-preview mb-3">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="input-group">
+                               <span class="input-group-btn">
+                                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                   <i class="fa fa-picture-o"></i> Choose
+                                 </a>
+                               </span>
+                                <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" value="{{$posts->getImage()}}" type="text" >
+                            </div>
 
-                    </div>
+
+                        </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input name="title" value="{{$posts->title}}" type="text" id="title" class="form-control">

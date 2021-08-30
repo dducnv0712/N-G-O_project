@@ -156,9 +156,6 @@ class WebController extends Controller
             'category'=>$category
         ]);
     }
-    public function gallery(){
-        return view('pages.gallery');
-    }
 //    public function contribution_create(Request $request){
 //        Contribution::create($request->all());
 //

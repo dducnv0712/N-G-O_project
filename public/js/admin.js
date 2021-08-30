@@ -209,3 +209,5 @@ document.addEventListener("DOMContentLoaded", function() {
         nextArrow: "<span class=\"fas fa-chevron-right\" title=\"Next month\"></span>",
     });
 });
+
+

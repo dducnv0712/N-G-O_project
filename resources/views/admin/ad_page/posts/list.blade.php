@@ -217,7 +217,7 @@
                                                 <div class="container overflow-hidden">
                                                     <h2 class="fw-bold text-center"><b>{{$item -> title}}</b></h2>
                                                     <div class="text-center">
-                                                        <img src="{{$item->getImage()}}" alt="{{$item->title}}">
+                                                        <img src="{{$item->image}}" alt="{{$item->title}}">
                                                     </div>
                                                     <p>{!!$item->content!!}</p>
                                                 </div>

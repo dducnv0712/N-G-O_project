@@ -53,7 +53,7 @@
                                                     <label for="role" class="form-label fw-bold">Role</label>
                                                     <select name="role" id="role" class="form-control">
                                                         <option value="ADMIN">ADMIN</option>
-                                                        <option value="AUTHOR">AUTHOR</option>
+                                                        <option value="VOLUNTEER">VOLUNTEER</option>
                                                         <option value="USER">USER</option>
                                                     </select>
                                                 </div>

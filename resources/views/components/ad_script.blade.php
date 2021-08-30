@@ -13,6 +13,7 @@
         $('#dataTable-postAth').DataTable();
         $('#dataTable-volunteer-confirm').DataTable();
         $('#dataTable-volunteers').DataTable();
+        $('#dataTable-gallery').DataTable();
 
 
     })
@@ -207,6 +208,59 @@
                 }
             });
     }
+    //delete gallery
+    function deleteGallery(id){
+        swal({
+                title: "{{__('Bạn Có Chắc Không?')}}",
+                text: "{{__('Bạn sẽ không thể khôi phục lại được!!')}}",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: '{{__('Đồng Ý!!')}}',
+                cancelButtonText: "{{__('Hủy Bỏ!!')}}",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm){
+
+                if (isConfirm){
+                    // console.log(id)
+                    $.ajax({
+                        url:"{{url('admin/gallery/delete')}}"+'/'+id,
+                        type:'DELETE',
+                        data:{"_token": "{{ csrf_token() }}"},
+                        beforeSend: function () {
+                            swal({
+                                title: '<div class="spinner-border text-primary" role="status"></div><br/> <span class="text-center">Loading...</span> ',
+                                html: "loading",
+                                showCancelButton: false,
+                                showConfirmButton: false
+                            });
+                        },
+                        success:function (data){
+                            swal({
+                                type: 'success',
+                                title: '{{__('Xóa Thành Công!!')}}',
+                                text: '{{__('Nhấn vào nút để tiếp tục !!')}}',
+                                confirmButtonColor:true,
+                            },function (isConfirm){
+                                if(isConfirm){
+                                    location.reload();
+                                }
+                            });
+
+                        },
+                        error:function (data){
+                            // console.log(this.url)
+                            sweetAlert("Oops...","Something went wrong !!","error")
+                        }
+                    });
+
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+    }
     // send mail
     function sendMailPost(id){
         swal({
@@ -268,6 +322,52 @@
     }
 
 
+</script>
+<script src="{{asset('')}}dist/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript">
+    (function($) {
+        "use strict";
+
+        // magnific popup
+        $('.image-popup').magnificPopup({
+            type: 'image',
+            closeOnContentClick: true,
+            closeBtnInside: false,
+            fixedContentPos: true,
+            mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+            gallery: {
+                enabled: true,
+                navigateByImgClick: true,
+                preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+            },
+            image: {
+                verticalFit: true,
+
+            },
+            zoom: {
+                enabled: true,
+                duration: 300 // don't foget to change the duration also in CSS
+            }
+        });
+    })(jQuery);
+</script>
+<script src="{{asset('/vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
+<script type="text/javascript">
+    $('#posts-upload').filemanager('image');
+    var route_prefix = "/admin/posts/project-filemanager";
+    $('#posts-upload').filemanager('image', {prefix: route_prefix});
+
+</script>
+<script type="text/javascript">
+    $('#gallery-upload').filemanager('image');
+    var route_prefix = "/admin/gallery/project-filemanager";
+    $('#gallery-upload').filemanager('image', {prefix: route_prefix});
+
+</script>
+<script type="text/javascript">
+    $('#file-manager').filemanager('image');
+    var route_filemanager = "/admin/project-filemanager";
+    $('#file-manager').filemanager('image', {prefix: route_filemanager});
 </script>
 
 

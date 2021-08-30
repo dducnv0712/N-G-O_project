@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContributeController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TranslateController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\PostController;
 |
 */
 //Route::middleware(['auth:sanctum', 'verified'])->get('/',[WebController::class,"home"]);
+
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::get('/',[WebController::class,"home"]);
@@ -39,11 +41,10 @@ Route::get('auth/{driver}/callback', [SocialController::class,'handleProviderCal
 Route::post('/subscribe-mail',[MailController::class,'subMail']);
 Route::get('/project/{id}',[WebController::class,"project"]);
 Route::get('/project',[WebController::class,"projectAll"]);
-Route::get('/gallery',[WebController::class,"gallery"]);
+Route::get('/gallery',[GalleryController::class,"gallery"]);
 Route::get('/profile',[WebController::class,"profile"]);
 Route::get('/contributor',[WebController::class,"contributor"]);
 Route::post('/contribution',[ContributeController::class,"contribution"]);
-
 Route::get('/become-a-volunteer',[WebController::class,"join_volunteer"]);
 Route::get('/volunteer',[WebController::class,"volunteer"]);
 Route::post('/register-volunteer',[VolunteerController::class,"register"]);

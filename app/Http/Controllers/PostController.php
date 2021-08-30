@@ -32,22 +32,22 @@ class PostController extends Controller
 
     public function save(Request  $request)
     {
-            $image = '';
-            if($request->hasFile("image")){
-                $file = $request->file("image");
-                $fileName = time().$file->getClientOriginalName();
-                $ext = $file->getClientOriginalExtension();
-                $fileSize = $file->getSize();
-                if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){
-                    if($fileSize < 1000000){
-                        $file->move("upload/post_image",$fileName);
-                        $image = "upload/post_image/".$fileName;
-                    }
-                }
-            }
-       if($image == ''){
-           $image = $request['image-url'];
-       }
+//            $image = '';
+//            if($request->hasFile("image")){
+//                $file = $request->file("image");
+//                $fileName = time().$file->getClientOriginalName();
+//                $ext = $file->getClientOriginalExtension();
+//                $fileSize = $file->getSize();
+//                if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){
+//                    if($fileSize < 1000000){
+//                        $file->move("upload/post_image",$fileName);
+//                        $image = "upload/post_image/".$fileName;
+//                    }
+//                }
+//            }
+//       if($image == ''){
+//           $image = $request['image-url'];
+//       }
         //0 = true
         //1 = false
             $approval = 1;
@@ -56,7 +56,7 @@ class PostController extends Controller
                 $approval = 0;
             }
             Post::create([
-                "image"=>$image,
+                "image"=>$request->get("image"),
                 'approval'=>$approval,
                 "author"=>$author,
                 "title"=>$request->get("title"),
@@ -84,25 +84,25 @@ class PostController extends Controller
     public function update(Request  $request,$id)
     {
         $post = Post::findOrFail($id);
-        $image = "";
-        if($request->hasFile("image")){
-            $file = $request->file("image");
-            $fileName = time().$file->getClientOriginalName();
-            $ext = $file->getClientOriginalExtension();
-            $fileSize = $file->getSize();
-            if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){
-                if($fileSize < 400000000){
-                    $file->move("upload/post_image",$fileName);
-                    $image = "upload/post_image/".$fileName;
-                }
-            }
-        }
-        if($image == ''){
-            $image = $request['image-url'];
-        }
+//        $image = "";
+//        if($request->hasFile("image")){
+//            $file = $request->file("image");
+//            $fileName = time().$file->getClientOriginalName();
+//            $ext = $file->getClientOriginalExtension();
+//            $fileSize = $file->getSize();
+//            if($ext == "png" || $ext == "jpg" || $ext == "jpeg" || $ext == "gif"){
+//                if($fileSize < 400000000){
+//                    $file->move("upload/post_image",$fileName);
+//                    $image = "upload/post_image/".$fileName;
+//                }
+//            }
+//        }
+//        if($image == ''){
+//            $image = $request['image-url'];
+//        }
 
         $post->update([
-            "image"=>$image,
+            "image"=>$request->get("image"),
             "title"=>$request->get("title"),
             "description"=>$request->get("desc"),
             "content"=>$request->get("content"),

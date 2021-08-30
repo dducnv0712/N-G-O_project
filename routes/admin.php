@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\VolunteerController;
@@ -21,6 +22,13 @@ Route::middleware(["auth","admin"])->group(function (){
         }
         App::setLocale($locale);
     });
+
+    //web router
+
+    Route::group(['prefix' => '/project-filemanager'], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+
 //Post Controllers
     Route::get('/posts',[PostController::class,"all"]);
     Route::get('/posts/add',[PostController::class,"add"]);
@@ -33,28 +41,50 @@ Route::middleware(["auth","admin"])->group(function (){
     Route::get('/posts/normal/{id}',[PostController::class,"normal"]);
     Route::get('/posts/important/{id}',[PostController::class,"important"]);
     Route::get('/posts/send-mail-news/{id}',[MailController::class,"sendEmailNews"]);
-    // Route::get('/posts/approval/{id}',[PostController::class,'approval']);
-//.Post Controllers
-    //Categoris
+    Route::group(['prefix' => '/posts/project-filemanager'], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+    //.Post Controllers
+
+
+
+
+    //Category
     Route::get('/category',[CategoryController::class,"all"]);
     Route::post('/category/save',[CategoryController::class,"save"]);
-//    Route::get('/category/edit/{id}',[CategoryController::class,"edit"]);
     Route::post('/category/update/{id}',[CategoryController::class,"update"]);
     Route::delete('/category/delete/{id}',[CategoryController::class,"delete"]);
     Route::get('/category/hidden/{id}',[CategoryController::class,"hidden"]);
     Route::get('/category/appear/{id}',[CategoryController::class,"appear"]);
+    //.Category
+
 
     //user controller
     Route::get('/user',[UserController::class,"user"]);
     Route::post('/user/update/{id}',[UserController::class,"update"]);
-//contribution
+    //.user controller
+
+
+
+    //contribution Controller
     Route::get('/contribution',[ContributeController::class,"all"]);
 
-    //Contact
+    //Contact Controller
     Route::get('/contact',[ContactController::class,"all"]);
 
     //volunteer Controller
     Route::get('/volunteer',[VolunteerController::class,"all"]);
+
+    //gallery
+    Route::get('/gallery',[GalleryController::class,"all"]);
+    Route::post('/gallery/save',[GalleryController::class,"save"]);
+    Route::post('/gallery/update/{id}',[GalleryController::class,"update"]);
+    Route::delete('/gallery/delete/{id}',[GalleryController::class,"delete"]);
+    Route::get('/gallery/active/{id}',[GalleryController::class,"active"]);
+
+    Route::group(['prefix' => '/gallery/project-filemanager'], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
 
 });
 

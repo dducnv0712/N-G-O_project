@@ -42,6 +42,11 @@
                         <i class="align-middle" data-feather="list"></i> <span class="align-middle">{{__('Thể Loại Dự Án')}}</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{asset('/admin/contact')}}">
+                        <i class="align-middle" data-feather="list"></i> <span class="align-middle">{{__('Quản Lý Liên Hệ')}}</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-item">
                     <a data-target="#ui" data-toggle="collapse" class="sidebar-link collapsed">
@@ -65,12 +70,12 @@
 
                 <li class="sidebar-item">
                     <a data-target="#about" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle fas fa-tasks"></i> <span class="align-middle">Pages Manager</span>
+                        <i class="align-middle fas fa-tasks"></i> <span class="align-middle">{{__('Quản Lý Các Trang')}}</span>
                     </a>
                     <ul id="about" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                         <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">About</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/contact')}}">List Contact</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Paypal</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/gallery')}}">{{__('Thư Viện Ảnh')}}</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" id="file-manager" data-input="thumbnail" data-preview="holder" >{{__('Quản Lý Tệp')}}</a></li>
                     </ul>
                 </li>
 

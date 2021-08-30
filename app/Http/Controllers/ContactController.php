@@ -11,7 +11,7 @@ class ContactController extends Controller
 {
     public function all(){
         $contact = Contact::all();
-        return view("admin.ad_page.contact.con_list",[
+        return view("admin.ad_page.contact.list",[
             "contact" => $contact
         ]);
     }

@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContributeController;
+use App\Http\Controllers\SponsorController;
 Route::middleware(["auth","admin"])->group(function (){
     Route::get('/',[AdminController::class,"admin"]);
     Route::get('/profile',[AdminController::class,"profile"]);
@@ -85,6 +86,14 @@ Route::middleware(["auth","admin"])->group(function (){
     Route::get('/gallery/active/{id}',[GalleryController::class,"active"]);
 
     Route::group(['prefix' => '/gallery/project-filemanager'], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+    //Sponsor
+    Route::get('/sponsor',[SponsorController::class,"all"]);
+    Route::post('/sponsor/save',[SponsorController::class,"save"]);
+    Route::get('/sponsor/active/{id}',[SponsorController::class,"active"]);
+    Route::delete('/sponsor/delete/{id}',[SponsorController::class,"delete"]);
+    Route::group(['prefix' => '/sponsor/project-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
 

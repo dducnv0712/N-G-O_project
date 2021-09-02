@@ -335,6 +335,59 @@
                 }
             });
     }
+    //delete sponsor
+    function deleteSponsor(id){
+        swal({
+                title: "{{__('Bạn Có Chắc Không?')}}",
+                text: "{{__('Bạn sẽ không thể khôi phục lại được!!')}}",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: '{{__('Đồng Ý!!')}}',
+                cancelButtonText: "{{__('Hủy Bỏ!!')}}",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm){
+
+                if (isConfirm){
+                    // console.log(id)
+                    $.ajax({
+                        url:"{{url('admin/sponsor/delete')}}"+'/'+id,
+                        type:'DELETE',
+                        data:{"_token": "{{ csrf_token() }}"},
+                        beforeSend: function () {
+                            swal({
+                                title: '<div class="spinner-border text-primary" role="status"></div><br/> <span class="text-center">Loading...</span> ',
+                                html: "loading",
+                                showCancelButton: false,
+                                showConfirmButton: false
+                            });
+                        },
+                        success:function (data){
+                            swal({
+                                type: 'success',
+                                title: '{{__('Xóa Thành Công!!')}}',
+                                text: '{{__('Nhấn vào nút để tiếp tục !!')}}',
+                                confirmButtonColor:true,
+                            },function (isConfirm){
+                                if(isConfirm){
+                                    location.reload();
+                                }
+                            });
+
+                        },
+                        error:function (data){
+                            // console.log(this.url)
+                            sweetAlert("Oops...","Something went wrong !!","error")
+                        }
+                    });
+
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+    }
     // send mail
     function sendMailPost(id){
         swal({
@@ -445,6 +498,11 @@
 
     $('#gallery-upload').filemanager('image', {prefix: route_prefix});
 
+</script>
+<script type="text/javascript">
+    $('#sponsor-upload').filemanager('image');
+    var route_sponsor = "/admin/sponsor/project-filemanager";
+    $('#sponsor-upload').filemanager('image', {prefix: route_sponsor});
 </script>
 <script type="text/javascript">
     $('#file-manager').filemanager('image');

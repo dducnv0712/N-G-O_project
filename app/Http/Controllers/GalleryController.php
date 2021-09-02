@@ -28,6 +28,7 @@ class GalleryController extends Controller
        Gallery::create([
            'title'=>$request->get('title'),
            'image'=>$request->get('image')
+
        ]);
         return redirect()->to("admin/gallery");
 

@@ -13,8 +13,8 @@ class Category extends Model
         "name",
         "active"
     ];
-    public function Post(){
-        return $this->hasMany(Post::class);
+    public function Project(){
+        return $this->hasMany(Project::class);
     }
 }
 

@@ -205,7 +205,7 @@
 
 <!--Causes One Start-->
 @foreach($category as $item)
-        @if($item->post_count > 0)
+        @if($item->project_count > 0)
             <section class="causes-one">
                 <div class="container">
                     <div class="section-title text-center">
@@ -221,7 +221,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="causes-one__carousel owl-theme owl-carousel">
-                                @foreach($posts as $item_post)
+                                @foreach($projects as $item_post)
 
                                 @if($item_post->category_id == $item -> id && $item_post->important == 1)
                                     @php
@@ -473,78 +473,34 @@
             <div class="col-xl-4">
                 <div class="testimonial-one__left">
                     <div class="section-title text-left">
-                        <span class="section-title__tagline">Our Testimonials</span>
-                        <h2 class="section-title__title">What they’re talking about charity</h2>
+                        <span class="section-title__tagline">{{__('Thư Viện Ảnh')}}</span>
+                        <h2 class="section-title__title">{{__('Viết Gì Ở Đây Được?')}}</h2>
                     </div>
                 </div>
             </div>
+
+
             <div class="col-xl-8">
                 <div class="testimonial-one__right">
                     <div class="testimonial-one__carousel owl-theme owl-carousel">
-                        <!--Testimonial One Single-->
-                        <div class="testimonial-one__single">
-                            <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="testimonial-one__client-info">
-                                <div class="testimonial-one__client-img">
-                                    <img src="assets/images/testimonial/testimonial-1-img-1.png" alt="">
-                                    <div class="testimonial-one__quote">
-
+                        @foreach($gallery as $item)
+                            <div class="testimonial-one__single">
+                                    <div class="testimonial-one__client-img">
+                                        <a class="image-popup" href="{{$item->image}}">
+                                            <div class="gallery-page__single">
+                                                <div class="gallery-page__img-box testimonial-one__client-img">
+                                                    <img class="img-gallery" src="{{$item->image}}" alt="hello">
+                                                    <div class="gallery-page__hover-content-box">
+                                                        <h2 class="text-center">{{$item->title}}</h2>
+                                                        <p>FPT Aptech</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                </div>
-                                <div class="testimonial-one__client-name">
-                                    <h3>Kevin Martin</h3>
-                                    <p>Volunteer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Testimonial One Single-->
-                        <div class="testimonial-one__single">
-                            <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="testimonial-one__client-info">
-                                <div class="testimonial-one__client-img">
-                                    <img src="assets/images/testimonial/testimonial-1-img-2.png" alt="">
-                                    <div class="testimonial-one__quote">
 
-                                    </div>
-                                </div>
-                                <div class="testimonial-one__client-name">
-                                    <h3>Jessica Brown</h3>
-                                    <p>Volunteer</p>
-                                </div>
                             </div>
-                        </div>
-                        <!--Testimonial One Single-->
-                        <div class="testimonial-one__single">
-                            <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="testimonial-one__client-info">
-                                <div class="testimonial-one__client-img">
-                                    <img src="assets/images/testimonial/testimonial-1-img-1.png" alt="">
-                                    <div class="testimonial-one__quote">
-
-                                    </div>
-                                </div>
-                                <div class="testimonial-one__client-name">
-                                    <h3>Jessica Brown</h3>
-                                    <p>Volunteer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Testimonial One Single-->
-                        <div class="testimonial-one__single">
-                            <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet, consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="testimonial-one__client-info">
-                                <div class="testimonial-one__client-img">
-                                    <img src="assets/images/testimonial/testimonial-1-img-2.png" alt="">
-                                    <div class="testimonial-one__quote">
-
-                                    </div>
-                                </div>
-                                <div class="testimonial-one__client-name">
-                                    <h3>Kevin Martin</h3>
-                                    <p>Volunteer</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

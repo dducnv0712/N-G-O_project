@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contribution;
-use App\Models\Post;
+use App\Models\Project;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class AdminController extends Controller
     //
     public function admin(){
         $now = Carbon::now('asia/Ho_Chi_Minh')->format('d-m-Y');
-        $posts= Post::where('active',0)->get();
+        $posts= Project::where('active',0)->get();
         $contribution =Contribution::all();
         $amount = 0;
         foreach ($contribution as $item){

@@ -9,6 +9,7 @@
 <script>
     $(function () {
         $('#dataTable').DataTable();
+        $('#dataTable-replied').DataTable();
         $('#dataTable-postAd').DataTable();
         $('#dataTable-postAth').DataTable();
         $('#dataTable-volunteer-confirm').DataTable();
@@ -38,12 +39,85 @@
 
 </script>
 <script>
-    $(function () {
 
-        $('#desc').summernote();
-        $('#content').summernote();
 
-    })
+    $(document).ready(function(){
+
+        // Define function to open filemanager window
+        var lfm = function(options, cb) {
+            var route_prefix = (options && options.prefix) ? options.prefix : '/admin/project-filemanager';
+            window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
+            window.SetUrl = cb;
+        };
+
+        // Define LFM summernote button
+        var LFMButton = function(context) {
+            var ui = $.summernote.ui;
+            var button = ui.button({
+                contents: '<i class="note-icon-picture"></i> ',
+                tooltip: 'Insert image with filemanager',
+                click: function() {
+
+                    lfm({type: 'image', prefix: '/admin/project-filemanager'}, function(lfmItems, path) {
+                        lfmItems.forEach(function (lfmItem) {
+                            context.invoke('insertImage', lfmItem.url);
+                        });
+                    });
+
+                }
+            });
+            return button.render();
+        };
+
+        // Initialize summernote with LFM button in the popover button group
+        // Please note that you can add this button to any other button group you'd like
+
+        $('#reply-mail').summernote({
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                // ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['para', ['paragraph']],
+                ['height', ['height']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ],
+        });
+        $('#desc').summernote({
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                // ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['para', ['paragraph']],
+                ['height', ['height']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ],
+        });
+
+        $('#content').summernote({
+            styleTags: [
+                'p',
+                { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
+                'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+            ],
+            toolbar: [
+                ['style', ['style']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+                ['popovers', ['lfm']]
+            ],
+            buttons: {
+                lfm: LFMButton
+            }
+        });
+    });
 </script>
 
 {{--category ajax--}}
@@ -173,7 +247,7 @@
                 if (isConfirm){
                     // console.log(id)
                     $.ajax({
-                        url:"{{url('admin/posts/delete')}}"+'/'+id,
+                        url:"{{url('admin/projects/delete')}}"+'/'+id,
                         type:'DELETE',
                         data:{"_token": "{{ csrf_token() }}"},
                         beforeSend: function () {
@@ -281,9 +355,9 @@
 
                     $.ajax({
                         @if(Auth::user()->role == 'AUTHOR')
-                        url:"{{url('author/posts/send-mail-news')}}"+'/'+id,
+                        url:"{{url('author/projects/send-mail-news')}}"+'/'+id,
                         @else
-                        url:"{{url('admin/posts/send-mail-news')}}"+'/'+id,
+                        url:"{{url('admin/projects/send-mail-news')}}"+'/'+id,
                          @endif
                         type:'GET',
                         data:{"_token": "{{ csrf_token() }}"},
@@ -353,20 +427,33 @@
 </script>
 <script src="{{asset('/vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
 <script type="text/javascript">
-    $('#posts-upload').filemanager('image');
-    var route_prefix = "/admin/posts/project-filemanager";
-    $('#posts-upload').filemanager('image', {prefix: route_prefix});
+    $('#projects-upload').filemanager('image');
+    var posts_prefix = "";
+    @if(Auth::user()->role == 'VOLUNTEER')
+        posts_prefix = "/volunteer-dashboard/projects/project-filemanager";
+    @else
+        posts_prefix = "/admin/projects/project-filemanager";
+    @endif
+    $('#projects-upload').filemanager('image', {prefix: posts_prefix});
 
 </script>
+
 <script type="text/javascript">
     $('#gallery-upload').filemanager('image');
-    var route_prefix = "/admin/gallery/project-filemanager";
+
+     var route_prefix = "/admin/gallery/project-filemanager";
+
     $('#gallery-upload').filemanager('image', {prefix: route_prefix});
 
 </script>
 <script type="text/javascript">
     $('#file-manager').filemanager('image');
-    var route_filemanager = "/admin/project-filemanager";
+    var route_filemanager = null;
+    @if(Auth::user()->role == 'VOLUNTEER')
+     route_filemanager = "/volunteer-dashboard/project-filemanager";
+    @else
+     route_filemanager = "/admin/project-filemanager";
+    @endif
     $('#file-manager').filemanager('image', {prefix: route_filemanager});
 </script>
 

@@ -51,7 +51,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
             Route::middleware('web')
-                ->prefix('volunteer')
+                ->prefix('volunteer-dashboard')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/volunteer.php'));
         });

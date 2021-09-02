@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contribution;
-use App\Models\Post;
+use App\Models\Project;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,7 +47,7 @@ class ContributeController extends Controller
 //        $amount = $request['amount'];
 //        $country =$request['country'];
         $post_id = $request['post_id'];
-        $posts = Post::findOrFail($post_id);
+        $posts = Project::findOrFail($post_id);
 //        $data = [
 //            $mail = $request['email'],
 //            $given_name = $request['given_name'],
@@ -60,7 +60,7 @@ class ContributeController extends Controller
 //        ];
 
         Mail::send('admin.mail.feedback_contribution',[
-            'posts' => $posts,
+            'projects' => $posts,
             'date_time'=>$now,
             'fullName'=>$request['full_name'],
             'contribute_id' =>$request['contribute_id'],

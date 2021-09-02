@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Contribution;
-use App\Models\Post;
+use App\Models\Gallery;
+use App\Models\Project;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,9 +17,10 @@ class WebController extends Controller
 
 
     public function home(){
-        $category = Category::withCount('Post')->where('active',0)->get();
-        $posts = Post::where('active',0)->get();
+        $category = Category::withCount('Project')->where('active',0)->get();
+        $posts = Project::where('active',0)->get();
         $contribution =Contribution::all();
+        $gallery = Gallery::where('active',0)->get();
         $amount_total = 0;
         foreach ($contribution as $item){
             $amount_total += $item-> 	contribute_amount * 22854;
@@ -39,7 +41,7 @@ class WebController extends Controller
             }
         }
 //        dd(count($count_contribute));
-        $important = Post::where('important',0) ->paginate(1);
+        $important = Project::where('important',0) ->paginate(1);
         $amount_important = 0;
 
         foreach ($contribution as $item_con ) {
@@ -52,34 +54,35 @@ class WebController extends Controller
         }
         return view('home',[
             'category' => $category,
-            'posts' => $posts,
+            'projects' => $posts,
             'contribution' =>$contribution,
             'important'=>$important,
             'amount_total'=>$amount_total,
             'count_contribute'=>$count_contribute,
-            'amount_important'=>$amount_important
+            'amount_important'=>$amount_important,
+            'gallery'=>$gallery
 
         ]);
     }
 
     public function donate(){
-        $category = Category::withCount('Post')->where('active',0)->get();
+        $category = Category::withCount('Project')->where('active',0)->get();
         $post_selected = null;
-        $post = Post::where('active',0)->get();
+        $projects = Project::where('active',0)->get();
         return view('pages.donate',[
             'category' => $category,
-            'posts' => $post,
+            'projects' => $projects,
             'post_selected'=>$post_selected
         ]);
     }
 
     public function donate_selected($id){
-        $category = Category::withCount('Post')->where('active',0)->get();
-        $post_selected = Post::findOrFail($id);
-        $post = Post::where('active',0)->get();
+        $category = Category::withCount('Project')->where('active',0)->get();
+        $post_selected = Project::findOrFail($id);
+        $projects= Project::where('active',0)->get();
         return view('pages.donate',[
             'category' => $category,
-            'posts' => $post,
+            'projects' => $projects,
             'post_selected'=>$post_selected
         ]);
     }
@@ -92,20 +95,20 @@ class WebController extends Controller
     public function desc_post($id){
         $contribution =Contribution::where('id_post',$id)->get();
         $contribution_list =Contribution::where('id_post',$id)->orderBy('created_at', 'desc')->paginate(6);
-        $posts = Post::findOrFail($id);
-        $post_list = Post::where('active',0)->get();
-        $category = Category::withCount('Post')->where('active',0)->get();
+        $projects = Project::findOrFail($id);
+        $project_list = Project::where('active',0)->get();
+        $category = Category::withCount('Project')->where('active',0)->get();
         $amount = 0;
 
         foreach ($contribution as $item_contribution ){
             $amount += $item_contribution->contribute_amount;
         }
         return view('pages.desc_post',[
-            'posts'=>$posts,
+            'projects'=>$projects,
             'contribution' =>$contribution,
             'contribution_list' =>$contribution_list,
             'category'=>$category,
-            'post_list'=>$post_list,
+            'project_list'=>$project_list,
             'amount'=>$amount
         ]);
     }
@@ -132,12 +135,12 @@ class WebController extends Controller
 //        $search = $request->get("search");
         $category = Category::where('active',0)->findOrFail($id);
 //        dd($category);
-        $posts= Post::with('Category')->where( 'category_id',$id )->where('active',0)->orderBy("id","desc")->paginate(6);
+        $posts= Project::with('Category')->where( 'category_id',$id )->where('active',0)->orderBy("id","desc")->paginate(6);
         return view('pages.project',[
             'contribution'=>$contribution,
             'category'=>$category,
             'search'=>$search,
-            'posts'=>$posts
+            'projects'=>$posts
         ]);
     }
     public function projectAll(Request $request){
@@ -148,11 +151,11 @@ class WebController extends Controller
         $search = $request->get("search");
 
 //        dd($category);
-        $posts= Post::with('Category')->where('active',0)->search($search)->orderBy("id","desc")->get();
+        $posts= Project::with('Category')->where('active',0)->search($search)->orderBy("id","desc")->get();
         return view('pages.project',[
             'contribution'=>$contribution,
             'search'=>$search,
-            'posts'=>$posts,
+            'projects'=>$posts,
             'category'=>$category
         ]);
     }

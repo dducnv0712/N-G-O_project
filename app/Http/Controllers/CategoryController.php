@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Post;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -47,20 +47,19 @@ class CategoryController extends Controller
             $categories->delete();
     }
 
-     public function hidden($id){
-        $category = Category::findOrFail($id);
-        $category -> update([
-            "active" => 1
-        ]);
-        return redirect()->to("admin/category");
 
-    }
-    public function appear($id){
+    public function active($id){
         $category = Category::findOrFail($id);
 
-        $category -> update([
-            "active" => 0
-        ]);
+        if($category->active == 0){
+            $category-> update([
+                "active" => 1
+            ]);
+        }else{
+            $category-> update([
+                "active" => 0
+            ]);
+        }
 
         return redirect()->to("admin/category");
 

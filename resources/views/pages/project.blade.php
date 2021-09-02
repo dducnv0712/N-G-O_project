@@ -8,7 +8,7 @@
         <!-- /.page-header__bg -->
         <div class="container">
             @if(!$search == null)
-                <h2>{{__('Khoảng').' '.count($posts).' '.__('Kết Quả Tìm Kiếm Cho')}}:<br>"<span class="text-danger text-center">{{$search ?? '' ?? ''}}</span>"</h2>
+                <h2>{{__('Khoảng').' '.count($projects).' '.__('Kết Quả Tìm Kiếm Cho')}}:<br>"<span class="text-danger text-center">{{$search ?? '' ?? ''}}</span>"</h2>
             @elseif(!$category == null)
                 <h2>{{__('Dự Án').' '.$category->name}}</h2>
                 @else
@@ -37,7 +37,7 @@
     <section class="causes-one causes-page">
         <div class="container">
             <div class="row">
-                @foreach($posts as $item)
+                @foreach($projects as $item)
                     @php
                         $amount = 0;
 

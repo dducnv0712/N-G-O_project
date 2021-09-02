@@ -24,7 +24,7 @@
                 <div class="col-xl-6">
                     <div class="about-page__left">
                         <div class="about-page__img">
-                            <img src="assets/images/resources/about-page-img-1.jpg" alt="">
+                            <img src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/61307a993e94495287e246b5_Thi%E1%BA%BFt%20k%E1%BA%BF%20kh%C3%B4ng%20t%C3%AAn%20(2).png" alt="">
                             <div class="about-page__trusted">
                                 <h3>We’re trusted by <span>9,8750</span> donors</h3>
                             </div>

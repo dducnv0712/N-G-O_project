@@ -17,8 +17,10 @@ class CreateTableContact extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->text("messenger")->nullable();
+            $table->text("message")->nullable();
             $table->string('email')->unique();
+            $table->unsignedInteger('reply')->default(1);
+            $table->text("reply_message")->nullable();
             $table->timestamps();
         });
     }

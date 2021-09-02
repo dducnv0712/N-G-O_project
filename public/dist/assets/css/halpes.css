@@ -2853,7 +2853,6 @@
 
                             .testimonial-one__carousel.owl-theme .owl-nav {
                                 position: absolute;
-                                bottom: 22px;
                                 left: -405px;
                             }
 
@@ -2905,10 +2904,12 @@
 
                             .testimonial-one__single {
                                 position: relative;
-                                display: block;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
                                 background-color: rgb(255, 255, 255);
                                 box-shadow: 0px 0px 60px 0px rgb(0, 0, 0, .07);
-                                padding: 30px 40px 40px;
+                                padding: 10px 0;
                             }
 
                             .testimonial-one__text {
@@ -2917,19 +2918,26 @@
                             }
 
                             .testimonial-one__client-info {
+                                width:290px;
                                 display: flex;
                                 align-items: center;
-                                margin-top: 19px;
+                                justify-content: center;
+                                padding: 0;
+
                             }
 
                             .testimonial-one__client-img {
+                                width:290px;
+                                height:194px;
                                 position: relative;
                                 display: block;
+                                object-fit: contain;
                             }
 
                             .testimonial-one__client-img>img {
-                                width: 70px;
-                                border-radius: 50%;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
                             }
 
                             .testimonial-one__quote {

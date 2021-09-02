@@ -4,7 +4,7 @@
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
-                <h3><strong>{{__('Analytics')}}</strong>{{__('Dashboard')}} </h3>
+                <h3><strong>{{__('Danh Sách: ')}}</strong>{{__('Dashboard')}} </h3>
             </div>
 
             <div class="col-auto ml-auto text-right mt-n1">
@@ -59,10 +59,10 @@
                                 <div class="modal fade" id="Edit-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
-                                            <form  action="{{url('admin/category/update',["id"=>$item->id])}}" method="post">
+                                            <form  action="{{url('admin/gallery/update',["id"=>$item->id])}}" method="post">
                                                 @csrf
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                    <h5 class="modal-title" id="staticBackdropLabel">{{__('Cập Nhật Ảnh')}}</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
                                                 </div>
                                                 <div class="modal-body">

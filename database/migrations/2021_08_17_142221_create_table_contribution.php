@@ -16,6 +16,7 @@ class CreateTableContribution extends Migration
         Schema::create('contributions', function (Blueprint $table) {
             $table->id();
             $table->char('id_cus');
+            $table->string('contribute_id');
             $table->string('full_name');
             $table->string('email');
             $table->text("messages")->nullable();
@@ -24,7 +25,7 @@ class CreateTableContribution extends Migration
             $table->unsignedBigInteger('id_post');
             $table->string('status');
             $table->timestamps();
-            $table->foreign("id_post")->references("id")->on("posts")->onDelete('no action')->onUpdate('no action');;
+            $table->foreign("id_post")->references("id")->on("projects")->onDelete('no action')->onUpdate('no action');;
         });
     }
 

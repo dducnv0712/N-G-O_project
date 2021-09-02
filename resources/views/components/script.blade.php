@@ -37,19 +37,38 @@
             var name = $('.nameSub').val();
             var email = $('.emailSub').val();
             var _token = $('input[name="_token"]').val();
+            const settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://email-checker.p.rapidapi.com/verify/v1?email="+email,
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "email-checker.p.rapidapi.com",
+                    "x-rapidapi-key": "b217454f29msh62227c96e1f73a5p1e41b6jsna9b89492d343"
+                }
+            };
 
-            $.ajax({
-                url:"{{url('/subscribe-mail')}}",
-                method:'POST',
-                data:{name:name,email:email,_token:_token},
-                success:function (data){
-                    swal("Hey, Đăng Ký Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+            $.ajax(settings).done(function (response) {
+                var status =response.status;
 
-                },
-                error:function (data){
-                    sweetAlert("Oops...","Sai Thông Tin Hoặc Email Đã Được Đăng Ký!!","error")
+                if(status === 'invalid'){
+                    sweetAlert("Oops...","Email Không Tồn Tại Vui Lòng Nhập Lại!!","error")
+                }else{
+                    $.ajax({
+                        url:"{{url('/subscribe-mail')}}",
+                        method:'POST',
+                        data:{name:name,email:email,_token:_token},
+                        success:function (data){
+                            swal("Hey, Đăng Ký Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+
+                        },
+                        error:function (data){
+                            sweetAlert("Oops...","Sai Thông Tin Hoặc Email Đã Được Đăng Ký!!","error")
+                        }
+                    });
                 }
             });
+
 
         })
 
@@ -69,19 +88,37 @@
             var message = $('#message-contact').val();
             var _token = $('input[name="_token"]').val();
             // alert(name,email,message,phone)
-            $.ajax({
-                url:"{{url('/contact-submit')}}",
-                method:'POST',
-                data:{name:name,email:email,phone:phone,message:message,_token:_token},
-                success:function (data){
-                    swal("Gửi Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+            const settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://email-checker.p.rapidapi.com/verify/v1?email="+email,
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "email-checker.p.rapidapi.com",
+                    "x-rapidapi-key": "b217454f29msh62227c96e1f73a5p1e41b6jsna9b89492d343"
+                }
+            };
 
-                },
-                error:function (data){
-                    sweetAlert("Oops...","Sai Thông Tin Hoặc Email Đã Được Đăng Ký!!","error")
+            $.ajax(settings).done(function (response) {
+                var status =response.status;
+
+                if(status === 'invalid'){
+                    sweetAlert("Oops...","Email Không Tồn Tại Vui Lòng Nhập Lại!!","error")
+                }else{
+                    $.ajax({
+                        url:"{{url('/contact-submit')}}",
+                        method:'POST',
+                        data:{name:name,email:email,phone:phone,message:message,_token:_token},
+                        success:function (data){
+                            swal("Gửi Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+
+                        },
+                        error:function (data){
+                            sweetAlert("Oops...","Sai Thông Tin Hoặc Email Đã Được Đăng Ký!!","error")
+                        }
+                    });
                 }
             });
-
         })
     })
 </script>
@@ -98,32 +135,50 @@
             var occupation = $('#job-volunteer').val();
             var message = $('#message-volunteer').val();
             var _token = $('input[name="_token"]').val();
-            console.log(name,email,message,address,occupation,phone,date,_token)
+            // console.log(name,email,message,address,occupation,phone,date,_token)
+            const settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://email-checker.p.rapidapi.com/verify/v1?email="+email,
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "email-checker.p.rapidapi.com",
+                    "x-rapidapi-key": "b217454f29msh62227c96e1f73a5p1e41b6jsna9b89492d343"
+                }
+            };
 
-            $.ajax({
-                url:"{{url('/register-volunteer')}}",
-                method:'POST',
-                data:{name:name,email:email,phone:phone,address:address,date:date,occupation:occupation,message:message,_token:_token},
-                beforeSend: function () {
-                    document.getElementById("loading-volunteer").innerHTML = '<div class="spinner-border" style="color:#15c8a0" role="status"> <span class="visually-hidden">Loading...</span> </div>';
-                },
-                success:function (data){
-                    document.getElementById("loading-volunteer").innerHTML = '';
+            $.ajax(settings).done(function (response) {
+                var status =response.status;
 
-                    swal("Hey, Gửi Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
-                    // alert(data);
-                },
-                error:function (data){
-                    // alert(data);
-                    document.getElementById("loading-volunteer").innerHTML = '';
-                    sweetAlert("Oops...","Gửi Thất Bại!!","error")
+                if(status === 'invalid'){
+                    sweetAlert("Oops...","Email Không Tồn Tại Vui Lòng Nhập Lại!!","error")
+                }else{
+                    $.ajax({
+                        url:"{{url('/register-volunteer')}}",
+                        method:'POST',
+                        data:{name:name,email:email,phone:phone,address:address,date:date,occupation:occupation,message:message,_token:_token},
+                        beforeSend: function () {
+                            document.getElementById("loading-volunteer").innerHTML = '<div class="spinner-border" style="color:#15c8a0" role="status"> <span class="visually-hidden">Loading...</span> </div>';
+                        },
+                        success:function (data){
+                            document.getElementById("loading-volunteer").innerHTML = '';
+
+                            swal("Hey, Gửi Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
+                            // alert(data);
+                        },
+                        error:function (data){
+                            // alert(data);
+                            document.getElementById("loading-volunteer").innerHTML = '';
+                            sweetAlert("Oops...","Gửi Thất Bại!!","error")
+                        }
+                    });
                 }
             });
+
 
         })
 
     });
-
 </script>
 {{--.register volunteer--}}
 
@@ -131,9 +186,7 @@
 {{--paypal--}}
 <script src="https://www.paypal.com/sdk/js?client-id=Acx_N_h2bcxoF6hcKn16O2VBQq_7ZpEZsBq7DNuONQL0jQGeIX1iL92ZlcZbkpPhiU3VTCQwo5zzqfZA&currency=USD"></script>
 <script type="text/javascript">
-    // Render the PayPal button into #paypal-button-container
     $('#cur').on('change', function () {
-  //ways to retrieve selected option and text outside handler
             if(this.value === 'USD'){
                 $( "#currency" ).text( '$' );
 
@@ -142,21 +195,20 @@
             }else{
                 $( "#currency" ).text( '₫' );
             }
-
     });
+
     paypal.Buttons({
 
         // Set up the transaction
         // style: {
         //     label: 'donate',
         // },
+
         createOrder: function(data, actions) {
 
             let total;
-
             let amount = $("#amount").val();
             let cur = $('#cur').val();
-
             if (cur === 'VND'){
                 total = amount /22830.
                 if (amount <12000){
@@ -181,6 +233,10 @@
                     },
                 }]
             });
+
+
+
+
         },
 
         // Finalize the transaction
@@ -199,35 +255,84 @@
                 var post_id = $("#select_post").val();
                 var status = contribute.status;
                 var _token = $('input[name="_token"]').val();
+                // console.log(contribute.email)
                 // console.log(id_cus,full_name,message,email,amount,country,post_id,status,_token)
+                const settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://email-checker.p.rapidapi.com/verify/v1?email="+email,
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-host": "email-checker.p.rapidapi.com",
+                        "x-rapidapi-key": "b217454f29msh62227c96e1f73a5p1e41b6jsna9b89492d343"
+                    }
+                };
 
-                $.ajax({
-                    url:"{{url('/contribution')}}",
-                    method:'POST',
-                    data:{
-                        id_cus:id_cus,
-                        contribute_id:contribute_id,
-                        full_name:full_name,
-                        email:email,
-                        messages:messages,
-                        amount:amount,
-                        country:country,
-                        post_id:post_id,
-                        status:status,
-                        _token:_token},
-                    beforeSend: function () {
-                        document.getElementById("loading").innerHTML = '<div class="spinner-border" style="color:#15c8a0" role="status"> <span class="visually-hidden">Loading...</span> </div>';
-                    },
-                    success:function (data){
-                        document.getElementById("loading").innerHTML = '';
+                $.ajax(settings).done(function (response) {
+                    var status_check_mail = response.status
 
-                        swal("Hey,{{__('Đóng Góp Thành Công')}}!!","{{__('Nhấn Vào Nút Bên Dưới Để Tiếp Tục')}}!!","success")
-                        // alert(data);
+                    if (status_check_mail === "invalid"){
+                         sweetAlert("Thông Báo...","Email "+email+" không tồn tại vì thế chúng tôi đã gửi thông báo chi tiết đóng góp về Email "+contributors.email_address+" !!","warning");
+                         var email_paypal = contributors.email_address;
+                        $.ajax({
+                            url:"{{url('/contribution')}}",
+                            method:'POST',
+                            data:{
+                                id_cus:id_cus,
+                                contribute_id:contribute_id,
+                                full_name:full_name,
+                                email:email_paypal,
+                                messages:messages,
+                                amount:amount,
+                                country:country,
+                                post_id:post_id,
+                                status:status,
+                                _token:_token},
+                            beforeSend: function () {
+                                document.getElementById("loading").innerHTML = '<div class="spinner-border" style="color:#15c8a0" role="status"> <span class="visually-hidden">Loading...</span> </div>';
+                            },
+                            success:function (data){
+                                document.getElementById("loading").innerHTML = '';
 
-                    },
-                    error:function (data){
-                        document.getElementById("loading").innerHTML = '';
-                        sweetAlert("Oops...","Sai Thông Tin Vui Long Nhâp Lai!!","error")
+                                swal("Hey,{{__('Đóng Góp Thành Công')}}!!","{{__('Nhấn Vào Nút Bên Dưới Để Tiếp Tục')}}!!","success")
+                                // alert(data);
+
+                            },
+                            error:function (data){
+                                document.getElementById("loading").innerHTML = '';
+                                sweetAlert("Oops...","Sai Thông Tin Vui Long Nhâp Lai!!","error")
+                            }
+                        });
+                    }else{
+                        $.ajax({
+                            url:"{{url('/contribution')}}",
+                            method:'POST',
+                            data:{
+                                id_cus:id_cus,
+                                contribute_id:contribute_id,
+                                full_name:full_name,
+                                email:email,
+                                messages:messages,
+                                amount:amount,
+                                country:country,
+                                post_id:post_id,
+                                status:status,
+                                _token:_token},
+                            beforeSend: function () {
+                                document.getElementById("loading").innerHTML = '<div class="spinner-border" style="color:#15c8a0" role="status"> <span class="visually-hidden">Loading...</span> </div>';
+                            },
+                            success:function (data){
+                                document.getElementById("loading").innerHTML = '';
+
+                                swal("Hey,{{__('Đóng Góp Thành Công')}}!!","{{__('Nhấn Vào Nút Bên Dưới Để Tiếp Tục')}}!!","success")
+                                // alert(data);
+
+                            },
+                            error:function (data){
+                                document.getElementById("loading").innerHTML = '';
+                                sweetAlert("Oops...","Sai Thông Tin Vui Long Nhâp Lai!!","error")
+                            }
+                        });
                     }
                 });
 

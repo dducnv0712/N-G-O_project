@@ -18,7 +18,7 @@ class Volunteer
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-        if($user ->role =="ADMIN" || $user ->role =="VOLUNTEER"){
+        if( $user ->role =="VOLUNTEER"){
             return $next($request);
 
         }else{

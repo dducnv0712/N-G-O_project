@@ -28,16 +28,16 @@
                     <form action="{{asset("/admin/post/save")}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <div id="holder" class="photo-preview mb-3">
+                        <div id="holder-post" class="photo-preview mb-3">
                             <i class="fas fa-image"></i>
                         </div>
                         <div class="input-group">
                                <span class="input-group-btn">
-                                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                 <a id="projects-upload" data-input="thumbnail-post" data-preview="holder-post" class="btn btn-primary">
                                    <i class="fa fa-picture-o"></i> Choose
                                  </a>
                                </span>
-                            <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" type="text" >
+                            <input id="thumbnail-post"  placeholder="Image URL" name="image" class="form-control" type="text" >
                         </div>
 
 
@@ -76,22 +76,20 @@
                     <button type="submit" class="btn btn-primary">{{__('Submit')}}</button>
                 </form>
                 @else
-                    <form action="{{asset("/author/post/save")}}" method="post" enctype="multipart/form-data">
+                    <form action="{{asset("/volunteer-dashboard/post/save")}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <div id="holder" class="photo-preview mb-3">
+                            <div id="holder-post" class="photo-preview mb-3">
                                 <i class="fas fa-image"></i>
                             </div>
                             <div class="input-group">
                                <span class="input-group-btn">
-                                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                 <a id="projects-upload" data-input="thumbnail-post" data-preview="holder-post" class="btn btn-primary">
                                    <i class="fa fa-picture-o"></i> Choose
                                  </a>
                                </span>
-                                <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" type="text" >
+                                <input id="thumbnail-post"  placeholder="Image URL" name="image" class="form-control" type="text" >
                             </div>
-
-
                         </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">{{__('Title')}}</label>

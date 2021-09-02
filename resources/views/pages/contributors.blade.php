@@ -2,14 +2,14 @@
 @section('main')
     <!--Page Header Start-->
     <section class="page-header">
-        <div class="page-header__bg" style="background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fminhhagroup.com%2F2017%2F11%2F25%2Fchung-tay-giup-do-tre-em-vung-cao%2F&psig=AOvVaw30GOPwJuUmJzWprteEK-mw&ust=1630053224555000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKC669GjzvICFQAAAAAdAAAAABBI');"></div>
+        <div class="page-header__bg" style="background-image: url('{{asset('/dist/img/photos/nucuoiam.jpg')}}'); filter: grayscale(100%);background-position: center;"></div>
         <!-- /.page-header__bg -->
         <div class="container">
-            <h2>Causes</h2>
+            <h2>{{__('Danh Sách Đóng Góp')}}</h2>
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{asset('/')}}">{{__('Trang Chủ')}}</a></li>
                 <li class="color-thm-gray">/</li>
-                <li><span>Causes</span></li>
+                <li><span>{{__('Danh Sách Đóng Góp')}}</span></li>
             </ul>
         </div>
     </section>

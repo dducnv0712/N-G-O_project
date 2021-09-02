@@ -158,35 +158,58 @@
             BUTTONS
         ------------------------------------- */
         .btn {
-            box-sizing: border-box;
-            width: 100%; }
-        .btn > tbody > tr > td {
-            padding-bottom: 15px; }
-        .btn table {
-            width: auto;
-        }
-        .btn table td {
-            background-color: #ffffff;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .btn a {
-            background-color: #ffffff;
-            border: solid 1px #3498db;
-            border-radius: 5px;
-            box-sizing: border-box;
-            color: #3498db;
-            cursor: pointer;
             display: inline-block;
-            font-size: 14px;
-            font-weight: bold;
-            margin: 0;
-            padding: 12px 25px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: center;
             text-decoration: none;
-            text-transform: capitalize;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .btn-success {
+            color: #fff;
+            background-color: #15c8a0;
+            border-color: #15c8a0;
+        }
+        .btn-success:hover {
+            color: #fff;
+            background-color: #1d8b58;
+            border-color: #1d8b58;
+        }
+        .btn-check:focus + .btn-success, .btn-success:focus {
+            color: #fff;
+            background-color: #157347;
+            border-color: #146c43;
+            box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
+        }
+        .btn-check:checked + .btn-success, .btn-check:active + .btn-success, .btn-success:active, .btn-success.active, .show > .btn-success.dropdown-toggle {
+            color: #fff;
+            background-color: #146c43;
+            border-color: #13653f;
+        }
+        .btn-check:checked + .btn-success:focus, .btn-check:active + .btn-success:focus, .btn-success:active:focus, .btn-success.active:focus, .show > .btn-success.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
+        }
+        .btn-success:disabled, .btn-success.disabled {
+            color: #fff;
+            background-color: #198754;
+            border-color: #198754;
         }
 
-        .btn-primary table td {
+
+
+
+        .btn-primary {
             background-color: #3498db;
         }
 
@@ -195,8 +218,8 @@
             border-color: #3498db;
             color: #ffffff;
         }
-        .text-center{
-            text-align: center
+        .text-center {
+            text-align: center !important;
         }
 
         /* -------------------------------------
@@ -346,23 +369,37 @@
                                         <div style="text-align:center" class="m-auto">
                                             <img
                                                 style="width:180px;
-                                                   height:70px;
-                                                   object-fit:contain"
+                                                       height:70px;
+                                                       object-fit:contain"
                                                 src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612a3e0e2765f9278218accc_Charity.png"
                                                 alt="logo">
-
                                         </div>
                                         <hr>
-                                        <!-- <h3 style="text-align: center;font-weight:600;">Dear Nguyen Van Duc!</h3> -->
-                                        <p>Dear {{$name}}</p><br/>
+                                        <h2 style="font-weight: 600;text-align:center;margin-top:10px">{{__('Thư Trả Lời!')}}</h2>
 
-                                        <p>Thank you for signing up to join our mission!</p>
-                                        <p>The information you have submitted will be reviewed and responded to as soon as possible.</p><br>
-                                        <p>If you have any questions, just reply to this email—we're always happy to help out.</p>
-                                        <img style="width:90px;object-fit: contain;" src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612b0cffd0791104ed252ac7_Best%20regards!.png" alt="/">
-                                        <hr>
-                                        <span class="text-center">{{$now}}</span>
+                                        <div style="background-color:#d6ebe7;border-radius: 40px 0 40px 40px;padding:20px 10px 10px 20px">
+                                            <p>
+                                                {{$message_user}}
+                                            </p>
+                                        </div>
+                                        <div style="background-color:#e5ebea;border-radius: 0 40px 40px 40px;padding:20px 10px 10px 20px;margin-top:20px">
+                                            <p>{{__('Thân Gửi: ')}}{{$name}}</p>
+                                            <span>
+                                                {!! $message_reply !!}
+                                            </span>
+                                        </div>
+
+
                                     </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <br>
+                                        <p>Nếu bạn có bất kỳ câu hỏi nào, chỉ cần trả lời email này — chúng tôi luôn sẵn lòng trợ giúp.</p>
+                                        <img style="width:90px;object-fit: contain;" src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612da05a548dc6d9b519ba25_Best%20regards!%20(1).png" alt="/">
+                                        <hr>
+                                        <span class="text-center">{{$now}}</span>                                    </td>
                                 </tr>
                             </table>
                         </td>
@@ -372,12 +409,6 @@
 
                 <div class="footer">
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-{{--                          <tr>--}}
-{{--                             <td class="content-block">--}}
-{{--                                 <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>--}}
-{{--                                 <br> Don't like these emails? <a href="">Unsubscribe</a>.--}}
-{{--                             </td>--}}
-{{--                         </tr>--}}
                         <tr>
                             <td class="content-block powered-by">
                                 Powered by <a href="{{asset('/')}}">Non-governmental Organizations</a>.

@@ -122,7 +122,8 @@
         right: 340px;
     }
     .testimonial-one__single {
-        padding: 30px 20px 40px;
+        width:320px;
+        /*padding: 30px 20px 40px;*/
     }
     .counters-two__four-boxes li {
         margin-bottom: 20px;
@@ -217,6 +218,7 @@
         display: none;
     }
     .testimonial-one__client-info {
+        width:290px;
         flex-direction: column;
         text-align: center;
         justify-content: center;
@@ -471,6 +473,7 @@
         line-height: 36px;
     }
     .testimonial-one__client-info {
+        width:290px;
         flex-direction: column;
         text-align: center;
         justify-content: center;
@@ -666,7 +669,8 @@
         font-size: 23px;
     }
     .testimonial-one__single {
-        padding: 30px 20px 40px;
+        width:290px;
+        /*padding: 30px 20px 40px;*/
     }
     .testimonial-two .section-title__title {
         font-size: 29px;

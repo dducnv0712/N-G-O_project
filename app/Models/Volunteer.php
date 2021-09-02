@@ -10,6 +10,7 @@ class Volunteer extends Model
     use HasFactory;
     protected $table = "volunteers";
     protected $fillable = [
+        "image",
         "name",
         "email",
         "phone",
@@ -17,5 +18,7 @@ class Volunteer extends Model
         "birthday",
         "occupation",
         "messages",
+        "approval",
+        'created_at'
     ];
 }

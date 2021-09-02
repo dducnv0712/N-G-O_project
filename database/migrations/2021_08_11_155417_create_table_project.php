@@ -13,7 +13,7 @@ class CreateTablePost extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('image');
             $table->unsignedBigInteger("author");
@@ -23,9 +23,12 @@ class CreateTablePost extends Migration
             $table->unsignedInteger('active')->default(1);
             $table->unsignedInteger('important')->default(1);
             $table->unsignedInteger('send_mail')->default(1);
-            $table->text("description")->nullable();
+            $table->text("description");
+            $table->text("content");
             $table->unsignedBigInteger("category_id");
             $table->timestamps();
+            $table->foreign("category_id")->references("id")->on("categories");;
+
 
         });
     }
@@ -37,6 +40,6 @@ class CreateTablePost extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('projects');
     }
 }

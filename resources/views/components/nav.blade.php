@@ -66,7 +66,17 @@
                                 <li><a href="{{url('/project')}}">{{__('Tất Cả Dự Án')}}</a></li>
                                 <li><a href="{{url('/gallery')}}">{{__('Thư Viện Ảnh')}}</a></li>
                                 <li><a href="{{url('/volunteer')}}">{{__('Tình Nguyện Viên')}}</a></li>
-                                <li><a href="{{'/become-a-volunteer'}}">{{__('Đăng Ký Tình Nguyện Viên')}}</a></li>
+                                @if(!Auth::user()== null )
+                                    @if(!Auth::user()->role =='VOLUNTEER'  )
+                                        <li><a href="{{'/become-a-volunteer'}}">{{__('Đăng Ký Tình Nguyện Viên')}}</a></li>
+                                    @else
+                                        <li><a href="{{'/become-a-volunteer'}}">{{__('Đăng Ký Tình Nguyện Viên')}}</a></li>
+                                    @endif
+                                @else
+                                    <li><a href="{{'/become-a-volunteer'}}">{{__('Đăng Ký Tình Nguyện Viên')}}</a></li>
+
+                                @endif
+
                             </ul>
                         </li>
                         <li class="{{ Request::url() == url('/about')  ? ' current' : '' }}">
@@ -91,8 +101,8 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="{{url('/profile')}}">{{__('Tài Khoản Của Tôi')}}</a></li>
-                                    @if(Auth::user()->role =='AUTHOR')
-                                    <li><a class="dropdown-item" href="{{url('/author/posts')}}">My Posts</a></li>
+                                    @if(Auth::user()->role =='VOLUNTEER')
+                                    <li><a class="dropdown-item" href="{{url('/volunteer-dashboard')}}">Dashboard</a></li>
                                     @elseif(Auth::user()->role == "ADMIN")
                                     <li><a class="dropdown-item" href="{{url('/admin')}}">Dashboard</a></li>
                                     @endif
@@ -171,7 +181,7 @@
                                             </div>
                                             <div class="col-xl-12 mb-3">
                                                 <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">{{__('Remember me')}}</label>
+                                                <label class="form-check-label" for="exampleCheck1">{{__('Ghi Nhớ Mật Khẩu')}}</label>
                                             </div>
                                             <div class="d-flex">
                                                 <button type="submit" class="btn-primary-web me-3">{{__('Đăng Nhập')}}</button>

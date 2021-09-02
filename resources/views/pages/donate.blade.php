@@ -7,7 +7,7 @@
         <div class="container">
             <h2>{{__('Đóng Góp')}}</h2>
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">{{__('Trang Chủ')}}</a></li>
+                <li><a href="{{asset('/')}}">{{__('Trang Chủ')}}</a></li>
                 <li class="color-thm-gray">/</li>
                 <li><span>{{__('Đóng Góp')}}</span></li>
             </ul>
@@ -98,9 +98,9 @@
                                     <select class="become-volunteer-page__select" id="select_post">
                                         <option  @if($post_selected == null) selected @endif disabled>Chọn Đối Trường Hợp Muốn Đóng Góp</option>
                                         @foreach($category as $item)
-                                            @if($item->post_count > 0)
+                                            @if($item->project_count > 0)
                                                 <option disabled>-----{{'Các dự án '.$item->name}}-----</option>
-                                                @foreach($posts as $select_post)
+                                                @foreach($projects as $select_post)
                                                          @if($select_post -> category_id == $item->id)
                                                              @if(!$post_selected == null)
                                                                  <option class="text-dark"  @if($post_selected->id ==$select_post->id ) selected @endif value="{{$select_post->id}}">{{$select_post->title}}</option>

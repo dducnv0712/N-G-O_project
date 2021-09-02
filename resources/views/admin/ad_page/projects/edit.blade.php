@@ -25,11 +25,11 @@
             </div>
             <div class="card-body">
                 @if(Auth::user()->role == 'ADMIN')
-                    <form  action="{{url("/admin/posts/update",["id" =>$posts->id])}}" method="post" enctype="multipart/form-data">
+                    <form  action="{{url("/admin/projects/update",["id" =>$projects->id])}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <div id="holder" class="photo-preview mb-3">
-                                <img src="{{$posts->getImage()}}" alt="" />
+                                <img src="{{$projects->getImage()}}" alt="" />
                             </div>
 
                             <div class="input-group">
@@ -38,20 +38,20 @@
                                    <i class="fa fa-picture-o"></i> Choose
                                  </a>
                                </span>
-                                <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" value="{{$posts->getImage()}}" type="text" >
+                                <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" value="{{$projects->getImage()}}" type="text" >
                             </div>
 
 
                         </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">{{__('Title')}}</label>
-                            <input name="title" value="{{$posts->title}}" type="text" id="title" class="form-control">
+                            <input name="title" value="{{$projects->title}}" type="text" id="title" class="form-control">
 
                         </div>
                         <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
                             <select class="form-control" name="category_id" id="category">
-                                <option  selected value="{{$posts->category_id}}" > {{$posts->category->name}} </option>
+                                <option  selected value="{{$projects->category_id}}" > {{$projects->category->name}} </option>
                                 @foreach($categories as $item)
                                     <option  value="{{$item->id}}"> {{$item->name}}</option>
 
@@ -62,18 +62,18 @@
                         </div>
                         <div class="mb-3">
                             <label for="donate" class="form-label">Contribution</label>
-                            <input name="donate" value="{{$posts->contribute}}" class="form-control" type="number" id="donate" min="0">
+                            <input name="donate" value="{{$projects->contribute}}" class="form-control" type="number" id="donate" min="0">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="desc">Description</label>
                             <textarea name="desc" id="desc">
-                                {{$posts->description}}
+                                {{$projects->description}}
                         </textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="content">Content</label>
                             <textarea name="content" id="content">
-                                {{$posts->content}}
+                                {{$projects->content}}
                         </textarea>
                         </div>
 
@@ -81,7 +81,7 @@
                     </form>
 
                 @else
-                    <form  action="{{url("/author/posts/update",["id" =>$posts->id])}}" method="post" enctype="multipart/form-data">
+                    <form  action="{{url("/volunteer-dashboard/projects/update",["id" =>$projects->id])}}" method="post" enctype="multipart/form-data">
                     @csrf
                         <div class="mb-3">
                             <div id="holder" class="photo-preview mb-3">
@@ -93,20 +93,20 @@
                                    <i class="fa fa-picture-o"></i> Choose
                                  </a>
                                </span>
-                                <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" value="{{$posts->getImage()}}" type="text" >
+                                <input id="thumbnail"  placeholder="Image URL" name="image" class="form-control" value="{{$projects->getImage()}}" type="text" >
                             </div>
 
 
                         </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input name="title" value="{{$posts->title}}" type="text" id="title" class="form-control">
+                        <input name="title" value="{{$projects->title}}" type="text" id="title" class="form-control">
 
                     </div>
                     <div class="mb-3">
                         <label for="category" class="form-label">Category</label>
                         <select class="form-control" name="category_id" id="category">
-                            <option  selected value="{{$posts->category_id}}" > {{$posts->category->name}} </option>
+                            <option  selected value="{{$projects->category_id}}" > {{$projects->category->name}} </option>
                             @foreach($categories as $item)
                                 <option  value="{{$item->id}}"> {{$item->name}}</option>
 
@@ -117,18 +117,18 @@
                     </div>
                     <div class="mb-3">
                         <label for="donate" class="form-label">Contribution</label>
-                        <input name="donate" value="{{$posts->contribute}}" class="form-control" type="number" id="donate" min="0">
+                        <input name="donate" value="{{$projects->contribute}}" class="form-control" type="number" id="donate" min="0">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="desc">Description</label>
                         <textarea name="desc" id="desc">
-                                {{$posts->description}}
+                                {{$projects->description}}
                         </textarea>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="content">Content</label>
                         <textarea name="content" id="content">
-                                {{$posts->content}}
+                                {{$projects->content}}
                         </textarea>
                     </div>
 

@@ -4,7 +4,7 @@
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
-                <h3><strong>{{__('Analytics')}}</strong>{{__('Dashboard')}} </h3>
+                <h3><strong>{{__('Danh Sách: ')}}</strong>{{__('Dashboard')}} </h3>
             </div>
 
             <div class="col-auto ml-auto text-right mt-n1">
@@ -44,9 +44,9 @@
                             <td>{{$item->updated_at->format('d-m-Y')}}</td>
                             <td>
                                 @if($item->active == 0)
-                                    <a href="{{url('admin/category/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
+                                    <a href="{{url('admin/category/active',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
                                 @else
-                                    <a href="{{url('admin/category/appear',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>
+                                    <a href="{{url('admin/category/active',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>
                                 @endif
                             </td>
 

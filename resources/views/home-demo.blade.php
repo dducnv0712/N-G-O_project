@@ -264,7 +264,7 @@
                         @endforeach
                         <div>
                             <hr>
-                            <a href="{{url('/posts-list',['id'=>$item->id])}}">{{__('Xem Thêm Về Dự Án '.$item->name)}}...</a>
+                            <a href="{{url('/projects-list',['id'=>$item->id])}}">{{__('Xem Thêm Về Dự Án '.$item->name)}}...</a>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
-                <h3><strong>Danh Sách</strong> Người Dùng</h3>
+                <h3><strong>{{__('Danh Sách: ')}}</strong> Người Dùng</h3>
             </div>
 
             <div class="col-auto ml-auto text-right mt-n1">
@@ -24,8 +24,8 @@
                         <th style="width:20%">{{__('Email Của Bạn')}}</th>
                         <th class="d-none d-md-table-cell" style="width:10%">{{__('Vai Trò')}}</th>
                         <th style="width:15%">{{__('Ngày Khởi Tạo')}}</th>
-                        <th style="width:20%">{{__('Ngày Cập Nhật')}}</th>
-                        <th>{{__('Hoạt động')}}</th>
+                        <th style="width:15%">{{__('Ngày Cập Nhật')}}</th>
+                        <th style="width:15%">{{__('Phân quyền')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,7 +51,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <label for="role" class="form-label fw-bold">Role</label>
-                                                    <select name="role" id="role" class="form-control">
+                                                    <select name="role" id="role" class="form-select">
                                                         <option value="ADMIN">ADMIN</option>
                                                         <option value="VOLUNTEER">VOLUNTEER</option>
                                                         <option value="USER">USER</option>
@@ -66,9 +66,13 @@
                                     </div>
                                 </div>
                                 @if($item->id == Auth::user()->id)
+                                    <div class="text-center">
                                     <span class="badge bg-success">you</span>
+                                    </div>
                                 @else
-                                    <a data-bs-toggle="modal" data-bs-target="#edit-{{$item->id}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                                    <div class="text-center">
+                                        <a data-bs-toggle="modal" data-bs-target="#edit-{{$item->id}}"><i class="align-middle " data-feather="edit-2"></i></a>
+                                    </div>
                                 @endif()
                             </td>
                         </tr>

@@ -21,7 +21,7 @@ class Contribution extends Model
         "status"
     ];
     public function Post(){
-        return $this->belongsTo(Post::class ,'id_post');
+        return $this->belongsTo(Project::class ,'id_post');
     }
 
 }

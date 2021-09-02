@@ -3,8 +3,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\MailController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\MailNewsLetterController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\CategoryController;
@@ -29,22 +29,20 @@ Route::middleware(["auth","admin"])->group(function (){
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
 
-//Post Controllers
-    Route::get('/posts',[PostController::class,"all"]);
-    Route::get('/posts/add',[PostController::class,"add"]);
-    Route::post('/post/save',[PostController::class,"save"]);
-    Route::get('/posts/edit/{id}',[PostController::class,"edit"]);
-    Route::post('/posts/update/{id}',[PostController::class,"update"]);
-    Route::delete('/posts/delete/{id}',[PostController::class,"delete"]);
-    // Route::get('/posts/hidden/{id}',[PostController::class,"hidden"]);
-    Route::get('/posts/active/{id}',[PostController::class,"active"]);
-    Route::get('/posts/normal/{id}',[PostController::class,"normal"]);
-    Route::get('/posts/important/{id}',[PostController::class,"important"]);
-    Route::get('/posts/send-mail-news/{id}',[MailController::class,"sendEmailNews"]);
-    Route::group(['prefix' => '/posts/project-filemanager'], function () {
+//Project Controllers
+    Route::get('/projects',[ProjectController::class,"all"]);
+    Route::get('/projects/add',[ProjectController::class,"add"]);
+    Route::post('/post/save',[ProjectController::class,"save"]);
+    Route::get('/projects/edit/{id}',[ProjectController::class,"edit"]);
+    Route::post('/projects/update/{id}',[ProjectController::class,"update"]);
+    Route::delete('/projects/delete/{id}',[ProjectController::class,"delete"]);
+    Route::get('/projects/active/{id}',[ProjectController::class,"active"]);
+    Route::get('/projects/important/{id}',[ProjectController::class,"important"]);
+    Route::get('/projects/send-mail-news/{id}',[MailNewsLetterController::class,"sendEmailNews"]);
+    Route::group(['prefix' => '/projects/project-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
-    //.Post Controllers
+    //.Project Controllers
 
 
 
@@ -54,8 +52,7 @@ Route::middleware(["auth","admin"])->group(function (){
     Route::post('/category/save',[CategoryController::class,"save"]);
     Route::post('/category/update/{id}',[CategoryController::class,"update"]);
     Route::delete('/category/delete/{id}',[CategoryController::class,"delete"]);
-    Route::get('/category/hidden/{id}',[CategoryController::class,"hidden"]);
-    Route::get('/category/appear/{id}',[CategoryController::class,"appear"]);
+    Route::get('/category/active/{id}',[CategoryController::class,"active"]);
     //.Category
 
 
@@ -71,9 +68,14 @@ Route::middleware(["auth","admin"])->group(function (){
 
     //Contact Controller
     Route::get('/contact',[ContactController::class,"all"]);
+    Route::post('/contact/reply-contact/{id}',[ContactController::class,"reply"]);
+
+    Route::get('/newsletter-sub-list',[MailNewsLetterController::class,"all"]);
 
     //volunteer Controller
     Route::get('/volunteer',[VolunteerController::class,"all"]);
+    Route::get('/volunteer/admit/{id}',[VolunteerController::class,"admit"]);
+    Route::post('/volunteer/refuse/{id}',[VolunteerController::class,"refuse"]);
 
     //gallery
     Route::get('/gallery',[GalleryController::class,"all"]);

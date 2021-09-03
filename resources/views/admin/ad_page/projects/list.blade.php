@@ -80,11 +80,14 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h2 class="fw-bold text-center"><b>{{$item -> title}}</b></h2>
-                                         ợ       <div class="text-center">
-                                                    <img src="{{$item->getImage()}}" alt="{{$item->title}}">
+                                                <div class="container overflow-hidden">
+                                                    <h2 class="fw-bold text-center"><b>{{$item -> title}}</b></h2>
+                                                    <div class="text-center">
+                                                        <img src="{{$item->image}}" alt="{{$item->title}}">
+                                                    </div>
+                                                    <p>{!!$item->content!!}</p>
                                                 </div>
-                                                <p>{!!$item->content!!}</p>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -150,7 +153,7 @@
                                         @if($item->contribute == null)
                                             <span class="badge bg-info">no-limit</span>
                                         @else
-                                            {{$item->contribute}}
+                                            @money($item->contribute*22854)
                                         @endif
                                     </td>
                                     <td class="d-none d-md-table-cell">{{$item->category->name}}</td>
@@ -252,7 +255,6 @@
                             <th>Category</th>
                             <th>Created At</th>
                             <th>Updated At</th>
-
                             <th>Active</th>
                             <th>Important</th>
                             <th>Actions</th>
@@ -262,7 +264,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($posts as $item)
+                        @foreach($projects as $item)
                             @if($item->author == Auth::id())
                                 <tr>
                                     @php
@@ -283,7 +285,7 @@
                                         @if($item->contribute == null)
                                             <span class="badge bg-info">no-limit</span>
                                         @else
-                                            {{$item->contribute}}
+                                            @money($item->contribute*22854)
                                         @endif
                                     </td>
                                     <td class="d-none d-md-table-cell">{{$item->category->name}}</td>
@@ -293,14 +295,14 @@
                                     @if($item->approval == 0)
                                         <td class="text-center">
                                             @if($item->active == 0)
-                                                <a href="{{url('volunteer-dashboard/projects/hidden',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
+                                                <a href="{{url('volunteer-dashboard/projects/active',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="eye"></i></a>
                                             @else
-                                                <a href="{{url('volunteer-dashboard/projects/appear',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>
+                                                <a href="{{url('volunteer-dashboard/projects/active',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="eye-off"></i></a>
                                             @endif
                                         </td>
                                         <td class="text-center">
                                             @if($item->important == 0)
-                                                <a href="{{url('volunteer-dashboard/projects/normal',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="thumbs-up"></i></a>
+                                                <a href="{{url('volunteer-dashboard/projects/important',["id"=>$item->id])}}"><i class="align-middle text-success" data-feather="thumbs-up"></i></a>
                                             @else
                                                 <a href="{{url('volunteer-dashboard/projects/important',["id"=>$item->id])}}"><i class="align-middle text-danger" data-feather="thumbs-down"></i></a>
                                             @endif
@@ -356,11 +358,14 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h2 class="fw-bold text-center"><b>{{$item -> title}}</b></h2>
-                                                <div class="text-center">
-                                                    <img src="{{$item->getImage()}}" alt="{{$item->title}}">
+                                                <div class="container overflow-hidden">
+                                                    <h2 class="fw-bold text-center"><b>{{$item -> title}}</b></h2>
+                                                    <div class="text-center">
+                                                        <img src="{{$item->image}}" alt="{{$item->title}}">
+                                                    </div>
+                                                    <p>{!!$item->content!!}</p>
                                                 </div>
-                                                <p>{!!$item->content!!}</p>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -1,4 +1,5 @@
 @extends('layout')
+@section('page_title',__('Đóng Góp'))
 @section('main')
        <!--Page Header Start-->
        <section class="page-header">

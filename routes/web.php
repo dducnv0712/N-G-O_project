@@ -29,7 +29,7 @@ Route::get('/',[WebController::class,"home"]);
 Route::get('/contact',[WebController::class,"contact"]);
 Route::post('/contact-submit',[ContactController::class,"submit"]);
 
-Route::get('/desc-post/{id}',[WebController::class,"desc_post"]);
+Route::get('/details-project/{id}',[WebController::class,"details_project"]);
 Route::get('/donate',[WebController::class,"donate"]);
 Route::get('/donate/{id}',[WebController::class,"donate_selected"]);
 Route::get('/about',[WebController::class,"about"]);

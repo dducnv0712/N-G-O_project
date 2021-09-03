@@ -1,4 +1,5 @@
 @extends('layout')
+@section('page_title',__('Danh Sách Đóng Góp'))
 @section('main')
     <!--Page Header Start-->
     <section class="page-header">
@@ -36,7 +37,7 @@
                     <td>{{$item->contribute_id}}</td>
                     <td>{{$item->full_name}}</td>
                     <td>@money($item->contribute_amount*22854)</td>
-                    <td>{{$item->post->title}}</td>
+                    <td>{{$item->project->title}}</td>
                     <td>
                         <div class="text-center">
                               <a class="details-contributor" title="{{__('Chi Tiết')}}" data-bs-toggle="modal" data-bs-target="#details-{{$item->id}}">
@@ -67,7 +68,7 @@
                                                                 <div class="row">
                                                                     <div class="col-md-6">
                                                                         <div class="billed"><span class="font-weight-bold">{{__('Họ và Tên')}}: </span><span class="fw-normal"> {{$item->full_name}}</span></div>
-                                                                        <div class="billed"><span class="font-weight-bold ">{{__('Ngày Đóng Góp')}}: </span><span class="fw-normal"> {{$item->created_at->format('F d, Y')}}</span></div>
+                                                                        <div class="billed"><span class="font-weight-bold ">{{__('Ngày Đóng Góp')}}: </span><span class="fw-normal"> {{$item->created_at->toDayDateTimeString()}}</span></div>
                                                                         <div class="billed"><span class="font-weight-bold">{{__('Số phiếu thu')}}:</span><span class="fw-normal"> {{$item->contribute_id}}</span></div>
                                                                     </div>
                                                                 </div>
@@ -82,7 +83,7 @@
                                                                             </thead>
                                                                             <tbody>
                                                                             <tr>
-                                                                                <td>{{$item->post->title}}</td>
+                                                                                <td>{{$item->project->title}}</td>
                                                                                 <td>@money($item->contribute_amount*22854)</td>
 
                                                                             </tr>

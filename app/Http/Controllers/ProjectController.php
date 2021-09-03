@@ -68,7 +68,7 @@ class ProjectController extends Controller
         if( Auth::user()->role == 'ADMIN'){
             return redirect()->to("admin/projects");
         }else{
-            return redirect()->to("/");
+            return redirect()->to("/volunteer-dashboard/projects");
         }
 
     }
@@ -109,7 +109,11 @@ class ProjectController extends Controller
             "contribute"=>$request->get("donate"),
             "category_id"=>$request->get("category_id"),
         ]);
-        return redirect()->to("admin/projects");
+        if( Auth::user()->role == 'ADMIN'){
+            return redirect()->to("admin/projects");
+        }else{
+            return redirect()->to("/volunteer-dashboard/projects");
+        }
 
     }
     public function delete($id){
@@ -131,7 +135,11 @@ class ProjectController extends Controller
         }
 
 
-        return redirect()->to("admin/projects");
+        if( Auth::user()->role == 'ADMIN'){
+            return redirect()->to("admin/projects");
+        }else{
+            return redirect()->to("/volunteer-dashboard/projects");
+        }
 
     }
     // public function normal($id){
@@ -161,16 +169,12 @@ class ProjectController extends Controller
                     ]);
                 }
             }
+        if( Auth::user()->role == 'ADMIN'){
             return redirect()->to("admin/projects");
+        }else{
+            return redirect()->to("/volunteer-dashboard/projects");
+        }
     }
-
-
-
-
-
-
-
-
 
     public function approval($id){
         $posts = Project::findOrFail($id);

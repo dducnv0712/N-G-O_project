@@ -52,8 +52,6 @@ class MailNewsLetterController extends Controller
                 'send_mail' => 0
             ]);
         }
-            return redirect()->to("admin/projects");
-
 
     }
 

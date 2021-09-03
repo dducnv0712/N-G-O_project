@@ -18,6 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="container">
+                        <x-jet-validation-errors class="mb-4" />
                         <form method="POST" action="{{url('/volunteer-account-save',['id' => $volunteer ->id])}}">
                             @csrf
 

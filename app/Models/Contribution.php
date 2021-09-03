@@ -20,7 +20,7 @@ class Contribution extends Model
         "id_post",
         "status"
     ];
-    public function Post(){
+    public function Project(){
         return $this->belongsTo(Project::class ,'id_post');
     }
 

@@ -1,4 +1,6 @@
 @extends('layout')
+@section('page_title',__('Giới Thiệu'))
+
 @section('main')
 
     <!--Page Header Start-->
@@ -75,102 +77,7 @@
     </section>
     <!--About Page Start-->
 
-    <!--Testimonial One Start-->
-    <section class="testimonial-one about-page-testimonial">
-        <div class="testimonial-one-bg"
-             style="background-image: url(assets/images/backgrounds/testimonial-1-bg.jpg)"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4">
-                    <div class="testimonial-one__left">
-                        <div class="section-title text-left">
-                            <span class="section-title__tagline">Our Testimonials</span>
-                            <h2 class="section-title__title">What they’re talking about charity</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-8">
-                    <div class="testimonial-one__right">
-                        <div class="testimonial-one__carousel owl-theme owl-carousel">
-                            <!--Testimonial One Single-->
-                            <div class="testimonial-one__single">
-                                <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet,
-                                    consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore
-                                    et dolore magna aliqua.</p>
-                                <div class="testimonial-one__client-info">
-                                    <div class="testimonial-one__client-img">
-                                        <img src="assets/images/testimonial/testimonial-1-img-1.png" alt="">
-                                        <div class="testimonial-one__quote">
 
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-one__client-name">
-                                        <h3>Kevin Martin</h3>
-                                        <p>Volunteer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial One Single-->
-                            <div class="testimonial-one__single">
-                                <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet,
-                                    consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore
-                                    et dolore magna aliqua.</p>
-                                <div class="testimonial-one__client-info">
-                                    <div class="testimonial-one__client-img">
-                                        <img src="assets/images/testimonial/testimonial-1-img-2.png" alt="">
-                                        <div class="testimonial-one__quote">
-
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-one__client-name">
-                                        <h3>Jessica Brown</h3>
-                                        <p>Volunteer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial One Single-->
-                            <div class="testimonial-one__single">
-                                <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet,
-                                    consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore
-                                    et dolore magna aliqua.</p>
-                                <div class="testimonial-one__client-info">
-                                    <div class="testimonial-one__client-img">
-                                        <img src="assets/images/testimonial/testimonial-1-img-1.png" alt="">
-                                        <div class="testimonial-one__quote">
-
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-one__client-name">
-                                        <h3>Jessica Brown</h3>
-                                        <p>Volunteer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial One Single-->
-                            <div class="testimonial-one__single">
-                                <p class="testimonial-one__text">Lorem ipsum is simply free text dolor sit amet,
-                                    consectetur notted adipisicing elit sed do eiusmod tempor incididunt ut labore
-                                    et dolore magna aliqua.</p>
-                                <div class="testimonial-one__client-info">
-                                    <div class="testimonial-one__client-img">
-                                        <img src="assets/images/testimonial/testimonial-1-img-2.png" alt="">
-                                        <div class="testimonial-one__quote">
-
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-one__client-name">
-                                        <h3>Kevin Martin</h3>
-                                        <p>Volunteer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Testimonial One End-->
 
     <!--Join One Start-->
     <section class="join-one join-one__about">

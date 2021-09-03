@@ -21,6 +21,30 @@ class VolunteerController extends Controller
             "volunteer" => $volunteer
         ]);
     }
+    public function register(Request $request){
+        $mail = $request['email'];
+        $name = $request['name'];
+        $now = Carbon::now('asia/Ho_Chi_Minh')->format('F d,Y');
+        Volunteer::create([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'phone'=>$request->get('phone'),
+            'address'=>$request->get('address'),
+            'birthday'=>$request->get('date'),
+            'occupation'=>$request->get('occupation'),
+            'messages'=>$request->get('message'),
+        ]);
+        Mail::send('admin.mail.confirm_register_volunteer',[
+            'name'=>$name,
+            'now'=>$now
+        ],function ($message) use ($mail){
+            $message -> to($mail)->subject('Non-governmental Organizations');
+            $message ->from($mail,'Non-governmental Organizations');
+        });
+
+                $data = $request->all();
+        print_r($data);
+    }
     public function admit($id){
         $volunteer = Volunteer::findOrFail($id);
         $user = User::where('email',$volunteer->email)->first();
@@ -29,8 +53,7 @@ class VolunteerController extends Controller
             $button= true;
         }
         $now = Carbon::now('asia/Ho_Chi_Minh')->format('F d,Y');
-        $now_join = Carbon::now('asia/Ho_Chi_Minh');
-        $volunteer -> update(['approval' => 0,'created_at'=>$now_join]);
+        $volunteer -> update(['approval' => 0]);
 
         $mail = $volunteer->email;
         Mail::send('admin.mail.confirm_admit_volunteer',[
@@ -68,31 +91,6 @@ class VolunteerController extends Controller
         $volunteer ->delete();
         return redirect()->to('/admin/volunteer');
     }
-    public function register(Request $request){
-        $mail = $request['email'];
-        $name = $request['name'];
-        $now = Carbon::now('asia/Ho_Chi_Minh')->format('F d,Y');
-            Mail::send('admin.mail.confirm_register_volunteer',[
-                'name'=>$name,
-                'now'=>$now
-
-            ],function ($message) use ($mail){
-                $message -> to($mail)->subject('Non-governmental Organizations');
-                $message ->from($mail,'Non-governmental Organizations');
-            });
-                Volunteer::create([
-                    'name' => $request->get('name'),
-                    'email' => $request->get('email'),
-                    'phone'=>$request->get('phone'),
-                    'address'=>$request->get('address'),
-                    'birthday'=>$request->get('date'),
-                    'occupation'=>$request->get('occupation'),
-                    'messages'=>$request->get('message'),
-                ]);
-//        return redirect()->to('/admin/volunteer');
-//                $data = $request->all();
-//        print_r($data);
-    }
     public function acc_register($id){
         $volunteer = Volunteer::findOrFail($id);
         if($volunteer->approval == 0){
@@ -105,8 +103,7 @@ class VolunteerController extends Controller
     public function acc_save(Request $request,$id){
         $volunteer = Volunteer::findOrFail($id);
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+
                 'password' => $this->passwordRules(),
                 'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
             ]);
@@ -116,7 +113,7 @@ class VolunteerController extends Controller
                 'role' => 'VOLUNTEER',
                 'password' => Hash::make($request['password']),
             ]);
-             return redirect()->to('/volunteer-volunteer-dashboard');
+             return redirect()->to('/volunteer-dashboard');
 
 
 

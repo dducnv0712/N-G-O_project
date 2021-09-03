@@ -34,7 +34,7 @@
 
                             <div class="input-group">
                                <span class="input-group-btn">
-                                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                 <a id="projects-upload" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
                                    <i class="fa fa-picture-o"></i> Choose
                                  </a>
                                </span>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="input-group">
                                <span class="input-group-btn">
-                                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                 <a id="projects-upload-volunteer" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
                                    <i class="fa fa-picture-o"></i> Choose
                                  </a>
                                </span>

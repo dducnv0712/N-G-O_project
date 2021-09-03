@@ -4,32 +4,15 @@
     <div class="container">
         <div class="site-footer__top">
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                     <div class="footer-widget__column footer-widget__about">
                         <h3 class="footer-widget__title">{{__('Giới Thiệu')}}</h3>
                         <p class="footer-widget__text">Lorem ipsum dolor sit ame consect etur pisicing elit sed do eiusmod tempor incididunt ut labore.</p>
                         <a href="{{asset('/about')}}" class="footer-widget__about-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Xem Chi Tiết')}} </a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                    <div class="footer-widget__column footer-widget__explore clearfix">
-                        <h3 class="footer-widget__title">Explore</h3>
-                        <ul class="footer-widget__explore-list list-unstyled">
-                            <li><a href="#">Donate</a></li>
-                            <li><a href="#">Campaigns</a></li>
-                            <li><a href="#">Fundraise</a></li>
-                            <li><a href="#">Volunteers</a></li>
-                            <li><a href="#">Sponsors</a></li>
-                        </ul>
-                        <ul class="footer-widget__explore-list footer-widget__explore-list-two list-unstyled">
-                            <li><a href="#">Fundraising</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Help</a></li>
-                            <li><a href="#">Faqs</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
                     <div class="footer-widget__column footer-widget__contact">
                         <h3 class="footer-widget__title">{{__('Liên Hệ')}}</h3>
                         <ul class="list-unstyled footer-widget__contact-list">
@@ -66,7 +49,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                     <div class="footer-widget__column footer-widget__newsletter">
                         <h3 class="footer-widget__title">Newsletter</h3>
                         <p class="footer-widget__newsletter-text">Lorem ipsum dolor sit ame consect etur pisicing elit sed do.</p>
@@ -97,7 +80,7 @@
                             </div>
                         </div>
                         <div class="site-footer__bottom-copy-right">
-                            <p>© Copyright 2021 by <a href="#">FPT Aptech</a></p>
+                            <p>© Copyright 2021 by <a href="https://aptech.fpt.edu.vn/">FPT Aptech - eProject</a></p>
                         </div>
                     </div>
                 </div>

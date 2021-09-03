@@ -17,12 +17,6 @@ use App\Http\Controllers\SponsorController;
 Route::middleware(["auth","admin"])->group(function (){
     Route::get('/',[AdminController::class,"admin"]);
     Route::get('/profile',[AdminController::class,"profile"]);
-    Route::get('/greeting/{locale}', function ($locale) {
-        if (! in_array($locale, ['en', 'es', 'fr'])) {
-            abort(400);
-        }
-        App::setLocale($locale);
-    });
 
     //web router
 
@@ -33,11 +27,13 @@ Route::middleware(["auth","admin"])->group(function (){
 //Project Controllers
     Route::get('/projects',[ProjectController::class,"all"]);
     Route::get('/projects/add',[ProjectController::class,"add"]);
-    Route::post('/post/save',[ProjectController::class,"save"]);
+    Route::post('/projects/save',[ProjectController::class,"save"]);
     Route::get('/projects/edit/{id}',[ProjectController::class,"edit"]);
     Route::post('/projects/update/{id}',[ProjectController::class,"update"]);
     Route::delete('/projects/delete/{id}',[ProjectController::class,"delete"]);
     Route::get('/projects/active/{id}',[ProjectController::class,"active"]);
+    Route::get('/projects/approval/{id}',[ProjectController::class,"approval"]);
+
     Route::get('/projects/important/{id}',[ProjectController::class,"important"]);
     Route::get('/projects/send-mail-news/{id}',[MailNewsLetterController::class,"sendEmailNews"]);
     Route::group(['prefix' => '/projects/project-filemanager'], function () {
@@ -56,12 +52,10 @@ Route::middleware(["auth","admin"])->group(function (){
     Route::get('/category/active/{id}',[CategoryController::class,"active"]);
     //.Category
 
-
     //user controller
     Route::get('/user',[UserController::class,"user"]);
     Route::post('/user/update/{id}',[UserController::class,"update"]);
     //.user controller
-
 
 
     //contribution Controller
@@ -84,7 +78,6 @@ Route::middleware(["auth","admin"])->group(function (){
     Route::post('/gallery/update/{id}',[GalleryController::class,"update"]);
     Route::delete('/gallery/delete/{id}',[GalleryController::class,"delete"]);
     Route::get('/gallery/active/{id}',[GalleryController::class,"active"]);
-
     Route::group(['prefix' => '/gallery/project-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });

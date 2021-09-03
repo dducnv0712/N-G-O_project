@@ -7395,7 +7395,12 @@
                                 width:70px;
                             }
                             .dataTables_wrapper .dataTables_paginate .paginate_button{
-                                background-color: var(--thm-primary)
+                                /*background-color: var(--thm-primary)*/
+                            }
+                            .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+                                background: var(--thm-primary);
+                                color:white;
+
                             }
                             /*.loader-donate {*/
                             /*    overflow: hidden;*/

@@ -1,4 +1,6 @@
 @extends('layout')
+@section('page_title',__('Thư Viện Ảnh'))
+
 @section('main')
 
     <!--Page Header Start-->

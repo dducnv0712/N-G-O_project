@@ -1,4 +1,6 @@
 @extends('layout')
+@section('page_title',__('Tình Nguyện Viên'))
+
 @section('main')
     <!--Page Header Start-->
     <section class="page-header">

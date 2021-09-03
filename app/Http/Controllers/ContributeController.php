@@ -34,7 +34,7 @@ class ContributeController extends Controller
             'contribute_id' =>$request['contribute_id'],
             'contribute_amount'=>$request->get('amount'),
             'country'=>$request->get('country'),
-            'id_post'=>$request->get('post_id'),
+            'id_post'=>$request->get('project_id'),
             'status'=>$request->get('status')
 
         ]);
@@ -46,8 +46,8 @@ class ContributeController extends Controller
 //        $contribution_id = $request['contribution_id'];
 //        $amount = $request['amount'];
 //        $country =$request['country'];
-        $post_id = $request['post_id'];
-        $posts = Project::findOrFail($post_id);
+        $project_id = $request['project_id'];
+        $project = Project::findOrFail($project_id);
 //        $data = [
 //            $mail = $request['email'],
 //            $given_name = $request['given_name'],
@@ -60,7 +60,7 @@ class ContributeController extends Controller
 //        ];
 
         Mail::send('admin.mail.feedback_contribution',[
-            'projects' => $posts,
+            'projects' => $project,
             'date_time'=>$now,
             'fullName'=>$request['full_name'],
             'contribute_id' =>$request['contribute_id'],
@@ -72,7 +72,5 @@ class ContributeController extends Controller
             $message ->from($mail,'Non-governmental Organizations');
 
         });
-//        $data = $request->all();
-//        print_r($data);
     }
 }

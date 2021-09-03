@@ -13,6 +13,7 @@ class Gallery extends Model
         'title',
         'image',
         'active',
+        'author',
         'approval'
     ];
 }

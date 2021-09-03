@@ -167,6 +167,8 @@
                                     <form method="POST" action="{{ route('login') }}" >
                                         @csrf
                                         <div class="row">
+{{--                                            <x-jet-validation-errors class="mb-4" />--}}
+
                                             <div class="col-xl-12 mb-3 mt-3">
                                                 <div class="login_and_register_input">
                                                     <label for="email">{{__('Địa Chỉ Email')}}</label>
@@ -205,33 +207,38 @@
                                     <form method="POST" action="{{route('register')}}" >
                                         @csrf
                                         <div class="row">
+                                            <x-jet-validation-errors class="mb-4" />
                                             <div class="col-xl-12 mb-3 mt-3">
                                                 <div class="login_and_register_input">
                                                     <label for="name">{{__('Họ và Tên')}}</label>
-                                                    <input type="text" class="form-control"  aria-describedby="emailHelp" id="name" name="name" required autocomplete="name">                                                    </div>
+                                                    <input type="text" class="form-control"  aria-describedby="emailHelp" id="name" name="name" required autocomplete="name">
+                                                </div>
                                             </div>
                                             <div class="col-xl-12 mb-3">
                                                 <div class="login_and_register_input">
                                                     <label for="email">{{__('Địa Chỉ Email')}}</label>
-                                                    <input type="email" class="form-control"  aria-describedby="emailHelp" id="email" name="email" required >                                                    </div>
+                                                    <input type="email" class="form-control"  aria-describedby="emailHelp" id="email" name="email" required >
+                                                </div>
                                             </div>
                                             <div class="col-xl-12 mb-3">
                                                 <div class="login_and_register_input">
                                                     <label for="password">{{__('Mật Khẩu')}}</label>
-                                                    <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">                                                    </div>
+                                                    <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">
+                                                </div>
                                             </div>
 
                                             <div class="col-xl-12 mb-3">
                                                 <div class="login_and_register_input">
                                                     <label for="password">{{__('Nhập Lại Mật Khẩu')}}</label>
-                                                    <input type="password" class="form-control" id="password" name="password_confirmation" required autocomplete="current-password">                                                    </div>
+                                                    <input type="password" class="form-control" id="password" name="password_confirmation" required autocomplete="current-password">
+                                                </div>
                                             </div>
                                             <div class="col-xl-12 mb-3">
                                                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                                     <div>
                                                         <label for="terms">
                                                             <div class="flex items-center">
-                                                                <input type="checkbox" name="terms" id="terms"/>
+                                                                <input type="checkbox" name="terms" id="terms" required/>
 
                                                                 <div class="ml-2">
                                                                     {!! __('I agree to the :terms_of_service and :privacy_policy', [

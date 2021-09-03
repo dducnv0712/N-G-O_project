@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GalleryController extends Controller
 {
@@ -25,12 +26,20 @@ class GalleryController extends Controller
     }
 
     public function save(Request $request){
-       Gallery::create([
-           'title'=>$request->get('title'),
-           'image'=>$request->get('image')
 
-       ]);
-        return redirect()->to("admin/gallery");
+        $author = Auth::id();
+           Gallery::create([
+               'title'=>$request->get('title'),
+               'image'=>$request->get('image'),
+               'author'=>$author
+
+           ]);
+        if( Auth::user()->role == 'ADMIN'){
+            return redirect()->to("admin/gallery");
+        }else{
+            return redirect()->to("/volunteer-dashboard/gallery");
+        }
+
 
 
     }
@@ -40,8 +49,11 @@ class GalleryController extends Controller
             'title'=>$request->get('title'),
             'image'=>$request->get('image')
         ]);
-        return redirect()->to("admin/gallery");
-
+        if( Auth::user()->role == 'ADMIN'){
+            return redirect()->to("admin/gallery");
+        }else{
+            return redirect()->to("/volunteer-dashboard/gallery");
+        }
 
     }
     public function delete($id){
@@ -62,8 +74,11 @@ class GalleryController extends Controller
             ]);
 
         }
-        return redirect()->to("admin/gallery");
-    }
+        if( Auth::user()->role == 'ADMIN'){
+            return redirect()->to("admin/gallery");
+        }else{
+            return redirect()->to("/volunteer-dashboard/gallery");
+        }    }
 
 
 }

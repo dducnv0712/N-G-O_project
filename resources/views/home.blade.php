@@ -83,7 +83,7 @@
         <div class="main-slider__counter">
             <ul class="main-slider__counter-box list-unstyled">
                 <li style="height:192px" class="counter-animate">
-                    <h3 class="main-sldier__counter-digit number" data-number="300">0</h3>
+                    <h3 class="main-sldier__counter-digit number" data-number="{{count($volunteer)}}">0</h3>
                     <span class="main-slider__counter-text">{{__('Tình Nguyện Viên')}}</span>
                 </li>
                 <li style="height:192px"  class="counter-animate">
@@ -191,7 +191,7 @@
                     </div>
                     <div class="d-flex">
                         <a href="{{url('/donate',['id'=>$item_important->id])}}" class="welcome-one__btn me-2 thm-btn"><i class="fa fa-heart"></i>{{__('Đóng Góp')}}</a>
-                        <a href="{{url('/desc-post',['id'=>$item_important->id])}}" class="welcome-one__btn ms-1 thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Xem Chi Tiết')}}</a>
+                        <a href="{{url('/details-project',['id'=>$item_important->id])}}" class="welcome-one__btn ms-1 thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Xem Chi Tiết')}}</a>
 
                     </div>
                 </div>
@@ -238,7 +238,7 @@
                                     <div class="causes-one__img">
                                         <div class="causes-one__img-box">
                                             <img style="max-height: 230px;" src="{{$item_post->getImage()}}" alt="">
-                                            <a href="{{url('/desc-post',['id'=>$item_post->id])}}">
+                                            <a href="{{url('/details-project',['id'=>$item_post->id])}}">
                                                 <i class="fa fa-plus"></i>
                                             </a>
                                         </div>
@@ -261,7 +261,7 @@
                                     </div>
                                     <div class="causes-one__content">
                                         <h3 class="causes-one__title">
-                                            <a href="{{url('/desc-post',['id'=>$item_post->id])}}">{{__($item_post->title)}}</a>
+                                            <a href="{{url('/details-project',['id'=>$item_post->id])}}">{{__($item_post->title)}}</a>
                                         </h3>
                                         <span class="causes-one__text">
                                             {!!__($item_post->description)!!}
@@ -304,7 +304,7 @@
                                         <div class="text-center">
                                             @if(!$item_post->contribute == null)
                                             @if($amount/$item_post->contribute * 100 >= 100)
-                                            <a href="{{url('/desc-post',['id'=>$item_post->id])}}" class="ms-0 causes-one__donate-btn mt-3"><i class="fas fa-arrow-circle-right me-2"></i>{{__('Xem Chi Tiết')}}</a>
+                                            <a href="{{url('/details-project',['id'=>$item_post->id])}}" class="ms-0 causes-one__donate-btn mt-3"><i class="fas fa-arrow-circle-right me-2"></i>{{__('Xem Chi Tiết')}}</a>
                                             @else
                                             <a href="{{url('/donate',['id'=>$item_post->id])}}" class="ms-0 causes-one__donate-btn mt-3"><i class="fa fa-heart me-2"></i>{{__('Đóng Góp')}}</a>
                                             @endif

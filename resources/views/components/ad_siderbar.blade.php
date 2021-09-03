@@ -122,7 +122,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{url('/admin/contribution')}}"   class="sidebar-link">
+                    <a href="{{url('/volunteer-dashboard/contribution')}}"   class="sidebar-link">
                         <i class="align-middle" data-feather="heart"></i> <span class="align-middle">{{__('Quản Lý Đóng Góp')}}</span>
                     </a>
                 </li>
@@ -141,7 +141,7 @@
                     </a>
                     <ul id="about" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                         <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/volunteer-dashboard/gallery')}}">{{__('Thư Viện Ảnh')}}</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" id="file-manager" data-input="thumbnail" data-preview="holder" >{{__('Quản Lý Tệp')}}</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" id="file-manager-volunteer" data-input="thumbnail" data-preview="holder" >{{__('Quản Lý Tệp')}}</a></li>
                     </ul>
                 </li>
             </ul>

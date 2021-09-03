@@ -63,7 +63,11 @@
                             context.invoke('insertImage', lfmItem.url);
                         });
                     });
-
+                    lfm({type: 'image', prefix: '/volunteer-dashboard/project-filemanager'}, function(lfmItems, path) {
+                        lfmItems.forEach(function (lfmItem) {
+                            context.invoke('insertImage', lfmItem.url);
+                        });
+                    });
                 }
             });
             return button.render();
@@ -300,7 +304,11 @@
                 if (isConfirm){
                     // console.log(id)
                     $.ajax({
+                        @if(Auth::user()->role == 'VOLUNTEER')
+                        url:"{{url('volunteer-dashboard/gallery/delete')}}"+'/'+id,
+                        @else
                         url:"{{url('admin/gallery/delete')}}"+'/'+id,
+                        @endif
                         type:'DELETE',
                         data:{"_token": "{{ csrf_token() }}"},
                         beforeSend: function () {
@@ -407,8 +415,8 @@
                     // console.log(id)
 
                     $.ajax({
-                        @if(Auth::user()->role == 'AUTHOR')
-                        url:"{{url('author/projects/send-mail-news')}}"+'/'+id,
+                        @if(Auth::user()->role == 'VOLUNTEER')
+                        url:"{{url('volunteer-dashboard/projects/send-mail-news')}}"+'/'+id,
                         @else
                         url:"{{url('admin/projects/send-mail-news')}}"+'/'+id,
                          @endif
@@ -478,41 +486,51 @@
         });
     })(jQuery);
 </script>
+{{--file manager code--}}
 <script src="{{asset('/vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
 <script type="text/javascript">
     $('#projects-upload').filemanager('image');
-    var posts_prefix = "";
-    @if(Auth::user()->role == 'VOLUNTEER')
-        posts_prefix = "/volunteer-dashboard/projects/project-filemanager";
-    @else
-        posts_prefix = "/admin/projects/project-filemanager";
-    @endif
-    $('#projects-upload').filemanager('image', {prefix: posts_prefix});
+        var posts_prefix_ad = "/admin/projects/project-filemanager";
+    $('#projects-upload').filemanager('image', {prefix_ad: posts_prefix_ad});
 
 </script>
+<script type="text/javascript">
+    $('#projects-upload-volunteer').filemanager('image');
+        var posts_prefix = "/volunteer-dashboard/projects/project-filemanager-volunteer";
+    $('#projects-upload-volunteer').filemanager('image', {prefix_volunteer: posts_prefix});
+
+</script>
+
+
 
 <script type="text/javascript">
     $('#gallery-upload').filemanager('image');
-
-     var route_prefix = "/admin/gallery/project-filemanager";
-
-    $('#gallery-upload').filemanager('image', {prefix: route_prefix});
-
+     var route_prefix_ad = "/admin/gallery/project-filemanager";
+    $('#gallery-upload').filemanager('image', {prefix: route_prefix_ad});
 </script>
+<script type="text/javascript">
+    $('#gallery-upload-volunteer').filemanager('image');
+    var route_prefix = "/volunteer-dashboard/project-filemanager";
+    $('#gallery-upload-volunteer').filemanager('image', {prefix: route_prefix});
+</script>
+
+
 <script type="text/javascript">
     $('#sponsor-upload').filemanager('image');
     var route_sponsor = "/admin/sponsor/project-filemanager";
     $('#sponsor-upload').filemanager('image', {prefix: route_sponsor});
 </script>
+
+
 <script type="text/javascript">
     $('#file-manager').filemanager('image');
-    var route_filemanager = null;
-    @if(Auth::user()->role == 'VOLUNTEER')
-     route_filemanager = "/volunteer-dashboard/project-filemanager";
-    @else
-     route_filemanager = "/admin/project-filemanager";
-    @endif
-    $('#file-manager').filemanager('image', {prefix: route_filemanager});
+     var route_filemanager_ad = "/admin/project-filemanager";
+    $('#file-manager').filemanager('image', {prefix: route_filemanager_ad});
+</script>
+<script type="text/javascript">
+    $('#file-manager-volunteer').filemanager('image');
+       var route_filemanager = "/volunteer-dashboard/project-filemanager";
+    $('#file-manager-volunteer').filemanager('image', {prefix: route_filemanager});
 </script>
 
 

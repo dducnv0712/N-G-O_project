@@ -1,4 +1,6 @@
 @extends('layout')
+@section('page_title',__('Liên Hệ'))
+
 @section('main')
 
     <!--Page Header Start-->

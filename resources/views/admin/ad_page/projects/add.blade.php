@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-auto ml-auto text-right mt-n1">
-                <nav aria-label="breadcrumb">
+                <nav aria-label="breadcrumb">admin@gmail.com
                     <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
                         <li class="breadcrumb-item"><a href="#">AdminKit</a></li>
                         <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
@@ -25,7 +25,7 @@
             </div>
             <div class="card-body">
                 @if(Auth::user()->role == 'ADMIN')
-                    <form action="{{asset("/admin/post/save")}}" method="post" enctype="multipart/form-data">
+                    <form action="{{asset("/admin/projects/save")}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <div id="holder-post" class="photo-preview mb-3">
@@ -76,7 +76,7 @@
                     <button type="submit" class="btn btn-primary">{{__('Submit')}}</button>
                 </form>
                 @else
-                    <form action="{{asset("/volunteer-dashboard/post/save")}}" method="post" enctype="multipart/form-data">
+                    <form action="{{asset("/volunteer-dashboard/projects/save")}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <div id="holder-post" class="photo-preview mb-3">
@@ -84,7 +84,7 @@
                             </div>
                             <div class="input-group">
                                <span class="input-group-btn">
-                                 <a id="projects-upload" data-input="thumbnail-post" data-preview="holder-post" class="btn btn-primary">
+                                 <a id="projects-upload-volunteer" data-input="thumbnail-post" data-preview="holder-post" class="btn btn-primary">
                                    <i class="fa fa-picture-o"></i> Choose
                                  </a>
                                </span>

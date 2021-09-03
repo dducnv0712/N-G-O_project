@@ -19,6 +19,5 @@ class Volunteer extends Model
         "occupation",
         "messages",
         "approval",
-        'created_at'
     ];
 }

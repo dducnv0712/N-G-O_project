@@ -7,6 +7,7 @@ use App\Models\Contribution;
 use App\Models\Gallery;
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Volunteer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,10 +17,11 @@ class WebController extends Controller
 {
 
 
-    public function home(){
+    public function home(Request $request){
         $category = Category::withCount('Project')->where('active',0)->get();
         $posts = Project::where('active',0)->get();
         $contribution =Contribution::all();
+        $volunteer = Volunteer::where('approval',0)->get();
         $gallery = Gallery::where('active',0)->get();
         $amount_total = 0;
         foreach ($contribution as $item){
@@ -60,7 +62,8 @@ class WebController extends Controller
             'amount_total'=>$amount_total,
             'count_contribute'=>$count_contribute,
             'amount_important'=>$amount_important,
-            'gallery'=>$gallery
+            'gallery'=>$gallery,
+            'volunteer'=>$volunteer
 
         ]);
     }
@@ -92,24 +95,28 @@ class WebController extends Controller
         return view('pages.about');
     }
 
-    public function desc_post($id){
+    public function details_project($id){
         $contribution =Contribution::where('id_post',$id)->get();
         $contribution_list =Contribution::where('id_post',$id)->orderBy('created_at', 'desc')->paginate(6);
         $projects = Project::findOrFail($id);
         $project_list = Project::where('active',0)->get();
         $category = Category::withCount('Project')->where('active',0)->get();
+        $user = User::where('id',$projects->author)->get();
+
+//        dd(count($user));
         $amount = 0;
 
         foreach ($contribution as $item_contribution ){
             $amount += $item_contribution->contribute_amount;
         }
-        return view('pages.desc_post',[
+        return view('pages.details_project',[
             'projects'=>$projects,
             'contribution' =>$contribution,
             'contribution_list' =>$contribution_list,
             'category'=>$category,
             'project_list'=>$project_list,
-            'amount'=>$amount
+            'amount'=>$amount,
+            'user'=>$user
         ]);
     }
     public function contact(){

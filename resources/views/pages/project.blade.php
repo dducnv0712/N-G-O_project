@@ -1,4 +1,13 @@
 @extends('layout')
+@section('page_title')
+    @if(!$search == null)
+       {{__('Kết Quả Tìm Kiếm Cho')}} "{{$search ?? '' ?? ''}}"
+    @elseif(!$category == null)
+        {{__('Dự Án').' '.$category->name}}
+    @else
+        {{__('Tất Cả Dự Án')}}
+    @endif
+@endsection
 @section('main')
 
     <!--Page Header Start-->
@@ -52,7 +61,7 @@
                             <div class="causes-one__img">
                                 <div class="causes-one__img-box">
                                     <img style="max-height: 230px;" src="{{$item->getImage()}}" alt="">
-                                    <a href="{{url('/desc-post',['id'=>$item->id])}}">
+                                    <a href="{{url('/details-project',['id'=>$item->id])}}">
                                         <i class="fa fa-plus"></i>
                                     </a>
                                 </div>
@@ -74,7 +83,7 @@
                             </div>
                                     <div class="causes-one__content">
                                         <h3 class="causes-one__title">
-                                            <a href="{{url('/desc-post',['id'=>$item->id])}}">{{__($item->title)}}</a>
+                                            <a href="{{url('/details-project',['id'=>$item->id])}}">{{__($item->title)}}</a>
                                         </h3>
                                           <span class="causes-one__text">{!!__($item->description)!!}</span>
                                     </div>
@@ -111,7 +120,7 @@
                                         <div class="text-center">
                                             @if(!$item->contribute == null)
                                                 @if($amount/$item->contribute * 100 >= 100)
-                                                    <a href="{{url('/desc-post',['id'=>$item->id])}}" class="ms-0 causes-one__donate-btn mt-3"><i class="fas fa-arrow-circle-right me-2"></i>{{__('Xem Chi Tiết')}}</a>
+                                                    <a href="{{url('/details-project',['id'=>$item->id])}}" class="ms-0 causes-one__donate-btn mt-3"><i class="fas fa-arrow-circle-right me-2"></i>{{__('Xem Chi Tiết')}}</a>
                                                 @else
                                                     <a href="{{url('/donate',['id'=>$item->id])}}" class="ms-0 causes-one__donate-btn mt-3"><i class="fa fa-heart me-2"></i>{{__('Đóng Góp')}}</a>
                                                 @endif

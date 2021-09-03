@@ -81,34 +81,37 @@
 
                         <h4 class="font-weight-bold mb-0">{{__('Danh Sách Người Đã Đóng Góp Hôm Nay')}}</h4>
                     </div>
-                    <table class="table table-hover my-0">
-                        <thead>
+                    <div class="card-body">
+                        <table class="table table-hover my-0"  id="dataTable">
+                            <thead>
                             <tr>
                                 <th>{{__('Id')}}</th>
                                 <th>{{__('Họ và Tên')}}</th>
                                 <th>{{__('Email')}}</th>
                                 <th>{{__('Số Tiền Đóng Góp')}}</th>
-                                <th>{{__('Người Đóng Góp')}}</th>
+                                <th>{{__('Đối Tượng Đóng Góp')}}</th>
                                 <th>{{__('Ngày Đóng Góp')}}</th>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             @foreach($contribution as $item)
                                 @if($item->created_at->format('d-m-Y') == $now)
-                                <tr>
-                                    <td>{{$item->id}}</td>
-                                    <td>{{$item->given_name .' '. $item->surname}}</td>
-                                    <td>{{$item->email}}</td>
-                                    <td>@money($item->contribute_amount*22854)</td>
-                                    <td>{{$item->post->title}}</td>
-                                    <td>{{$item->created_at}}</td>
-                                </tr>
+                                    <tr>
+                                        <td>{{$item->id}}</td>
+                                        <td>{{$item->full_name}}</td>
+                                        <td>{{$item->email}}</td>
+                                        <td>@money($item->contribute_amount*22854)</td>
+                                        <td>{{$item->project->title}}</td>
+                                        <td>{{$item->created_at}}</td>
+                                    </tr>
                                 @endif
 
                             @endforeach
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
             </div>
 

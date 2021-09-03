@@ -1,4 +1,5 @@
 @extends('layout')
+@section('page_title',$projects->title)
 @section('main')
      <!--Page Header Start-->
      <section class="page-header">
@@ -91,7 +92,9 @@
                             <div class="causes-details__share-btn-box">
                                 <a href="{{url('/donate',['id'=>$projects->id])}}" class="causes-details__share-btn thm-btn"><i class="fas fa-arrow-circle-right"></i>Donate Now</a>
                             </div>
-
+                            <div id="fb-root"></div>
+                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=336217798195466&autoLogAppEvents=1" nonce="jlgxvfb0"></script>
+                            <div class="fb-share-button" data-href="{{asset('/desc-post/'.$projects->id)}}" data-layout="button" data-size="small"><a target="_blank" href="{{asset('/desc-post/'.$projects->id)}}" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
                             <div class="causes-details__share-social">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="#"><i class="fab fa-facebook-square"></i></a>
@@ -108,11 +111,18 @@
                     <div class="causes-details__right">
                         <div class="causes-details__organizer">
                             <div class="causes-details__organizer-img">
+                                @if(count($user) > 0 )
                                 <img src="{{$projects->auth->profile_photo_url}}" alt="">
+                                @else
+                                    <img src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612a3e2d901fdaa6c88c6ea0_Charity%20(1).png" alt="">
+                                @endif
                             </div>
                             <div class="causes-details__organizer-content">
-                                <p>{{$projects->created_at->format('F d, Y')}}</p>
-                                <h5>Organizer: <span>{{$projects->auth->name}}</span></h5>
+                                @if(count($user) > 0 )
+                                    <h5>Organizer: <span>{{$projects->auth->name}}</span></h5>
+                                @else
+                                    <h5>Organizer: <span>{{__('Thành Viên')}}</span></h5>
+                                @endif
                                 <ul class="causes-details__organizer-list list-unstyled">
                                     <li><i class="fas fa-map-marker-alt"></i>FPT Aptech</li>
                                     <li><i class="fas fa-map-marker-alt"></i>Hanoi, Vietnam</li>
@@ -120,7 +130,7 @@
                             </div>
                         </div>
                         <div class="causes-details__donations">
-                            <h3 class="causes-details__donations-title">Recent Donations</h3>
+                            <h3 class="causes-details__donations-title">{{__('Các Khoản Đóng Góp Gần Đây')}}</h3>
                             <ul class="list-unstyled causes-details__donations-list">
                                 @foreach($contribution_list as $item)
                                    <li>

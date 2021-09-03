@@ -389,7 +389,7 @@
                                 <tr>
                                     <td class="text-center">
                                         @if($button == false)
-                                            <a href="{{url('/volunteer-account-register/',['id'=>$volunteer->id])}}" class="btn btn-success text-center">Đăng Ký</a>
+                                            <a href="{{url('/volunteer-account-register',['id'=>$volunteer->id])}}" class="btn btn-success text-center">Đăng Ký</a>
                                         @else
                                             <a href="{{url('/volunteer-dashboard')}}" class="btn btn-success text-center">Dang Nhap</a>
                                         @endif

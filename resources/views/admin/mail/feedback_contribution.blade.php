@@ -334,12 +334,12 @@
                                         <div style="text-align:center" class="m-auto">
                                             <img style="width:170px;height:70px;object-fit:contain" src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612a3e0e2765f9278218accc_Charity.png" alt="logo">
                                         </div>
-
+                                        <hr>
+                                        <img  style="border-radius: 15px;" src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/6131990cecce33e169bea39c_v211batch11-auml-696-charity_2.jpg" alt="/">
                                         <h3 style="text-align: center;font-weight:600;">Hi {{$fullName}}!</h3>
-                                        <img src="https://znews-photo.zadn.vn/w660/Uploaded/qhj_dvoahficbu/2021_07_28/thum.jpg" alt="/">
                                         <h2 style="margin-top:10px; font-weight:bold;text-align: center">Thank you for joining our mission</h2>
                                         <p>Thank you for your donation. The whole team at organization truly appreciates it.</p><br/>
-                                        <p>Your donation will help us fund {{$posts -> title}}, và  improve the lives of those in need in the community.</p><br/>
+                                        <p>Your donation will help us fund "{{$projects -> title}}", and improve the lives of those in need in the community.</p><br/>
                                         <table border="0">
                                             <thead>
                                             <tr>

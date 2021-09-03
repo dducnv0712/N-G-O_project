@@ -18,6 +18,7 @@ class CreateTableGallery extends Migration
             $table->string("title");
             $table->string("image");
             $table->unsignedInteger("active")->default(1);
+            $table->unsignedInteger("author");
             $table->unsignedBigInteger("approval")->default(1);
             $table->timestamps();
         });

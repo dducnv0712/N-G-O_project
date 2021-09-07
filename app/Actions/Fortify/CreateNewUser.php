@@ -28,6 +28,7 @@ class CreateNewUser implements CreatesNewUsers
         ],[
             'name.required'=>'Name is required',
             'email.required'=>'Email is required',
+            'email.unique'=>'Email already exists',
             'password.required'=>'Password is required',
         ])->validate();
 

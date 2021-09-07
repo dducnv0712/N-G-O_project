@@ -15,7 +15,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+//    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,12 +66,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => 'postgres://tcbbkwuhietrgy:8197780e3a04d744c4c014caf02176a40d8d1087eb24af8a9fcb2775edab6b6b@ec2-44-198-80-194.compute-1.amazonaws.com:5432/d5gg2qfr4vq6la',//env('DATABASE_URL'),
+            'host' => 'ec2-44-198-80-194.compute-1.amazonaws.com',//env('DB_HOST', '127.0.0.1'),
+            'port' => '5432',//env('DB_PORT', '5432'),
+            'database' =>'d5gg2qfr4vq6la',// env('DB_DATABASE', 'forge'),
+            'username' => 'tcbbkwuhietrgy',//env('DB_USERNAME', 'forge'),
+            'password' => '8197780e3a04d744c4c014caf02176a40d8d1087eb24af8a9fcb2775edab6b6b',//env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

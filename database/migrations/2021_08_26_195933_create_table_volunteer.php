@@ -21,7 +21,7 @@ class CreateTableVolunteer extends Migration
             $table->string('phone')->unique();
             $table->string('office')->nullable();
             $table->string('education')->nullable();
-            $table->string('introduce')->nullable();
+            $table->text('introduce')->nullable();
             $table->text('address');
             $table->date('birthday');
             $table->string('occupation');

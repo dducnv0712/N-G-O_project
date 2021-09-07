@@ -48,19 +48,19 @@
                             </div>
                             <div class="mt-4">
                                 <label for="education"  >{{ __('Giáo Dục') }}</label>
-                                <input id="education" class="block mt-1 w-full form-control" type="text" name="education" value="{{$volunteer->education}}" required autocomplete="new-password" />
+                                <input id="education" class="block mt-1 w-full form-control" type="text" name="education" value="{{$volunteer->education}}" required />
                             </div>
                             <div class="mt-4">
                                 <label for="occupation"  >{{ __('Nghề Ngiệp') }}</label>
-                                <input id="occupation" class="block mt-1 w-full form-control" type="text" name="occupation" value="{{$volunteer->occupation}}" required autocomplete="new-password" />
+                                <input id="occupation" class="block mt-1 w-full form-control" type="text" name="occupation" value="{{$volunteer->occupation}}" required  />
                             </div>
                             <div class="mt-4">
                                 <label for="address"  >{{ __('Địa Chỉ') }}</label>
-                                <textarea id="address" class="block mt-1 w-full form-control" type="text" name="address"   required autocomplete="new-password" >{{$volunteer->address}}</textarea>
+                                <textarea id="address" class="block mt-1 w-full form-control" type="text" name="address"   required  >{{$volunteer->address}}</textarea>
                             </div>
                             <div class="mt-4">
                                 <label for="introduce"  >{{ __('Giới Thiệu Bản Thân') }}</label>
-                                <textarea id="introduce" class="block mt-1 w-full form-control" type="text" name="introduce" required autocomplete="new-password" ></textarea>
+                                <textarea id="introduce" class="block mt-1 w-full form-control" type="text" name="introduce" required ></textarea>
                             </div>
 
                             <div class="d-flex align-items-center justify-items-end mt-4">

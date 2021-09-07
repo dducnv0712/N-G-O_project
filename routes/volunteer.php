@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContributeController;
 use App\Http\Controllers\GalleryController;

@@ -180,15 +180,24 @@
         }
 
         .btn-primary table td {
-            background-color: #3498db;
+            background-color: #15c8a0;
         }
 
         .btn-primary a {
-            background-color: #3498db;
-            border-color: #3498db;
+            background-color: #15c8a0;
+            border-color: #15c8a0;
             color: #ffffff;
         }
 
+        .btn-info table td {
+            background-color: #016786;
+        }
+
+        .btn-info a {
+            background-color: #016786;
+            border-color: #016786;
+            color: #ffffff;
+        }
         /* -------------------------------------
             OTHER STYLES THAT MIGHT BE USEFUL
         ------------------------------------- */
@@ -293,11 +302,18 @@
                 line-height: inherit;
             }
             .btn-primary table td:hover {
-                background-color: #34495e !important;
+                background-color: #179b7e !important;
             }
             .btn-primary a:hover {
-                background-color: #34495e !important;
-                border-color: #34495e !important;
+                background-color: #179b7e !important;
+                border-color: #179b7e !important;
+            }
+            .btn-info table td:hover {
+                background-color: #02546d !important;
+            }
+            .btn-info a:hover {
+                background-color: #02546d !important;
+                border-color: #02546d !important;
             }
             .desc{
                 width:500px;
@@ -307,7 +323,7 @@
                 display: block;
                 display: -webkit-box;
                 text-overflow: ellipsis;
-                -webkit-line-clamp:5;
+                -webkit-line-clamp:4;
             }
         }
 
@@ -335,24 +351,36 @@
                                         </div>
                                         <hr>
                                         <h3 style="text-align: center;font-weight:600;">Recommended for {{$name}}</h3>
-                                        <img src="{{$post->getImage()}}" alt="/">
-                                        <h2 style="margin-top:10px; font-weight:bold;">{{$post -> title}}</h2>
+                                        <img src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/6136fc4274b7a9ab55f5523f_nucuoiam-1.jpg" alt="/">
+                                        <h2 style="margin-top:10px; font-weight:bold;text-align:center">{{$post -> title}}</h2>
                                         <span class="desc">{!! $post->description !!}</span>
-                                        <p><span style="font-weight:600">Can Dong Gop: </span>
+                                        <p><span style="font-weight:600">{{__('Cần Huy Động')}}: </span>
                                         @if($post->contribute == null)
                                             <span style="font-weight:600">Không Giới Hạn Đóng Góp</span>
                                         @else
                                              <span>@money($post->contribute*22854)</span>
                                         @endif
                                         </p>
-                                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                                        <div style="text-align: center">
+
+                                        </div>
+                                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" >
                                             <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0"  class="btn btn-info">
                                                         <tbody>
                                                         <tr>
-                                                            <td> <a href="{{asset('/details-project/'.$post->id)}}" target="_blank">Contribute Now</a> </td>
+                                                            <td> <a href="{{asset('/donate/'.$post->id)}}" target="_blank">{{__('Đóng Góp')}}</a> </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td align="right">
+                                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0"  class="btn btn-primary">
+                                                        <tbody>
+                                                        <tr style="text-align:right">
+                                                            <td> <a href="{{asset('/details-project/'.$post->id)}}" target="_blank">{{__('Xem Chi Tiết')}}</a> </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -360,6 +388,9 @@
                                             </tr>
                                             </tbody>
                                         </table>
+                                        <hr>
+                                        {{$now}}
+                                        
                                     </td>
                                 </tr>
                             </table>

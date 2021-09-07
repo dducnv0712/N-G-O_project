@@ -1,8 +1,4 @@
 
-
-
-
-
 <script src="{{asset('dist/assets/vendors/jquery/jquery-3.5.1.min.js')}}"></script>
 {{-- <script src="{{asset('dist/assets/vendors/bootstrap/js/bootstrap.bundle.min.js')}}"></script> --}}
 <script src="{{asset('dist/bootstrap-5/js/bootstrap.bundle.min.js')}}"></script>
@@ -27,7 +23,6 @@
 <script src="{{ mix('js/app.js') }}" defer></script>
 @livewireScripts
 <script type="text/javascript" src="{{asset('/dist/sweetalert/sweetalert.min.js')}}"></script>
-
 <!-- template js -->
 <script src="{{asset('dist/assets/js/halpes.js')}}"></script>
 
@@ -47,7 +42,6 @@
                     "x-rapidapi-key": "b217454f29msh62227c96e1f73a5p1e41b6jsna9b89492d343"
                 }
             };
-
             $.ajax(settings).done(function (response) {
                 var status =response.status;
 
@@ -60,7 +54,6 @@
                         data:{name:name,email:email,_token:_token},
                         success:function (data){
                             swal("Hey, Đăng Ký Thành Công!!","Nhấn Vào Nút Bên Dưới Để Tiếp Tục!!","success")
-
                         },
                         error:function (data){
                             sweetAlert("Oops...","Sai Thông Tin Hoặc Email Đã Được Đăng Ký!!","error")

@@ -41,6 +41,7 @@ class MailNewsLetterController extends Controller
         $mail_news = MailNews::all();
 
         $post_send = Project::findOrFail($id);
+        $now = Carbon::now('asia/Ho_Chi_Minh')->format('F d,Y');
 
         if ($post_send->approval == 0) {
             foreach ($mail_news as $mail_n) {
@@ -49,7 +50,8 @@ class MailNewsLetterController extends Controller
 
                 Mail::send('admin.mail.mail_news', [
                     'name' => $mail_name,
-                    'post' => $post_send
+                    'post' => $post_send,
+                    'now'=>$now
 
                 ], function ($message) use ($mail) {
                     $message->to($mail)->subject('Non-governmental Organizations');

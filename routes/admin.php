@@ -1,6 +1,4 @@
 <?php
-
-
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MailNewsLetterController;
@@ -40,9 +38,6 @@ Route::middleware(["auth","admin"])->group(function (){
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
     //.Project Controllers
-
-
-
 
     //Category
     Route::get('/category',[CategoryController::class,"all"]);
@@ -87,15 +82,6 @@ Route::middleware(["auth","admin"])->group(function (){
     Route::group(['prefix' => '/gallery/project-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
-    //Sponsor
-    Route::get('/sponsor',[SponsorController::class,"all"]);
-    Route::post('/sponsor/save',[SponsorController::class,"save"]);
-    Route::get('/sponsor/active/{id}',[SponsorController::class,"active"]);
-    Route::delete('/sponsor/delete/{id}',[SponsorController::class,"delete"]);
-    Route::group(['prefix' => '/sponsor/project-filemanager'], function () {
-        \UniSharp\LaravelFilemanager\Lfm::routes();
-    });
-
 });
 
 

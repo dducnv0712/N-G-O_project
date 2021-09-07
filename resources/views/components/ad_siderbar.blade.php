@@ -1,5 +1,5 @@
 <nav id="sidebar" class="sidebar">
-    @if(Auth::user()->role == 'USER')
+    @if(Auth::user()->role == 'ADMIN')
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="{{asset('/admin')}}">
                 <span class="align-middle fw-normal">Admin <span class="fw-bold">N.G.O</span></span>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContributeController;
 use App\Http\Controllers\SponsorController;
-Route::middleware(["auth"])->group(function (){
+Route::middleware(["auth","admin"])->group(function (){
     Route::get('/',[AdminController::class,"admin"]);
     Route::get('/profile',[AdminController::class,"profile"]);
 

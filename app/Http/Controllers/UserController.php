@@ -21,5 +21,12 @@ class UserController extends Controller
             ]);
             return redirect()->to("admin/user");
     }
+    public function delete($id){
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->to("admin/user");
+
+
+    }
 }
 

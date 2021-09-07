@@ -26,7 +26,6 @@
                         <th style="width:15%">{{__('Ngày Khởi Tạo')}}</th>
                         <th style="width:15%">{{__('Ngày Cập Nhật')}}</th>
                         <th style="width:15%">{{__('Xóa tài khoản')}}</th>
-                        <th style="width:15%">{{__('Khóa tài khoản')}}</th>
                         <th style="width:15%">{{__('Phân quyền')}}</th>
                     </tr>
                     </thead>
@@ -42,12 +41,7 @@
                             <td>{{$item->updated_at->format('d-m-Y')}}</td>
                             <td>
                                 <div class="text-center">
-                                    <a><i class="align-middle text-danger" data-feather="trash"></i></a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="text-center">
-                                    <a><i class="align-middle text-success" data-feather="unlock"></i></a>
+                                    <a href="{{asset('/admin/user/active',['id'=>$item->id])}}"><i class="align-middle text-danger" data-feather="trash"></i></a>
                                 </div>
                             </td>
                             <td class="table-action">

@@ -55,8 +55,18 @@
                         <p class="footer-widget__newsletter-text">Lorem ipsum dolor sit ame consect etur pisicing elit sed do.</p>
                         <form class="footer-widget__newsletter-form">
                             @csrf
-                            <input id="fullName" type="text" class="mb-2 nameSub" name="name" placeholder="{{__('Tên Của Bạn')}}" >
-                            <input id="email" type="email" name="emailSub" class="emailSub" placeholder="{{__('Email Của Bạn')}}">
+                            <input id="fullName" type="text" class="mb-2 nameSub" name="name" placeholder="{{__('Tên Của Bạn')}}" required>
+                            @error("qty")
+                            <script>
+                                sweetAlert("Lỗi thông tin !","{{$message}}!!","error")
+                            </script>
+                            @enderror
+                            <input id="email" type="email" name="emailSub" class="emailSub" placeholder="{{__('Email Của Bạn')}}" required>
+                            @error("email")
+                            <script>
+                                sweetAlert("Lỗi thông tin !","{{$message}}!!","error")
+                            </script>
+                            @enderror
                             <button id="send-mail" type="button" class="footer-widget__newsletter-btn mt-2"><i class="fas fa-arrow-circle-right"></i>{{__('Đăng Ký')}}</button>
                         </form>
 

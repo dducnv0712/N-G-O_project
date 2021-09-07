@@ -21,6 +21,15 @@ class MailNewsLetterController extends Controller
 
     //
     public function subMail(Request $request){
+
+        $request->validate([
+            "name"=>"required",
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:mails_news'],
+        ],[
+            "name.required"=>"Vui lòng nhập tên",
+            "email.required"=>"Vui lòng nhập email",
+            "email.unique"=>"Email này đã được đăng ký"
+        ]);
         MailNews::create([
             'name'=>$request->get("name"),
             'email'=>$request->get("email"),

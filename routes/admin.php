@@ -55,6 +55,8 @@ Route::middleware(["auth","admin"])->group(function (){
     //user controller
     Route::get('/user',[UserController::class,"user"]);
     Route::post('/user/update/{id}',[UserController::class,"update"]);
+    Route::post('/user/delete/{id}',[UserController::class,"delete"]);
+    Route::post('/user/active/{id}',[UserController::class,"active"]);
     //.user controller
 
 

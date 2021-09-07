@@ -22,6 +22,8 @@ class VolunteerController extends Controller
         ]);
     }
     public function save(Request $request){
+
+        try {
         Volunteer::create([
             'approval'=>0,
             'image'=>$request->get('image'),
@@ -36,10 +38,14 @@ class VolunteerController extends Controller
             'introduce'=>$request->get('introduce')
         ]);
         return redirect()->to('/admin/volunteer');
+        }catch (\Exception $e){
+            abort(404);
+        }
 
     }
     public function update(Request $request,$id){
         $volunteer = Volunteer::findOrFail($id);
+        try {
         $volunteer->update([
             'image'=>$request->get('image'),
             'name'=>$request->get('name'),
@@ -53,12 +59,17 @@ class VolunteerController extends Controller
             'introduce'=>$request->get('introduce')
         ]);
         return redirect()->to('/admin/volunteer');
-
+        }catch (\Exception $e){
+            abort(404);
+        }
     }
     public function delete($id){
+        try {
         $volunteer = Volunteer::findOrFail($id);
         $volunteer->delete();
-
+        }catch (\Exception $e){
+            abort(404);
+        }
     }
     public function important($id){
         $volunteer = Volunteer::findOrFail($id);

@@ -20,6 +20,7 @@
                              :root {
                                 --thm-font: 'Nunito', sans-serif;
                                 --thm-reey-font: 'Allison', cursive;
+                                 --thm-reey-font-2: 'reeyregular';
                                 --thm-gray: #707876;
                                 --thm-gray-rgb: 112, 120, 118;
                                 --thm-primary: #15c8a0;
@@ -1619,13 +1620,13 @@
                             }
 
                             .main-slider p {
-                                font-size: 40px;
+                                font-size: 50px;
                                 color: #ffffff;
                                 font-family: var(--thm-reey-font);
                                 font-weight: 400;
                                 margin: 0;
                                 line-height: 50px;
-                                margin-bottom: 19px;
+                                margin-bottom: 10px;
                                 opacity: 0;
                                 transform: translateY(100px);
                                 transition-delay: 2500ms;
@@ -1633,8 +1634,7 @@
                             }
 
                             .main-slider h2 {
-                                margin: 0;
-                                margin-bottom: 37px;
+                                margin-bottom: 60px;
                                 color: #fff;
                                 font-weight: 900;
                                 opacity: 0;
@@ -1642,14 +1642,15 @@
                                 transform: translateY(120px);
                                 transition-delay: 1000ms;
                                 transition: transform 2000ms ease, opacity 2000ms ease;
-                                font-size: 110px;
-                                line-height: 120px;
+                                font-size: 60px;
+                                line-height: 100px;
                             }
 
                             .main-slider .thm-btn {
                                 font-size: 18px;
                                 font-weight: 800;
                                 padding: 20px 48px;
+                                margin-bottom:20px;
                                 opacity: 0;
                                 transform: translateY(100px);
                                 transition-delay: 2500ms;
@@ -4419,7 +4420,7 @@
                             .counter-one__single {
                                 position: relative;
                                 display: inline-block;
-                                max-width: 284px;
+                                max-width: 385px;
                                 width: 100%;
                                 text-align: center;
                             }
@@ -4440,14 +4441,14 @@
 
                             .counter-one__single h3 {
                                 color: var(--thm-primary);
-                                font-size: 50px;
+                                font-size: 40px;
                                 font-weight: 900;
                                 font-family: var(--thm-font) !important;
                             }
 
                             .counter-one__letter {
                                 color: var(--thm-primary);
-                                font-size: 50px;
+                                font-size: 20px;
                                 font-weight: 900;
                                 vertical-align: middle;
                             }
@@ -5120,7 +5121,7 @@
                             .team-one {
                                 position: relative;
                                 display: block;
-                                padding: 100px 0 70px;
+                                padding: 100px 0 55px;
                             }
 
                             .team-one .section-title {
@@ -5139,48 +5140,61 @@
 
                             .team-one__img-box {
                                 position: relative;
-                                display: block;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
                             }
 
                             .team-one__img {
+                                width:250px;
+                                height:250px;
                                 position: relative;
                                 display: block;
-                                background-color: var(--thm-black);
+                                text-align: center;
+                                object-position:center;
                             }
 
                             .team-one__img>img {
                                 width: 100%;
+                                height:100%;
+                                object-fit: cover;
                                 mix-blend-mode: luminosity;
-                                transition: 500ms ease;
+                                transition: 700ms ease;
                             }
 
                             .team-one__single:hover .team-one__img>img {
                                 mix-blend-mode: normal;
                             }
 
-                            .team-one__member-name {
-                                position: absolute;
-                                right: 20px;
-                                bottom: -34px;
-                            }
+                            /*.team-one__member-name {*/
+                            /*    position: absolute;*/
+                            /*    right: -20px;*/
+                            /*    bottom: -30px;*/
+                            /*}*/
 
                             .team-one__member-name h2 {
-                                font-size: 50px;
+                                font-size: 25px;
                                 color: var(--thm-primary);
-                                font-weight: 400;
-                                font-family: var(--thm-reey-font);
+                                font-weight: 600;
+                                font-family: var(--thm-font);
                             }
 
                             .team-one__content {
                                 position: relative;
                                 display: block;
-                                margin-top: 53px;
+                                margin-top: 20px;
                                 margin-bottom: 20px;
                             }
 
                             .team-one__member-title {
                                 font-size: 20px;
-                                font-weight: 800;
+                                font-weight: 700;
+                                line-height: 30px;
+                            }
+                            .team-one__member-sub {
+                                font-size: 15px;
+                                color: #a9a8a8;
+                                font-weight: 600;
                                 line-height: 30px;
                             }
 
@@ -5610,6 +5624,11 @@
 
                             .causes-details__img-box>img {
                                 width: 100%;
+                                height: 550px;
+                                object-fit:cover;
+                                display: block;
+
+
                             }
 
                             .causes-details__active {
@@ -7096,6 +7115,8 @@
 
                             .gallery-page__img-box img {
                                 width: 100%;
+                                height:250px;
+                                object-fit: cover;
                                 -webkit-transform: scale(1);
                                 transform: scale(1);
                                 -webkit-transition: opacity 500ms ease, -webkit-transform 500ms ease;
@@ -7402,6 +7423,9 @@
                                 color:white;
 
                             }
+                            .nav-link.thm-btn.active{
+                                background: var(--thm-black);
+                            }
                             /*.loader-donate {*/
                             /*    overflow: hidden;*/
                             /*    width: 100%;*/
@@ -7441,3 +7465,12 @@
 
                             /*}*/
 
+                            .relative.pagination{
+                                background:var(--thm-primary);
+                                color:var(--thm-primary);
+                                font-weight:600;
+                            }
+                            /*.relative.pagination:{*/
+                            /*    background:var(--thm-primary);*/
+                            /*    color:fff;*/
+                            /*}*/

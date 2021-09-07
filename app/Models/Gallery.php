@@ -14,6 +14,10 @@ class Gallery extends Model
         'image',
         'active',
         'author',
-        'approval'
+        'approval',
+        "category_id"
     ];
+    public function Category(){
+        return $this->belongsTo(Category::class);
+    }
 }

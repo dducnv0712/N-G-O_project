@@ -25,10 +25,9 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="main-slider__content">
-                                <p>Helping Them Today</p>
-                                <h2>Help the Poor <br> in Need</h2>
-                                <a href="#" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
-                                    More</a>
+                                <p>{{__('Sứ Mệnh')}}</p>
+                                <h2>{{__('Vì Một Cuộc Sống Tốt Đẹp Hơn Cho Mọi Người')}}</h2>
+                                <a href="{{asset('/about')}}" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Xem Thêm')}}</a>
 {{--                                <div class="main-slider__shape-1 zoom-fade">--}}
 {{--                                    <img src="https://quybongsen.org/wp-content/uploads/2018/06/bannerkid.jpg" alt="">--}}
 {{--                              </div>--}}
@@ -46,10 +45,9 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="main-slider__content">
-                                <p>Helping Them Today</p>
-                                <h2>Help the Poor <br> in Need</h2>
-                                <a href="#" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
-                                    More</a>
+                                <p>{{'Trách Nhiệm'}}</p>
+                                <h2>{{__('Giúp Đỡ Những Người Có Hoàn Cảnh Khó Khăn')}}</h2>
+                                <a href="{{asset('/donate')}}" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Đóng Góp')}}</a>
 {{--                                <div class="main-slider__shape-1 zoom-fade">--}}
 {{--                                    <img src="https://i-english.vnecdn.net/2018/04/06/muusinhgiaretVnExpress13-15229-5121-4772-1522987407_r_680x408.jpg" alt="">--}}
 {{--                                </div>--}}
@@ -67,10 +65,9 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="main-slider__content">
-                                <p>Helping Them Today</p>
-                                <h2>Help the Poor <br> in Need</h2>
-                                <a href="#" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
-                                    More</a>
+                                <p>{{__('Lan Tỏa')}}</p>
+                                <h2>{{__('Truyền Cảm Hứng Mạnh Mẽ Tới Toàn Xã Hội')}}</h2>
+                                <a href="{{asset('/become-a-volunteer')}}" class="thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Trở Thành Tình Nguyện Viên')}}</a>
 {{--                                <div class="main-slider__shape-1 zoom-fade">--}}
 {{--                                    <img src="assets/images/shapes/main-slider-1-shape-1.png" alt="">--}}
 {{--                                </div>--}}
@@ -213,7 +210,7 @@
                         <h2 class="section-title__title">{{__($item->name)}}</h2>
                         <div class="text-center ">
                             <a href="{{url('/project',['id'=>$item->id])}}" class="btn-sm thm-btn mt-4 mb-3"><i class="fas fa-arrow-circle-right"></i>
-                                {{__('Xem Thêm Về Dự Án')}}
+                                {{__('Xem Thêm')}}
                                 </a>
                         </div>
                     </div>
@@ -336,9 +333,8 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="join-one__inner">
-                    <h2 class="join-one__title">Join the community to give <br> education for children</h2>
-                    <a href="#" class="join-one__btn thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn
-                        More</a>
+                    <h2 class="join-one__title">{!! __('Tham gia cộng đồng và <br> cùng thực các sứ mệnh với chúng tôi')  !!}</h2>
+                    <a href="{{url('/become-a-volunteer')}}" class="join-one__btn thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Trở Thành Tình Nguyện Viên')}}</a>
                 </div>
             </div>
         </div>
@@ -353,48 +349,48 @@
         <div class="row">
             <div class="col-xl-4">
                 <!--Three Boxes Single-->
-                <div class="three-boxes__single">
-                    <div class="three-boxes__single-bg" style="background-image: url(assets/images/resources/three-boxes-img-1.jpg)"></div>
+                <div style="height:359px"  class="three-boxes__single">
+                    <div class="three-boxes__single-bg" style="background-image: url('https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/61324044a5913ce984d79676_123151_28.jpg')"></div>
                     <div class="three-boxes__content">
                         <div class="three-boxes__icon">
-                            <span class="icon-fast-food"></span>
+                            <span class="icon-heart"></span>
                         </div>
                         <div class="three-boxes__text-box">
-                            <h2>Healthy Food</h2>
+                            <h2>{{__('Chến Dịch Gây Qũy')}}</h2>
                             <p class="three-boxes__text">Lorem ipsum is simply free text available amet, consectetuer adipiscing elit. There are not many passages of ipsum.</p>
-                            <a href="#" class="three-boxes__btn"><i class="fa fa-heart"></i>Donate </a>
+{{--                            <a href="#" class="three-boxes__btn"><i class="fa fa-heart"></i>Donate </a>--}}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-4">
                 <!--Three Boxes Single-->
-                <div class="three-boxes__single three-boxes__single-item-two">
-                    <div class="three-boxes__single-bg" style="background-image: url(assets/images/resources/three-boxes-img-1.jpg)"></div>
-                    <div class="three-boxes__content">
-                        <div class="three-boxes__icon">
-                            <span class="icon-water"></span>
-                        </div>
-                        <div class="three-boxes__text-box">
-                            <h2>Clean Water</h2>
-                            <p class="three-boxes__text">Lorem ipsum is simply free text available amet, consectetuer adipiscing elit. There are not many passages of ipsum.</p>
-                            <a href="#" class="three-boxes__btn"><i class="fa fa-heart"></i>Donate </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4">
-                <!--Three Boxes Single-->
-                <div class="three-boxes__single three-boxes__single-item-three">
-                    <div class="three-boxes__single-bg" style="background-image: url(assets/images/resources/three-boxes-img-1.jpg)"></div>
+                <div style="height:359px"  class="three-boxes__single three-boxes__single-item-two">
+                    <div class="three-boxes__single-bg" style="background-image: url('https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/61323f96a4515b3913710f60_images.jpeg')"></div>
                     <div class="three-boxes__content">
                         <div class="three-boxes__icon">
                             <span class="icon-health-check"></span>
                         </div>
                         <div class="three-boxes__text-box">
-                            <h2>Medical Treatment</h2>
+                            <h2>{{__('Trợ Giúp Y Tế')}}</h2>
                             <p class="three-boxes__text">Lorem ipsum is simply free text available amet, consectetuer adipiscing elit. There are not many passages of ipsum.</p>
-                            <a href="#" class="three-boxes__btn"><i class="fa fa-heart"></i>Donate </a>
+{{--                            <a href="#" class="three-boxes__btn"><i class="fa fa-heart"></i>Donate </a>--}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <!--Three Boxes Single-->
+                <div style="height:359px" class="three-boxes__single three-boxes__single-item-three">
+                    <div class="three-boxes__single-bg" style="background-image: url('https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/61323fa72518f26e295c8754_Photo-Intro-blog-Vietnam-project.jpg')"></div>
+                    <div class="three-boxes__content">
+                        <div class="three-boxes__icon">
+                            <span class="icon-adoption"></span>
+                        </div>
+                        <div class="three-boxes__text-box">
+                            <h2>{{__('Đưa Trẻ Em Đến Trường')}}</h2>
+                            <p class="three-boxes__text">Lorem ipsum is simply free text available amet, consectetuer adipiscing elit. There are not many passages of ipsum.</p>
+{{--                            <a href="#" class="three-boxes__btn"><i class="fa fa-heart"></i>Donate </a>--}}
                         </div>
                     </div>
                 </div>
@@ -406,64 +402,6 @@
 
 
 
-<!--Gallery One Start-->
-<section class="gallery-one mt-5">
-    <div class="gallery-one__container-box clearfix">
-        <div class="gallery-one__carousel owl-theme owl-carousel">
-            <!--Gallery One Single-->
-            <div class="gallery-one__single">
-                <div class="gallery-one__img-box">
-                    <img src="assets/images/gallery/gallery-1-1.jpg" alt="">
-                    <div class="gallery-one__hover-content-box">
-                        <h2>Child Education</h2>
-                        <p>Charity</p>
-                    </div>
-                </div>
-            </div>
-            <!--Gallery One Single-->
-            <div class="gallery-one__single">
-                <div class="gallery-one__img-box">
-                    <img src="assets/images/gallery/gallery-1-2.jpg" alt="">
-                    <div class="gallery-one__hover-content-box">
-                        <h2>Child Education</h2>
-                        <p>Charity</p>
-                    </div>
-                </div>
-            </div>
-            <!--Gallery One Single-->
-            <div class="gallery-one__single">
-                <div class="gallery-one__img-box">
-                    <img src="assets/images/gallery/gallery-1-3.jpg" alt="">
-                    <div class="gallery-one__hover-content-box">
-                        <h2>Child Education</h2>
-                        <p>Charity</p>
-                    </div>
-                </div>
-            </div>
-            <!--Gallery One Single-->
-            <div class="gallery-one__single">
-                <div class="gallery-one__img-box">
-                    <img src="assets/images/gallery/gallery-1-4.jpg" alt="">
-                    <div class="gallery-one__hover-content-box">
-                        <h2>Child Education</h2>
-                        <p>Charity</p>
-                    </div>
-                </div>
-            </div>
-            <!--Gallery One Single-->
-            <div class="gallery-one__single">
-                <div class="gallery-one__img-box">
-                    <img src="assets/images/gallery/gallery-1-5.jpg" alt="">
-                    <div class="gallery-one__hover-content-box">
-                        <h2>Child Education</h2>
-                        <p>Charity</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--Gallery One End-->
 
 <!--Testimonial One Start-->
 <section class="testimonial-one">
@@ -474,7 +412,9 @@
                 <div class="testimonial-one__left">
                     <div class="section-title text-left">
                         <span class="section-title__tagline">{{__('Thư Viện Ảnh')}}</span>
-                        <h2 class="section-title__title">{{__('Viết Gì Ở Đây Được?')}}</h2>
+                        <h2 class="section-title__title">{{__('Xem Thêm Các Hình Ảnh Khác')}}</h2>
+                        <a style="position:absolute" href="{{asset('/gallery')}}" class="three-boxes__btn"><i class="fas fa-arrow-circle-right"></i>{{__('Xem Thêm')}} </a>
+
                     </div>
                 </div>
             </div>
@@ -519,12 +459,6 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="brand-one__carousel owl-theme owl-carousel">
-                    <!--Brand One Single-->
-                    <div class="brand-one__single">
-                        <div class="brand-one__img">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Vietnam_Television_logo_from_2013.svg/663px-Vietnam_Television_logo_from_2013.svg.png" alt="VTV">
-                        </div>
-                    </div>
                     <!--Brand One Single-->
                     <div class="brand-one__single">
                         <div class="brand-one__img">

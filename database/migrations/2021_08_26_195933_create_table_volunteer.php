@@ -16,12 +16,16 @@ class CreateTableVolunteer extends Migration
         Schema::create('volunteers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('email')->unique();
             $table->string('phone')->unique();
+            $table->string('office')->nullable();
+            $table->string('education')->nullable();
+            $table->string('introduce')->nullable();
             $table->text('address');
             $table->date('birthday');
             $table->string('occupation');
+            $table->unsignedInteger('important')->default(1);
             $table->unsignedInteger('approval')->default(1);
             $table->text('messages');
             $table->timestamps();

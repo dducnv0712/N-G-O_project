@@ -3,7 +3,7 @@
 @section('main')
        <!--Page Header Start-->
        <section class="page-header">
-        <div class="page-header__bg" style="background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fminhhagroup.com%2F2017%2F11%2F25%2Fchung-tay-giup-do-tre-em-vung-cao%2F&psig=AOvVaw30GOPwJuUmJzWprteEK-mw&ust=1630053224555000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKC669GjzvICFQAAAAAdAAAAABBI');"></div>
+        <div class="page-header__bg" style="background-image: url('{{asset('/dist/img/photos/nu-cuoi-am-crop.jpg')}}');background-position:bottom"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             <h2>{{__('Đóng Góp')}}</h2>
@@ -20,47 +20,49 @@
     <section class="helping-one">
         <div class="container">
             <div class="section-title text-center">
-                <span class="section-title__tagline">Latest Causes</span>
-                <h2 class="section-title__title">Find the popular cause <br> and donate them</h2>
+                <span class="section-title__tagline">{{__('Đóng Góp')}}</span>
+                <h2 class="section-title__title">{!! __('Hãy chung tay cùng chúng tôi vì <br> một cuộc sống và tương lai tốt đẹp hơn') !!}</h2>
             </div>
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="helping-one__left">
-                        <h3 class="helping-one__title">We’re Helping Today. Helping Tommorow</h3>
-                        <p class="helping-one__text">There are many variations of passages of available but the majority have suffered alteration in some form, by injected humou or randomised words even slightly believable. All the Lorem Ipsum generators on the Internet tend.</p>
-                        <ul class="helping-one__left-list list-unstyled">
-                            <li>
-                                <div class="helping-one__left-icon">
-                                    <i class="fas fa-arrow-circle-right"></i>
+                        <div class="accordion mt-3" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        {{__('Visa Debit Card')}}
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p><span>{{__('Tên tài khoản')}}</span>: {{__('Tổ Chức Phi Chính Phủ')}}</p><br/>
+                                        <p><span>{{__('Số tài khoản')}}</span>: 2516531165325256</p><br/>
+                                        <p><span>{{__('Ngân hàng')}}</span>: Ngan Hang AAA</p>
+                                    </div>
                                 </div>
-                                <div class="helping-one__left-text">
-                                    <p>Making this the first true generator on the Internet</p>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        {{__('Mastercard Office')}}
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p><span>{{__('Tên tài khoản')}}</span>: {{__('Tổ Chức Phi Chính Phủ')}}</p><br/>
+                                        <p><span>{{__('Số tài khoản')}}</span>: 4242455545545554</p><br/>
+                                        <p><span>{{__('Ngân hàng')}}</span>: Ngan Hang BBB</p>
+                                    </div>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="helping-one__left-icon">
-                                    <i class="fas fa-arrow-circle-right"></i>
-                                </div>
-                                <div class="helping-one__left-text">
-                                    <p>Lorem Ipsum is not simply random text</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="helping-one__left-icon">
-                                    <i class="fas fa-arrow-circle-right"></i>
-                                </div>
-                                <div class="helping-one__left-text">
-                                    <p>If you are going to use a passage</p>
-                                </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
+                        <br>
                         <div class="helping-one__left-img">
                             <img src="https://minhhagroup.com/wp-content/uploads/2017/11/1.jpg" alt="">
                             <div class="helping-one__left-icon-box">
                                 <span class="icon-heart"></span>
                             </div>
-                        </div>
-                    </div>
+                        </div></div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="helping-one__right">

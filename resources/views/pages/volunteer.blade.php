@@ -4,14 +4,14 @@
 @section('main')
     <!--Page Header Start-->
     <section class="page-header">
-        <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+        <div class="page-header__bg" style="background-image: url('{{asset('/dist/img/photos/nucuoiam.jpg')}}'); filter: grayscale(100%);background-position: top;"></div>
         <!-- /.page-header__bg -->
         <div class="container">
-            <h2>Volunteers</h2>
+            <h2>{{__('Danh Sách Tình Nguyện Viên')}}</h2>
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{asset('/')}}">{{__('Trang Chủ')}}</a></li>
                 <li class="color-thm-gray">/</li>
-                <li><span>Volunteers</span></li>
+                <li><span>{{__('Danh Sách Tình Nguyện Viên')}}</span></li>
             </ul>
         </div>
     </section>
@@ -20,146 +20,105 @@
     <!--Team One Start-->
     <section class="team-one team-page">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-lg-4">
-                    <!--Team One Single-->
-                    <div class="team-one__single">
-                        <div class="team-one__img-box">
-                            <div class="team-one__img">
-                                <img src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.6435-9/176977528_1437981319886917_1428565255894080850_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-0wPebr3j3AAX91FTtZ&_nc_ht=scontent.fhan14-1.fna&oh=8443339b6626212578a2bedf60474c98&oe=614F109D" alt="">
+            <table class="table" id="table-contribute">
+                <thead>
+                <tr>
+                    <th scope="col">{{__('STT')}}</th>
+                    <th>{{__('Họ và Tên')}}</th>
+                    <th>{{__('Chức Vụ')}}</th>
+                    <th>{{__('Nghề Nghiệp')}}</th>
+                    <th>{{__('Ngày Tham Gia')}}</th>
+                    <th>{{__('Chi Tiết')}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($volunteer as $item)
+                    <tr>
+                        <th scope="row">{{$loop->index+1}}</th>
+                        <td>{{$item->name}}</td>
+                        <td>{{__('Tình Nguyện Viên')}}</td>
+                        <td>{{$item->occupation}}</td>
+                        <td>{{$item->created_at->format('F d, Y')}}</td>
+                        <td>
+                            <div class="text-center">
+                                <a class="details-contributor" title="{{__('Chi Tiết')}}" data-bs-toggle="modal" data-bs-target="#details-{{$item->id}}">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
                             </div>
-                            <div class="team-one__member-name">
-                                <h2>Đức</h2>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="details-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body" id="contribute-details">
+                                            <div class="m-auto mb-4">
+                                                <img class="m-auto" style="width:200px;height:100px;object-fit:contain" src="{{asset('dist/assets/images/resources/Charity.png')}}" alt="">
+                                            </div>
+
+                                            <div style="background-color:#eff5f4" class="card mt-3">
+
+                                                <div  class="card-body ">
+                                                    <h1 class="font-weight-bold text-center">{{__('Chi Tiết Tình Nguyện Viên')}}</h1>
+                                                    <div class="container mt-5">
+                                                        <div class="m-auto mb-4">
+                                                            <img class="m-auto" style="width:200px;height:200px;object-fit:cover;border-radius:50%" src="{{$item->image}}" alt="">
+                                                        </div>
+                                                        <div class="d-flex justify-content-center row">
+                                                            <div class="col-md-12">
+                                                                <div class="p-3] rounded">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="billed"><span class="font-weight-bold">{{__('Họ và Tên')}}: </span><span class="fw-normal"> {{$item->name}}</span></div>
+                                                                            <div class="billed"><span class="font-weight-bold ">{{__('Chức Vụ')}}: </span><span class="fw-normal"> {{__($item->office)}}</span></div>
+                                                                            <div class="billed"><span class="font-weight-bold">{{__('Nghề Nghiệp')}}:</span><span class="fw-normal"> {{__($item->occupation)}}</span></div>
+                                                                            <div class="billed"><span class="font-weight-bold">{{__('Giáo Dục')}}:</span><span class="fw-normal"> {{__($item->education)}}</span></div>
+                                                                            <div class="billed"><span class="font-weight-bold">{{__('Tuổi')}}:</span><span class="fw-normal"> {{\Carbon\Carbon::parse($item->birthday)->diff(\Carbon\Carbon::now())->y}}</span></div>
+                                                                            <div class="billed"><span class="font-weight-bold">{{__('Ngày Tham Gia')}}:</span><span class="fw-normal"> {{$item->created_at->format('d-m-Y')}}</span></div>
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="mt-3">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td class="border-0 mt-4"  colspan="2">{{__('Mô Tả Bản Thân: ')}}<span class="fw-normal">{{__($item->introduce)}}</span></td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                            <table class="table">
+                                                                                <tbody>
+                                                                                <tr>
+                                                                                    <td class="border-0 mt-4"  colspan="2">{{__('Lời Nhắn Khi Tham Gia: ')}}<span class="fw-normal">{{__($item->messages)}}</span></td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('Đóng')}}</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="team-one__content">
-                            <h4 class="team-one__member-title">Volunteer</h4>
-                            <p class="team-one__text-box">There are many of lorem ipsum available but the have in some form.</p>
-                        </div>
-                        <div class="team-one__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4">
-                    <!--Team One Single-->
-                    <div class="team-one__single">
-                        <div class="team-one__img-box">
-                            <div class="team-one__img">
-                                <img src="assets/images/team/team-page-img-2.jpg" alt="">
-                            </div>
-                            <div class="team-one__member-name">
-                                <h2>David</h2>
-                            </div>
-                        </div>
-                        <div class="team-one__content">
-                            <h4 class="team-one__member-title">Volunteer</h4>
-                            <p class="team-one__text-box">There are many of lorem ipsum available but the have in some form.</p>
-                        </div>
-                        <div class="team-one__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4">
-                    <!--Team One Single-->
-                    <div class="team-one__single">
-                        <div class="team-one__img-box">
-                            <div class="team-one__img">
-                                <img src="assets/images/team/team-page-img-3.jpg" alt="">
-                            </div>
-                            <div class="team-one__member-name">
-                                <h2>Sarah</h2>
-                            </div>
-                        </div>
-                        <div class="team-one__content">
-                            <h4 class="team-one__member-title">Volunteer</h4>
-                            <p class="team-one__text-box">There are many of lorem ipsum available but the have in some form.</p>
-                        </div>
-                        <div class="team-one__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4">
-                    <!--Team One Single-->
-                    <div class="team-one__single">
-                        <div class="team-one__img-box">
-                            <div class="team-one__img">
-                                <img src="assets/images/team/team-page-img-4.jpg" alt="">
-                            </div>
-                            <div class="team-one__member-name">
-                                <h2>Albert</h2>
-                            </div>
-                        </div>
-                        <div class="team-one__content">
-                            <h4 class="team-one__member-title">Volunteer</h4>
-                            <p class="team-one__text-box">There are many of lorem ipsum available but the have in some form.</p>
-                        </div>
-                        <div class="team-one__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4">
-                    <!--Team One Single-->
-                    <div class="team-one__single">
-                        <div class="team-one__img-box">
-                            <div class="team-one__img">
-                                <img src="assets/images/team/team-page-img-5.jpg" alt="">
-                            </div>
-                            <div class="team-one__member-name">
-                                <h2>Hallen</h2>
-                            </div>
-                        </div>
-                        <div class="team-one__content">
-                            <h4 class="team-one__member-title">Volunteer</h4>
-                            <p class="team-one__text-box">There are many of lorem ipsum available but the have in some form.</p>
-                        </div>
-                        <div class="team-one__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4">
-                    <!--Team One Single-->
-                    <div class="team-one__single">
-                        <div class="team-one__img-box">
-                            <div class="team-one__img">
-                                <img src="assets/images/team/team-page-img-6.jpg" alt="">
-                            </div>
-                            <div class="team-one__member-name">
-                                <h2>Pitter</h2>
-                            </div>
-                        </div>
-                        <div class="team-one__content">
-                            <h4 class="team-one__member-title">Volunteer</h4>
-                            <p class="team-one__text-box">There are many of lorem ipsum available but the have in some form.</p>
-                        </div>
-                        <div class="team-one__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </section>
     <!--Team One End-->
@@ -171,13 +130,11 @@
                 <div class="col-xl-12">
                     <div class="become-volunteer__inner">
                         <div class="become-volunteer__left">
-                            <h2>Join your hand with us for <br> a better life and future</h2>
-                            <div class="become-volunteer__big-text">
-                                <h2>Become a Volunteers</h2>
-                            </div>
+                            <h2>{!! __('Hãy chung tay cùng chúng tôi <br> vì một cuộc sống và tương <br> lai tốt đẹp hơn') !!}</h2>
+
                         </div>
                         <div class="become-volunteer__btn-box">
-                            <a href="#" class="become-volunteer__btn thm-btn"><i class="fas fa-arrow-circle-right"></i>Learn More</a>
+                            <a href="{{asset('/become-a-volunteer')}}" class="become-volunteer__btn thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Trở Thành Tình Nguyện Viên')}}</a>
                         </div>
                     </div>
                 </div>

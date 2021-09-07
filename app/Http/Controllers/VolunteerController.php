@@ -21,6 +21,60 @@ class VolunteerController extends Controller
             "volunteer" => $volunteer
         ]);
     }
+    public function save(Request $request){
+        Volunteer::create([
+            'approval'=>0,
+            'image'=>$request->get('image'),
+            'name'=>$request->get('name'),
+            'email'=>$request->get('email'),
+            'phone'=>$request->get('phone'),
+            'office'=>$request->get('office'),
+            'birthday'=>$request->get('date'),
+            'occupation'=>$request->get('occupation'),
+            'education'=>$request->get('education'),
+            'address'=>$request->get('address'),
+            'introduce'=>$request->get('introduce')
+        ]);
+        return redirect()->to('/admin/volunteer');
+
+    }
+    public function update(Request $request,$id){
+        $volunteer = Volunteer::findOrFail($id);
+        $volunteer->update([
+            'image'=>$request->get('image'),
+            'name'=>$request->get('name'),
+            'email'=>$request->get('email'),
+            'phone'=>$request->get('phone'),
+            'office'=>$request->get('office'),
+            'birthday'=>$request->get('date'),
+            'occupation'=>$request->get('occupation'),
+            'education'=>$request->get('education'),
+            'address'=>$request->get('address'),
+            'introduce'=>$request->get('introduce')
+        ]);
+        return redirect()->to('/admin/volunteer');
+
+    }
+    public function delete($id){
+        $volunteer = Volunteer::findOrFail($id);
+        $volunteer->delete();
+
+    }
+    public function important($id){
+        $volunteer = Volunteer::findOrFail($id);
+        if($volunteer->important == 0){
+            $volunteer-> update([
+                "important" => 1
+            ]);
+        }else{
+            $volunteer-> update([
+                "important" => 0
+            ]);
+        }
+        return redirect()->to('/admin/volunteer');
+
+
+    }
     public function register(Request $request){
         $mail = $request['email'];
         $name = $request['name'];
@@ -54,6 +108,7 @@ class VolunteerController extends Controller
         }
         $now = Carbon::now('asia/Ho_Chi_Minh')->format('F d,Y');
         $volunteer -> update(['approval' => 0]);
+        $volunteer_join_date = now('asia/Ho_Chi_Minh');
 
         $mail = $volunteer->email;
         Mail::send('admin.mail.confirm_admit_volunteer',[
@@ -67,7 +122,7 @@ class VolunteerController extends Controller
 
         });
         if (!$user == null && $volunteer->approval == 0){
-            $user -> update(['role'=>'VOLUNTEER' ,'name'=>$volunteer->name]);
+            $user -> update(['role'=>'VOLUNTEER' ,'name'=>$volunteer->name,'created_at'=>$volunteer_join_date]);
         }
         return redirect()->to('/admin/volunteer');
 
@@ -113,10 +168,36 @@ class VolunteerController extends Controller
                 'role' => 'VOLUNTEER',
                 'password' => Hash::make($request['password']),
             ]);
-             return redirect()->to('/volunteer-dashboard');
+             return redirect()->to('/volunteer-update-info/'.$volunteer->id);
 
 
 
+    }
+    public function update_info($id){
+        $volunteer = Volunteer::findOrFail($id);
+        if($volunteer->approval == 0){
+            return view('admin.ad_page.volunteer.volunteer_update_info',[
+                'volunteer' => $volunteer
+            ]);
+        }
+        return abort(404);
+    }
+    public function info_save(Request $request,$id){
+        $volunteer = Volunteer::findOrFail($id);
+
+        if($volunteer->approval == 0){
+            $volunteer->update([
+                'image'=>$request->get('image'),
+                'education'=>$request->get('education'),
+                'occupation'=>$request->get('occupation'),
+                'address'=>$request->get('address'),
+                'introduce'=>$request->get('introduce')
+
+            ]);
+            return redirect()->to('/volunteer-dashboard');
+
+        }
+        return abort(404);
     }
 
 

@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function all(){
-        $categories = Category::all();
+        $categories = Category::withCount(["Project","Gallery"])->get();
+
         return view("admin.ad_page.category.cate_list",[
             "categories" => $categories
         ]);

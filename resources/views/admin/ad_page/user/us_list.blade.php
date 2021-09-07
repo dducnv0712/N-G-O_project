@@ -4,7 +4,7 @@
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
-                <h3><strong>{{__('Danh Sách: ')}}</strong> Người Dùng</h3>
+                <h3><strong>{{__('Danh Sách: ')}}</strong> {{__('Người Dùng')}}</h3>
             </div>
 
             <div class="col-auto ml-auto text-right mt-n1">
@@ -25,6 +25,8 @@
                         <th class="d-none d-md-table-cell" style="width:10%">{{__('Vai Trò')}}</th>
                         <th style="width:15%">{{__('Ngày Khởi Tạo')}}</th>
                         <th style="width:15%">{{__('Ngày Cập Nhật')}}</th>
+                        <th style="width:15%">{{__('Xóa tài khoản')}}</th>
+                        <th style="width:15%">{{__('Khóa tài khoản')}}</th>
                         <th style="width:15%">{{__('Phân quyền')}}</th>
                     </tr>
                     </thead>
@@ -38,6 +40,16 @@
                             <td>{{$item->role}}</td>
                             <td>{{$item->created_at->format('d-m-Y')}}</td>
                             <td>{{$item->updated_at->format('d-m-Y')}}</td>
+                            <td>
+                                <div class="text-center">
+                                    <a><i class="align-middle text-danger" data-feather="trash"></i></a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    <a><i class="align-middle text-success" data-feather="unlock"></i></a>
+                                </div>
+                            </td>
                             <td class="table-action">
                                 <!-- Modal -->
                                 <div class="modal fade" id="edit-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

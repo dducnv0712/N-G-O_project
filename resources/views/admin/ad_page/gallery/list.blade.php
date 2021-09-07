@@ -127,6 +127,14 @@
                                     <input id="title" type="text" name="title" class="form-control nameCate rounded-3" required>
                                 </div>
                                 <div class="mb-3">
+                                    <label for="category" class="form-label fw-bold">{{__('Thể Loại')}}</label>
+                                    <select id="category" name="category" class="form-select" >
+                                        @foreach($category as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3">
 
                                     <div id="holder-gallery" class="photo-preview mb-3">
                                         <i class="fas fa-image"></i>
@@ -210,6 +218,14 @@
                                                             <input id="title" value="{{$item->title}}" type="text" name="title" class="form-control nameCate rounded-3" required>
                                                         </div>
                                                         <div class="mb-3">
+                                                            <label for="category" class="form-label fw-bold">{{__('Thể Loại')}}</label>
+                                                            <select id="category" name="category" class="form-select" >
+                                                                @foreach($category as $item_cate)
+                                                                    <option @if($item_cate->id == $item->category_id) selected @endif value="{{$item->id}}">{{$item->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
 
                                                             <div id="holder" class="photo-preview mb-3">
                                                                 <i class="fas fa-image"></i>
@@ -260,7 +276,15 @@
                                     <div class="mb-3">
                                         <label for="title" class="form-label fw-bold">{{__('Tiêu Đề')}}</label>
 
-                                        <input id="title" type="text" name="title" class="form-control nameCate rounded-3" required>
+                                        <input id="title" type="text" name="title" class="form-control  rounded-3" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="category" class="form-label fw-bold">{{__('Thể Loại')}}</label>
+                                        <select id="category" name="category" class="form-select" >
+                                            @foreach($category as $item)
+                                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="mb-3">
 

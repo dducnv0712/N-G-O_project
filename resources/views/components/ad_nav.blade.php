@@ -37,11 +37,7 @@
                     <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="avatar img-fluid rounded mr-1"  /> <span class="text-dark">{{Auth::user()->name}}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i> Analytics</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="pages-settings.html"><i class="align-middle mr-1" data-feather="settings"></i> Settings & Privacy</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> Help Center</a>
+                    <a class="dropdown-item" href="{{__('/profile')}}"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-item">
                         <form method="POST" action="{{ route('logout') }}">

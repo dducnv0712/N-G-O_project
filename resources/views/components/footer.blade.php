@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                     <div class="footer-widget__column footer-widget__newsletter">
-                        <h3 class="footer-widget__title">Newsletter</h3>
+                        <h3 class="footer-widget__title">{{__('Đăng Kí Nhận Tin')}}</h3>
                         <p class="footer-widget__newsletter-text">Lorem ipsum dolor sit ame consect etur pisicing elit sed do.</p>
                         <form class="footer-widget__newsletter-form">
                             @csrf

@@ -1,7 +1,7 @@
 @extends('layout')
 @section('page_title')
     @if(!$search == null)
-       {{__('Kết Quả Tìm Kiếm Cho')}} "{{$search ?? '' ?? ''}}"
+       {{__('Kết Quả Tìm Kiếm Cho')}} "{{$search}}"
     @elseif(!$category == null)
         {{__('Dự Án').' '.$category->name}}
     @else
@@ -17,7 +17,7 @@
         <!-- /.page-header__bg -->
         <div class="container">
             @if(!$search == null)
-                <h2>{{__('Khoảng').' '.count($projects).' '.__('Kết Quả Tìm Kiếm Cho')}}:<br>"<span class="text-danger text-center">{{$search ?? '' ?? ''}}</span>"</h2>
+                <h2>{{__('Khoảng').' '.count($projects).' '.__('Kết Quả Tìm Kiếm Cho')}}:<br>"<span class="text-danger text-center">{{$search}}</span>"</h2>
             @elseif(!$category == null)
                 <h2>{{__('Dự Án').' '.$category->name}}</h2>
                 @else
@@ -134,8 +134,9 @@
                     </div>
                     @endforeach
             </div>
+            <div class="text-right">
+                {!! $projects->appends(request()->input())->links("vendor.pagination.tailwind") !!}
+            </div>
         </div>
     </section>
-
-
 @endsection

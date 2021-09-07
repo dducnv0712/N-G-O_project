@@ -19,7 +19,7 @@ class CreateTableProject extends Migration
             $table->unsignedBigInteger("author");
             $table->unsignedBigInteger("approval")->default(1);
             $table->string('title');
-            $table->decimal("contribute",14,2)->default(0);
+            $table->decimal("contribute",14,2)->default(0)->nullable();
             $table->unsignedInteger('active')->default(1);
             $table->unsignedInteger('important')->default(1);
             $table->unsignedInteger('send_mail')->default(1);
@@ -27,7 +27,9 @@ class CreateTableProject extends Migration
             $table->text("content");
             $table->unsignedBigInteger("category_id");
             $table->timestamps();
-            $table->foreign("category_id")->references("id")->on("categories");;
+            $table->foreign("category_id")->references("id")->on("categories");
+            $table->foreign("author")->references("id")->on("users");;
+
 
 
         });

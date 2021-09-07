@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Gallery;
 
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ class GalleryController extends Controller
 {
     //user website
     public function gallery(){
-        $gallery = Gallery::where('active',0)->get();
+        $gallery = Gallery::where('active',0)->paginate('9');
+        $category = Category::where('active',0)->get();
         return view('pages.gallery',[
             'gallery' => $gallery
         ]);
@@ -20,8 +22,10 @@ class GalleryController extends Controller
     //admin
     public function all(){
         $gallery = Gallery::all();
+        $category = Category::where('active',0)->get();
         return view('admin.ad_page.gallery.list',[
-            'gallery'=>$gallery
+            'gallery'=>$gallery,
+            'category'=>$category
         ]);
     }
 
@@ -31,6 +35,7 @@ class GalleryController extends Controller
            Gallery::create([
                'title'=>$request->get('title'),
                'image'=>$request->get('image'),
+               'category_id'=>$request->get('category'),
                'author'=>$author
 
            ]);

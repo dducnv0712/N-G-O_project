@@ -28,6 +28,9 @@
                         <th scope="col">{{__('STT')}}</th>
                         <th>{{__('ID')}}</th>
                         <th>{{__('Tên Thể Loại')}}</th>
+                        <th>{{__('Số Dự Án')}}</th>
+                        <th>{{__('Số Ảnh')}}</th>
+                        <th>{{__('Tên Thể Loại')}}</th>
                         <th>{{__('Ngày Khởi Tạo')}}</th>
                         <th>{{__('Ngày Cập Nhật')}}</th>
                         <th>{{__('Hiển Thị')}}</th>
@@ -39,6 +42,9 @@
                         <tr>
                              <td scope="row" >{{$loop->index+1}}</td>
                             <td>{{$item->id}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->project_count}}</td>
+                            <td>{{$item->gallery_count}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->created_at->format('d-m-Y')}}</td>
                             <td>{{$item->updated_at->format('d-m-Y')}}</td>
@@ -95,6 +101,8 @@
             <div class="modal-content">
                 <form >
                     @csrf
+
+
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>

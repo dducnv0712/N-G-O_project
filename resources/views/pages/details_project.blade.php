@@ -3,7 +3,7 @@
 @section('main')
      <!--Page Header Start-->
      <section class="page-header">
-        <div class="page-header__bg" style="background-image: url('{{$projects->getImage()}}'); filter: grayscale(100%);background-position: center;background-attachment: fixed"></div>
+        <div class="page-header__bg" style="background-image: url('{{asset($projects->getImage())}}'); filter: grayscale(100%);background-position: center;background-attachment: fixed"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             <h2>{{__('Chi Tiết Dự Án')}}</h2>
@@ -32,16 +32,16 @@
                                 @if(!$projects->contribute == null)
                                     @if($amount/$projects->contribute * 100 >= 100)
                                         <div class="causes-details__active">
-                                            <span>Đã Hoàn Thành</span>
+                                            <span>{{__('Đã Hoàn Thành')}}</span>
                                         </div>
                                     @else
                                         <div class="causes-details__inactive">
-                                            <span>Đang Hoạt Động</span>
+                                            <span>{{__('Đang Hoạt Động')}}</span>
                                         </div>
                                     @endif
                                 @else
                                     <div class="causes-details__inactive">
-                                        <span>Đang Hoạt Động</span>
+                                        <span>{{__('Đang Hoạt Động')}}</span>
                                     </div>
                                 @endif
                             </div>
@@ -62,17 +62,17 @@
                                 </div>
                                 @endif
                                 <div class="causes-details__goals">
-                                    <p>Cần Huy Động: <span>@money($projects->contribute*22854)</span></p>
+                                    <p>{{__('Cần Huy Động')}}: <span>@money($projects->contribute*22854)</span></p>
                                 </div>
                                 <div class="causes-details__goals">
-                                    <p>Đã Góp Được: <span>@money($amount*22854)</span></p>
+                                    <p>{{__('Đã Góp Được')}}: <span>@money($amount*22854)</span></p>
                                 </div>
                             @else
                             <div class="causes-details__goals">
-                                <p>Cần Huy Động:<span>Không Giới Hạn</span></p>
+                                <p>{{__('Cần Huy Động')}}: <span>{{__('Không Giới Hạn')}}</span></p>
                             </div>
                             <div class="causes-details__goals">
-                                <p>Đã Góp Được:<span>@money($amount*22854)</span>l</p>
+                                <p>{{__('Đã Góp Được')}}: <span>@money($amount*22854)</span></p>
                             </div>
 
                             @endif
@@ -90,16 +90,11 @@
 
                         <div class="causes-details__share">
                             <div class="causes-details__share-btn-box">
-                                <a href="{{url('/donate',['id'=>$projects->id])}}" class="causes-details__share-btn thm-btn"><i class="fas fa-arrow-circle-right"></i>Donate Now</a>
+                                <a href="{{url('/donate',['id'=>$projects->id])}}" class="causes-details__share-btn thm-btn"><i class="fas fa-arrow-circle-right"></i>{{__('Đóng Góp')}}</a>
                             </div>
-                            <div id="fb-root"></div>
-                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=336217798195466&autoLogAppEvents=1" nonce="jlgxvfb0"></script>
-                            <div class="fb-share-button" data-href="{{asset('/desc-post/'.$projects->id)}}" data-layout="button" data-size="small"><a target="_blank" href="{{asset('/desc-post/'.$projects->id)}}" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
                             <div class="causes-details__share-social">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="#"><i class="fab fa-facebook-square"></i></a>
-                                <a href="#"><i class="fab fa-dribbble"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
 
@@ -119,9 +114,9 @@
                             </div>
                             <div class="causes-details__organizer-content">
                                 @if(count($user) > 0 )
-                                    <h5>Organizer: <span>{{$projects->auth->name}}</span></h5>
+                                    <h5>{{__("Người Kêu Gọi")}}: <span>{{$projects->auth->name}}</span></h5>
                                 @else
-                                    <h5>Organizer: <span>{{__('Thành Viên')}}</span></h5>
+                                    <h5>{{__("Người Kêu Gọi")}}: <span>{{__('Thành Viên')}}</span></h5>
                                 @endif
                                 <ul class="causes-details__organizer-list list-unstyled">
                                     <li><i class="fas fa-map-marker-alt"></i>FPT Aptech</li>

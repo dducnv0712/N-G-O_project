@@ -13,7 +13,7 @@
                         @if(Auth::user()->role == 'ADMIN')
                             <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('/admin/projects/add')}}">{{__('Thêm Dự Án')}}</a></li>
                         @else
-                            <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('/author/projects/add')}}">{{__('Thêm Dự Án')}}</a></li>
+                            <li class="breadcrumb-item"><a class="btn btn-primary" href="{{url('/volunteer-dashboard/projects/add')}}">{{__('Thêm Dự Án')}}</a></li>
                         @endif
                     </ol>
                 </nav>

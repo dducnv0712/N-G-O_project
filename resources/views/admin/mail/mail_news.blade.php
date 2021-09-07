@@ -333,6 +333,7 @@
                                         <div style="text-align:center" class="m-auto">
                                             <img style="width:170px;height:70px;object-fit:contain" src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/612a3e0e2765f9278218accc_Charity.png" alt="logo">
                                         </div>
+                                        <hr>
                                         <h3 style="text-align: center;font-weight:600;">Recommended for {{$name}}</h3>
                                         <img src="{{$post->getImage()}}" alt="/">
                                         <h2 style="margin-top:10px; font-weight:bold;">{{$post -> title}}</h2>
@@ -351,7 +352,7 @@
                                                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td> <a href="{{asset('/desc-post/'.$post->id)}}" target="_blank">Contribute Now</a> </td>
+                                                            <td> <a href="{{asset('/details-project/'.$post->id)}}" target="_blank">Contribute Now</a> </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>

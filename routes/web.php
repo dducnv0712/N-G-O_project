@@ -49,6 +49,8 @@ Route::get('/volunteer',[WebController::class,"volunteer"]);
 Route::post('/register-volunteer',[VolunteerController::class,"register"]);
 Route::get('/volunteer-account-register/{id}',[VolunteerController::class,"acc_register"]);
 Route::post('/volunteer-account-save/{id}',[VolunteerController::class,"acc_save"]);
+Route::get('/volunteer-update-info/{id}',[VolunteerController::class,"update_info"]);
+
 
 
 

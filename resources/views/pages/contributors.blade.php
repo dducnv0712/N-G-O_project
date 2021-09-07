@@ -41,8 +41,8 @@
                     <td>
                         <div class="text-center">
                               <a class="details-contributor" title="{{__('Chi Tiết')}}" data-bs-toggle="modal" data-bs-target="#details-{{$item->id}}">
-                            <i class="fas fa-info-circle"></i>
-                        </a>
+                             <i class="fas fa-info-circle"></i>
+                             </a>
                         </div>
 
                         <!-- Modal -->
@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" id="download-pdf" class="btn btn-danger"><i class="fas fa-file-pdf me-2"></i>Download PDF</button>
+{{--                                        <button type="button" id="download-pdf" class="btn btn-danger"><i class="fas fa-file-pdf me-2"></i>Download PDF</button>--}}
 
                                     </div>
                                 </div>

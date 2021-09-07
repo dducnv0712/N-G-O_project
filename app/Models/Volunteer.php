@@ -15,9 +15,13 @@ class Volunteer extends Model
         "email",
         "phone",
         "address",
+        "office",
+        "education",
+        "introduce",
         "birthday",
         "occupation",
         "messages",
         "approval",
+        "important"
     ];
 }

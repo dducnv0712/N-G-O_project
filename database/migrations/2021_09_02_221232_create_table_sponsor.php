@@ -18,7 +18,6 @@ class CreateTableSponsor extends Migration
             $table->string("title");
             $table->string("image");
             $table->unsignedInteger("active")->default(1);
-            $table->unsignedBigInteger("approval")->default(1);
             $table->timestamps();
         });
     }

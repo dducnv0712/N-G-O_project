@@ -71,6 +71,10 @@ Route::middleware(["auth","admin"])->group(function (){
     Route::get('/volunteer',[VolunteerController::class,"all"]);
     Route::get('/volunteer/admit/{id}',[VolunteerController::class,"admit"]);
     Route::post('/volunteer/refuse/{id}',[VolunteerController::class,"refuse"]);
+    Route::get('/volunteer/important/{id}',[VolunteerController::class,"important"]);
+    Route::delete('/volunteer/delete/{id}',[VolunteerController::class,"delete"]);
+    Route::post('/volunteer/save',[VolunteerController::class,"save"]);
+    Route::post('/volunteer/update/{id}',[VolunteerController::class,"update"]);
 
     //gallery
     Route::get('/gallery',[GalleryController::class,"all"]);

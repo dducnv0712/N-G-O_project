@@ -77,7 +77,6 @@
                         <i class="align-middle fas fa-tasks"></i> <span class="align-middle">{{__('Quản Lý Các Trang')}}</span>
                     </a>
                     <ul id="about" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">About</a></li>
                         <li class="sidebar-item"><a class="sidebar-link" href="{{asset('/admin/gallery')}}">{{__('Thư Viện Ảnh')}}</a></li>
                         <li class="sidebar-item"><a class="sidebar-link" id="file-manager" data-input="thumbnail" data-preview="holder" >{{__('Quản Lý Tệp')}}</a></li>
                     </ul>

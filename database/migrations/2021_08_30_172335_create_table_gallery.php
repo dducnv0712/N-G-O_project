@@ -20,7 +20,10 @@ class CreateTableGallery extends Migration
             $table->unsignedInteger("active")->default(1);
             $table->unsignedInteger("author");
             $table->unsignedBigInteger("approval")->default(1);
+            $table->unsignedBigInteger("category_id");
             $table->timestamps();
+            $table->foreign("category_id")->references("id")->on("categories");;
+
         });
     }
 

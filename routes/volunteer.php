@@ -5,6 +5,7 @@ use App\Http\Controllers\ContributeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MailNewsLetterController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\VolunteerController;
 use Illuminate\Support\Facades\Route;
 Route::middleware(["auth","volunteer"])->group(function (){
 Route::get('/',[AdminController::class,"admin"]);
@@ -28,11 +29,13 @@ Route::delete('/gallery/delete/{id}',[GalleryController::class,"delete"]);
 Route::get('/gallery/active/{id}',[GalleryController::class,"active"]);
 //contribution controller
     Route::get('/contribution',[ContributeController::class,"all"]);
+//info save
+    Route::post('/volunteer-info-save/{id}',[VolunteerController::class,"info_save"]);
 
-    Route::group(['prefix' => 'project-filemanager', 'middleware' => ['web', 'auth']], function () {
+    Route::group(['prefix' => 'project-filemanager'] ,function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
-    Route::group(['prefix' => 'project-filemanager', 'middleware' => ['web', 'auth']], function () {
+    Route::group(['prefix' => 'project-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
 });

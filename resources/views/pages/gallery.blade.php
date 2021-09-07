@@ -41,6 +41,8 @@
                 @endforeach
 
             </div>
+            {!! $gallery->appends(request()->input())->links("vendor.pagination.tailwind") !!}
+
         </div>
     </section>
     <!--Gallery page End-->

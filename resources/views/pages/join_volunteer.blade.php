@@ -20,8 +20,8 @@
     <section class="become-volunteer-page">
         <div class="container">
             <div class="section-title text-center">
-                <span class="section-title__tagline">Register Now</span>
-                <h2 class="section-title__title">Let’s join our community to <br> become a volunteer</h2>
+                <span class="section-title__tagline">{{__('Đăng Ký Tình Nguyện ')}}</span>
+                <h2 class="section-title__title">{!! __('Hãy nhập thông tin bên dưới <br> để gia cộng đồng của chúng tôi') !!}</h2>
             </div>
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
@@ -29,7 +29,7 @@
                         <div class="become-volunteer-page__img">
                             <img src="{{asset('/dist/img/photos/nucuoiam.jpg')}}" alt="">
                         </div>
-                        <h3 class="become-volunteer-page__title">Requirements</h3>
+                        <h3 class="become-volunteer-page__title">{{__('Quy Tăc Ứng Sử Cho Thành Viên')}}</h3>
                         <p class="become-volunteer-page__text">Aliquam hendrerit a augue insu image pellentes que id erat quis sollicitud null mattis Ipsum is simply dummy typesetting industry. Alienum phaedrum torquatos nec eu, vis detraxit periculis ex, nihil expetendis in meifn pericula euripidis, hinc partem ei est. Eos ei nisl graecis, aperiri consequat anlorem tincidun.</p>
                         <ul class="become-volunteer-page__list list-unstyled">
                             <li>
@@ -37,7 +37,7 @@
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </div>
                                 <div class="text">
-                                    <p>Making this first true generator simply text</p>
+                                    <p>{{__(' Tuân thủ sự quản lý nhà nước của các cơ quan có thẩm quyền.')}}</p>
                                 </div>
                             </li>
                             <li>
@@ -45,7 +45,7 @@
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </div>
                                 <div class="text">
-                                    <p>Many desktop publish packages nothing</p>
+                                    <p>{{__('Minh bạch thông tin')}}</p>
                                 </div>
                             </li>
                             <li>
@@ -53,7 +53,7 @@
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </div>
                                 <div class="text">
-                                    <p>Lorem Ipsum is not simply free text</p>
+                                    <p>{{__('Kính trọng và biết ơn các nhà hảo tâm với lòng không phân biệt')}}</p>
                                 </div>
                             </li>
                             <li>
@@ -61,15 +61,7 @@
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </div>
                                 <div class="text">
-                                    <p>If you are going to passage</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fas fa-arrow-circle-right"></i>
-                                </div>
-                                <div class="text">
-                                    <p>It has roots in a piece</p>
+                                    <p>{{__('Đối với người thụ hưởng: cần yêu thương và trân trọng')}}</p>
                                 </div>
                             </li>
                         </ul>

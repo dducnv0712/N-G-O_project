@@ -72,7 +72,7 @@
 <div class="preloader">
     <img class="preloader__image" width="90" src="{{asset('dist/assets/images/Charity (1).png')}}" alt="" />
 </div>
-<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+<a href="javascript:void(0)" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
     <x-script></x-script>
 </body>
 </html>

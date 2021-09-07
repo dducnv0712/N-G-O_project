@@ -16,5 +16,8 @@ class Category extends Model
     public function Project(){
         return $this->hasMany(Project::class);
     }
+    public function Gallery(){
+        return $this->hasMany(Gallery::class);
+    }
 }
 

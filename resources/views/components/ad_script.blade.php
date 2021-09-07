@@ -1,5 +1,5 @@
 <script src="{{asset('dist/jquery/jquery-3.4.1.min.js')}}"></script>
-{{--<script src="{{asset('dist/bootstrap-5/js/bootstrap.min.js')}}"></script>--}}
+<script src="https://npmcdn.com/flatpickr@4.6.9/dist/l10n/vn.js"></script>
 <script src="{{asset('dist/bootstrap-5/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('js/admin.js')}}"></script>
 <script src="{{asset('dist/src/js/modules/vector-map.js')}}"></script>
@@ -396,6 +396,59 @@
                 }
             });
     }
+    //delete volunteer
+    function deleteVolunteer(id){
+        swal({
+                title: "{{__('Bạn Có Chắc Không?')}}",
+                text: "{{__('Bạn sẽ không thể khôi phục lại được!!')}}",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: '{{__('Đồng Ý!!')}}',
+                cancelButtonText: "{{__('Hủy Bỏ!!')}}",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm){
+
+                if (isConfirm){
+
+                    $.ajax({
+                        url:"{{url('admin/volunteer/delete')}}"+'/'+id,
+                        type:'DELETE',
+                        data:{"_token": "{{ csrf_token() }}"},
+                        beforeSend: function () {
+                            swal({
+                                title: '<div class="spinner-border text-primary" role="status"></div><br/> <span class="text-center">Loading...</span> ',
+                                html: "loading",
+                                showCancelButton: false,
+                                showConfirmButton: false
+                            });
+                        },
+                        success:function (data){
+                            swal({
+                                type: 'success',
+                                title: '{{__('Xóa Thành Công!!')}}',
+                                text: '{{__('Nhấn vào nút để tiếp tục !!')}}',
+                                confirmButtonColor:true,
+                            },function (isConfirm){
+                                if(isConfirm){
+                                    location.reload();
+                                }
+                            });
+
+                        },
+                        error:function (data){
+                            // console.log(this.url)
+                            sweetAlert("Oops...","Something went wrong !!","error")
+                        }
+                    });
+
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+    }
     // send mail
     function sendMailPost(id){
         swal({
@@ -498,6 +551,16 @@
     $('#projects-upload-volunteer').filemanager('image');
         var posts_prefix = "/volunteer-dashboard/projects/project-filemanager-volunteer";
     $('#projects-upload-volunteer').filemanager('image', {prefix_volunteer: posts_prefix});
+
+</script>
+<script type="text/javascript">
+    function imageVolunteer(id){
+        $('#projects-upload-volunteer-'+id).filemanager('image');
+        var posts_prefix = "/volunteer-dashboard/projects/project-filemanager-volunteer";
+        $('#projects-upload-volunteer-'+id).filemanager('image', {prefix_volunteer: posts_prefix});
+    }
+
+
 
 </script>
 

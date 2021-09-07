@@ -382,8 +382,11 @@
                                         <p>Thân Gửi: {{$volunteer->name}}</p><br/>
 
                                         <p>Chúng tôi rất vui mừng thông báo bạn đã trở thành tình nguyện viên và tham gia sứ mệnh cùng chúng tôi. Sau khi đã xét duyệt thông tin và có cuộc trò chuyện cùng với bạn qua Google Meet , chúng tôi thấy bạn là một người nhiệt huyết, thú vị và đầy đủ phẩm chất của một tình nguyện viên.</p><br>
+                                        @if($button == false)
                                         <p>Chúng tôi cung cấp cho bạn tài khoản để có thể sử dụng hệ thống của tổ chức và cập nhật các thông tin về các trường hợp cần giúp đỡ, hãy nhấn vào nút bên dưới để hoàn thành thủ tục đăng ký.</p>
-
+                                        @else
+                                            <p>Chúng tôi xét duyệt thấy bạn đã có tài khoản, hãy nhấn vào đăng nhập để hoàn thành thủ tục.</p>
+                                        @endif
                                     </td>
                                 </tr>
                                 <tr>
@@ -391,7 +394,7 @@
                                         @if($button == false)
                                             <a href="{{url('/volunteer-account-register',['id'=>$volunteer->id])}}" class="btn btn-success text-center">Đăng Ký</a>
                                         @else
-                                            <a href="{{url('/volunteer-dashboard')}}" class="btn btn-success text-center">Dang Nhap</a>
+                                            <a href="{{url('/volunteer-dashboard')}}" class="btn btn-success text-center">Đăng Nhập</a>
                                         @endif
                                     </td>
                                 </tr>

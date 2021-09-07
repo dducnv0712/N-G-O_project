@@ -70,6 +70,6 @@
     </div>
 
 </div>
- <script src="{{asset('')}}dist/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="{{asset('dist/assets/vendors/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 </body>
 </html>

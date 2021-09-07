@@ -79,7 +79,7 @@
                                 </div>
                                 @if($item->id == Auth::user()->id)
                                     <div class="text-center">
-                                    <span class="badge bg-success">you</span>
+                                        <a data-bs-toggle="modal" data-bs-target="#edit-{{$item->id}}"><i class="align-middle " data-feather="edit-2"></i></a>
                                     </div>
                                 @else
                                     <div class="text-center">

@@ -127,7 +127,7 @@
                             </div>
                             <div class="main-menu__phone-number">
                                 <p>{{__('Gọi mọi lúc')}}</p>
-                                <a href="tel:92 666 888 0000">92 666 888 0000</a>
+                                <a href="tel:92 666 888 0000">92 666 888</a>
                             </div>
                         </div>
                         <a href="{{url('/donate')}}" class="main-menu__donate-btn"><i class="fa fa-heart"></i>{{__('Đóng Góp')}}</a>

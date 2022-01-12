@@ -354,6 +354,7 @@
                                         <img src="https://uploads-ssl.webflow.com/612a3d9cd9c35344a2460d68/6136fc4274b7a9ab55f5523f_nucuoiam-1.jpg" alt="/">
                                         <h2 style="margin-top:10px; font-weight:bold;text-align:center">{{$post -> title}}</h2>
                                         <span class="desc">{!! $post->description !!}</span>
+                                        <br>
                                         <p><span style="font-weight:600">{{__('Cần Huy Động')}}: </span>
                                         @if($post->contribute == null)
                                             <span style="font-weight:600">Không Giới Hạn Đóng Góp</span>
@@ -380,7 +381,7 @@
                                                     <table role="presentation" border="0" cellpadding="0" cellspacing="0"  class="btn btn-primary">
                                                         <tbody>
                                                         <tr style="text-align:right">
-                                                            <td> <a href="{{asset('/details-project/'.$post->id)}}" target="_blank">{{__('Xem Chi Tiết')}}</a> </td>
+                                                            <td> <a style="width" href="{{asset('/details-project/'.$post->id)}}" target="_blank">{{__('Xem Chi Tiết')}}</a> </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -390,7 +391,7 @@
                                         </table>
                                         <hr>
                                         {{$now}}
-                                        
+
                                     </td>
                                 </tr>
                             </table>

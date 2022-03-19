@@ -66,12 +66,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => 'postgres://tcbbkwuhietrgy:8197780e3a04d744c4c014caf02176a40d8d1087eb24af8a9fcb2775edab6b6b@ec2-44-198-80-194.compute-1.amazonaws.com:5432/d5gg2qfr4vq6la',//env('DATABASE_URL'),
-            'host' => 'ec2-44-198-80-194.compute-1.amazonaws.com',//env('DB_HOST', '127.0.0.1'),
+            'url' => 'postgres://nrujfzmpysrnfe:f757530b8ba7a4a12221bb0e438626e58c9960431ebad47be7585a390386f1ab@ec2-3-212-45-192.compute-1.amazonaws.com:5432/db26lqd8cqtgp9',//env('DATABASE_URL'),
+            'host' => 'ec2-3-212-45-192.compute-1.amazonaws.com',//env('DB_HOST', '127.0.0.1'),
             'port' => '5432',//env('DB_PORT', '5432'),
-            'database' =>'d5gg2qfr4vq6la',// env('DB_DATABASE', 'forge'),
-            'username' => 'tcbbkwuhietrgy',//env('DB_USERNAME', 'forge'),
-            'password' => '8197780e3a04d744c4c014caf02176a40d8d1087eb24af8a9fcb2775edab6b6b',//env('DB_PASSWORD', ''),
+            'database' =>'db26lqd8cqtgp9',// env('DB_DATABASE', 'forge'),
+            'username' => 'nrujfzmpysrnfe',//env('DB_USERNAME', 'forge'),
+            'password' => 'postgres://nrujfzmpysrnfe:f757530b8ba7a4a12221bb0e438626e58c9960431ebad47be7585a390386f1ab@ec2-3-212-45-192.compute-1.amazonaws.com:5432/db26lqd8cqtgp9',//env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
